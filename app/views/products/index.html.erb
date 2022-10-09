@@ -1,0 +1,21 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+  <div class="container">
+    <div class="products">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-3">
+            <div class="card-product m-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="no_images">
+                <div class="card-product-infos">
+                  <div>
+                    <h2><%= product.name %></h2>
+                    <p class="mt-2"><%= product.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
