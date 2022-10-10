@@ -11,8 +11,8 @@ Product.destroy_all
 
 puts "creation users"
 
-  user_one = User.create!( email: "aurelien@gmail.fr", password:"123456" )
-  user_two = User.create!(   email: "jo@gmail.fr",   password:"123456" )
+  user_one = User.create!( email: "aurelien@gmail.fr", password:"123456", admin: true)
+  user_two = User.create!(   email: "jo@gmail.fr",   password:"123456", admin: true )
 
  puts "creation produits"
 

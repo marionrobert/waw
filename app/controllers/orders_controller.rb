@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     if @order.save
       redirect_to order_path(@order)
+    end
   end
 
   def update
