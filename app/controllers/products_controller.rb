@@ -15,6 +15,9 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       redirect_to product_path(@product)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # def update
@@ -25,5 +28,4 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to product_path(@product), status: :see_other
   end
-end
 end

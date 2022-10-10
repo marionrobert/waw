@@ -18,26 +18,31 @@ puts "creation users"
 
 produit_one = Product.create!( name: "article-1",
 description: "revolutionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+price_cents: 1000
  )
 
 produit_two = Product.create!( name: "article-2",
 description: "revolutionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+price_cents: 2000
  )
 
 
 produit_three = Product.create!( name: "article-3",
 description: "revolutionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+price_cents: 3000
  )
 
 produit_four = Product.create!( name: "article-4",
 description: "revolutionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+price_cents: 1000
  )
 
 produit_five = Product.create!( name: "article-5",
 description: "revoultionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+price_cents: 4000
  )
