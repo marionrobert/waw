@@ -7,6 +7,16 @@
   align-items: center;
 }
 
+.test {
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+
+.test :hover {
+ border-bottom: 2px solid red;
+}
+
+
+
 .card-product img {
   height: 100%;
   width: 120px;
