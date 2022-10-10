@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #get 'orders/index'
   #get 'orders/show'
   #get 'orders/new'
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   #get 'products/update'
   #get 'products/destroy'
   #users
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
   devise_for :users
   #racine index articles
   root to: "products#index"
