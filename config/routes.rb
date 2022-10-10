@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #resources :products
   get 'profil/:id', to: 'pages#profil', as: :profil
   resources :products, only: %i[index show new update] do
-    resources :orders, only: [:create]
+    resources :orders, only: %i[create update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
