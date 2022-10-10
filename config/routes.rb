@@ -13,12 +13,15 @@ Rails.application.routes.draw do
   #get 'products/destroy'
   #users
   devise_for :users
+  #racine index articles
   root to: "products#index"
-  #resources :products
-  get 'profil/:id', to: 'pages#profil', as: :profil
-  resources :products, only: %i[index show new update] do
-    resources :orders, only: %i[create update]
-  end
+  #articles
+  resources :products, only: %i[index show new update]
+  #commande
+  resources :orders, only: %i[create update]
+  #dashboard
+  get 'profil/:id', to: 'pages#profil'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
