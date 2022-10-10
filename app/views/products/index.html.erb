@@ -22,6 +22,7 @@
                     <h2><%= product.name %></h2>
                     <%= link_to '<< voir produit', product_path(product), class: 'back-link' %>
                     <p class="mt-2"><%= product.description %></p>
+                    <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
                 </div>
               </div>
             </div>
