@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   #chemin une fois connecté
   #articles
-  resources :products, only: %i[index show new update]
+  resources :products, only: %i[index show new update shearch]
   resources :products do
     member do
       get 'search'

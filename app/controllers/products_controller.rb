@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_name("%#{params[:query]}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -27,20 +31,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to product_path(@product), status: :see_other
-  end
-
-
-
-    def search
-      @product = Product.find(params[:product_id]).order(created_at: :desc)
-    end
-
-  def self.search(search)
-    if shearch != ""
-      Product.where('content Like(?) OR title Like(?),"%#{search}%", "%#{search}%"')
-    else
-      Product.all
-    end
   end
 
 end
