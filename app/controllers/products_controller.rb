@@ -28,4 +28,19 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to product_path(@product), status: :see_other
   end
+
+
+
+    def search
+      @product = Product.find(params[:product_id]).order(created_at: :desc)
+    end
+
+  def self.search(search)
+    if shearch != ""
+      Product.where('content Like(?) OR title Like(?),"%#{search}%", "%#{search}%"')
+    else
+      Product.all
+    end
+  end
+
 end

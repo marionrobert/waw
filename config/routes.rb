@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #articles
   resources :products, only: %i[index show new update]
   resources :products do
-    collection do
+    member do
       get 'search'
     end
   end

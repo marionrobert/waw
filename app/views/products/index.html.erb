@@ -3,10 +3,11 @@
     <div class="pt-5">
         <h1><strong>MON ENTREPRISE</strong></h1>
         <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
-          <%= form_with(url: search_products_path, local: true, method: :get, class: "rootpageSearchForm") do |form| %>
+          <%= form_with(url: search_product_url(@products), local: true, method: :get, class: "rootpageSearchForm") do |form| %>
             <%= form.text_field :keyword, placeholder: "Entrez un mot-clé", id: 'Search_Form', class: "rootpageSearchForm__content" %>
             <%= form.submit "Chercher", class: "rootpageSearchForm__bottum" %>
           <% end %>
+
         <%#link_to "VOIR LES ARTICLES EN VENTE", product_path(product), class:"btn-main" %>
         <%# WARNING /!\ not the good path , we will have to change for the index%>
     </div>
