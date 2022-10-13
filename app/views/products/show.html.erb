@@ -2,3 +2,12 @@
 <p>Find me in app/views/products/show.html.erb</p>
 <%= link_to '<< Retour', products_path, class: 'back-link' %>
 <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+
+<div class="button">
+  <% if user_signed_in? %>
+  #lien provisoir en attendant la creation d'un panier il ramene a l'index
+    <%= link_to "ajouter dans panier", products_path  %>
+  <% else %>
+    <%= link_to "Connecter mon compte", user_session_path %>
+  <% end %>
+</div>

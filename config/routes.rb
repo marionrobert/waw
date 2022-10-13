@@ -18,10 +18,16 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  #racine index articles
-  root to: "products#index"
+  #racine home non conecté
+  root to: "pages#home"
+  #chemin une fois connecté
   #articles
-  resources :products, only: %i[index show new update]
+  resources :products, only: %i[index show new update shearch]
+  resources :products do
+    member do
+      get 'search'
+    end
+  end
   #commande
   resources :orders, only: %i[create update]
   #dashboard

@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: %i[home index]
 
   def home
 
   end
 
   def profil
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end

@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_name("%#{params[:query]}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -28,4 +32,5 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to product_path(@product), status: :see_other
   end
+
 end
