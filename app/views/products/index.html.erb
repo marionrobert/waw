@@ -1,8 +1,6 @@
-<div class="banner", style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80") %>)">
-  <div class="container">
-    <div class="pt-5">
-        <h1><strong>MON ENTREPRISE</strong></h1>
-        <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-12">
       <%= form_with url: products_path, method: :get, class: "d-flex pt-5 py-5" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -11,9 +9,6 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
-        <%#link_to "VOIR LES ARTICLES EN VENTE", product_path(product), class:"btn-main" %>
-        <%# WARNING /!\ not the good path , we will have to change for the index%>
-    </div>
   </div>
 </div>
 
@@ -23,7 +18,7 @@
   <h1>Products</h1>
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-6 col-md-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="card m-5">
           <img src="https://images.unsplash.com/photo-1609702839586-e9b637bb93b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80" alt="no_images", >
            <div class="card-body">
