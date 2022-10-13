@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   #dashboard
   get 'profil/:id', to: 'pages#profil'
 
+  
+  # boutton de la landing page qui envoi vers tout les produits
+  get "/products ", to: "products#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
