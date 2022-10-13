@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-12">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
       <%= form_with url: products_path, method: :get, class: "d-flex pt-5 py-5" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "TROUVE UN TRUC"
+        placeholder: "rechercher un produit"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Valider", class: "btn btn-primary" %>
           <% end %>
   </div>
 </div>
@@ -16,19 +16,26 @@
 
 <div class="container">
   <h1>Products</h1>
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card m-5">
-          <img src="https://images.unsplash.com/photo-1609702839586-e9b637bb93b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80" alt="no_images", >
-           <div class="card-body">
-            <h5 class="card-title"><%= product.name %></h5>
-            <p class="card-text"><%= product.description%></p>
-            <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
-            <%= link_to "Info", product_path(product), class: "btn btn-primary" %>
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card m-5">
+
+            <% if product.images? %>
+            <%= product.images.first %>
+            <%else %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available">
+            <% end %>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= product.description%></p>
+              <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
+              <%= link_to "Info", product_path(product), class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
