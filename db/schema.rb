@@ -17,6 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_132004) do
   create_table "orders", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "user_id", null: false
+    t.string "state"
+    t.string "product_sku"
+    t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_orders_on_product_id"
@@ -25,8 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_132004) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.string "sku"
     t.text "description"
-    t.string "images"
+    t.string "images", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false

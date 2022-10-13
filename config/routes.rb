@@ -1,39 +1,26 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "pages#home"
+  get 'payments/new'
 
-  #get 'orders/index'
-  #get 'orders/show'
-  #get 'orders/new'
-  #get 'orders/create'
-  #get 'orders/update'
-  #get 'orders/destroy'
-  #get 'products/index'
-  #get 'products/show'
-  #get 'products/new'
-  #get 'products/create'
-  #get 'products/update'
-  #get 'products/destroy'
-  #users
-
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-
-  devise_for :users
-  #racine home non conecté
-  root to: "pages#home"
-  #chemin une fois connecté
-  #articles
-  resources :products, only: %i[index show new update shearch]
+  resources :products, only: %i[index show new update search]
   resources :products do
     member do
       get 'search'
     end
   end
+
   #commande
-  resources :orders, only: %i[create update]
+  resources :orders, only: %i[show create update] do
+    resources :payments, only: :new
+  end
   #dashboard
   get 'profil/:id', to: 'pages#profil'
 
-  
+
   # boutton de la landing page qui envoi vers tout les produits
   get "/products ", to: "products#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
