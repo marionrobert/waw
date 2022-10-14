@@ -1,25 +1,33 @@
-<%= link_to '<< Retour', products_path, class: 'btn btn-primary-primary' %>
-      <h1><%= @product.name %></h1>
-        <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-        <p>Description: <%= @product.description %>
-  <div class="button">
-    <% if user_signed_in? %>
-    #lien provisoir en attendant la creation d'un panier il ramene a l'index
-      <%= link_to "ajouter dans panier", products_path  %>
-    <% else %>
-      <%= link_to "Connecter mon compte", user_session_path %>
+<div class="container">
+
+  <div class="row my-5">
+    <%= link_to '<< Retour', products_path, class: 'btn btn-primary-primary' %>
+          <h1><%= @product.name %></h1>
+            <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+            <p>Description: <%= @product.description %>
+      <div class="button">
+        <% if user_signed_in? %>
+        #lien provisoir en attendant la creation d'un panier il ramene a l'index
+          <%= link_to "ajouter dans panier", products_path  %>
+        <% else %>
+          <%= link_to "Connecter mon compte", user_session_path %>
+        <% end %>
+    <%= form_with url: orders_path do %>
+      <%= hidden_field_tag 'product_id', @product.id %>
+      <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
     <% end %>
-<%= form_with url: orders_path do %>
-  <%= hidden_field_tag 'product_id', @product.id %>
-  <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
-<% end %>
-
-
-<% if current_user.admin%>
-  <div class="row", style="text-align:center">
-    <div class="my-3" >
-      <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
-      <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
     </div>
   </div>
-<% end%>
+
+  <div class="row my-5">
+    <% if current_user.admin%>
+      <div class="row", style="text-align:center">
+        <div class="my-3" >
+          <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
+          <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end%>
+  </div>
+
+</div>
