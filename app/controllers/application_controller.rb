@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+
+  add_flash_types :success
 # comment everything below before_action if it doesnt work
   # private
 
