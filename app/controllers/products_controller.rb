@@ -25,6 +25,14 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    if @product.save
+      redirect_to product_path(@product), success: "L'article #{@product.name} a bien été mis à jour"
+      # flash[:alert] = "#{@product.name} a bien été mis à jour"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -34,7 +42,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path
+    redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé"
   end
 
 private
