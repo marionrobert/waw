@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_132004) do
     t.bigint "user_id", null: false
     t.string "state"
     t.string "product_sku"
+    t.string "checkout_session_id"
     t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
