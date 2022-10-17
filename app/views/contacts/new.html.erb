@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= simple_form_for(@contact) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.input :first_name, label: "Prénom" %>
+          <%= f.input :last_name, label: "Nom" %>
+          <%= f.input :email, label: "Email" %>
+          <%= f.input :content, label: "Message" %>
+        </div>
+        <div class="form-actions">
+            <%= f.button :submit, class:"btn btn-dark", value:"Envoyer votre message"%>
+        </div>
+        <% end %>
+    </div>
+  </div>
+
+</div>
