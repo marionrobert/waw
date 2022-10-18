@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <%= link_to "/",  class: "navbar-brand" do %>
     <%# METTRE LE LOGO DE L'ENTREPRISE ICI %>
-        <%= image_tag "shop_store.svg" %>
+        <%= image_tag "shop_store.svg"%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,9 +13,9 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-          <li class="nav-item">
-            <%= link_to "Ajouter un produit", new_product_path, class: "nav-link btn btn-success" %>
-          </li>
+            <li class="nav-item">
+              <%= link_to "Ajouter un produit", new_product_path, class: "nav-link btn btn-success" %>
+            </li>
             <%= link_to "Accueil", "/", class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -27,7 +27,8 @@
           <li>
             <%= link_to "Déconnexion", destroy_user_session_path,'data-turbo-method': :delete, class: "nav-link" %>
           </li>
-        </div>
+      </ul>
+    </div>
         <% else %>
           <li class="nav-item active">
             <%= link_to "Accueil", "/", class: "nav-link" %>
