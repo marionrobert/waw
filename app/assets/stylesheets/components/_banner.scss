@@ -1,8 +1,13 @@
 .banner {
-  margin-top: 0;
   background-size: auto;
   background-position: center;
+  height: 40vh;
+  margin-top: 0;
   padding: 60px 0;
+  position:sticky;
+  top: -20vh;
+  width: 100vw;
+  z-index: 100;
 }
 
 .banner h1 {
@@ -19,4 +24,8 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.gap {
+  height: 40vh;
 }
