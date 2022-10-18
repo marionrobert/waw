@@ -26,7 +26,8 @@ class OrdersController < ApplicationController
             # images: [product.images.first], MARCHE PAS POUR LE MOMENT FAUDRA TRAITER LE BUG
           },
         },
-        quantity: 1,
+        quantity: product.quantity,
+        # COLONNE DANS LA TABLE EST MANQUANTE
       }],
       mode: 'payment',
       success_url: order_url(order),
