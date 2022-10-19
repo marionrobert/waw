@@ -8,19 +8,19 @@
 
 User.destroy_all
 Product.destroy_all
+Shop.destroy_all
 
 puts "creation users"
+user_one = User.create!( email: "aurelien@gmail.com", password:"123456", admin: true)
+user_two = User.create!(   email: "jonathan@gmail.com",   password:"123456", admin: true )
+user_three = User.create!( email: "marion@gmail.com", password:"123456", admin: true)
+user_four = User.create!( email: "kevin@gmail.com", password:"123456", admin: true)
 
-  user_one = User.create!( email: "aurelien@gmail.com", password:"123456", admin: true)
-  user_two = User.create!(   email: "jonathan@gmail.com",   password:"123456", admin: true )
-  user_three = User.create!( email: "marion@gmail.com", password:"123456", admin: true)
-  user_four = User.create!( email: "kevin@gmail.com", password:"123456", admin: true)
-
-puts "utilisateurs créés"
+puts "#{User.count} utilisateurs créés"
 
 puts "creation des produits"
 
-produit_one = Product.create!( name: "article-1",
+produit_one = Product.create!(name: "article-1",
 sku: "stripe-veut-un-sku",
 description: "revolutionaire !!",
 images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
@@ -60,4 +60,8 @@ produit_five = Product.create!(
                               price_cents: 4000
                               )
 
-puts "produits créés"
+puts "#{Product.count} produits créés"
+
+
+
+Shop.create!(user: User.all.sample, name: "Mon magasin", description: "meilleur magasin du monde", phone: "02.43.15.42.56", siren: "123456789", address: "16 villa Gaudelet, 75011 Paris")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_17_151734) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_091801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_151734) do
     t.integer "price_cents", default: 0, null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.time "am_opens_at"
+    t.time "am_closes_at"
+    t.time "pm_opens_at"
+    t.time "pm_closes_at"
+    t.integer "weekday"
+    t.bigint "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_schedules_on_shop_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "description"
+    t.string "siren"
+    t.string "phone"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shops_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,4 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_151734) do
 
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "schedules", "shops"
+  add_foreign_key "shops", "users"
 end

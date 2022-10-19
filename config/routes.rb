@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: "pages#home"
   get 'payments/new'
-  get "/shop", to: "pages#shop"
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :shops, only: %i[new create edit update show]
+
   #commande
   resources :orders, only: %i[show create update] do
     resources :payments, only: :new
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
 
   # boutton de la landing page qui envoi vers tout les produits
   get "/products ", to: "products#index"
-  resource :contacts, only: [:new, :create] do
+  resource :contacts, only: %i[new create] do
     get "/thanks" => "contacts#thanks"
   end
 end
