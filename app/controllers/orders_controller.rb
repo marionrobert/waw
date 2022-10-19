@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
           },
         },
         quantity: 1,
+        # COLONNE DANS LA TABLE EST MANQUANTE
       }],
       mode: 'payment',
       success_url: order_url(order),

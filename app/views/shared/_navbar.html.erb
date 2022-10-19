@@ -1,10 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/",  class: "navbar-brand" do %>
+    <%#= link_to "/",  class: "navbar-brand" do %>
     <%# METTRE LE LOGO DE L'ENTREPRISE ICI %>
-        <%= image_tag "shop_store.svg" %>
-    <% end %>
+        <%#= image_tag "shop_store.svg"%>
+    <%# end %>
 
+    <div class="toggle">
+      <div class="logo">
+        <i class="fa-solid fa-bars ouvrir"></i>
+        <i class="fa-solid fa-xmark fermer"></i>
+      </div>
+      <ul class="menu" style="padding-top: 10vh;">
+        <li>XXX</li>
+        <li>YYY</li>
+        <li>ZZZ</li>
+        <li><button class="btn btn-dark">BOUTTON</button></li>
+      </ul>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,13 +25,16 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-          <li class="nav-item">
-            <%= link_to "Ajouter un produit", new_product_path, class: "nav-link btn btn-success" %>
+            <li class="nav-item">
+              <%= link_to "Ajouter un produit", new_product_path, class: "nav-link btn btn-success" %>
+            </li>
           </li>
-            <%= link_to "Accueil", "/", class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Tous les produits", products_path, class: "nav-link" %>
+            <%if params["action"] == "home"%>
+              <%= link_to "Tous les produits", products_path, class: "nav-link" %>
+            <%else%>
+              <%= link_to "Accueil", "/", class: "nav-link" %>
+            <%end%>
           </li>
           <li class="nav-item dropdown">
             <%= link_to "Mon panier", "/", class: "nav-link" %>
@@ -27,7 +42,8 @@
           <li>
             <%= link_to "Déconnexion", destroy_user_session_path,'data-turbo-method': :delete, class: "nav-link" %>
           </li>
-        </div>
+      </ul>
+    </div>
         <% else %>
           <li class="nav-item active">
             <%= link_to "Accueil", "/", class: "nav-link" %>

@@ -1,32 +1,35 @@
-<div class="banner", style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80") %>)">
+<div class="banner">
   <div class="container">
-    <div class="p-5">
-        <h1><strong>MON ENTREPRISE</strong></h1>
-        <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
-        <%= link_to "Voir les produits", products_path, class: "btn btn-primary" %>
+    <div class="p-5" style="margin-top:5vh">
+      <h1><strong>MON ENTREPRISE</strong></h1>
+      <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
+      <div class="mt-5">
+        <%= link_to "Voir tous les produits", products_path, class: "btn btn-success p-3" %>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="container mt-3">
-  <h4 class="ms-5">Découvrez les nouveautés du magasin !</h4>
-  <div class="row my-3 d-flex justify-content-around">
-    <% @products.each do |product| %>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card m-3" style="width: 18rem;">
-          <% if product.images? %>
-            <img class="card-img-top" src="<% product.images.first %>" alt="no_images_available">
-          <% else %>
-            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available">
-          <% end %>
-          <div class="card-body">
-            <h4 class="card-title"><%= product.name %></h4>
-            <p class="card-text"><%= product.description%></p>
-            <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
-            <%= link_to "Détails", product_path(product), class: "btn btn-secondary" %>
+<div class="main-bg">
+  <div class="container mt-3">
+    <h1 class="d-flex justify-content-center mt-5 mb-5" style="padding-top:8vh">Découvrez les nouveautés du magasin !</h1>
+    <div class="row my-3 d-flex justify-content-around">
+      <% @products.each do |product| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card m-3">
+            <% if product.images? %>
+              <img class="card-img-top" src="<% product.images.first %>" alt="no_images_available">
+            <% else %>
+              <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available">
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title"><%= product.name %></h4>
+              <p class="card-text"><%= product.description%></p>
+              <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
+              <%= link_to "Détails", product_path(product), class: "btn btn-secondary" %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
