@@ -1,17 +1,17 @@
 <div class="banner">
   <div class="container">
-    <div class="p-5" style="margin-top:17vh">
-        <h1><strong>MON ENTREPRISE</strong></h1>
-        <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
-        <div class="mt-5">
-          <%= link_to "Voir tous les produits", products_path, class: "btn btn-primary" %>
-        </div>
+    <div class="p-5" style="margin-top:5vh">
+      <h1><strong>MON ENTREPRISE</strong></h1>
+      <p class="my-4">LE SLOGAN DE MA SOCIETE</p>
+      <div class="mt-5">
+        <%= link_to "Voir tous les produits", products_path, class: "btn btn-success p-3" %>
+      </div>
     </div>
   </div>
 </div>
 <div class="main-bg">
   <div class="container mt-3">
-    <h4 class="d-flex justify-content-center mt-5" style="padding-top:10vh">Découvrez les nouveautés du magasin !</h4>
+    <h1 class="d-flex justify-content-center mt-5 mb-5" style="padding-top:8vh">Découvrez les nouveautés du magasin !</h1>
     <div class="row my-3 d-flex justify-content-around">
       <% @products.each do |product| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
