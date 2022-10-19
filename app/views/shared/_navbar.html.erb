@@ -28,10 +28,13 @@
             <li class="nav-item">
               <%= link_to "Ajouter un produit", new_product_path, class: "nav-link btn btn-success" %>
             </li>
-            <%= link_to "Accueil", "/", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Tous les produits", products_path, class: "nav-link" %>
+            <%if params["action"] == "home"%>
+              <%= link_to "Tous les produits", products_path, class: "nav-link" %>
+            <%else%>
+              <%= link_to "Accueil", "/", class: "nav-link" %>
+            <%end%>
           </li>
           <li class="nav-item dropdown">
             <%= link_to "Mon panier", "/", class: "nav-link" %>
