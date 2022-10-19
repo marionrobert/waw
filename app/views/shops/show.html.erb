@@ -1,0 +1,34 @@
+<div class="container">
+
+  <div class="row mt-5">
+
+    <div class="col ms-5">
+      <h2><%= @shop.name %></h2>
+      <p><%= @shop.description %></p>
+      <p><%= @shop.address %></p>
+    </div>
+
+  </div>
+
+  <div class="row d-flex justify-content-around">
+
+    <div class="col-md-5 m-3">
+      <%= render "carrousel-shop" %>
+    </div>
+
+    <div class="col-md-5 m-3">
+      <table class="table table-sm">
+        <h5 class="mt-3 font-weight-bold">Nos horaires d'ouverture</h5>
+        <tbody>
+          <% @day_schedules.each_with_index do |day, index| %>
+            <tr>
+              <th scope="row"><%= @weekdays[index] %></th>
+              <td><%= day["am_opens_at"].hour%>h<%=day["am_opens_at"].min%> - <%= day["am_closes_at"].hour%>h<%=day["am_closes_at"].min%></td>
+              <td><%= day["pm_opens_at"].hour%>h<%=day["pm_opens_at"].min%> - <%= day["pm_closes_at"].hour%>h<%=day["pm_closes_at"].min%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
