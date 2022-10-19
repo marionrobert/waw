@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to thanks_contacts_path, success: "ok c'est envoyé"
+      redirect_to thanks_contacts_path, success: "Votre message a bien été envoyé"
     else
       render :new, status: :unprocessable_entity
     end

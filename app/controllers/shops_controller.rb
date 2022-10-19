@@ -25,6 +25,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @weekdays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
     @day_schedules = @shop.schedules
+    @contact = Contact.new
   end
 
   private
