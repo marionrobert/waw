@@ -1,5 +1,73 @@
+.logo {
+  // position:relative;
+  top:5px;
+  left: 5px;
+  position:relative;
+  z-index: 20;
+}
+
+  .menu li {
+
+    list-style:none;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .toggle {
+    line-height: 10vh;
+    display: block;
+    font-size:2rem;
+    cursor:pointer;
+    z-index: 15;
+  }
+
+  .ouvrir {
+    display:block;
+  }
+
+  .fermer {
+    display:none;
+  }
+
+  .open .ouvrir {
+    display:none;
+  }
+
+  .open .fermer {
+    display:block;
+  }
+
+  .menu {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    position:absolute;
+    position: fixed;
+    top:0;
+    left:0;
+    width:70%;
+    height: 100vh;
+    background:rgb(87, 244, 255);
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: space-around;
+    transform: translateX(-100%);
+    transition: ease 1s;
+    z-index: 10;
+  }
+
+  .open .menu {
+    transform: translateX(0);
+  }
+
+
+
+
+
+
+
+
 .navbar-lewagon {
-  z-index: 200;
+  z-index: 14;
   justify-content: space-between;
   background: rgb(48, 48, 48);
 }

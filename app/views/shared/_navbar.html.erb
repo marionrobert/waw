@@ -1,10 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/",  class: "navbar-brand" do %>
+    <%#= link_to "/",  class: "navbar-brand" do %>
     <%# METTRE LE LOGO DE L'ENTREPRISE ICI %>
-        <%= image_tag "shop_store.svg"%>
-    <% end %>
+        <%#= image_tag "shop_store.svg"%>
+    <%# end %>
 
+    <div class="toggle">
+      <div class="logo">
+        <i class="fa-solid fa-bars ouvrir"></i>
+        <i class="fa-solid fa-xmark fermer"></i>
+      </div>
+      <ul class="menu" style="padding-top: 10vh;">
+        <li>XXX</li>
+        <li>YYY</li>
+        <li>ZZZ</li>
+        <li><button class="btn btn-dark">BOUTTON</button></li>
+      </ul>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
