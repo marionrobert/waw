@@ -35,12 +35,20 @@
               <%= link_to "Horaires d'ouverture", shop_path(Shop.first) , style:"text-decoration:none;"%>
             </li>
             <li class="nav-link active">
-              <%if User.first.shop == nil && current_user.admin? && User.first.shop.schedules == [] %>
-                <%= link_to "Créer les Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
-              <%elsif current_user && current_user.admin? && User.first.shop.schedules != []%>
-                <%= link_to "Modifier les Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
-              <%end%>
-            </li>
+              <% if current_user && current_user.admin? %>
+                <% if Shop.count > 0%>
+                  <% if Shop.first.schedules.any? %>
+                    <%# user connecté + admin + shop créé + horaires renseignées %>
+                    <%= link_to "Modifier les Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
+                  <% else %>
+                    <%# user connecté + admin + shop créé + horaires NON renseignées %>
+                    <%= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+                  <% end %>
+                <% else %>
+                  <%# connecté + admin + PAS de shop encore créé %>
+                  <%= link_to "Créer mon magasin", new_shop_path, style:"text-decoration:none;"%>
+                <% end %>
+              <% end %>
             <%if current_user%>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="text-decoration:none; color:blue;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
