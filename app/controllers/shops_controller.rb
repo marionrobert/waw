@@ -28,6 +28,10 @@ class ShopsController < ApplicationController
     @contact = Contact.new
   end
 
+  def destroy
+    @shop = Shop.destroy_all!
+  end
+
   private
 
   def shop_params
