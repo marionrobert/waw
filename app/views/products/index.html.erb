@@ -1,39 +1,50 @@
 <%# searchbar %>
 <div class="main-bg">
-  <div class="container">
+  <div class="container" , style="margin-top:10vh">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-8 col-lg-6">
         <%= form_with url: products_path, method: :get, class: "d-flex pt-5 py-5" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
+          style: "font-size:x-large",
           placeholder: "rechercher un produit"
         %>
-        <%= submit_tag "Valider", class: "btn btn-primary" %>
+        <%= submit_tag "Valider", class: "btn btn-primary p-2", style: "font-size:x-large;"%>
         <% end %>
+      </div>
     </div>
   </div>
 
-<%# affichage des produits %>
-  <div class="container">
-    <h1>Products</h1>
-      <div class="row">
-        <% @products.each do |product| %>
-          <div class="col-sm-9 col-md-4 col-lg-3">
-            <div class="card m-5">
-  <%# transformer par une migration la colonne images de la table product par un array, voir tuto ===>   https://stackoverflow.com/questions/23340222/how-to-save-array-to-database-in-rails %>
-              <% if product.images? %>
-              <%= product.images.first %>
-              <%else %>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available">
-              <% end %>
 
-              <div class="card-body">
-                <h5 class="card-title"><%= product.name %></h5>
-                <p class="card-text"><%= product.description%></p>
-                <p>Prix: <%= humanized_money_with_symbol(product.price) %></p>
-                <%= link_to "Info", product_path(product), class: "btn btn-primary" %>
+
+                              <%# affichage des produits %>
+  <div class="container">
+    <h1 class="mb-5 d-flex justify-content-center">Produits disponibles</h1>
+      <div class="row justify-content-center">
+        <% @products.each do |product| %>
+          <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card-trip card-color">
+              <% if product.images? %>
+                <%= product.images.first %>
+              <%else %>
+                <img class="card-image card-color" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
+            </div>
+              <% end %>
+            <div class="card-trip-infos card-color">
+              <div>
+                  <h2 style="padding-top:2vh;margin-left:2vh;"><%= product.name %></h2>
+                  <p style="margin-left:2vh;"><%= product.description%></p>
               </div>
+                <h2 style="text-align:end;font-weight:bolder;">
+                  <%if humanized_money_with_symbol(product.price).include?(",") %>
+                    <span style="font-size:24px"><%= humanized_money_with_symbol(product.price)[/^(.+?),/]%></span>
+                    <span style="font-size:12px; position:relative;bottom:8px;left:-8px"><%= humanized_money_with_symbol(product.price).last(2)%> ttc</span>
+                  <%else %>
+                    <span style="font-size:24px"><%= humanized_money_with_symbol(product.price)%>,</span><span style="font-size:12px; position:relative;bottom:8px;left:-4px">  00 ttc</span>
+                  <%end%>
+                </h2>
+                <span style="width:100%;"><%= link_to "Plus de détails", product_path(product), class: "btn btn-primary" %></span>
             </div>
           </div>
         <% end %>
