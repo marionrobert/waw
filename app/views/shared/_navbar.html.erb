@@ -13,17 +13,15 @@
         </div>
         <div class="offcanvas-body" style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <%if current_user == nil || current_user.admin == false %>
-            <%else current_user.admin?%>
+            <%if current_user && current_user.admin? %>
               <li class="nav-link active btn btn-success" >
                 <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;"%>
-            </li>
+              </li>
             <%end%>
-            <%if current_user %>
-            <%else%>
-            <li class="nav-item">
-              <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
-            </li>
+            <%if !current_user %>
+              <li class="nav-item">
+                <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
+              </li>
             <%end%>
             <li class="nav-link active">
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
@@ -33,11 +31,14 @@
               <%= link_to "Panier", "/", style:"text-decoration:none;"%>
             </li>
             <%end%>
+            <li class="nav-item">
+              <%= link_to "Horaires d'ouverture", shop_path(Shop.first) , style:"text-decoration:none;"%>
+            </li>
             <li class="nav-link active">
-              <%if User.first.shop == nil%>
-                <%= link_to "Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
-              <%else %>
-                <%= link_to "Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
+              <%if User.first.shop == nil && current_user.admin? && User.first.shop.schedules == [] %>
+                <%= link_to "Créer les Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+              <%elsif current_user && current_user.admin? && User.first.shop.schedules != []%>
+                <%= link_to "Modifier les Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
               <%end%>
             </li>
             <%if current_user%>

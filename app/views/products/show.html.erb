@@ -7,15 +7,14 @@
               <p>Description: <%= @product.description %>
         <div class="button">
           <% if user_signed_in? %>
-          #lien provisoir en attendant la creation d'un panier il ramene a l'index
-            <%= link_to "ajouter dans panier", products_path  %>
+            <%= form_with url: orders_path do %>
+              <%= hidden_field_tag 'product_id', @product.id %>
+              <%# <%= link_to "ajouter dans panier", products_path  %>
+              <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
+            <% end %>
           <% else %>
-            <%= link_to "Connecter mon compte", user_session_path %>
+            <%= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
           <% end %>
-      <%= form_with url: orders_path do %>
-        <%= hidden_field_tag 'product_id', @product.id %>
-        <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
-      <% end %>
       </div>
     </div>
 
