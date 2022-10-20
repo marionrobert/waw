@@ -26,12 +26,18 @@ class ShopsController < ApplicationController
     @markers = [
       {
         lat: @shop.latitude,
-        lng: @shop.longitude
+        lng: @shop.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {shop: @shop}),
+        image_url: helpers.asset_url("favicon.ico")
     } ]
     @weekdays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
     @day_schedules = @shop.schedules
     @contact = Contact.new
   end
+
+
+
+
 
   private
 

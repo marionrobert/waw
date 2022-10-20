@@ -45,10 +45,16 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé"
   end
 
+  def add
+    #@product = Product.find(params[:id])
+    #@tab = []
+    #@tab << @product
+    #@tab.save
+  end
+
 private
 
   def product_params
     params.require(:product).permit(:name, :description, :images, :price_cents)
   end
-
 end
