@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+
   def new
     @shop = Shop.new
   end
@@ -35,9 +37,9 @@ class ShopsController < ApplicationController
     @contact = Contact.new
   end
 
-
-
-
+  def destroy
+    @shop = Shop.destroy_all!
+  end
 
   private
 

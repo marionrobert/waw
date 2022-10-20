@@ -6,11 +6,12 @@
           <%#= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
           <div class="form-inputs">
             <%= product.input :name %>
+            <%= product.input :sku%>
             <%= product.input :description %>
             <%= product.input :images, as: :file %>
             <%= product.input :price_cents %>
           </div>
-          <div class="form-actions">
+          <div class="form-actions d-flex justify-content-center">
             <% if @product.name.nil? %>
               <%= product.button :submit, class:"btn btn-success", value:"Ajouter le produit"%>
             <% else %>

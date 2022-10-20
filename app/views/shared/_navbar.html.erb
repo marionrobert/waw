@@ -13,11 +13,15 @@
         </div>
         <div class="offcanvas-body" style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <%if current_user %>
-            <%else%>
-            <li class="nav-item">
-              <%= link_to "Connexion", destroy_user_session_path, style:"text-decoration:none;"%>
-            </li>
+            <%if current_user && current_user.admin? %>
+              <li class="nav-link active btn btn-success" >
+                <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;"%>
+              </li>
+            <%end%>
+            <%if !current_user %>
+              <li class="nav-item">
+                <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
+              </li>
             <%end%>
             <li class="nav-link active">
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
@@ -27,9 +31,24 @@
               <%= link_to "Panier", "/", style:"text-decoration:none;"%>
             </li>
             <%end%>
-            <li class="nav-link active">
-              <%= link_to "Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+            <li class="nav-item">
+              <%= link_to "Horaires d'ouverture", shop_path(Shop.first) , style:"text-decoration:none;"%>
             </li>
+            <li class="nav-link active">
+              <% if current_user && current_user.admin? %>
+                <% if Shop.count > 0%>
+                  <% if Shop.first.schedules.any? %>
+                    <%# user connecté + admin + shop créé + horaires renseignées %>
+                    <%= link_to "Modifier les Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
+                  <% else %>
+                    <%# user connecté + admin + shop créé + horaires NON renseignées %>
+                    <%= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+                  <% end %>
+                <% else %>
+                  <%# connecté + admin + PAS de shop encore créé %>
+                  <%= link_to "Créer mon magasin", new_shop_path, style:"text-decoration:none;"%>
+                <% end %>
+              <% end %>
             <%if current_user%>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="text-decoration:none; color:blue;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
