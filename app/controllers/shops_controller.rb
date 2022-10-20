@@ -23,6 +23,11 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @markers = [
+      {
+        lat: @shop.latitude,
+        lng: @shop.longitude
+    } ]
     @weekdays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
     @day_schedules = @shop.schedules
     @contact = Contact.new
