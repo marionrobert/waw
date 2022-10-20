@@ -13,10 +13,16 @@
         </div>
         <div class="offcanvas-body" style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <%if current_user == nil || current_user.admin == false %>
+            <%else current_user.admin?%>
+              <li class="nav-link active btn btn-success" >
+                <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;"%>
+            </li>
+            <%end%>
             <%if current_user %>
             <%else%>
             <li class="nav-item">
-              <%= link_to "Connexion", destroy_user_session_path, style:"text-decoration:none;"%>
+              <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
             </li>
             <%end%>
             <li class="nav-link active">
@@ -28,7 +34,11 @@
             </li>
             <%end%>
             <li class="nav-link active">
-              <%= link_to "Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+              <%if User.first.shop == nil%>
+                <%= link_to "Horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+              <%else %>
+                <%= link_to "Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
+              <%end%>
             </li>
             <%if current_user%>
               <li class="nav-item dropdown">
