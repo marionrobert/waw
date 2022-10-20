@@ -20,7 +20,8 @@
     </div>
 
     <div class="row my-5">
-      <% if current_user.admin%>
+      <% if current_user == nil %>
+      <%else current_user.admin%>
         <div class="row", style="text-align:center">
           <div class="my-3" >
             <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
