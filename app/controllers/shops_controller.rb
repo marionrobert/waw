@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+
   def new
     @shop = Shop.new
   end
