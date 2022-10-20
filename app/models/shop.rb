@@ -17,6 +17,9 @@ class Shop < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def open_weekends?
     schedules.exists?(weekday: [6, 7])
   end
