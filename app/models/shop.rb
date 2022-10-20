@@ -13,7 +13,7 @@ class Shop < ApplicationRecord
   accepts_nested_attributes_for :schedules, allow_destroy: true
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 5 }
-  validates :siren, presence: true, length: { minimum: 9 }
+  validates :siren, presence: true, uniqueness: true, length: { minimum: 9 }
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
 

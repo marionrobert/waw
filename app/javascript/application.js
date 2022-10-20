@@ -4,8 +4,8 @@ import "./controllers"
 import "bootstrap"
 
 // menu deployant lateral gauche
-let toggle = document.querySelector('.toggle');
-let body = document.querySelector('body');
-toggle.addEventListener('click', function() {
-  body.classList.toggle('open');
-})
+// let toggle = document.querySelector('.toggle');
+// let body = document.querySelector('body');
+// toggle.addEventListener('click', function() {
+//   body.classList.toggle('open');
+// })
