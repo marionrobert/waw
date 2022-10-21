@@ -2,6 +2,17 @@
   background-color: $card-color;
 }
 
+.radius-bottom {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+
+.radius-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
 .card-image {
   background-size: cover;
   background-color: $card-color;
