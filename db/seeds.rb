@@ -18,49 +18,49 @@ user_four = User.create!( email: "kevin@gmail.com", password:"123456", admin: tr
 
 puts "#{User.count} utilisateurs créés"
 
-puts "creation des produits"
+# puts "creation des produits"
 
-produit_one = Product.create!(name: "article-1",
-sku: "stripe-veut-un-sku",
-description: "revolutionaire !!",
-images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
-price_cents: 1000
- )
+# produit_one = Product.create!(name: "article-1",
+# sku: "stripe-veut-un-sku",
+# description: "revolutionaire !!",
+# images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+# price_cents: 1000
+#  )
 
-produit_two = Product.create!(
-                              name: "article-2",
-                              sku: "stripe-veut-un-sku",
-                              description: "revolutionaire !!",
-                              images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
-                              price_cents: 2000
-                              )
+# produit_two = Product.create!(
+#                               name: "article-2",
+#                               sku: "stripe-veut-un-sku",
+#                               description: "revolutionaire !!",
+#                               images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+#                               price_cents: 2000
+#                               )
 
 
-produit_three = Product.create!(
-                              name: "article-3",
-                              sku: "stripe-veut-un-sku",
-                              description: "revolutionaire !!",
-                              images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
-                              price_cents: 3000
-                              )
+# produit_three = Product.create!(
+#                               name: "article-3",
+#                               sku: "stripe-veut-un-sku",
+#                               description: "revolutionaire !!",
+#                               images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+#                               price_cents: 3000
+#                               )
 
-produit_four = Product.create!(
-                              name: "article-4",
-                              sku: "stripe-veut-un-sku",
-                              description: "revolutionaire !!",
-                              images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
-                              price_cents: 1000
-                              )
+# produit_four = Product.create!(
+#                               name: "article-4",
+#                               sku: "stripe-veut-un-sku",
+#                               description: "revolutionaire !!",
+#                               images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+#                               price_cents: 1000
+#                               )
 
-produit_five = Product.create!(
-                              name: "article-5",
-                              sku: "stripe-veut-un-sku",
-                              description: "revoultionaire !!",
-                              images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
-                              price_cents: 4000
-                              )
+# produit_five = Product.create!(
+#                               name: "article-5",
+#                               sku: "stripe-veut-un-sku",
+#                               description: "revoultionaire !!",
+#                               images: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",
+#                               price_cents: 4000
+#                               )
 
-puts "#{Product.count} produits créés"
+# puts "#{Product.count} produits créés"
 
 
 
