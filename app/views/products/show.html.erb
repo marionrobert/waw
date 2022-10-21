@@ -1,7 +1,38 @@
 <div class="main-bg">
   <div class="container">
-    <div class="row my-5">
-      <%= link_to '<< Retour', products_path, class: 'btn btn-primary-primary' %>
+    <div class="row d-flex justify-content-center my-5">
+      <%= link_to 'Retour aux produits', products_path, class: 'd-flex justify-content-center btn btn-dark' %>
+        <div class="col-sm-12 col-lg-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= cl_image_tag @product.photos.first.key, height: 500, width: 500, crop: :fill %>
+              </div>
+              <% @product.photos.each_with_index do |photo, index| %>
+                <% if index != 0 %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
+                  </div>
+                <% end %>
+              <% end%>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
             <h1><%= @product.name %></h1>
               <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
               <p>Description: <%= @product.description %>
@@ -15,6 +46,7 @@
           <% else %>
             <%= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
           <% end %>
+        </div>
       </div>
     </div>
 

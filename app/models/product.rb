@@ -1,5 +1,9 @@
 class Product < ApplicationRecord
   monetize :price_cents
+  has_many_attached :photos
+
+  #belongs_to :user
+
 
   validates :description, :name, :price_cents, presence: true
   #en attente de debug error pour les images

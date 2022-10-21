@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+
   resources :products, only: %i[index show new update search]
   resources :products do
     member do

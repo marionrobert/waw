@@ -19,7 +19,8 @@ gem "sassc-rails"
 gem "simple_form", github: "heartcombo/simple_form"
 gem 'stripe'
 gem 'stripe_event'
-gem "sprockets-rails"
+# gem "sprockets-rails"
+gem 'sprockets-rails', '~> 2.3.3'
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -37,3 +38,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "cloudinary"
+
