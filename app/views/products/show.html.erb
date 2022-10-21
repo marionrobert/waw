@@ -1,29 +1,60 @@
 <div class="main-bg">
   <div class="container">
-    <div class="row my-5">
-      <%= link_to '<< Retour', products_path, class: 'btn btn-primary-primary' %>
+    <div class="row d-flex justify-content-center my-5">
+      <%= link_to 'Retour aux produits', products_path, class: 'd-flex justify-content-center btn btn-dark' %>
+        <div class="col-sm-12 col-lg-6">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= cl_image_tag @product.photos.first.key, height: 500, width: 500, crop: :fill %>
+              </div>
+              <% @product.photos.each_with_index do |photo, index| %>
+                <% if index != 0 %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
+                  </div>
+                <% end %>
+              <% end%>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
             <h1><%= @product.name %></h1>
-            <% @product.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-            <% end%>
-            <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-            <p>Description: <%= @product.description %>
+              <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+              <p>Description: <%= @product.description %>
         <div class="button">
           <% if user_signed_in? %>
-          #lien provisoir en attendant la creation d'un panier il ramene a l'index
-            <%= link_to "ajouter dans panier", products_path  %>
+            <%= form_with url: orders_path do %>
+              <%= hidden_field_tag 'product_id', @product.id %>
+              <%# <%= link_to "ajouter dans panier", products_path  %>
+              <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
+            <% end %>
           <% else %>
-            <%= link_to "Connecter mon compte", user_session_path %>
+            <%= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
           <% end %>
-      <%= form_with url: orders_path do %>
-        <%= hidden_field_tag 'product_id', @product.id %>
-        <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
-      <% end %>
+        </div>
+
+
       </div>
     </div>
 
     <div class="row my-5">
-      <% if current_user.admin%>
+      <% if current_user == nil %>
+      <%else current_user.admin%>
         <div class="row", style="text-align:center">
           <div class="my-3" >
             <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
