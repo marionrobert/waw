@@ -26,8 +26,9 @@
           <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">
             <div class="radius-bottom">
               <div class="card-trip radius-top">
-                <% if product.images? %>
-                  <%= product.images.first %>
+                <% if product.photos.attached? %>
+                  <%= cl_image_tag product.photos.first.key, height: 300, width: 400, crop: :fill %>
+              </div>
                 <%else %>
                   <img class="card-color card-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
               </div>
