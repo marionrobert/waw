@@ -3,8 +3,11 @@
     <div class="row my-5">
       <%= link_to '<< Retour', products_path, class: 'btn btn-primary-primary' %>
             <h1><%= @product.name %></h1>
-              <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-              <p>Description: <%= @product.description %>
+            <% @product.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end%>
+            <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+            <p>Description: <%= @product.description %>
         <div class="button">
           <% if user_signed_in? %>
           #lien provisoir en attendant la creation d'un panier il ramene a l'index

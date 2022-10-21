@@ -9,6 +9,7 @@
             <%= product.input :description %>
             <%= product.input :images, as: :file %>
             <%= product.input :price_cents %>
+            <%= product.input :photos, as: :file, input_html: { multiple: true } %>
           </div>
           <div class="form-actions d-flex justify-content-center">
             <% if @product.name.nil? %>
