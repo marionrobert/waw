@@ -17,9 +17,19 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:id])
   end
 
   def update
+    @shop = Shop.find(params[:id])
+    @shop.update(shop_params)
+    @shop.user = current_user
+
+    if @shop.save
+      redirect_to shop_path(@shop), success: "Votre magasin a bien été créé."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
