@@ -8,7 +8,6 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user = current_user
-    # @lundi = Schedule.new(params[:shop]["schedules_attributes"]["0"])
 
     if @shop.save
       redirect_to shop_path(@shop), success: "Votre magasin a bien été créé."
