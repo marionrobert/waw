@@ -37,7 +37,8 @@
               <% if current_user && current_user.admin? %>
                 <% if Shop.count > 0%>
                   <% if Shop.first.schedules.any? %>
-                    <%= link_to "Modifier les Horaires d'ouverture", edit_shop_path(User.first.id), style:"text-decoration:none;"%>
+                    <%# path de modifier les horaires à réparer %>
+                    <%= link_to "Modifier les Horaires d'ouverture", root_path, style:"text-decoration:none;"%>
                   <% else %>
                     <%= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
                   <% end %>
@@ -57,7 +58,7 @@
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#">Formulaire de contact</a></li>
+                  <li><a class="dropdown-item" href="/contacts/new">Formulaire de contact</a></li>
                 </ul>
               </li>
             <%end%>
