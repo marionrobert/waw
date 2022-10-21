@@ -6,6 +6,7 @@
           <%#= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
           <div class="form-inputs">
             <%= product.input :name %>
+            <%= product.input :sku%>
             <%= product.input :description %>
             <%= product.input :images, as: :file %>
             <%= product.input :price_cents %>

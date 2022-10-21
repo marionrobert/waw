@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
-
+gem "geocoder"
 gem "autoprefixer-rails"
 gem "bootsnap", require: false
 gem "devise"
@@ -40,3 +40,4 @@ group :test do
 end
 
 gem "cloudinary"
+

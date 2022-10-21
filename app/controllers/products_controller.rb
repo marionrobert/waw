@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     if params[:query].present?
       @products = Product.search_by_name("%#{params[:query]}%")
@@ -8,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @product = Product.find(params[:id])
   end
 
@@ -42,13 +45,14 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé"
+    redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
+
+
 
 private
 
   def product_params
-    params.require(:product).permit(:name, :description, :images, :price_cents, photos: [])
+    params.require(:product).permit(:name, :sku, :description, :images, :price_cents, photos: [])
   end
-
 end
