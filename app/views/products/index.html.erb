@@ -15,9 +15,6 @@
       </div>
     </div>
   </div>
-
-
-
                               <%# affichage des produits %>
   <div class="container">
     <h1 class="mb-5 text-center">Produits disponibles</h1>
@@ -25,7 +22,7 @@
         <% @products.each do |product| %>
           <div class="col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">
             <div class="radius-bottom">
-              <div class="card-trip radius-top">
+              <div class="card-trip radius-top" style="box-shadow: 5px 5px 5px rgb(211,211,211);">
                 <% if product.photos.attached? %>
                   <%= cl_image_tag product.photos.first.key, height: 300, width: 400, crop: :fill %>
               </div>
@@ -33,10 +30,10 @@
                   <img class="card-color card-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
               </div>
                 <% end %>
-              <div class="card-trip-infos card-color radius-bottom">
+              <div class="card-trip-infos card-color radius-bottom" style="box-shadow: 5px 5px 5px rgb(211,211,211)">
                 <div>
                     <h3 style="padding-top:2vh;margin-left:2vh;"><%= product.name %></h3>
-                    <p style="margin-left:2vh;"><%= product.description%></p>
+                    <p style="height: 6vh;margin-left:2vh;"><%= product.description%></p>
                 </div>
                   <div style="text-align:right">
                     <%if humanized_money_with_symbol(product.price).include?(",") %>

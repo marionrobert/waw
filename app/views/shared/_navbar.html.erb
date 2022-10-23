@@ -7,14 +7,14 @@
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLightLabel">Offcanvas</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLightLabel">Menu</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body" style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <%if current_user && current_user.admin? %>
-              <li class="nav-link active btn btn-success" >
-                <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;"%>
+              <li class="nav-link active btn btn-warning" >
+                <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;color:white;"%>
               </li>
             <%end%>
             <%if !current_user %>
@@ -22,7 +22,7 @@
                 <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
               </li>
             <%end%>
-            <li class="nav-link active">
+            <li class="nav-item active">
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
             </li>
             <%if current_user %>
