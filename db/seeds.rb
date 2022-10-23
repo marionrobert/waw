@@ -6,11 +6,12 @@ Shop.destroy_all
 
 puts "creation users"
 user_one = User.create!(email: "aurelien@gmail.com", password:"123456", admin: true)
-user_two = User.create!(email: "jonathan@gmail.com",   password:"123456", admin: true)
+user_two = User.create!(email: "jonathan@gmail.com",   password:"123456", admin: false)
 user_three = User.create!(email: "marion@gmail.com", password:"123456", admin: true)
-user_four = User.create!(email: "kevin@gmail.com", password:"123456", admin: true)
+user_four = User.create!(email: "kevin@gmail.com", password:"123456", admin: false)
 
 puts "#{User.count} utilisateurs créés"
+puts "2 admins, 2 non admins"
 
 puts "creation des produits"
 

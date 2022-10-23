@@ -4,15 +4,16 @@
       <li>
         <div class="d-flex justify-content-center footer-links">
           <a href="#" target="_blank"><i class="textourwhite fab fa-instagram"></i></a>
-          <p>@VotreEntreprise</p>
+          <p>- L'@telier de Lysiane -</p>
           <a href="#" target="_blank"><i class="textourwhite fab fa-facebook"></i></a>
         </div>
       </li>
       <li>
-        <p>16 villa Gaudelet 75011 Paris</p>
+        <p>- 7 Rue de la Brèche Beaulieu, Crèvecœur-en-Brie 77610 -</p>
       </li>
       <li>
-        <p>Horaires et contact</p>
+        <%# <p>Horaires et contact</p> %>
+        <%= link_to "- Horaires et contacts -", shop_path(Shop.first) , style:"text-decoration:none;color:white;"%>
       </li>
     </ul>
   </div>
