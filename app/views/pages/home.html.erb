@@ -28,7 +28,11 @@
               <div class="card-trip-infos card-color radius-bottom" style="box-shadow: 5px 5px 5px rgb(211,211,211)">
                 <div>
                     <h3 style="padding-top:2vh;margin-left:2vh;"><%= product.name %></h3>
-                    <p style="height:6vh;margin-left:2vh;"><%= product.description%></p>
+                  <%if product.description.length > 90 %>
+                    <p style="height: 6vh;margin-left:2vh;font-size:smaller;"><%= product.description.first(120)%>[...]</p>
+                  <%else%>
+                    <p style="height: 6vh;margin-left:2vh;font-size:smaller;"><%= product.description%></p>
+                  <%end%>
                 </div>
                   <div style="text-align:right">
                     <%if humanized_money_with_symbol(product.price).include?(",") %>
