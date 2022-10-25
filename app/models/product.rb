@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   monetize :price_cents
   has_many_attached :photos
+  has_many :line_items, dependent: :nullify
 
   #belongs_to :user
 
