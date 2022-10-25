@@ -1,0 +1,53 @@
+<%= simple_form_for(@shop) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "Nom", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :description, label: "Description de votre magasin", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :address, label: "Adresse de votre magasin", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :phone, label: "Téléphone", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :siren, label: "Numéro de SIREN", label_html:{ class:"labelcolor" }  %>
+    <table class="schedule-editor labelcolor">
+      <thead>
+        <tr>
+          <th class= "text-center">Jour</th>
+          <th class= "text-center">Matin</th>
+          <th class= "text-center">Matin</th>
+          <th class= "text-center">Après-midi</th>
+          <th class= "text-center">Après-midi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% weekdays.each do |day| %>
+          <%= f.simple_fields_for :schedules, f.object.schedules.find_or_initialize_by(weekday: day[:value]) do |sched| %>
+            <tr>
+              <td>
+                <%= sched.hidden_field :weekday %>
+                <div class="checkbox m-3">
+                  <%#= sched.input :_destroy, ({checked: sched.object.persisted?} ? :false : :true) %>
+                  <%= sched.label :_destroy, day[:label], style:"color:black"%>
+                </div>
+              </td>
+              <td>
+                <%= sched.input :am_opens_at, class: "visually-hidden", label: "Ouvre à", label_html:{ class:"labelcolor" }  %>
+              </td>
+              <td>
+                <%= sched.input :am_closes_at, class: "visually-hidden", label: "Ferme à", label_html:{ class:"labelcolor" }  %>
+              </td>
+              <td>
+                <%= sched.input :pm_opens_at, class: "visually-hidden", label: "Ouvre à", label_html:{ class:"labelcolor" }  %>
+              </td>
+              <td>
+                <%= sched.input :pm_closes_at, class: "visually-hidden", label: "Ferme à", label_html:{ class:"labelcolor" }  %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, class:"btn btn-dark", value:"Valider"%>
+  </div>
+<% end %>
