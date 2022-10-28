@@ -1,7 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_line_item, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, except: %i[index]
 
   # GET /line_items or /line_items.json
   def index
@@ -25,7 +26,7 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-# NORMALEMENT TOUT EST BON MAINTENANT
+    # NORMALEMENT TOUT EST BON MAINTENANT
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: "Line item was successfully created." }
