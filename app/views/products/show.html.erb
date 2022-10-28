@@ -44,11 +44,12 @@
         <% if user_signed_in? %>
           <%= form_with url: orders_path do %>
             <%= hidden_field_tag 'product_id', @product.id %>
-            <%# <%= link_to "ajouter dans panier", products_path  %>
             <%= submit_tag 'Acheter', class: 'btn btn-primary' %>
           <% end %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-warning" %>
         <% else %>
           <%= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-warning" %>
         <% end %>
       </div>
     </div>
@@ -67,3 +68,4 @@
     </div>
   </div>
 </div>
+<% console %>

@@ -1,32 +1,48 @@
-<div class="container", style="margin-top:30vh">
-  <div>
-    <h2>Panier/!\</h2>
+<div class="main-bg">
 
-    <ul>
-      <% @cart.line_items.each do |item| %>
-        <li><%= item.product.name %> (x <%= item.quantity  %>)</li>
+  <div class="container", style="margin-top:30vh">
+    <div>
+      <h2>Panier/!\</h2>
+
+      <ul>
+        <% @cart.line_items.each do |item| %>
+          <li><%= item.product.name %> (x <%= item.quantity  %>)</li>
+        <% end %>
+      </ul>
+
+      <p><%= link_to "RETOUR AUX PRODUITS !!!!!", root_path %></p>
+
+    </div>
+
+
+
+
+    <p style="color: green"><%= notice %></p>
+
+    <%= render @cart %>
+
+    <div style="margin-bottom:20vh">
+      <%= link_to "Edit this cart", edit_cart_path(@cart) %> |
+      <%= link_to "Back to carts", carts_path %>
+
+      <%= button_to "Destroy this cart", @cart, method: :delete %>
+
+
+      <% if user_signed_in? %>
+        <%= form_with url: orders_path, method: :post do %>
+          <%= hidden_field_tag 'cart_id', @cart.id %>
+          <%= submit_tag 'Valider le panier', class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+        <%= link_to "Valider le panier", user_session_path, class: 'btn btn-primary' %>
       <% end %>
-    </ul>
 
-    <p><%= link_to "RETOUR AUX PRODUITS !!!!!", root_path %></p>
-
-  </div>
-
-
-
-
-  <p style="color: green"><%= notice %></p>
-
-  <%= render @cart %>
-
-  <div style="margin-bottom:20vh">
-    <%= link_to "Edit this cart", edit_cart_path(@cart) %> |
-    <%= link_to "Back to carts", carts_path %>
-
-    <%= button_to "Destroy this cart", @cart, method: :delete %>
+    </div>
   </div>
 </div>
 
 
+
+<% console %>
 
 <%# TOUT LE STYLE CSS A RETRAVAILLER %>

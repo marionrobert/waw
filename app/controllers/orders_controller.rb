@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:create]
+
   def index
     @orders = Order.all
   end
@@ -12,23 +15,28 @@ class OrdersController < ApplicationController
   end
 
   def create
-    product = Product.find(params[:product_id])
-    order  = Order.create!(product: product, product_sku: product.sku, amount: product.price, state: 'pending', user: current_user)
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
+    # pour l'achat immédiat d'un seul article sans création de panier (il faudra faire un if /else --> passage par panier ou pas)
+    # product = Product.find(params[:product_id])
+    @all_items = []
+    @cart.line_items.each do |item|
+      new_item = {
         price_data: {
           currency: 'eur',
-          unit_amount: product.price_cents,
+          unit_amount: item.product.price_cents,
           product_data: {
-            name: product.sku,
-            description: 'CETTE DESCRIPTION DOIT ETRE INTERPOLEE',
-            # images: [product.images.first], MARCHE PAS POUR LE MOMENT FAUDRA TRAITER LE BUG
-          },
+            name: item.product.sku,
+            description: item.product.description,
+            # images: item.product.photos.first
+          }
         },
-        quantity: 1,
-        # COLONNE DANS LA TABLE EST MANQUANTE
-      }],
+        quantity: item[:quantity]
+      }
+      @all_items << new_item
+    end
+    order = Order.create!(product: product, product_sku: product.sku, amount: product.price, state: 'pending', user: current_user)
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: @all_items,
       mode: 'payment',
       success_url: order_url(order),
       cancel_url: order_url(order)

@@ -3,9 +3,6 @@ class Product < ApplicationRecord
   has_many_attached :photos
   has_many :line_items, dependent: :nullify
 
-  #belongs_to :user
-
-
   validates :description, :name, :price_cents, presence: true
   #en attente de debug error pour les images
   #validate :images, presence: true
