@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    @order.cart.line_items
   end
 
   def new
@@ -33,7 +34,9 @@ class OrdersController < ApplicationController
       }
       @all_items << new_item
     end
-    order = Order.create!(product: product, product_sku: product.sku, amount: product.price, state: 'pending', user: current_user)
+    order = Order.new(state: 'pending', user: current_user)
+    order.cart = @cart
+    order.save!
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: @all_items,
@@ -49,8 +52,8 @@ class OrdersController < ApplicationController
   def destroy
   end
 
-private
-  def order_params
-    params.require(:order).permit(:user_id, :product_id)
-  end
+# private
+#   def order_params
+#     params.require(:order).permit(:user_id, :product_id)
+#   end
 end

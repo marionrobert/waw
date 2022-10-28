@@ -1,4 +1,4 @@
-<div class="main-bg">
+<div class="main-bg mt-5">
   <div class="container">
     <div class="row py-4">
     <%# bug de recuperation de l'image à traiter %>
@@ -8,9 +8,14 @@
       <%# </div> %>
 
       <div class="col">
-        <h1>Checkout summary</h1>
-        <p>Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-        <button id="pay" class="btn btn-primary">Pay</button>
+        <h1>Récapitulatif de la commande</h1>
+        <ul>
+          <% @order.cart.line_items.each do |item| %>
+            <li><%= item.product.name %> (x <%= item.quantity  %>) </li>
+          <% end %>
+        </ul>
+
+        <button id="pay" class="btn btn-primary">Valider le paiement</button>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');
@@ -25,3 +30,4 @@
     </div>
   </div>
 </div>
+<% console %>
