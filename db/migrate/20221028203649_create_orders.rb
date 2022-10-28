@@ -1,9 +1,9 @@
 class CreateOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :orders do |t|
-      t.references :cart, null: false, foreign_key: true
+      t.json :items
       t.references :user, null: false, foreign_key: true
-      t.string :state
+      t.string :state, default: "pending"
       t.string :checkout_session_id
       t.timestamps
     end
