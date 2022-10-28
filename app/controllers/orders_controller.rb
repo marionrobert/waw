@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   def create
     # pour l'achat immédiat d'un seul article sans création de panier (il faudra faire un if /else --> passage par panier ou pas)
     # product = Product.find(params[:product_id])
-    @all_items = []
+    @items_for_stripe = []
     @cart.line_items.each do |item|
       new_item = {
         price_data: {
@@ -32,14 +32,25 @@ class OrdersController < ApplicationController
         },
         quantity: item[:quantity]
       }
-      @all_items << new_item
+      @items_for_stripe << new_item
     end
-    order = Order.new(state: 'pending', user: current_user)
-    order.cart = @cart
-    order.save!
+
+    @items_for_order = {}
+    @cart.line_items.each.with_index do |item, index|
+      new_item = {
+        unit_amount: item.product.price_cents,
+        sku: item.product.sku,
+        name: item.product.name,
+        quantity: item[:quantity]
+      }
+      @items_for_order["product_#{index}"] = new_item
+    end
+
+    order = Order.create!(user: current_user, items: @items_for_order)
+
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
-      line_items: @all_items,
+      line_items: @items_for_stripe,
       mode: 'payment',
       success_url: order_url(order),
       cancel_url: order_url(order)

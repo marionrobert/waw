@@ -10,8 +10,8 @@
       <div class="col">
         <h1>Récapitulatif de la commande</h1>
         <ul>
-          <% @order.cart.line_items.each do |item| %>
-            <li><%= item.product.name %> (x <%= item.quantity  %>) </li>
+          <% @order.items.each do |key, value| %>
+            <li><%= @order.items[key]["name"] %> <%= (@order.items[key]["unit_amount"] / 100) %>€ TTC (x <%= @order.items[key]["quantity"]  %>) </li>
           <% end %>
         </ul>
 
@@ -30,4 +30,4 @@
     </div>
   </div>
 </div>
-<% console %>
+
