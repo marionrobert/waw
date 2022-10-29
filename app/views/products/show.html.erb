@@ -67,7 +67,7 @@
 
 
     <div class="row my-5">
-      <% if current_user == nil %>
+      <% if current_user == nil || current_user.admin == false %>
       <%else current_user.admin%>
         <div class="row", style="text-align:center">
           <div class="my-3" >
