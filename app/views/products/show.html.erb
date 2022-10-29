@@ -1,45 +1,54 @@
 <div class="main-bg">
-  <div class="container">
+
+  <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
+
     <div class="mt-5">
       <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
         <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
       <% end %>
     </div>
-    <div class="row d-flex justify-content-center mt-5">
-      <div class="col-sm-12 col-lg-6">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
-          <div class="carousel-indicators">
-            <% @product.photos.each_with_index do |photo, index| %>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=<%=index%> class="active" aria-current="true" aria-label="Slide 1"></button>
-            <%end%>
-          </div>
 
-          <div class="carousel-inner">
-            <div class="carousel-item active" style="text-align:center">
-              <%= cl_image_tag @product.photos.first.key, height: 500, width: 500, crop: :fill %>
-            </div>
-            <% @product.photos.each_with_index do |photo, index| %>
-              <% if index > 0 %>
-                <div class="carousel-item" style="text-align:center">
-                  <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
-                </div>
-              <% end %>
-            <% end%>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
+    <div class="row d-flex justify-content-center mt-5">
+
       <div class="col-sm-12 col-lg-6">
-          <h1><%= @product.name %></h1>
-            <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-            <p>Description: <%= @product.description %>
+        <%= render "carrousel-product", product: @product %>
+      </div>
+
+      <div class="col-sm-12 col-lg-6">
+          <%= content_tag(:h1, @product.name, data: {
+            share_target: "title"
+          }) %>
+          <%# <h1> %>
+            <%#= @product.name %>
+          <%# </h1> %>
+          <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+          <%= content_tag(:p, @product.description, data: {
+            share_target: "body"
+          }) %>
+          <%# <p>Description: %>
+            <%#= @product.description %>
+          <%# </p> %>
+      </div>
+    </div>
+
+    <div class="row">
+
+    <div class="col-sm-6">
+      <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
+        <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
+      <% end %>
+      <%# les éléments ci-dessous n'ont pas grand intérêt %>
+      <%= content_tag(:p, "", class:"result", data: {
+        share_target: "result"
+      }) %>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="row">
       <div class="button">
         <% if user_signed_in? %>
           <%= form_with url: orders_path do %>
@@ -53,7 +62,9 @@
         <% end %>
       </div>
     </div>
-  </div>
+
+
+
 
     <div class="row my-5">
       <% if current_user == nil %>
@@ -66,5 +77,7 @@
         </div>
       <% end%>
     </div>
+
   </div>
+
 </div>

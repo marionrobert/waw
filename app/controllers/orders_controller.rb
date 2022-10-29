@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
           product_data: {
             name: item.product.sku,
             description: item.product.description,
-            # images: item.product.photos.first
+            # images: item.photos.first.key
           }
         },
         quantity: item[:quantity]
@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       shipping_address_collection: {
-        allowed_countries: ['US', 'FR'],
+        allowed_countries: ['US', 'FR']
       },
       shipping_options: [
         {
