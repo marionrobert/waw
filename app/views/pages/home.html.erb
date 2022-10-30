@@ -1,8 +1,8 @@
 <div class="banner">
   <div class="container">
     <div class="p-5" style="margin-top:5vh">
-      <h1><strong>L'atelier de Lysiane</strong></h1>
-      <p class="my-4">Bienvenu, je vous laisse découvrir l'ensemble de mes créations artisanales disponibles à la vente ici même.</p>
+        <h1><strong>L'atelier de Lysiane</strong></h1>
+        <h3 style="color:white;", class="my-4">Bienvenu, je vous laisse découvrir l'ensemble de mes créations artisanales disponibles à la vente ici même.</h3>
       <div style="position:absolute;bottom:5vh;">
         <%= link_to "Voir tous les produits", products_path, class:"btn btn-success p-3", style:"font-size:x-large;" %>
       </div>
@@ -42,9 +42,9 @@
                       <span style="text-align:right;font-weight:bolder;font-size:24px"><%= humanized_money_with_symbol(product.price)%>,</span><span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-4px">  00 ttc</span>
                     <%end%>
                   </div>
-                  <div class="d-flex justify-content-center">
-                    <span><%= button_to "ajouter au panier", line_items_path(product_id: product), class:"btn btn-warning" %></span>
-                    <span><%= link_to "Plus de détails", product_path(product), class: "btn btn-primary mt-2 mb-2" %></span>
+                  <div class="d-flex-column", style="text-align:center">
+                    <%= button_to "ajouter au panier", line_items_path(product_id: product), class:"btn btn-success" %>
+                    <%= link_to "Plus de détails", product_path(product), class: "btn btn-primary mt-2 mb-2" %>
                   </div>
               </div>
             </div>
