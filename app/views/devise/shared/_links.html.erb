@@ -18,8 +18,13 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+<%# Si nous choissons d'avoir plusieurs providers (ex, google, twitter, instagram), il faudra intégrer le choix du logo dans la loop avec un if/else %>
+<%# ex: if OmniAuth::Utils.camelize(provider) == "Google" --> logo google dans le image_tag %>
+<%#  if ... == "Twitter" --> logo twitter dans le image_tag %>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
+    <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+      <%= image_tag "btn_google_signin_light_normal_web.png", :class => "mt-2" %>
+    <% end %>
   <% end %>
 <% end %>
