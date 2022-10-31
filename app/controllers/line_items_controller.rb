@@ -4,6 +4,7 @@ class LineItemsController < ApplicationController
   before_action :set_line_item, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, except: %i[index]
 
+
   # GET /line_items or /line_items.json
   def index
     @line_items = LineItem.all
@@ -29,7 +30,8 @@ class LineItemsController < ApplicationController
     # NORMALEMENT TOUT EST BON MAINTENANT
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: "Line item was successfully created." }
+        format.html { redirect_to root_url}
+        format.js
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to line_item_url(@line_item), notice: "Line item was successfully updated." }
+        format.html { redirect_to line_item_url(@line_item), notice: "Le panier à été mis à jour" }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit, status: :unprocessable_entity }

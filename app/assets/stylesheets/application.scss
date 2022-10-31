@@ -56,3 +56,20 @@ tfoot {
     background-color: rgba(0,0,0,0);
     color: black;
 }
+
+.cart-deploy {
+  position:fixed;
+  width: 50vw;
+  position: absolute;
+  top:8vh;
+  left:-48vw;
+  z-index: 500;
+  border: 2px solid black;
+  background-color: azure;
+}
+
+.cart-deploy:hover {
+  position:fixed;
+  transition-duration: 1500ms;
+  transform:translateX(47vw);
+}
