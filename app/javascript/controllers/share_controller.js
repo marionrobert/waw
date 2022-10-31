@@ -24,4 +24,6 @@ export default class extends Controller {
       this.resultTarget.textContent = `Erreur: ${err}`
     }
   }
+
+
 }
