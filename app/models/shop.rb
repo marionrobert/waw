@@ -11,6 +11,10 @@ class Shop < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  has_one_attached :banner
+  has_one_attached :footer
+
+
   # validate :check_record, on: :create #please not that validate in this case is singular
 
   # def check_record
