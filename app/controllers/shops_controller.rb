@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  include CurrentCart
   skip_before_action :authenticate_user!, only: :show
 
   def new

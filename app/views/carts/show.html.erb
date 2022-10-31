@@ -1,33 +1,64 @@
 <div class="main-bg">
-
-  <div class="container", style="margin-top:30vh">
+  <div class="container", style="margin-top:15vh">
     <div>
-      <h2>Panier/!\</h2>
+      <h2 style="text-align:center">Panier en cours</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
+              <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
+              <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
+              <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart.line_items.each do |item| %>
+              <div class="row">
+                <tr>
+                  <td class="col-6" style="text-align:left"><%= item.product.name %><br><p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
+                  <td class="col-1" style="text-align:right"><%= item.quantity  %></td>
+                  <td class="col-1" style="text-align:right"><%= (item.product.price_cents / 100) %></td>
+                  <td class="col-1" style="text-align:right"><%= item.quantity * (item.product.price_cents / 100) %></td>
+                </tr>
+              </div>
+            <% end %>
+          <thead>
+            <tr>
+              <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>
+              <td class="col-1", style="text-align:right;", colspan="1">
+              <% sub_total = [] %>
+              <% @cart.line_items.each do |item| %>
+                <%sub_total << ((item.quantity) * (item.product.price_cents / 100))%>
+              <%end%>
+                <%=sub_total.sum%>
+          </thead>
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
 
       <ul>
         <% @cart.line_items.each do |item| %>
           <li><%= item.product.name %> (x <%= item.quantity  %>)</li>
         <% end %>
       </ul>
-
-      <p><%= link_to "RETOUR AUX PRODUITS !!!!!", root_path %></p>
-
+      <p><%= link_to "RETOUR AUX PRODUITS", products_path, class:"btn btn-dark" %></p>
     </div>
 
 
 
 
     <p style="color: green"><%= notice %></p>
-
-    <%= render @cart %>
-
     <div style="margin-bottom:20vh">
-      <%= link_to "Edit this cart", edit_cart_path(@cart) %> |
-      <%= link_to "Back to carts", carts_path %>
-
-      <%= button_to "Destroy this cart", @cart, method: :delete %>
-
-
       <% if user_signed_in? %>
         <%= form_with url: orders_path, method: :post do %>
           <%= hidden_field_tag 'cart_id', @cart.id %>
@@ -36,11 +67,11 @@
       <% else %>
         <%= link_to "Valider le panier", user_session_path, class: 'btn btn-primary' %>
       <% end %>
-
     </div>
   </div>
 </div>
 
 
+<% console %>
 
 <%# TOUT LE STYLE CSS A RETRAVAILLER %>
