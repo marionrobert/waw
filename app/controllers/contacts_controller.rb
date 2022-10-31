@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   include CurrentCart
+
   def new
     @contact = Contact.new
   end

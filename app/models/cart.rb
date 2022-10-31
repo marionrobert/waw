@@ -1,6 +1,10 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
+  def total
+    line_items.to_a.sum(&:total)
+  end
+
   def add_product(product)
     item = line_items.find_by(product: product)
 

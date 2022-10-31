@@ -1,2 +1,65 @@
-<div id="<%= dom_id cart %>">
+<div class="container", style="margin-top:15vh">
+  <div>
+    <h2 style="text-align:center">Panier en cours</h2>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
+            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
+            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
+            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cart.line_items.each do |item| %>
+            <div class="row">
+              <tr>
+                <td class="col-6" style="text-align:left"><%= item.product.name %>
+                <br>
+                <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
+                <td class="col-1" style="text-align:right"><%= item.quantity  %></td>
+                <td class="col-1" style="text-align:right">
+                  <span><%= (item.product.price_cents / 100.00)  %> € ttc </span>
+                  <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
+                <%# # MA VERSION QUI MARCHE MAIS PAS CELLE DU TUTO%>
+                <%#=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+                </td>
+                <td class="col-1" style="text-align:right">
+                  <span><%= item.quantity * (item.product.price_cents / 100.00) %> € ttc </span>
+                  <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
+                <%# MA VERSION QUI MARCHE MAIS PAS CELLE DU TUTO %>
+                <%#=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u")%>
+                <%# celle du tuto %>
+                </td>
+              </tr>
+            </div>
+          <% end %>
+        <thead>
+          <tr>
+            <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>
+            <td class="col-1", style="text-align:right;", colspan="1">
+            <% sub_total = [] %>
+            <% cart.line_items.each do |item| %>
+            <%# dans la video il supprime le @ (video 8 sur 9) 1minute 50 %>
+              <%sub_total << ((item.quantity) * (item.product.price_cents / 100))%>
+            <%end%>
+              <%=sub_total.sum%>
+        </thead>
+        </tbody>
+      </table>
+              <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
+              class: "btn btn-danger", remote: true %>
+    <p><%= link_to "RETOUR AUX PRODUITS", products_path, class:"btn btn-dark" %></p>
+  </div>
+  <p style="color: green"><%= notice %></p>
+  <div style="margin-bottom:20vh">
+    <% if user_signed_in? %>
+      <%= form_with url: orders_path, method: :post do %>
+        <%= hidden_field_tag 'cart_id', cart.id %>
+        <%= submit_tag 'Valider le panier', class: 'btn btn-primary' %>
+      <% end %>
+    <% else %>
+      <%= link_to "Valider le panier", user_session_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>
