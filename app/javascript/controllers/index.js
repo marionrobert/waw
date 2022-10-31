@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import PanierController from "./panier_controller"
+application.register("panier", PanierController)
+
 import ShareController from "./share_controller"
 application.register("share", ShareController)

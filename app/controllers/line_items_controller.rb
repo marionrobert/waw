@@ -30,7 +30,7 @@ class LineItemsController < ApplicationController
     # NORMALEMENT TOUT EST BON MAINTENANT
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to root_url}
+        format.html { redirect_to products_url}
         format.js
         format.json { render :show, status: :created, location: @line_item }
       else
