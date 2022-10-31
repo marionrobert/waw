@@ -5,7 +5,13 @@ ruby "3.1.2"
 gem "geocoder"
 gem "autoprefixer-rails"
 gem "bootsnap", require: false
+
+# Authentification
 gem "devise"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+
 gem "font-awesome-sass", "~> 6.1"
 gem "jbuilder"
 gem "jsbundling-rails"
@@ -40,4 +46,3 @@ group :test do
 end
 
 gem "cloudinary"
-
