@@ -42,3 +42,4 @@
 .DS_Store
 .env*
 /config/cred.yml.enc
+/config/credentials.yml.enc

@@ -9,8 +9,11 @@ class PagesController < ApplicationController
     @products = Product.last(3)
   end
 
-  def profil
-    @user = current_user
+  def profile
+    @my_pending_orders = current_user.orders.where(state: "pending").order(updated_at: :desc)
+    @my_past_orders = current_user.orders.where(state: "delivered").order(updated_at: :desc)
+    @admin_pending_orders = Order.where(state: "pending").order(updated_at: :desc)
+    @admin_pending_orders = Order.where(state: "delivered").order(updated_at: :desc)
   end
 
   def is_admin

@@ -8,7 +8,10 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
-    @order.cart.line_items
+    @sub_total = []
+    @order.items.each do |key, value|
+      @sub_total << ((@order.items[key]["quantity"]) * (@order.items[key]["unit_amount"]) / 100.00)
+    end
   end
 
   def new

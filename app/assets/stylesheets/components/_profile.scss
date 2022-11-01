@@ -1,0 +1,25 @@
+a.link-order-profile {
+  text-decoration: none;
+  color: black;
+}
+
+.tab-link {
+  color: black;
+  font-size: 1rem;
+  font-weight:600;
+  background-color: transparent;
+  border-style: none;
+  padding: 5px;
+}
+
+.tab-link.active {
+  border-bottom: solid ;
+}
+
+.margin-right {
+  margin-right: 20px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}

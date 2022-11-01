@@ -1,0 +1,35 @@
+<div class="main-bg">
+  <div class="container mt-5">
+    <h1>Bienvenue <%= current_user.email %></h1>
+    <div class="mt-3">
+      <% if current_user.admin == false %>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="tab-link active margin-right" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Commandes à venir</button>
+            <button class="tab-link margin-left" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Commandes passées</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <%= render "my-pending-orders", my_pending_orders: @my_pending_orders %>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <%= render "my-past-orders", my_past_orders: @my_past_orders %>
+          </div>
+        </div>
+      <% else %>
+        <p> je suis le gérant, j'ai accès aux commandes de tous les clients</p>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Commandes à venir</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Historique des commandes</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Les commandes qui doivent être livrées aux clients</div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Les commandes qui ont été livrées et réceptionnées par le client</div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
