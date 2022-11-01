@@ -5,10 +5,10 @@ Product.destroy_all
 Shop.destroy_all
 
 puts "creation users"
-user_one = User.create!(email: "aurelien@gmail.com", password:"123456", admin: true)
-user_two = User.create!(email: "jonathan@gmail.com",   password:"123456", admin: false)
-user_three = User.create!(email: "marion@gmail.com", password:"123456", admin: true)
-user_four = User.create!(email: "kevin@gmail.com", password:"123456", admin: false)
+user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
+user_two = User.create!(email: "jonathan@gmail.com", password: "123456", admin: false)
+user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false)
+user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
 
 puts "#{User.count} utilisateurs créés"
 puts "2 admins, 2 non admins"
@@ -57,6 +57,4 @@ product_five.photos.attach(io: file3, filename: "product_five_photo.png")
 
 puts "#{Product.count} produits créés"
 
-
-
-Shop.create!(user: User.all.sample, name: "Mon magasin", description: "meilleur magasin du monde", phone: "02.43.15.42.56", siren: "123456789", address: "16 villa Gaudelet, 75011 Paris")
+Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789", address: "7 rue de la Brèche Beaulieu, 77610 Crèvecoeur-en-Brie")

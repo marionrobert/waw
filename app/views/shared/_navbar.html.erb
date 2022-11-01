@@ -52,7 +52,7 @@
                   Mon compte
                 </a>
                 <ul class="dropdown-menu" style="border-left:none; border-right:none;">
-                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Historique des commandes", "/", style:"text-decoration:none;"%></li>
+                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Mes commandes", profile_path, style:"text-decoration:none;"%></li>
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Modifier mot de passe", "/", style:"text-decoration:none;"%></li>
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Deconnexion", destroy_user_session_path,'data-turbo-method': :delete, style:"text-decoration:none;"%></li>
                   <li>

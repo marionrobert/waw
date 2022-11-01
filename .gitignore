@@ -41,4 +41,5 @@
 *.swp
 .DS_Store
 .env*
-.env*
+/config/cred.yml.enc
+/config/credentials.yml.enc

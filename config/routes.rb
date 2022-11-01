@@ -28,8 +28,9 @@ Rails.application.routes.draw do
   resources :orders, only: %i[show create update] do
     resources :payments, only: :new
   end
+
   #dashboard
-  get 'profil/:id', to: 'pages#profil'
+  get 'profile', to: 'pages#profile'
 
 
   # boutton de la landing page qui envoi vers tout les produits
