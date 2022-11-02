@@ -1,15 +1,15 @@
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(200,200,200,0.7);border-radius:10px;">
+      <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(130,130,130,0.3);border-radius:10px;">
         <%= simple_form_for(@product) do |product| %>
           <%#= product.error_notification %>
           <%#= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
           <div class="form-inputs" >
-            <%= product.input :name, placeholder: "nom du produit"%>
-            <%= product.input :sku, placeholder: "reference interne"%>
-            <%= product.input :description, placeholder: "brève description" %>
-            <%= product.input :price_cents, placeholder: "2990" %>
-            <%= product.input :photos, as: :file, input_html: { multiple: true }%>
+            <%= product.input :name, placeholder: "nom du produit", label_html:{ class:"labelcolor" }%>
+            <%= product.input :sku, placeholder: "reference interne", label_html:{ class:"labelcolor" }%>
+            <%= product.input :description, placeholder: "brève description", label_html:{ class:"labelcolor" } %>
+            <%= product.input :price_cents, placeholder: "2990", label_html:{ class:"labelcolor" } %>
+            <%= product.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
           </div>
           <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
             <% if @product.name.nil? %>

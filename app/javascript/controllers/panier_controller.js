@@ -7,8 +7,9 @@ export default class extends Controller {
   updatePanier() {
     this.element.classList.toggle("open")
   }
-  // updatePanier() {
-  //   const test = document.querySelector("menupanier")
-  //   test.classList.toggle("open")
-  // }
+  updatePanier2() {
+    // alert("PANIER CLICK OK");
+    const panierflottant = document.getElementById("panierflottant")
+    panierflottant.classList.toggle("open")
+  }
 }
