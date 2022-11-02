@@ -25,10 +25,14 @@
               <div class="radius-bottom">
                 <div class="card-trip radius-top" style="box-shadow: 5px 5px 5px rgb(211,211,211);">
                   <% if product.photos.attached? %>
-                    <%= cl_image_tag product.photos.first.key, height: 300, width: 400, crop: :fill %>
+                    <%= link_to product_path(product), class:"d-flex justify-content-center" do %>
+                      <%= cl_image_tag product.photos.first.key, height: 300, width: 400, crop: :fill %>
+                    <%end%>
                 </div>
                   <%else %>
-                    <img class="card-color card-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
+                  <%= link_to product_path(product), class:"d-flex justify-content-center" do %>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
+                  <%end%>
                 </div>
                   <% end %>
                 <div class="card-trip-infos card-color radius-bottom" style="box-shadow: 5px 5px 5px rgb(211,211,211)">
@@ -56,7 +60,7 @@
               </div>
             </div>
           <%end%>
-        <% end %>
+        <%end%>
       </div>
   </div>
 </div>

@@ -8,12 +8,12 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :first_name, label: "Prénom" %>
-            <%= f.input :last_name, label: "Nom" %>
-            <%= f.input :email, label: "Email" %>
-            <%= f.input :content, label: "Message"%>
+            <%= f.input :first_name, label: "Prénom", label_html:{ class:"labelcolor" } %>
+            <%= f.input :last_name, label: "Nom", label_html:{ class:"labelcolor" } %>
+            <%= f.input :email, label: "Email", label_html:{ class:"labelcolor" } %>
+            <%= f.input :content, label: "Message", label_html:{ class:"labelcolor" } %>
           </div>
-          <div class="form-actions">
+          <div class="form-actions d-flex justify-content-center">
               <%= f.button :submit, class:"btn btn-dark", value:"Envoyer votre message"%>
           </div>
           <% end %>

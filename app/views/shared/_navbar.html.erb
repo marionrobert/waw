@@ -1,7 +1,11 @@
 <main class="navfixed">
  <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
     <div class="container-fluid">
-      <%= link_to "HOME PAGE", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+      <%= link_to "ACCEUIL", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+
+      <div class="btn btn-primary", data-controller="panier", data-action="click->panier#updatePanier2">PANIER
+      </div>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,19 +37,19 @@
             <li class="nav-item">
               <%= link_to "Horaires et contacts", shop_path(Shop.first) , style:"text-decoration:none;"%>
             </li>
-            <li class="nav-link active">
-              <% if current_user && current_user.admin? %>
-                <% if Shop.count > 0%>
-                  <% if Shop.first.schedules.any? %>
+            <%# <li class="nav-link active"> %>
+              <%# if current_user && current_user.admin? %>
+                <%# if Shop.count > 0%>
+                  <%# if Shop.first.schedules.any? %>
                     <%# path de modifier les horaires à réparer %>
-                    <%= link_to "Modifier les Horaires d'ouverture", root_path, style:"text-decoration:none;"%>
-                  <% else %>
-                    <%= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
-                  <% end %>
-                <% else %>
-                  <%= link_to "Créer mon magasin", new_shop_path, style:"text-decoration:none;"%>
-                <% end %>
-              <% end %>
+                    <%#= link_to "Modifier les Sdonnées du magasin", edit_shop_path(Shop.first), style:"text-decoration:none;"%>
+                  <%# else %>
+                    <%#= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
+                  <%# end %>
+                <%# else %>
+                  <%#= link_to "Créer mon magasin", new_shop_path, style:"text-decoration:none;"%>
+                <%# end %>
+              <%# end %>
             <%if current_user%>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="text-decoration:none; color:blue;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +57,7 @@
                 </a>
                 <ul class="dropdown-menu" style="border-left:none; border-right:none;">
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Mes commandes", profile_path, style:"text-decoration:none;"%></li>
-                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Modifier mot de passe", "/", style:"text-decoration:none;"%></li>
+                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Modifier mot de passe", edit_user_password_path, style:"text-decoration:none;"%></li>
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Deconnexion", destroy_user_session_path,'data-turbo-method': :delete, style:"text-decoration:none;"%></li>
                   <li>
                     <hr class="dropdown-divider">

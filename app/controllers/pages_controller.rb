@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home index]
 
   def home
+    @shop = Shop.last
     # On ne parvient pas à recupere le current_cart
     # @cart = Cart.find(params[:id])
     @products = Product.last(3)

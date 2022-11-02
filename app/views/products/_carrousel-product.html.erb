@@ -7,15 +7,22 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active" style="text-align:center">
+    <% if product.photos.attached? %>
       <%= cl_image_tag product.photos.first.key, height: 500, width: 500, crop: :fill %>
     </div>
-    <% product.photos.each_with_index do |photo, index| %>
-      <% if index > 0 %>
-        <div class="carousel-item" style="text-align:center">
-          <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
-        </div>
-      <% end %>
-    <% end%>
+      <% product.photos.each_with_index do |photo, index| %>
+        <% if index > 0 %>
+          <div class="carousel-item" style="text-align:center">
+            <%= cl_image_tag photo.key, height: 500, width: 500, crop: :fill %>
+          </div>
+        <% end %>
+      <% end%>
+    <% else %>
+    </div>
+      <div>
+        <img style="height:500;width:500;", src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no_images_available" >
+      </div>
+    <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

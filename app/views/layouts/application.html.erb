@@ -35,7 +35,7 @@
   </header>
   <body class= "d-flex flex-column min-vh-100 main-bg">
     <%# <h1 class="display-1 p-3 bg-secondary text-white rounded">BEST SHOP</h1> %>
-    <div class="menupanier", data-controller="panier", data-action="click->panier#updatePanier">
+    <div id="panierflottant" class="menupanier">
       <div  id="cart">
         <%if @cart && @cart.line_items.any? %>
           <%= render "carts/cart", cart: @cart %>
@@ -55,5 +55,3 @@
     <%= render "shared/footer"%>
   </footer>
 </html>
-
-<% console %>
