@@ -1,28 +1,15 @@
-<% if current_user && current_user.shop && current_user.shop.banner.key %>
-  <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path current_user.shop.banner.key %>')">
-    <div class="container">
-      <div class="p-5" style="margin-top:5vh">
-          <h1><strong><%= Shop.first.name %></strong></h1>
-          <h3 style="color:white;", class="my-4"><%= Shop.first.description %></h3>
-        <div style="position:absolute;bottom:5vh;">
-          <%= link_to "Voir tous les produits", products_path, class:"btn btn-success p-3", style:"font-size:x-large;" %>
-        </div>
+<div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.banner.key %>')">
+  <div class="container">
+    <div class="p-5" style="margin-top:5vh">
+        <h1><strong><%= Shop.first.name %></strong></h1>
+        <h3 style="color:white;", class="my-4"><%= Shop.first.description %></h3>
+      <div style="position:absolute;bottom:5vh;">
+        <%= link_to "Voir tous les produits", products_path, class:"btn btn-success p-3", style:"font-size:x-large;" %>
       </div>
     </div>
   </div>
-<% else %>
-  <div class="banner">
-    <div class="container">
-      <div class="p-5" style="margin-top:5vh">
-          <h1><strong><%= Shop.first.name %></strong></h1>
-          <h3 style="color:white;", class="my-4"><%= Shop.first.description %></h3>
-        <div style="position:absolute;bottom:5vh;">
-          <%= link_to "Voir tous les produits", products_path, class:"btn btn-success p-3", style:"font-size:x-large;" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>
+
 
 <div class="main-bg">
   <div class="container mt-3">
