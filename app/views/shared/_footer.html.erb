@@ -1,4 +1,8 @@
-<div class="footer mt-auto text-center" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.footer.key %>')">
+<%if Shop.first.footer.key %>
+  <div class="footer mt-auto text-center" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.footer.key %>')">
+<%else%>
+  <div class="footer mt-auto text-center" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
+<%end%>
   <div style="margin-top:12vh">
     <ul style="list-style:none">
       <li>
