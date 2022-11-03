@@ -10,7 +10,7 @@
             <%= coupon.input :duration, placeholder: "durée" %>
             <%= coupon.input :duration_in_months, placeholder: "durée en mois" %>
             <%= coupon.input :max_redemptions, placeholder: "quantité d'utilisation maximale" %>
-            <%= coupon.input :redeem_by, placeholder: "date limite d'utilisation" %>
+            <%= coupon.input :redeem_by, as: :date, placeholder: "date limite d'utilisation" %>
           </div>
 
           <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">

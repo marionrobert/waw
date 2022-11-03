@@ -10,8 +10,7 @@ class CreateCoupons < ActiveRecord::Migration[7.0]
       t.float :percent_off
       # TODO : applies_to
       t.integer :max_redemptions
-      # t.date :redeem_by
-      t.integer :redeem_by
+      t.date :redeem_by
 
       t.timestamps
     end

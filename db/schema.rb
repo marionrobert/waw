@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_145229) do
     t.integer "duration_in_months"
     t.float "percent_off"
     t.integer "max_redemptions"
-    t.integer "redeem_by"
+    t.date "redeem_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

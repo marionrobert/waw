@@ -16,15 +16,16 @@ class CouponsController < ApplicationController
   def create
     @coupon = Coupon.new(coupon_params)
     if @coupon.save
+      time = @coupon.redeem_by.to_time.to_i
       Stripe::Coupon.create({ name: @coupon.name,
-                              amount_off: @coupon.amount_off,
+                              amount_off: @coupon.amount_off * 100,
                               currency: @coupon.currency,
                               duration: @coupon.duration,
                               duration_in_months: @coupon.duration_in_months,
                               percent_off: @coupon.percent_off,
                               # TODO applies_to
                               max_redemptions: @coupon.max_redemptions,
-                              redeem_by: @coupon.redeem_by })
+                              redeem_by: time })
       redirect_to coupon_path(@coupon)
     else
       render :new, status: :unprocessable_entity
