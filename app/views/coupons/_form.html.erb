@@ -7,7 +7,8 @@
             <%= coupon.input :amount_off, placeholder: "réduction brut"%>
             <%= coupon.input :percent_off, placeholder: "réduction en poucentage" %>
             <%= coupon.input :currency, placeholder: "monnaie" %>
-            <%= coupon.input :duration, placeholder: "durée" %>
+            <%# <%= coupon.input :duration, placeholder: "durée" %> %>
+            <%= coupon.input :duration, collection: [['once', 'une fois'], ['repeating', 'périodique'], ['forever', 'toujours']], label_method: :second, value_method: :first %>
             <%= coupon.input :duration_in_months, placeholder: "durée en mois" %>
             <%= coupon.input :max_redemptions, placeholder: "quantité d'utilisation maximale" %>
             <%= coupon.input :redeem_by, as: :date, placeholder: "date limite d'utilisation" %>

@@ -17,9 +17,11 @@ class CouponsController < ApplicationController
     @coupon = Coupon.new(coupon_params)
     if @coupon.save
       time = @coupon.redeem_by.to_time.to_i
+      amount_off = @coupon.amount_off * 100 unless @coupon.amount_off.nil?
+      currency = nil if @coupon.currency.blank?
       Stripe::Coupon.create({ name: @coupon.name,
-                              amount_off: @coupon.amount_off * 100,
-                              currency: @coupon.currency,
+                              amount_off: amount_off,
+                              currency: currency,
                               duration: @coupon.duration,
                               duration_in_months: @coupon.duration_in_months,
                               percent_off: @coupon.percent_off,
