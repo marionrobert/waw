@@ -2,39 +2,34 @@
 <html>
   <head>
     <title>EShopEasy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.104.2">
+    <meta name="theme-color" content="#712cf9">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# <%= favicon_link_tag "favicon.ico" %>
+    <%= favicon_link_tag "favicon.ico" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars-offcanvas/">
-    <%# <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> %>
-    <%# <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180"> %>
-    <%# <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png"> %>
-    <%# <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png"> %>
-    <%# <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json"> %>
-    <%# CETTE LIGNE AU DESSUS GENERE 6 ERREURS DANS L'INSPECTOR %>
-    <%# <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9"> %>
-    <%# <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico"> %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <meta name="theme-color" content="#712cf9">
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <header>
     <%= render "shared/navbar" %>
   </header>
   <body class= "d-flex flex-column min-vh-100 main-bg">
-    <%# <h1 class="display-1 p-3 bg-secondary text-white rounded">BEST SHOP</h1> %>
     <div id="panierflottant" class="menupanier">
       <div  id="cart">
         <%if @cart && @cart.line_items.any? %>
@@ -44,12 +39,10 @@
         <%end%>
       </div>
     </div>
-      <%# <div class="col-8"> %>
         <p id="alert"><%= alert %></p>
         <p id="notice"><%= notice %></p>
         <%= render "shared/flashes" %>
         <%= yield %>
-
   </body>
   <footer class="footer">
     <%= render "shared/footer"%>
