@@ -1,0 +1,10 @@
+<div class="container">
+  <%= coupon.name %>
+  <%= coupon.amount_off if coupon.amount_off%>
+  <%= coupon.percent_off if coupon.percent_off%>
+  <%= coupon.currency %>
+  <%= coupon.duration %>
+  <%= coupon.duration_in_months if coupon.duration %>
+  <%= coupon.max_redemptions %>
+  <%= coupon.redeem_by %>
+</div>

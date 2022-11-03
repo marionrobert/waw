@@ -1,0 +1,15 @@
+<div class="main-bg">
+    <%# affichage des coupons %>
+  <div class="container">
+    <h1 class="mb-5 text-center">Coupons disponibles</h1>
+    <div class="row d-flex justify-content-center">
+      <% @coupons.each do |coupon| %>
+        <% cache coupon do %>
+          <%= link_to "Plus de détails", coupon_path(coupon), class: "btn btn-primary mt-2 mb-2" %>
+        <%end%>
+      <% end %>
+    <div class="nav-link active btn btn-warning" >
+      <%= link_to "Créer un coupon", new_coupon_path, style:"text-decoration:none;color:white;"%>
+    </div>
+  </div>
+</div>
