@@ -18,7 +18,9 @@
           <% cart.line_items.each do |item| %>
             <div class="row">
               <tr>
-                <td class="col-6" style="text-align:left"><%= item.product.name %>
+                <td class="col-6" style="text-align:left">
+                <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
+                <%= item.product.name %>
                 <br>
                 <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
                 <td class="col-1" style="text-align:right"><%= item.quantity  %></td>
