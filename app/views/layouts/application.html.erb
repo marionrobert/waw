@@ -37,10 +37,10 @@
         <%if @cart && @cart.line_items.any? %>
           <%= render "carts/cart", cart: @cart %>
         <%else%>
-            <div style="text-align:end;">
-<button class="btn btn-warning", style="z-index:1001;", data-controller="panier", data-action="click->panier#removePanier">X
-</button>
-    </div>
+          <div style="text-align:end;">
+            <button class="btn btn-warning", style="z-index:1001;", data-controller="panier", data-action="click->panier#removePanier">X
+            </button>
+          </div>
           <h2 style="text-align:center">Panier vide</h2>
         <%end%>
       </div>
