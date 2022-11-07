@@ -4,12 +4,20 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
   }
-  updatePanier() {
-    this.element.classList.toggle("open")
-  }
+
   updatePanier2() {
     // alert("PANIER CLICK OK");
     const panierflottant = document.getElementById("panierflottant")
-    panierflottant.classList.toggle("open")
+    const dark = document.getElementById("darken")
+    panierflottant.classList.add("open")
+    dark.classList.add("darkenmenuopen")
+  }
+
+  removePanier() {
+    // alert("PANIER CLICK OK");
+    const panierflottant = document.getElementById("panierflottant")
+    const dark= document.getElementById("darken")
+    panierflottant.classList.remove("open")
+    dark.classList.remove("darkenmenuopen")
   }
 }
