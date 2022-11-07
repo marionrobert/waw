@@ -1,6 +1,10 @@
+    <div style="text-align:end;">
+<button class="btn btn-warning", style="z-index:1001;", data-controller="panier", data-action="click->panier#removePanier">X
+</button>
+    </div>
+  <h2 style="text-align:center">Panier en cours</h2>
 <div class="container", style="margin-top:15vh">
   <div>
-    <h2 style="text-align:center">Panier en cours</h2>
       <table>
         <thead>
           <tr>
@@ -47,19 +51,20 @@
         </thead>
         </tbody>
       </table>
-              <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
-              class: "btn btn-danger", remote: true %>
-    <p><%= link_to "RETOUR AUX PRODUITS", products_path, class:"btn btn-dark" %></p>
   </div>
   <p style="color: green"><%= notice %></p>
   <div style="margin-bottom:20vh">
     <% if user_signed_in? %>
       <%= form_with url: orders_path, method: :post do %>
         <%= hidden_field_tag 'cart_id', cart.id %>
-        <%= submit_tag 'Valider le panier', class: 'btn btn-primary' %>
+        <%= submit_tag 'Finaliser ma commande', style:"width:100%;justify-content:center;", class: 'btn btn-primary' %>
       <% end %>
     <% else %>
-      <%= link_to "Valider le panier", user_session_path, class: 'btn btn-primary' %>
+      <%= link_to "Finaliser ma commande", user_session_path, style:"width:100%;justify-content:center;", class: 'btn btn-primary d-flex justify-content-center' %>
     <% end %>
+    <div style="text-align:end;">
+      <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
+      class: "cartempty", remote: true %>
+    </div>
   </div>
 </div>
