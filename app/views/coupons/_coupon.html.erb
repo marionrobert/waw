@@ -1,10 +1,54 @@
 <div class="container">
-  <%= coupon.name %>
-  <%= coupon.amount_off if coupon.amount_off%>
-  <%= coupon.percent_off if coupon.percent_off%>
-  <%= coupon.currency %>
-  <%= coupon.duration %>
-  <%= coupon.duration_in_months if coupon.duration %>
-  <%= coupon.max_redemptions %>
-  <%= coupon.redeem_by %>
+
+  <p>
+      <strong>Nom:</strong>
+      <%= coupon.name %>
+  </p>
+  <p>
+      <strong>Code:</strong>
+      <%= coupon.code %>
+  </p>
+
+  <% if coupon.amount_off%>
+    <p>
+      <strong>Reduction fixe:</strong>
+      <%= coupon.amount_off %> €
+    </p>
+  <% end %>
+
+  <% if coupon.percent_off%>
+    <p>
+      <strong>Réduction en pourcentage:</strong>
+      <%= coupon.percent_off %> %
+    </p>
+  <% end %>
+
+  <% if coupon.max_redemptions%>
+    <p>
+      <strong>Nombre d'utilisation maximale:</strong>
+      <%= coupon.max_redemptions %>
+    </p>
+  <% end %>
+
+  <% if coupon.redeem_by%>
+    <p>
+      <strong>Date limite d'utilisation:</strong>
+      <%= coupon.redeem_by %>
+    </p>
+  <% end %>
+
+  <% if coupon.first_time_transaction%>
+    <p>
+      <strong>Seulement pour la premiere commande:</strong>
+      <%= coupon.first_time_transaction ? "Oui" : "Non" %>
+    </p>
+  <% end %>
+
+  <% if coupon.minimum_amount%>
+    <p>
+      <strong>Montant minimum:</strong>
+      <%= coupon.minimum_amount %> €
+    </p>
+  <% end %>
+
 </div>
