@@ -5,7 +5,7 @@
           <div class="form-inputs" >
             <%= coupon.input :name, placeholder: "nom du coupon"%>
             <%= coupon.input :code, placeholder: "code du coupon"%>
-            <%= coupon.input :amount_off, placeholder: "réduction net"%>
+            <%= coupon.input :percent_off, placeholder: "réduction en poucentage" %>
             <%= coupon.input :max_redemptions, placeholder: "quantité d'utilisation maximale" %>
             <%= coupon.input :redeem_by, as: :date, placeholder: "date limite d'utilisation" %>
             <%= coupon.input :first_time_transaction, as: :boolean, placeholder: "Que pour la première commande?" %>

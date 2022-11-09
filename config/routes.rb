@@ -41,4 +41,7 @@ Rails.application.routes.draw do
 
   # coupon
   resources :coupons
+  get "/amount_off", to: "coupons#amount_off", as: :amount_off_coupon
+  get "/percent_off", to: "coupons#percent_off", as: :percent_off_coupon
+
 end

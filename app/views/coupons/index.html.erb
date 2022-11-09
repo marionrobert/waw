@@ -5,11 +5,14 @@
     <div class="row d-flex justify-content-center">
       <% @coupons.each do |coupon| %>
         <% cache coupon do %>
-          <%= link_to "Plus de détails", coupon_path(coupon), class: "btn btn-primary mt-2 mb-2" %>
+          <%= link_to coupon.name, coupon_path(coupon), class: "btn btn-primary mt-2 mb-2" %>
         <%end%>
       <% end %>
-    <div class="nav-link active btn btn-warning" >
-      <%= link_to "Créer un coupon", new_coupon_path, style:"text-decoration:none;color:white;"%>
+    <div class="btn btn-primary mt-2 mb-2" >
+      <%= link_to "Créer un coupon en montant fixe", amount_off_coupon_path, style:"text-decoration:none;color:white;"%>
+    </div>
+    <div class="btn btn-primary mt-2 mb-2">
+      <%= link_to "Créer un coupon en pourcentage", percent_off_coupon_path, style:"text-decoration:none;color:white;"%>
     </div>
   </div>
 </div>
