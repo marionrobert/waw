@@ -22,7 +22,7 @@
         <div class="row", style="text-align:center">
           <div class="my-3" >
             <%= link_to "Modifier coupon", edit_product_path(@coupon), class: "btn btn-warning" %>
-            <%= link_to "Supprimer le coupon", @coupon, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+            <%= link_to "Supprimer le coupon", @coupon, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
           </div>
         </div>
       <% end%>

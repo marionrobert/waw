@@ -22,6 +22,7 @@ class CouponsController < ApplicationController
     if @coupon.save
       time = @coupon.redeem_by.to_time.to_i
       amount_off = @coupon.amount_off * 100 unless @coupon.amount_off.nil?
+      minimum_amount = @coupon.minimum_amount * 100 unless @coupon.minimum_amount.nil?
       coupon = Stripe::Coupon.create({  name: @coupon.name,
                                         amount_off: amount_off,
                                         currency: "EUR",
@@ -34,7 +35,7 @@ class CouponsController < ApplicationController
                                       max_redemptions: @coupon.max_redemptions,
                                       expires_at: time,
                                       restrictions: {  first_time_transaction: @coupon.first_time_transaction,
-                                                      minimum_amount: @coupon.minimum_amount,
+                                                      minimum_amount: minimum_amount,
                                                       minimum_amount_currency: "EUR" }  })
       @coupon.stripe_id = coupon.id
       @coupon.save
