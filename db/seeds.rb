@@ -3,6 +3,7 @@ require "open-uri"
 User.destroy_all
 Product.destroy_all
 Shop.destroy_all
+Coupon.destroy_all
 
 puts "creation users"
 user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
