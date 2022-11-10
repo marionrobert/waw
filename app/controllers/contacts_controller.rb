@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to thanks_contacts_path, success: "Votre message a bien été envoyé"
+      redirect_to shop_path(Shop.last), success: "Votre message a bien été envoyé"
     else
       render :new, status: :unprocessable_entity
     end
