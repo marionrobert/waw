@@ -38,4 +38,10 @@ Rails.application.routes.draw do
   resource :contacts, only: %i[new create] do
     get "/thanks" => "contacts#thanks"
   end
+
+  # coupon
+  resources :coupons
+  get "/amount_off", to: "coupons#amount_off", as: :amount_off_coupon
+  get "/percent_off", to: "coupons#percent_off", as: :percent_off_coupon
+
 end

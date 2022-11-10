@@ -1,0 +1,22 @@
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(200,200,200,0.7);border-radius:10px;">
+        <%= simple_form_for(@coupon) do |coupon| %>
+          <div class="form-inputs" >
+            <%= coupon.input :name, placeholder: "nom du coupon"%>
+            <%= coupon.input :code, placeholder: "code du coupon"%>
+            <%= coupon.input :amount_off, placeholder: "réduction net"%>
+            <%= coupon.input :max_redemptions, placeholder: "quantité d'utilisation maximale" %>
+            <%= coupon.input :redeem_by, as: :date, placeholder: "date limite d'utilisation" %>
+            <%= coupon.input :first_time_transaction, as: :boolean, placeholder: "Que pour la première commande?" %>
+            <%= coupon.input :minimum_amount, as: :integer, placeholder: "Montant minimum ?" %>
+          </div>
+
+          <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
+            <%= coupon.button :submit, class:"btn btn-success", value:"Ajouter le coupon"%>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>

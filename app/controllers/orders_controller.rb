@@ -57,6 +57,7 @@ class OrdersController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      allow_promotion_codes: true,
       shipping_address_collection: {
         allowed_countries: ['US', 'FR']
       },

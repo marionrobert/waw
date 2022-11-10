@@ -21,6 +21,11 @@
                 <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;color:white;"%>
               </li>
             <%end%>
+            <%if current_user && current_user.admin? %>
+              <li class="nav-item" >
+                <%= link_to "Ajouter une code promo", coupons_path, style:"text-decoration:none;"%>
+              </li>
+            <%end%>
             <%if !current_user %>
               <li class="nav-item">
                 <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
