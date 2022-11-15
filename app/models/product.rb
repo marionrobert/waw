@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   #en attente de debug error pour les images
   #validate :images, presence: true
 
+  scope :filter_by_name, -> (name) { where('name ILIKE ?', "%#{name}%") }
+
 
   include PgSearch::Model
     pg_search_scope :search_by_name,
