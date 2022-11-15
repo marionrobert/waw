@@ -15,3 +15,6 @@ application.register("panier", PanierController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
+
+import DebounceController from "./debounce_controller"
+application.register("debounce", DebounceController)
