@@ -1,5 +1,5 @@
 <% products.each do |product| %>
   <%= link_to product do %>
-    <%= highlight(product.name, params.dig(:name_search)) %>
+    <%= highlight(product.name, params.dig(:name_search), highlighter: '<strong>\1</strong>') %>
   <% end %>
 <% end %>
