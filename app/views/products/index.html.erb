@@ -1,6 +1,6 @@
 <%# searchbar %>
 <div class="main-bg">
-  <div class="container" , style="margin-top:10vh; position:absolute">
+  <div class="container" , style="margin-top:10vh">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0">
         <%= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex" do |form| %>
@@ -22,7 +22,7 @@
 
 
                               <%# affichage des produits %>
-  <div class="container pt-5" style="position:absolute; margin-top:135px;">
+  <div class="container pt-5">
     <h1 class="mb-5 text-center">Produits disponibles</h1>
     <div class="row d-flex justify-content-center">
         <% @products.each do |product| %>
