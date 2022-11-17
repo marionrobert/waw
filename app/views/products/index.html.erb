@@ -2,8 +2,8 @@
 <div class="main-bg">
   <div class="container" , style="margin-top:10vh">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8 col-lg-6">
-        <%= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex py-2" do |form| %>
+      <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0">
+        <%= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex" do |form| %>
           <%= text_field_tag :name_search,
             params[:name_search],
             class: "form-control",
@@ -13,8 +13,10 @@
           %>
           <%= submit_tag "Valider", class: "btn btn-primary p-2", style: "font-size:x-large;"%>
         <% end %>
-        <div id="search_results"></div>
       </div>
+    </div>
+    <div class="row justify-content-center">
+      <div id="search_results", class="col-sm-12 col-md-8 col-lg-6 d-flex flex-column" style="background-color:white; z-index:999"></div>
     </div>
   </div>
 
