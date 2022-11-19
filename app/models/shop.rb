@@ -1,4 +1,24 @@
 class Shop < ApplicationRecord
+
+  THEMEFONT = [
+              "'Courier New', Courier, monospace",
+              "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+              "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
+              "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+              "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              "'Times New Roman', Times, serif",
+              "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
+              "Arial, Helvetica, sans-serif",
+              "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+              "Georgia, 'Times New Roman', Times, serif",
+              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+              "Verdana, Geneva, Tahoma, sans-serif"
+            ]
+
+
+
+
+
   belongs_to :user, dependent: :destroy
   has_many :schedules
   accepts_nested_attributes_for :schedules, allow_destroy: true
@@ -7,6 +27,7 @@ class Shop < ApplicationRecord
   validates :siren, presence: true, uniqueness: true, length: { minimum: 9 }
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
+  validates :themefont, inclusion: { in: THEMEFONT}
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

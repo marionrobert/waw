@@ -1,85 +1,67 @@
-<div class="main-bg">
-
-  <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
-
-    <div class="mt-5">
-      <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
-        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
-      <% end %>
+<div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
+  <div class="mt-5">
+    <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
+      <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
+    <% end %>
+  </div>
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="col-sm-12 col-lg-6">
+      <%= render "carrousel-product", product: @product %>
     </div>
-
-    <div class="row d-flex justify-content-center mt-5">
-
-      <div class="col-sm-12 col-lg-6">
-        <%= render "carrousel-product", product: @product %>
-      </div>
-
-      <div class="col-sm-12 col-lg-6">
-          <%= content_tag(:h1, @product.name, data: {
-            share_target: "title"
-          }) %>
-          <%# <h1> %>
-            <%#= @product.name %>
-          <%# </h1> %>
-          <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-          <%= content_tag(:p, @product.description, data: {
-            share_target: "body"
-          }) %>
-          <%# <p>Description: %>
-            <%#= @product.description %>
-          <%# </p> %>
-      </div>
+    <div class="col-sm-12 col-lg-6">
+        <%= content_tag(:h1, @product.name, data: {
+          share_target: "title"
+        }) %>
+        <%# <h1> %>
+          <%#= @product.name %>
+        <%# </h1> %>
+        <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+        <%= content_tag(:p, @product.description, data: {
+          share_target: "body"
+        }) %>
+        <%# <p>Description: %>
+          <%#= @product.description %>
+        <%# </p> %>
     </div>
-
-    <div class="row">
-
-    <div class="col-sm-6">
-      <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
-        <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
-      <% end %>
-      <%# les éléments ci-dessous n'ont pas grand intérêt %>
-      <%= content_tag(:p, "", class:"result", data: {
-        share_target: "result"
-      }) %>
-    </div>
-    </div>
-
-
-
-
-
-    <div class="row">
-      <div class="button">
-        <% if user_signed_in? %>
-          <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
-          <%#= form_with url: orders_path do %>
-            <%#= hidden_field_tag 'product_id', @product.id %>
-            <%#= submit_tag 'Acheter', class: 'btn btn-primary' %>
-          <%# end %>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
-        <% else %>
-          <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
-          <%#= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
-        <% end %>
-      </div>
-    </div>
-
-
-
-
-    <div class="row my-5">
-      <% if current_user == nil || current_user.admin == false %>
-      <%else current_user.admin%>
-        <div class="row", style="text-align:center">
-          <div class="my-3" >
-            <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
-            <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
-          </div>
-        </div>
-      <% end%>
-    </div>
-
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
+      <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
+    <% end %>
+    <%# les éléments ci-dessous n'ont pas grand intérêt %>
+    <%= content_tag(:p, "", class:"result", data: {
+      share_target: "result"
+    }) %>
+  </div>
   </div>
 
+  <div class="row">
+    <div class="button">
+      <% if user_signed_in? %>
+        <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
+        <%#= form_with url: orders_path do %>
+          <%#= hidden_field_tag 'product_id', @product.id %>
+          <%#= submit_tag 'Acheter', class: 'btn btn-primary' %>
+        <%# end %>
+        <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
+      <% else %>
+        <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
+        <%#= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
+        <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <% if current_user == nil || current_user.admin == false %>
+    <%else current_user.admin%>
+      <div class="row", style="text-align:center">
+        <div class="my-3" >
+          <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
+          <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end%>
+  </div>
 </div>

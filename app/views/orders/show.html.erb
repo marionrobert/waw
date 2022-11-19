@@ -1,60 +1,55 @@
-<div class="main-bg">
+<div class="container">
+  <div class="d-flex justify-content-end">
+      <%= link_to profile_path, :class => "btn btn-dark mt-5" do%>
+          <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour à mon profil</span>
+        <% end %>
+  </div>
 
-  <div class="container">
-
-    <div class="d-flex justify-content-end">
-        <%= link_to profile_path, :class => "btn btn-dark mt-5" do%>
-            <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour à mon profil</span>
-          <% end %>
+  <div class="row py-4 mt-3">
+    <div class="col">
+      <h2>Numéro de commande: <%= @order.id %> </h2>
+      <p>Statut de votre commande: <%= @order.state %></p>
+      <p class="list-unstyled"><strong>Commande passée le </strong> <%= @order.created_at.to_date %></p>
+      <p>Livraison estimée sous <strong>7 jours ouvrés (en dur)</strong></p>
     </div>
+  </div>
+  <hr class="mb-5">
 
-
-    <div class="row py-4 mt-3">
-      <div class="col">
-        <h2>Numéro de commande: <%= @order.id %> </h2>
-        <p>Statut de votre commande: <%= @order.state %></p>
-        <p class="list-unstyled"><strong>Commande passée le </strong> <%= @order.created_at.to_date %></p>
-        <p>Livraison estimée sous <strong>7 jours ouvrés (en dur)</strong></p>
-      </div>
-    </div>
-    <hr class="mb-5">
-
-    <div>
-      <h4 class="mb-3">Contenu de la commande</h4>
-      <table>
+  <div>
+    <h4 class="mb-3">Contenu de la commande</h4>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.items.each do |key, value| %>
+          <div class="row">
+            <tr>
+              <td class="col-6" style="text-align:left"><%= @order.items[key]["name"] %>
+              <br>
+              <p style="margin-left:20px;text-decoration"><i><%= @order.items[key]["sku"] %></i></p></td>
+              <td class="col-1" style="text-align:right"><%= @order.items[key]["quantity"]  %></td>
+              <td class="col-1" style="text-align:right">
+                <span><%= (@order.items[key]["unit_amount"] / 100.00)  %> € ttc </span>
+              </td>
+              <td class="col-1" style="text-align:right">
+                <span><%= @order.items[key]["quantity"] * (@order.items[key]["unit_amount"] / 100.00) %> € ttc </span>
+              </td>
+            </tr>
+          </div>
+        <% end %>
         <thead>
           <tr>
-            <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
-          </tr>
+            <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">TOTAL</td>
+            <td class="col-1", style="text-align:right;", colspan="1">
+            <span><%= @sub_total.sum%> € ttc</span>
         </thead>
-        <tbody>
-          <% @order.items.each do |key, value| %>
-            <div class="row">
-              <tr>
-                <td class="col-6" style="text-align:left"><%= @order.items[key]["name"] %>
-                <br>
-                <p style="margin-left:20px;text-decoration"><i><%= @order.items[key]["sku"] %></i></p></td>
-                <td class="col-1" style="text-align:right"><%= @order.items[key]["quantity"]  %></td>
-                <td class="col-1" style="text-align:right">
-                  <span><%= (@order.items[key]["unit_amount"] / 100.00)  %> € ttc </span>
-                </td>
-                <td class="col-1" style="text-align:right">
-                  <span><%= @order.items[key]["quantity"] * (@order.items[key]["unit_amount"] / 100.00) %> € ttc </span>
-                </td>
-              </tr>
-            </div>
-          <% end %>
-          <thead>
-            <tr>
-              <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">TOTAL</td>
-              <td class="col-1", style="text-align:right;", colspan="1">
-              <span><%= @sub_total.sum%> € ttc</span>
-          </thead>
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
 </div>
