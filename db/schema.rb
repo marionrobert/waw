@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_153232) do
     t.string "siren"
     t.string "phone"
     t.string "address"
+    t.string "card"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"

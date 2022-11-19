@@ -2,10 +2,17 @@
  <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
     <div class="container-fluid">
       <%= link_to "ACCUEIL", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
-
-      <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
+      <div class="btncart", style="position:relative" data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
+        <%if @cart.line_items.count > 0%>
+          <div style="background:yellow;position:absolute;bottom:0;right:0;padding:3px;">
+            <% cartcontent = [] %>
+            <%@cart.line_items.each do |item|%>
+            <%cartcontent << item.quantity %>
+            <%end%>
+            <%=cartcontent.sum%>
+          </div>
+        <%end%>
       </div>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,27 +41,9 @@
             <li class="nav-item active">
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
             </li>
-            <%if current_user %>
-            <li class="nav-item">
-              <%= link_to "Panier", "/", style:"text-decoration:none;"%>
-            </li>
-            <%end%>
             <li class="nav-item">
               <%= link_to "Horaires et contacts", shop_path(Shop.first) , style:"text-decoration:none;"%>
             </li>
-            <%# <li class="nav-link active"> %>
-              <%# if current_user && current_user.admin? %>
-                <%# if Shop.count > 0%>
-                  <%# if Shop.first.schedules.any? %>
-                    <%# path de modifier les horaires à réparer %>
-                    <%#= link_to "Modifier les Sdonnées du magasin", edit_shop_path(Shop.first), style:"text-decoration:none;"%>
-                  <%# else %>
-                    <%#= link_to "Ajouter mes horaires d'ouverture", new_shop_path, style:"text-decoration:none;"%>
-                  <%# end %>
-                <%# else %>
-                  <%#= link_to "Créer mon magasin", new_shop_path, style:"text-decoration:none;"%>
-                <%# end %>
-              <%# end %>
             <%if current_user%>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="text-decoration:none; color:blue;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

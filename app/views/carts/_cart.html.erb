@@ -38,8 +38,15 @@
                 <%# celle du tuto %>
                 </td>
               </tr>
+
+
             </div>
           <% end %>
+              <% cartcontent = [] %>
+              <%cart.line_items.each do |item|%>
+              <%cartcontent << item.quantity %>
+              <%end%>
+              <%=cartcontent.sum%>
         <thead>
           <tr>
             <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>
