@@ -1,33 +1,23 @@
-<div class="main-bg">
-
-  <div class="container" data-controller="share" data-share-url-value= "<%= coupon_url(@coupon) %>">
-
-    <div class="mt-5">
-      <%= link_to coupons_path, :class => "btn btn-dark mt-5" do%>
-        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux coupons</span>
-      <% end %>
-    </div>
-
-    <div class="row d-flex justify-content-center mt-5">
-
-      <div class="col-sm-12 col-lg-6">
-        <%= render "coupon", coupon: @coupon %>
-      </div>
-    </div>
-
-
-    <div class="row my-5">
-      <% if current_user == nil || current_user.admin == false %>
-      <%else current_user.admin%>
-        <div class="row", style="text-align:center">
-          <div class="my-3" >
-            <%= link_to "Modifier coupon", edit_product_path(@coupon), class: "btn btn-warning" %>
-            <%= link_to "Supprimer le coupon", @coupon, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-          </div>
-        </div>
-      <% end%>
-    </div>
-
+<div class="container" data-controller="share" data-share-url-value= "<%= coupon_url(@coupon) %>">
+  <div class="mt-5">
+    <%= link_to coupons_path, :class => "btn btn-dark mt-5" do%>
+      <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux coupons</span>
+    <% end %>
   </div>
-
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="col-sm-12 col-lg-6">
+      <%= render "coupon", coupon: @coupon %>
+    </div>
+  </div>
+  <div class="row my-5">
+    <% if current_user == nil || current_user.admin == false %>
+    <%else current_user.admin%>
+      <div class="row", style="text-align:center">
+        <div class="my-3" >
+          <%= link_to "Modifier coupon", edit_product_path(@coupon), class: "btn btn-warning" %>
+          <%= link_to "Supprimer le coupon", @coupon, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end%>
+  </div>
 </div>

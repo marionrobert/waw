@@ -8,6 +8,8 @@ class CreateShops < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :address
       t.string :card
+      t.string :themebgcolor, default: "white"
+      t.string :themefont, default: "arial"
       t.timestamps
     end
   end
