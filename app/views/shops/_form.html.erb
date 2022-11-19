@@ -10,6 +10,8 @@
     <%= f.input :siren, label: "Numéro de SIREN", label_html:{ class:"labelcolor" }  %>
     <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
     <%= f.input :footer, as: :file, label: "Pied de page", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :themebgcolor, as: :color, input_html: { style:"width:200px;height:150px" }, label: "Couleur d'arrière-plan", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :themefont, collection: Shop::THEMEFONT,label: "Police d'ecriture", label_html:{ class:"labelcolor" }  %>
     <table class="schedule-editor labelcolor">
       <thead>
         <tr>
@@ -50,6 +52,6 @@
     </table>
   </div>
   <div class="form-actions d-flex justify-content-center">
-      <%= f.button :submit, class:"btn btn-dark", value:"Valider"%>
+      <%= f.button :submit, class:"btn btn-dark m-5", value:"Valider"%>
   </div>
 <% end %>

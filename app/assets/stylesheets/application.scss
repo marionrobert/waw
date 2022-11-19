@@ -17,9 +17,13 @@
   box-sizing: border-box;
 }
 
+.bgcolorsizebutton {
+  width:150px;
+  height:150px;
+}
+
 .main-bg {
   min-height: 100vh;
-  background: $background-color;
   position: relative;
   z-index: 5;
 }
@@ -29,7 +33,7 @@
 }
 
 table {
-  font-family: arial;
+  // font-family: arial;
 }
 
 
@@ -65,12 +69,12 @@ tfoot {
     z-index: 1001;
     background-color:white;
     // background-color: rgba(0,0,0,0.0);
-    transition-duration: 650ms;
+    transition-duration: 500ms;
   }
 
   .open {
     position:fixed;
-    transition-duration: 650ms;
+    transition-duration: 500ms;
     transform:translateX(100%);
     background-color:white;
   }
