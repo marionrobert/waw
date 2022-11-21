@@ -12,7 +12,7 @@ user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: 
 user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
 
 puts "#{User.count} utilisateurs créés"
-puts "2 admins, 2 non admins"
+puts "1 admin, 3 non admins"
 
 puts "creation des produits"
 
@@ -58,6 +58,6 @@ product_five.photos.attach(io: file3, filename: "product_five_photo.png")
 
 puts "#{Product.count} produits créés"
 
-Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789", address: "7 rue de la Brèche Beaulieu, 77610 Crèvecoeur-en-Brie",, card: "card1", themebgcolor: "white", themefont: "arial" )
+Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789", address: "7 rue de la Brèche Beaulieu, 77610 Crèvecoeur-en-Brie", card: "card3", themebgcolor: "white", themefont: "'Courier New', Courier, monospace" )
 
 puts "#{Shop.count} générée"

@@ -17,13 +17,9 @@
   box-sizing: border-box;
 }
 
-.bgcolorsizebutton {
-  width:150px;
-  height:150px;
-}
-
 .main-bg {
   min-height: 100vh;
+  background: $background-color;
   position: relative;
   z-index: 5;
 }
@@ -33,7 +29,7 @@
 }
 
 table {
-  // font-family: arial;
+  font-family: arial;
 }
 
 
@@ -69,12 +65,12 @@ tfoot {
     z-index: 1001;
     background-color:white;
     // background-color: rgba(0,0,0,0.0);
-    transition-duration: 500ms;
+    transition-duration: 650ms;
   }
 
   .open {
     position:fixed;
-    transition-duration: 500ms;
+    transition-duration: 650ms;
     transform:translateX(100%);
     background-color:white;
   }
@@ -137,7 +133,22 @@ tfoot {
   box-shadow: inset 3px 3px rgba(200,200,200,0.7);
 }
 
+.spin_zoom_img {
+  background-size: cover;
+  transition: transform .7s ease-in-out;
+  overflow: hidden;
+}
 
+.spin_zoom_img:hover {
+  transform: rotate(10deg) scale(120%);
+}
 
-
-
+.circle_items_count {
+  background:rgba(254, 169, 1, 0.8);
+  position:absolute;
+  bottom:0;
+  right:-8px;
+  border-radius:50%;
+  border: 1px solid rgba(90, 61, 3, 0.8);
+  padding:12px;
+}
