@@ -4,7 +4,9 @@
       <%= link_to "ACCUEIL", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
       <div class="btncart", style="position:relative" data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
         <%if @cart.line_items.count > 0%>
-          <div style="background:yellow;position:absolute;bottom:0;right:0;padding:3px;">
+          <div class="circle_items_count">
+          </div>
+          <div style="position:absolute;bottom:0;right:0;">
             <% cartcontent = [] %>
             <%@cart.line_items.each do |item|%>
             <%cartcontent << item.quantity %>

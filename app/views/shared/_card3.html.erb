@@ -4,12 +4,14 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
           <div class="card-sl3">
           <% if product.photos.attached? %>
+            <div style="background-size:cover;overflow:hidden;">
               <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <%= cl_image_tag product.photos.first.key, class:"card-image3"%>
+                <%= cl_image_tag product.photos.first.key, class:"spin_zoom_img card-image3"%>
+            </div>
               <%end%>
             <%else %>
               <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="card-image3" alt="no_images_available" >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="spin_zoom_img card-image3" alt="no_images_available" >
               <%end%>
             <%end%>
           </div>
