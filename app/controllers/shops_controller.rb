@@ -63,6 +63,7 @@ class ShopsController < ApplicationController
       :siren,
       :banner,
       :footer,
+      :card,
       :themebgcolor,
       :themefont,
       schedules_attributes: %i[id am_opens_at am_closes_at pm_opens_at pm_closes_at weekday destroy]

@@ -1,5 +1,7 @@
 class Shop < ApplicationRecord
 
+  CARD = ["card1","card2","card3"]
+
   THEMEFONT = [
               "'Courier New', Courier, monospace",
               "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
@@ -15,10 +17,6 @@ class Shop < ApplicationRecord
               "Verdana, Geneva, Tahoma, sans-serif"
             ]
 
-
-
-
-
   belongs_to :user, dependent: :destroy
   has_many :schedules
   accepts_nested_attributes_for :schedules, allow_destroy: true
@@ -27,6 +25,7 @@ class Shop < ApplicationRecord
   validates :siren, presence: true, uniqueness: true, length: { minimum: 9 }
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
+  validates :card, inclusion: { in: CARD }
   validates :themefont, inclusion: { in: THEMEFONT}
 
   geocoded_by :address
