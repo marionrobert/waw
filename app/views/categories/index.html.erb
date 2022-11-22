@@ -14,10 +14,18 @@
         <div class="form-inputs" >
           <%= category.input :name, collection: Category.all, default: Category.first, label:"Choisir la categorie", label_html:{ class:"labelcolor" } %>
         </div>
-        <div class="form-action" >
-          <%= button_to "CHOISIR ET CONTINUER",  new_category_subcategory_path(category), class:"btn btn-success", remote: true %>
+        <div class="form-actions">
+            <%= category.button :submit, class:"btn btn-success", remote: true, value:"CHOISIR ET CONTINUER"%>
         </div>
         <% end %>
+
+
+
+
+        <%# <div class="form-action" > %>
+          <%#= button_to "CHOISIR ET CONTINUER",  new_category_subcategory_path(category), class:"btn btn-success", remote: true %>
+        <%# </div> %>
+        <%# end %>
 
 
         <div style="padding-top:50px">
