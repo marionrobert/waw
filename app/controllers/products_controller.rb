@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   include CurrentCart
-
+  before_action :set_subcategory, except: %i[search]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @subcategories = Subcategory.all
     if params[:query].present?
       @products = Product.search_by_name("%#{params[:query]}%")
     else
@@ -70,7 +71,22 @@ class ProductsController < ApplicationController
 
 private
 
+  def set_subcategory
+    @categories = Category.all
+    @subcategory = Subcategory.where(category_id: 1)
+  end
+
   def product_params
-    params.require(:product).permit(:name, :sku, :description, :images, :price_cents, photos: [])
+    params.require(:product).permit(
+      :name,
+      :category_id,
+      # :subcategory,
+      :subcategory_id,
+      :sku,
+      :description,
+      :images,
+      :price_cents,
+      photos: []
+    )
   end
 end

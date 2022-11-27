@@ -18,3 +18,6 @@ application.register("share", ShareController)
 
 import DebounceController from "./debounce_controller"
 application.register("debounce", DebounceController)
+
+import CategoryController from "./category_controller"
+application.register("category", CategoryController)

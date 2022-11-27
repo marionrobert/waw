@@ -1,7 +1,13 @@
 <main class="navfixed">
  <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
     <div class="container-fluid">
-      <%= link_to "ACCUEIL", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+      <%= link_to "ACCUEIL", "/", class:"acceuil navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+
+      <div class="displaybtncategories", data-controller="category", data-action="click->category#displaycategorymenu">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
+      </div>
+
+
       <div class="btncart", style="position:relative" data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
         <%if @cart.line_items.count > 0%>
           <div class="circle_items_count">
@@ -25,12 +31,6 @@
         </div>
         <div class="offcanvas-body" style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <%if current_user && current_user.admin? %>
-              <li class="nav-link active btn btn-warning" >
-                <%= link_to "AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT", categories_path, style:"text-decoration:none;color:yellow;background:red;"%>
-              </li>
-            <%end%>
-            <br>
             <%if current_user && current_user.admin? %>
               <li class="nav-link active btn btn-warning" >
                 <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;color:white;"%>
@@ -68,6 +68,11 @@
                   <li><a class="dropdown-item" href="/contacts/new">Formulaire de contact</a></li>
                 </ul>
               </li>
+            <%if current_user && current_user.admin? %>
+              <li class="nav-link active btn btn-warning" >
+                <%= link_to "(BETA) AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT (TEST)", categories_path, style:"text-decoration:none;color:yellow;background:red;"%>
+              </li>
+            <%end%>
             <%end%>
           </ul>
         </div>

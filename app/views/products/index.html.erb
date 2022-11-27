@@ -1,7 +1,10 @@
 <%# searchbar %>
-<div class="main-bg">
-  <div class="container" , style="margin-top:10vh">
-    <div class="row justify-content-center">
+<%# <div class="main-bg"> %>
+
+
+  <%# <div class="container" , style="margin-top:10vh"> %>
+
+    <div class="row justify-content-center" style="padding-top:10vh;">
       <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0">
         <%= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex" do |form| %>
           <%= text_field_tag :name_search,
@@ -18,11 +21,72 @@
     <div class="row justify-content-center">
       <div id="search_results", class="col-sm-12 col-md-8 col-lg-6 d-flex flex-column" style="background-color:white; z-index:999"></div>
       </div>
+
+    <%# CATEGORY UNE PAR UNE (TEST)%>
+      <div id="categories_left_barre" data-controller="category", data-action="mouseover->category#div_categories_first_slide">
+        <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
+      </div>
+
+      <div id="smalldevicecategories" class="MENUCATEGORY">
+        <div class="categorymenu" data-controller="category", data-action="click->category#subcat0">
+        <%# IL FAUDRAIT UTILISER MOUSEOVER PLUTOT QUE CLICK SI @MEDIA = DESKTOP %>
+          <%=Category.first.name%>
+        </div>
+        <div class="categorymenu" data-controller="category", data-action="click->category#subcat1">
+          <%=Category.second.name%>
+        </div>
+        <div class="categorymenu" data-controller="category", data-action="click->category#subcat2">
+          <%=Category.third.name%>
+        </div>
+          <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow", data-controller="category", data-action="click->category#catremove">
+      </div>
+
+            <div id="subcat0" class="subcategorymenu subcat_id0">
+              <%@subcategories.where(category_id: 1).each do |subcat|%>
+                <ul class="subcathover"><%=subcat.name%></ul>
+              <%end%>
+                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
+            </div>
+
+            <div id="subcat1" class="subcategorymenu subcat_id1">
+              <%@subcategories.where(category_id: 2).each do |subcat|%>
+                <ul class="subcathover"><%=subcat.name%></ul>
+              <%end%>
+                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
+            </div>
+
+            <div id="subcat2" class="subcategorymenu subcat_id2">
+              <%@subcategories.where(category_id: 3).each do |subcat|%>
+                <ul class="subcathover"><%=subcat.name%></ul>
+              <%end%>
+                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
+            </div>
+<%# <br> %>
+
+      <%# TOUTE LES CATEGORIES MAIS BUG DE SOUSCATEGORIE AU DEPLOYEMENT %>
+        <%#i=1%>
+
+          <%#@categories.each do |cat|%>
+
+            <%# <div style="background:pink;" data-controller="category", data-action="click->category#subcat"> %>
+              <%#=cat.name%>
+            <%# </div> %>
+
+              <%# <div id="subcat" class="DISPLAY"> %>
+                <%#@subcategories.where(category_id: i).each do |subcat|%>
+                  <%# <ul> %>
+                  <%#=subcat.name%>
+                  <%# </ul> %>
+                <%#end%>
+              <%# </div> %>
+        <%#i+=1%>
+          <%#end%>
+
+
       <%# //LE TYPE DE CARD ICI %>
       <div class="container pt-5">
         <h1 class="mb-5 text-center">Produits disponibles</h1>
         <%= render "shared/#{Shop.first.card}"%>
       </div>
     </div>
-  </div>
-</div>
+  <%# </div> %>
