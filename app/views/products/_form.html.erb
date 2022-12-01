@@ -1,24 +1,29 @@
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(130,130,130,0.3);border-radius:10px;">
-        <%= simple_form_for(@product) do |product| %>
-          <%#= product.error_notification %>
-          <%#= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
-          <div class="form-inputs" >
-            <%= product.input :name, placeholder: "nom du produit", label_html:{ class:"labelcolor" }%>
-            <%= product.input :sku, placeholder: "reference interne", label_html:{ class:"labelcolor" }%>
-            <%= product.input :description, placeholder: "brève description", label_html:{ class:"labelcolor" } %>
-            <%= product.input :price_cents, placeholder: "2990", label_html:{ class:"labelcolor" } %>
-            <%= product.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
-          </div>
-          <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
-            <% if @product.name.nil? %>
-              <%= product.button :submit, class:"btn btn-success", value:"Ajouter le produit"%>
-            <% else %>
-              <%= product.button :submit, class:"btn btn-success", value:"Mettre à jour le produit"%>
-            <% end %>
-          </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(130,130,130,0.3);border-radius:10px;">
+
+      <%= simple_form_for(@product) do |product| %>
+        <%= product.error_notification %>
+        <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+        <div class="form-inputs" >
+          <%= product.input :subcategory_id, collection: Subcategory.all.order('name'), label_html:{ class:"labelcolor" }%>
+          <%= product.input :name, placeholder: "nom du produit", label_html:{ class:"labelcolor" }%>
+          <%= product.input :sku, placeholder: "reference interne", label_html:{ class:"labelcolor" }%>
+          <%= product.input :description, placeholder: "brève description", label_html:{ class:"labelcolor" } %>
+          <%= product.input :price_cents, placeholder: "2990", label_html:{ class:"labelcolor" } %>
+          <%= product.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
+        </div>
+        <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
+          <% if @product.name.nil? %>
+            <%= product.button :submit, class:"btn btn-success", value:"Ajouter le produit"%>
+
+<%# L'idée ce serait ca pour Category et Subcategory, voir snipet en bas de page %>
+<%# https://stackoverflow.com/questions/48273425/how-to-make-auto-select-using-drop-down-selection %>
+
+
           <% end %>
-      </div>
+        </div>
+        <% end %>
     </div>
   </div>
+</div>

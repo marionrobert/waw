@@ -2,8 +2,9 @@ class Product < ApplicationRecord
   monetize :price_cents
   has_many_attached :photos
   has_many :line_items, dependent: :nullify
-
-  validates :description, :name, :price_cents, presence: true
+  belongs_to :subcategory
+  validates :description, :name, :price_cents, :subcategory_id, presence: true
+  delegate :category, to: :subcategory, allow_nil: true
   #en attente de debug error pour les images
   #validate :images, presence: true
 

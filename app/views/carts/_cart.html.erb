@@ -1,9 +1,9 @@
-    <div style="text-align:end;">
-<button class="btn btn-warning", style="z-index:1001;", data-controller="panier", data-action="click->panier#removePanier">X
-</button>
-    </div>
+<div style="text-align:end;">
+  <button class="btn btn-warning", style="z-index:1001;margin-top:10vh;", data-controller="panier", data-action="click->panier#removePanier">X
+  </button>
+</div>
   <h2 style="text-align:center">Panier en cours</h2>
-<div class="container", style="margin-top:15vh">
+<div class="container p-2">
   <div>
       <table>
         <thead>
@@ -42,11 +42,7 @@
 
             </div>
           <% end %>
-              <% cartcontent = [] %>
-              <%cart.line_items.each do |item|%>
-              <%cartcontent << item.quantity %>
-              <%end%>
-              <%=cartcontent.sum%>
+
         <thead>
           <tr>
             <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>

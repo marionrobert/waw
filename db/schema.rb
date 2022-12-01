@@ -47,6 +47,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_153232) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -100,7 +106,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_153232) do
     t.string "images", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "subcategory_id", null: false
     t.integer "price_cents", default: 0, null: false
+    t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -132,6 +140,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_153232) do
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -154,6 +170,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_153232) do
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "subcategories"
   add_foreign_key "schedules", "shops"
   add_foreign_key "shops", "users"
+  add_foreign_key "subcategories", "categories"
 end
