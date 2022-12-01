@@ -51,4 +51,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # favorites
+  resources :products, only: [:index, :show] do
+    resources :favorites, only: [:create]
+  end
+
+  resources :favorites, only: [:index, :destroy]
+
 end
