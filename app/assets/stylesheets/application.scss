@@ -65,12 +65,12 @@ tfoot {
     z-index: 1001;
     background-color:white;
     // background-color: rgba(0,0,0,0.0);
-    transition-duration: 650ms;
+    transition-duration: 350ms;
   }
 
   .open {
     position:fixed;
-    transition-duration: 650ms;
+    transition-duration: 350ms;
     transform:translateX(100%);
     background-color:white;
   }
@@ -116,7 +116,7 @@ tfoot {
   position:fixed;
   top: 0;
   transition-duration: 500ms;
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   z-index: 1000;
 }
@@ -137,6 +137,7 @@ tfoot {
   background-size: cover;
   transition: transform .7s ease-in-out;
   overflow: hidden;
+  // z-index:1;
 }
 
 .spin_zoom_img:hover {
@@ -152,3 +153,188 @@ tfoot {
   border: 1px solid rgba(90, 61, 3, 0.8);
   padding:12px;
 }
+
+
+@media screen and (max-width: 481px) {
+  .acceuil{
+    display:none;
+  }
+}
+
+.displaysubcat {
+  transition-duration: 350ms;
+  transform:translateX(100%);
+}
+
+@media screen and (max-width: 481px) {
+  .MENUCATEGORY {
+    position:absolute;
+    top:0;
+    left:-190vw;
+    padding-left: 2rem;
+    padding-top: 10vh;
+    position:fixed;
+    height:110vh;
+    width:95vw;
+    background: rgb(247,247,247);
+    border-right: 2px solid grey;
+    z-index:100;
+  }
+
+  .displaycat {
+    transition-duration: 350ms;
+    transform:translateX(200%);
+  }
+
+  .subcategorymenu {
+    position:absolute;
+    top:0;
+    left:-95vw;
+    padding-top: 10vh;
+    position:fixed;
+    height:110vh;
+    width:95vw;
+    background: grey;
+    border-right:2px solid grey;
+    z-index:101;
+  }
+
+
+
+  .removeMenuArrow {
+    transform: rotate(50deg);
+    position:absolute;
+    bottom:20vh;
+    left:45vw;
+  }
+
+  .removeMenuArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #removeMenuCatArrow {
+    transform: rotate(50deg);
+    position:absolute;
+    bottom:20vh;
+    left:45vw;
+  }
+
+  #removeMenuCatArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #categories_left_barre {
+    display:none;
+  }
+}
+
+@media screen and (min-width: 481px) {
+
+  #categories_left_barre {
+    position:absolute;
+    top:35vh;
+    left:0vw;
+    position:fixed;
+    height:30vh;
+    width:3vw;
+    background: black;
+    color:white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index:101;
+    }
+
+    #removeMenuCatArrow {
+      transform: rotate(50deg);
+      position: absolute;
+      height: 50px;
+      z-index: 102;
+      bottom: 10%;
+      left: 45%;
+    }
+
+    #removeMenuCatArrow:hover {
+      transition-duration: 500ms;
+      transform: rotate(-310deg);
+    }
+
+    .removeMenuArrow {
+      transform: rotate(50deg);
+      position: absolute;
+      height: 50px;
+      z-index: 102;
+      bottom: 10%;
+      left: 45%;
+    }
+    .removeMenuArrow:hover {
+      transition-duration: 500ms;
+      transform: rotate(-310deg);
+    }
+
+    .displaybtncategories {
+      display:none;
+    }
+
+
+    .MENUCATEGORY {
+      position:absolute;
+      top:0;
+      left:-15vw;
+      padding-left: 2vw;
+      padding-top: 10vh;
+      position:fixed;
+      height:100vh;
+      width:15vw;
+      background: rgb(247,247,247);
+      border-right:2px solid grey;
+      z-index:102;
+    }
+
+  .subcategorymenu {
+    position:absolute;
+    top:0;
+    left:-15vw;
+    padding-top: 10vh;
+    position:fixed;
+    height:100vh;
+    width:15vw;
+    background: rgb(240,240,240);
+    border-right:2px solid grey;
+  }
+
+  .subcathover:hover {
+    text-decoration: underline;
+    cursor:pointer;
+    transition-duration: 350ms;
+    transform:translateX(1vw);
+  }
+
+  .displaysubcat {
+    transition-duration: 350ms;
+    transform:translateX(200%);
+  }
+
+  .displaycat {
+    transition-duration: 350ms;
+    transform:translateX(100%);
+  }
+
+}
+
+.categorymenu {
+  padding-bottom:4vh;
+}
+
+.categorymenu:hover {
+  transition-duration: 350ms;
+  transform:translateX(1vw);
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.category_index {
+  display: none;
+}
+

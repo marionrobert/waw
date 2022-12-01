@@ -21,3 +21,7 @@ application.register("panier", PanierController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
+
+import CategoryController from "./category_controller"
+application.register("category", CategoryController)
+

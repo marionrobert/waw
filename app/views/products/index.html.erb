@@ -1,7 +1,10 @@
 <%# searchbar %>
-<div class="main-bg">
-  <div class="container" , style="margin-top:10vh">
-    <div class="row justify-content-center">
+<%# <div class="main-bg"> %>
+
+
+  <%# <div class="container" , style="margin-top:10vh"> %>
+
+    <div class="row justify-content-center" style="padding-top:10vh;">
       <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0">
         <%= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex" do |form| %>
           <%= text_field_tag :name_search,
@@ -18,13 +21,69 @@
     <div class="row justify-content-center">
       <div id="search_results", class="col-sm-12 col-md-8 col-lg-6 d-flex flex-column" style="background-color:white; z-index:999"></div>
       </div>
+
+    <%# CATEGORY UNE PAR UNE (TEST)%>
+    <div data-controller="category">
+
+      <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
+          <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
+      </div>
+
+      <%# IL FAUDRAIT UTILISER MOUSEOVER PLUTOT QUE CLICK SI @MEDIA = DESKTOP %>
+      <div id="smalldevicecategories" class="MENUCATEGORY" >
+        <% Category.all.each_with_index do |category, index| %>
+          <div class="categorymenu", data-action="click->category#displaysubcategory">
+            <p><%=category.name%></p>
+          </div>
+        <% end %>
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow" data-action="click->category#hidecategorymenu">
+      </div>
+
+      <%# les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
+      <div style="background:red">
+        <div id="subcat" class="subcategorymenu">
+          <% Subcategory.all.each do |subcategory| %>
+            <p class="subcat <%=subcategory.category.name%>"><%= subcategory.name %></p>
+          <% end %>
+          <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow" data-action="click->category#subcatremove">
+        </div>
+      </div>
+
+
+    </div>
+
+<% console %>
+
+
+
+<%# <br> %>
+
+      <%# TOUTE LES CATEGORIES MAIS BUG DE SOUSCATEGORIE AU DEPLOYEMENT %>
+        <%#i=1%>
+
+          <%#@categories.each do |cat|%>
+
+            <%# <div style="background:pink;" data-controller="category", data-action="click->category#subcat"> %>
+              <%#=cat.name%>
+            <%# </div> %>
+
+              <%# <div id="subcat" class="DISPLAY"> %>
+                <%#@subcategories.where(category_id: i).each do |subcat|%>
+                  <%# <ul> %>
+                  <%#=subcat.name%>
+                  <%# </ul> %>
+                <%#end%>
+              <%# </div> %>
+        <%#i+=1%>
+          <%#end%>
+
+
       <%# //LE TYPE DE CARD ICI %>
       <div class="container pt-5">
         <h1 class="mb-5 text-center">Produits disponibles</h1>
         <%= render "shared/#{Shop.first.card}"%>
       </div>
     </div>
-  </div>
-<%= console %>
-</div>
+
+  <%# </div> %>
 

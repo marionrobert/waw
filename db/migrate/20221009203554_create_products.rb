@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :images, array: true, default: []
       t.timestamps
+      t.references :subcategory, null: false, foreign_key: true
     end
   end
 end
