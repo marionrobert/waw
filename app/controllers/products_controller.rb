@@ -73,7 +73,6 @@ private
 
   def set_subcategory
     @categories = Category.all
-    @subcategory = Subcategory.where(category_id: 1)
   end
 
   def product_params

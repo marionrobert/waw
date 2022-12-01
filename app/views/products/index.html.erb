@@ -23,44 +23,39 @@
       </div>
 
     <%# CATEGORY UNE PAR UNE (TEST)%>
-      <div id="categories_left_barre" data-controller="category", data-action="mouseover->category#div_categories_first_slide">
-        <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
+    <div data-controller="category">
+
+      <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
+          <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
 
-      <div id="smalldevicecategories" class="MENUCATEGORY">
-        <div class="categorymenu" data-controller="category", data-action="click->category#subcat0">
-        <%# IL FAUDRAIT UTILISER MOUSEOVER PLUTOT QUE CLICK SI @MEDIA = DESKTOP %>
-          <%=Category.first.name%>
-        </div>
-        <div class="categorymenu" data-controller="category", data-action="click->category#subcat1">
-          <%=Category.second.name%>
-        </div>
-        <div class="categorymenu" data-controller="category", data-action="click->category#subcat2">
-          <%=Category.third.name%>
-        </div>
-          <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow", data-controller="category", data-action="click->category#catremove">
+      <%# IL FAUDRAIT UTILISER MOUSEOVER PLUTOT QUE CLICK SI @MEDIA = DESKTOP %>
+      <div id="smalldevicecategories" class="MENUCATEGORY" >
+        <% Category.all.each_with_index do |category, index| %>
+          <div class="categorymenu", data-action="click->category#displaysubcategory">
+            <p><%=category.name%></p>
+          </div>
+        <% end %>
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow" data-action="click->category#hidecategorymenu">
       </div>
 
-            <div id="subcat0" class="subcategorymenu subcat_id0">
-              <%@subcategories.where(category_id: 1).each do |subcat|%>
-                <ul class="subcathover"><%=subcat.name%></ul>
-              <%end%>
-                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
-            </div>
+      <%# les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
+      <div style="background:red">
+        <div id="subcat" class="subcategorymenu">
+          <% Subcategory.all.each do |subcategory| %>
+            <p class="subcat <%=subcategory.category.name%>"><%= subcategory.name %></p>
+          <% end %>
+          <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow" data-action="click->category#subcatremove">
+        </div>
+      </div>
 
-            <div id="subcat1" class="subcategorymenu subcat_id1">
-              <%@subcategories.where(category_id: 2).each do |subcat|%>
-                <ul class="subcathover"><%=subcat.name%></ul>
-              <%end%>
-                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
-            </div>
 
-            <div id="subcat2" class="subcategorymenu subcat_id2">
-              <%@subcategories.where(category_id: 3).each do |subcat|%>
-                <ul class="subcathover"><%=subcat.name%></ul>
-              <%end%>
-                <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:102;" class="removeMenuArrow", data-controller="category", data-action="click->category#subcatremove">
-            </div>
+    </div>
+
+<% console %>
+
+
+
 <%# <br> %>
 
       <%# TOUTE LES CATEGORIES MAIS BUG DE SOUSCATEGORIE AU DEPLOYEMENT %>

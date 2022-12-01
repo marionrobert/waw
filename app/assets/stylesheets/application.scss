@@ -194,7 +194,7 @@ tfoot {
     position:fixed;
     height:110vh;
     width:95vw;
-    background: rgb(240,240,240);
+    background: grey;
     border-right:2px solid grey;
     z-index:101;
   }
@@ -333,3 +333,8 @@ tfoot {
   text-decoration: underline;
   cursor:pointer;
 }
+
+.category_index {
+  display: none;
+}
+
