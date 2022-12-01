@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center" data-controller="favorites">
     <% @products.each do |product| %>
       <% cache product do %>
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
@@ -15,7 +15,7 @@
               <%end%>
             <%end%>
           </div>
-            <a class="card-action3" href="#"><i class="fa fa-heart"></i></a>
+            <i class="card-action3 fa fa-heart <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action="click->favorites#fav" data-favorites-product-id-param="<%= product.id %>"></i>
             <div class="card-heading3">
               <%= link_to product_path(product), style:"text-decoration:none;" do %>
                 <%=product.name%>
