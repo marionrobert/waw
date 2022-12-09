@@ -6,7 +6,11 @@
   </div>
   <div class="row d-flex justify-content-center mt-5">
     <div class="col-sm-12 col-lg-6">
-      <%= render "carrousel-product", product: @product %>
+      <% if @product.photos.attached? %>
+        <%= render "carrousel-product", product: @product %>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", size: "250x250", alt: "Pas d'image disponible", class: 'd-block mx-auto')  %>
+      <% end %>
     </div>
     <div class="col-sm-12 col-lg-6">
         <%= content_tag(:h1, @product.name, data: {
