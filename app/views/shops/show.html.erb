@@ -16,14 +16,14 @@
     </div>
   </div>
   <div class="row d-flex justify-content-around">
-    <div class="col-md-5 mb-5">
+    <div class="col-md-5 my-auto">
       <% if @shop.photos.attached? %>
         <%= render "carrousel-shop", shop: @shop  %>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", size: "250x250", alt: "Pas d'image disponible", class: 'd-block mx-auto')  %>
       <% end %>
     </div>
-    <div class="col-md-5 mb-5">
+    <div class="col-md-5 my-auto">
       <table class="table table-sm">
         <h5 class="mt-3 font-weight-bold" style="text-align:center">Nos horaires d'ouverture</h5>
         <tbody>
