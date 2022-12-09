@@ -33,6 +33,7 @@ class Shop < ApplicationRecord
 
   has_one_attached :banner
   has_one_attached :footer
+  has_many_attached :photos
 
 
   # validate :check_record, on: :create #please not that validate in this case is singular
