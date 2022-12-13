@@ -1,10 +1,6 @@
-<div style="text-align:end;">
-  <button class="btn btn-warning", style="z-index:1001;margin-top:10vh;", data-controller="panier", data-action="click->panier#removePanier">X
-  </button>
-</div>
-  <h2 style="text-align:center">Panier en cours</h2>
+<h2 style="text-align:center">Panier en cours</h2>
 <div class="container p-2">
-  <div>
+  <div class="scroller">
       <table>
         <thead>
           <tr>
@@ -19,7 +15,11 @@
             <div class="row">
               <tr>
                 <td class="col-6" style="text-align:left">
-                <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
+                <%if item.product.photos.attached?%>
+                  <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
+                <%else%>
+                  <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style:"width:4vw;height:6vh;", alt: "Pas d'image disponible")  %>
+                <%end%>
                 <%= item.product.name %>
                 <br>
                 <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>

@@ -24,4 +24,3 @@ application.register("share", ShareController)
 
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
-
