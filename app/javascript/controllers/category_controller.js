@@ -7,6 +7,11 @@ export default class extends Controller {
 
   }
 
+  displaycategorymenu() {
+    const catmenu = document.getElementById('smalldevicecategories');
+    catmenu.classList.add("displaycat");
+  }
+
 
   /* slide or hide category menu */
   slidecategorymenu() {
@@ -27,7 +32,7 @@ export default class extends Controller {
   }
 
   /* hidecategorymenu quand on display les subcatégories avec notre propre code cad sans bootstrap*/
-  /*
+
   hidecategorymenu() {
     const catarrow = document.getElementById("smalldevicecategories");
     catarrow.classList.remove("displaycat");
@@ -39,12 +44,12 @@ export default class extends Controller {
       subcategory.classList.remove("displaysubcat");
     });
   }
-  */
+
 
 
 
   /* display subcategory with data-action : avec notre propre code cad sans boostrap */
-  /*
+
   displaysubcategory(event) {
     // remove les sub-catégories qui étaient affichées
     const allSubcategories = document.getElementsByClassName(`subcat`)
@@ -55,7 +60,7 @@ export default class extends Controller {
 
     // on display les nouvelles sub-catégories correspondant à la nouvelle catégorie choisie
     const categoryName = event.target.textContent;
-    console.log(`The category is: ${categoryName}`)
+    // console.log(`The category is: ${categoryName}`)
     // 1 - récupérer toutes les subcatégories avec le nom de la catégorie en classe
     const chosenSubcategories = document.getElementsByClassName(`${categoryName}`)
     // chosenSubcategories est un "objet" --> conversion en array
@@ -65,5 +70,5 @@ export default class extends Controller {
       subcategory.classList.add("displaysubcat");
     });
 
-  } */
+  }
 }
