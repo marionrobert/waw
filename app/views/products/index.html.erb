@@ -45,19 +45,17 @@
             </p>
           </div>
         <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow" data-action="click->category#hidecategorymenu">
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" data-action="click->category#hidecategorymenu">
       </div>
 
       <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
-      <div style="background:red">
-        <div id="subcat" class="subcategorymenu">
-          <% Subcategory.all.each do |subcategory| %>
-            <p class="subcat <%=subcategory.category.name%>">
-              <%= subcategory.name %>
-            </p>
-          <% end %>
-        </div>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" id="removeMenuCatArrow" data-action="click->category#hidecategorymenu">
+      <div id="subcatmenu" class="subcategorymenu">
+        <% Subcategory.all.each do |subcategory| %>
+          <p class="subcat subcathidden <%=subcategory.category.name%>">
+            <%= subcategory.name %>
+          </p>
+        <% end %>
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;" data-action="click->category#hidesubcategorymenu">
       </div>
 
     </div>
