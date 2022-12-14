@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :line_items
+  patch 'line_items/addone'
+  patch 'line_items/removeone'
   resources :carts
 
   devise_for :users, controllers: {
@@ -61,5 +63,6 @@ Rails.application.routes.draw do
   end
 
   resources :favorites, only: [:index, :destroy]
+
 
 end
