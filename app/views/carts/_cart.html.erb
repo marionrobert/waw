@@ -23,7 +23,26 @@
                 <%= item.product.name %>
                 <br>
                 <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
-                <td class="col-1" style="text-align:right"><%= item.quantity  %></td>
+                <td class="col-1" style="text-align:center">
+
+                  <%# AJOUTER 1 DE QUANTITE %>
+                  <%= button_to line_items_addone_path(item), style:"width:25px;height:25px" do%>
+                    <i class="fa-solid fa-plus"></i>
+                  <% end %>
+                  <%# ENLEVER LA QUANTITE DE 1 %>
+                  <%= item.quantity  %>
+                  <%= button_to line_items_removeone_path(item), style:"width:25px;height:25px" do%>
+                    <i class="fa-solid fa-minus"></i>
+                  <% end %>
+                  <%# SUPPRIMER LA LINE ITEMS QU'IMPORTE LA QUANTITEE %>
+                  <%= link_to line_item_path(item),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do%>
+                    <i class="fa-solid fa-trash-can"></i>
+                  <% end %>
+
+
+                </td>
+
                 <td class="col-1" style="text-align:right">
                   <span><%= (item.product.price_cents / 100.00)  %> € ttc </span>
                   <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
@@ -50,9 +69,9 @@
             <% sub_total = [] %>
             <% cart.line_items.each do |item| %>
             <%# dans la video il supprime le @ (video 8 sur 9) 1minute 50 %>
-              <%sub_total << ((item.quantity) * (item.product.price_cents / 100))%>
+              <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
             <%end%>
-              <%=sub_total.sum%>
+              <span><%=sub_total.sum%> € ttc </span>
         </thead>
         </tbody>
       </table>
