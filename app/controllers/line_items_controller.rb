@@ -55,15 +55,17 @@ class LineItemsController < ApplicationController
   end
 
   def addone
-    raise
-    @line_item.quantity += 1
-    raise
+    @line_item = LineItem.find(params[:format])
+    @line_item.quantity = @line_item.quantity += 1
+    @line_item.save
+    redirect_to products_path, success: "La quantité à été mise à jour"
   end
 
   def removeone
-    raise
-    @line_item.quantity -= 1
-    raise
+    @line_item = LineItem.find(params[:format])
+    @line_item.quantity = @line_item.quantity -= 1
+    @line_item.save
+    redirect_to products_path, success: "La quantité à été mise à jour"
   end
 
 
