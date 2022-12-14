@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :line_items
-  patch 'line_items/addone'
-  patch 'line_items/removeone'
+  post 'line_items/addone'
+  post 'line_items/removeone'
   resources :carts
 
   devise_for :users, controllers: {

@@ -26,7 +26,7 @@
                 <td class="col-1" style="text-align:center">
 
                   <%# AJOUTER 1 DE QUANTITE %>
-                  <%= button_to line_items_addone_path(item), style:"width:25px;height:25px" do%>
+                  <%= button_to line_items_addone_path(item), method: :post, style:"width:25px;height:25px" do%>
                     <i class="fa-solid fa-plus"></i>
                   <% end %>
                   <%# ENLEVER LA QUANTITE DE 1 %>
@@ -36,7 +36,7 @@
                   <% end %>
                   <%# SUPPRIMER LA LINE ITEMS QU'IMPORTE LA QUANTITEE %>
                   <%= link_to line_item_path(item),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do%>
+                  data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
                     <i class="fa-solid fa-trash-can"></i>
                   <% end %>
 
