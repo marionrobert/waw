@@ -59,7 +59,7 @@
                 <%end%>
 
                 <td class="col-1" style="text-align:right">
-                <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+                <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
                   <p style="text-decoration:line-through;"><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
                   <p style="color:green;"><%= humanized_money_with_symbol(item.product.discount_price_cents / 100.00)  %> ttc </p>
                   <span style="border:1px solid red;color:red;padding:4px;">- <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>%</span>
@@ -73,7 +73,7 @@
 
 
                 <td class="col-1" style="text-align:right">
-                <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+                <% if item.product.discount_price_cents >0 && item.product.discount_price_cents < item.product.price_cents %>
                   <p>€<%= ((item.product.discount_price_cents / 100.00)* item.quantity).round(2)  %> ttc </p>
                 <%else%>
                   <p>€<%= ((item.product.price_cents / 100.00)* item.quantity).round(2) %> ttc </p>
@@ -96,7 +96,7 @@
             <% sub_total = [] %>
             <% cart.line_items.each do |item| %>
             <%# dans la video il supprime le @ (video 8 sur 9) 1minute 50 %>
-              <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+              <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
                 <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
               <%else%>
                 <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>

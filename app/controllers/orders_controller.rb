@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     @items_for_stripe = []
     @cart.line_items.each do |item|
       actualprice = 0
-      if item.product.discount_price_cents != nil || item.product.discount_price_cents < item.product.price_cents
+      if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents
         actualprice = item.product.discount_price_cents
       else
         actualprice = item.product.price_cents
@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
     @items_for_order = {}
     @cart.line_items.each.with_index do |item, index|
     actualprice = 0
-    if item.product.discount_price_cents != nil || item.product.discount_price_cents < item.product.price_cents
+    if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents
       actualprice = item.product.discount_price_cents
     else
       actualprice = item.product.price_cents
