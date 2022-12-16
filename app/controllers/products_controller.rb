@@ -79,12 +79,12 @@ private
     params.require(:product).permit(
       :name,
       :category_id,
-      # :subcategory,
       :subcategory_id,
       :sku,
       :description,
       :images,
       :price_cents,
+      :discount_price_cents,
       photos: []
     )
   end

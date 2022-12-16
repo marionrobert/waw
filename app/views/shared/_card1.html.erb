@@ -25,11 +25,33 @@
                 <%end%>
               </div>
                 <div style="text-align:right">
-                  <%if humanized_money_with_symbol(product.price).include?(",") %>
-                    <span style="text-align:end;font-weight:bolder;font-size:24px"><%= humanized_money_with_symbol(product.price)[/^(.+?),/]%></span>
-                    <span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-8px"><%= humanized_money_with_symbol(product.price).last(2)%> ttc</span>
-                  <%else %>
-                    <span style="text-align:right;font-weight:bolder;font-size:24px"><%= humanized_money_with_symbol(product.price)%>,</span><span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-4px">  00 ttc</span>
+                  <%# SI IL EXISTE UN PRIX PROMO %>
+                  <%if product.discount_price_cents != nil && product.discount_price_cents != 0%>
+                  <%# PRIX DE BASE BARRE %>
+                    <%if humanized_money_with_symbol(product.price).include?(",") %>
+                      <span style="text-align:end;font-weight:bolder;font-size:24px;text-decoration:line-through;"><%= humanized_money_with_symbol(product.price)[/^(.+?),/]%></span>
+                      <span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-8px;text-decoration:line-through;"><%= humanized_money_with_symbol(product.price).last(2)%> ttc</span>
+                    <%else %>
+                      <span style="text-align:right;font-weight:bolder;font-size:24px;text-decoration:line-through;"><%= humanized_money_with_symbol(product.price)%>,</span><span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-4px">  00 ttc</span>
+                    <%end%>
+                    <%# PRIX PROMO %>
+                    <%if humanized_money_with_symbol(product.discount_price_cents/100).include?(",") %>
+                      <span style="text-align:end;font-weight:bolder;font-size:24px;color:green;"><%= humanized_money_with_symbol(product.discount_price_cents/100)[/^(.+?),/]%></span>
+                      <span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-8px;color:green;"><%= humanized_money_with_symbol(product.discount_price_cents/100).last(2)%> ttc</span>
+                    <%else %>
+                      <span style="text-align:right;font-weight:bolder;font-size:24px;color:green;"><%= humanized_money_with_symbol(product.discount_price_cents/100)%>,</span><span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-4px;color:green">  00 ttc</span>
+                    <%end%>
+
+
+
+                  <%else%>
+                  <%# SINON PRIX NORMAL SEULEMENT %>
+                    <%if humanized_money_with_symbol(product.price).include?(",") %>
+                      <span style="text-align:end;font-weight:bolder;font-size:24px;"><%= humanized_money_with_symbol(product.price)[/^(.+?),/]%></span>
+                      <span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-8px;"><%= humanized_money_with_symbol(product.price).last(2)%> ttc</span>
+                    <%else %>
+                      <span style="text-align:right;font-weight:bolder;font-size:24px;"><%= humanized_money_with_symbol(product.price)%>,</span><span style="text-align:end;font-weight:bolder;font-size:12px; position:relative;bottom:8px;left:-4px">  00 ttc</span>
+                    <%end%>
                   <%end%>
                 </div>
                 <div class="d-flex-column", style="text-align:center">

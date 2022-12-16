@@ -27,10 +27,16 @@ class OrdersController < ApplicationController
     # product = Product.find(params[:product_id])
     @items_for_stripe = []
     @cart.line_items.each do |item|
+      actualprice = 0
+      if item.product.discount_price_cents != nil || item.product.discount_price_cents < item.product.price_cents
+        actualprice = item.product.discount_price_cents
+      else
+        actualprice = item.product.price_cents
+      end
       new_item = {
         price_data: {
           currency: 'eur',
-          unit_amount: item.product.price_cents,
+          unit_amount: actualprice,
           product_data: {
             name: item.product.sku,
             description: item.product.description,
@@ -44,8 +50,14 @@ class OrdersController < ApplicationController
 
     @items_for_order = {}
     @cart.line_items.each.with_index do |item, index|
+    actualprice = 0
+    if item.product.discount_price_cents != nil || item.product.discount_price_cents < item.product.price_cents
+      actualprice = item.product.discount_price_cents
+    else
+      actualprice = item.product.price_cents
+    end
       new_item = {
-        unit_amount: item.product.price_cents,
+        unit_amount: actualprice,
         sku: item.product.sku,
         name: item.product.name,
         quantity: item[:quantity]

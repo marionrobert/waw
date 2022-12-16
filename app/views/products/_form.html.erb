@@ -11,17 +11,15 @@
           <%= product.input :sku, placeholder: "reference interne", label_html:{ class:"labelcolor" }%>
           <%= product.input :description, placeholder: "brève description", label_html:{ class:"labelcolor" } %>
           <%= product.input :price_cents, placeholder: "2990", label_html:{ class:"labelcolor" } %>
+          <%= product.input :discount_price_cents, placeholder: "1990", label_html:{ class:"labelcolor" } %>
           <%= product.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
         </div>
         <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
           <% if @product.name.nil? %>
             <%= product.button :submit, class:"btn btn-success", value:"Ajouter le produit"%>
-
-<%# L'idée ce serait ca pour Category et Subcategory, voir snipet en bas de page %>
-<%# https://stackoverflow.com/questions/48273425/how-to-make-auto-select-using-drop-down-selection %>
-
-
-          <% end %>
+          <% else%>
+            <%= product.button :submit, class:"btn btn-success", value:"Modifier le produit"%>
+          <%end%>
         </div>
         <% end %>
     </div>
