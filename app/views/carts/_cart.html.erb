@@ -12,45 +12,72 @@
         </thead>
         <tbody>
           <% cart.line_items.each do |item| %>
+          <%# LA LINE ITEM SE DETRUIT SI ON A MOINS DE 1 AU PANIER - CEPENDANT BUG D'AFFICHAGE NECESSITE 2 REFRESH DU CART %>
+                <%if item.quantity < 1 %>
+                  <%item.destroy %>
+                <%else%>
             <div class="row">
               <tr>
                 <td class="col-6" style="text-align:left">
-                <%if item.product.photos.attached?%>
-                  <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
-                <%else%>
-                  <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style:"width:4vw;height:6vh;", alt: "Pas d'image disponible")  %>
-                <%end%>
-                <%= item.product.name %>
-                <br>
-                <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
-                <td class="col-1" style="text-align:center">
-
+                    <%if item.product.photos.attached?%>
+                      <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
+                    <%else%>
+                      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style:"width:4vw;height:6vh;", alt: "Pas d'image disponible")  %>
+                    <%end%>
+                    <%= item.product.name %>
+                    <br>
+                    <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
+                    <td class="col-1" style="text-align:center">
                   <%# AJOUTER 1 DE QUANTITE %>
                   <%= button_to line_items_addone_path(item), method: :post, style:"width:25px;height:25px" do%>
                     <i class="fa-solid fa-plus"></i>
                   <% end %>
+
                   <%# ENLEVER LA QUANTITE DE 1 %>
                   <%= item.quantity  %>
+                      <%if item.quantity > 1%>
                   <%= button_to line_items_removeone_path(item), style:"width:25px;height:25px" do%>
                     <i class="fa-solid fa-minus"></i>
+                      <%end%>
+                      <%else %>
+                      <br>
+                      <button style="width:25px;height:25px;">
+                  <%= link_to line_item_path(item),
+                  data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
+                    <i class="fa-solid fa-minus"></i>
+                      <% end %>
+                      </button>
+                      <br>
                   <% end %>
+
                   <%# SUPPRIMER LA LINE ITEMS QU'IMPORTE LA QUANTITEE %>
                   <%= link_to line_item_path(item),
                   data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
                     <i class="fa-solid fa-trash-can"></i>
                   <% end %>
-
-
                 </td>
+                <%end%>
 
                 <td class="col-1" style="text-align:right">
-                  <span><%= (item.product.price_cents / 100.00)  %> € ttc </span>
-                  <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
-                <%# # MA VERSION QUI MARCHE MAIS PAS CELLE DU TUTO%>
-                <%#=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+                <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+                  <p style="text-decoration:line-through;"><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
+                  <p style="color:green;"><%= humanized_money_with_symbol(item.product.discount_price_cents / 100.00)  %> ttc </p>
+                  <span style="border:1px solid red;color:red;padding:4px;">- <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>%</span>
+                <%else%>
+                  <p><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
+                <%end%>
                 </td>
+
+
+
+
+
                 <td class="col-1" style="text-align:right">
-                  <span><%= item.quantity * (item.product.price_cents / 100.00) %> € ttc </span>
+                <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+                  <p>€<%= ((item.product.discount_price_cents / 100.00)* item.quantity).round(2)  %> ttc </p>
+                <%else%>
+                  <p>€<%= ((item.product.price_cents / 100.00)* item.quantity).round(2) %> ttc </p>
+                <%end%>
                   <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
                 <%# MA VERSION QUI MARCHE MAIS PAS CELLE DU TUTO %>
                 <%#=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u")%>
@@ -69,9 +96,13 @@
             <% sub_total = [] %>
             <% cart.line_items.each do |item| %>
             <%# dans la video il supprime le @ (video 8 sur 9) 1minute 50 %>
-              <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
+              <% if item.product.discount_price_cents != nil && item.product.discount_price_cents != 0 && item.product.discount_price_cents < item.product.price_cents %>
+                <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
+              <%else%>
+                <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
+              <%end%>
             <%end%>
-              <span><%=sub_total.sum%> € ttc </span>
+              <span><%=humanized_money_with_symbol(sub_total.sum)%>ttc </span>
         </thead>
         </tbody>
       </table>

@@ -117,6 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_133055) do
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id", null: false
     t.integer "price_cents", default: 0, null: false
+    t.integer "discount_price_cents", default: 0, null: false
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
   end
 
