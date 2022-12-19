@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     products = Product.where(subcategory: @product.subcategory)
-    @products = (products.reject { |element| element.id == @product.id }).first(4)
+    @products = (products.reject { |element| element.id == @product.id }).sample(3)
   end
 
   def new
