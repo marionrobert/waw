@@ -5,8 +5,15 @@
     <% end %>
   </div>
   <div class="row d-flex justify-content-center mt-5">
-    <div class="col-sm-12 col-lg-6">
-      <%= render "carrousel-product", product: @product %>
+    <div class="col-sm-12 col-lg-6" style="position:relative">
+    <%if @product.discount_price_cents != nil && @product.discount_price_cents != 0%>
+    <span style="position:absolute;right:150px;top:50px;border:1px solid red;color:red;padding:4px;background:white;z-index:2;">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
+    <%end%>
+      <% if @product.photos.attached? %>
+        <%= render "carrousel-product", product: @product %>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", size: "250x250", alt: "Pas d'image disponible", class: 'd-block mx-auto')  %>
+      <% end %>
     </div>
     <div class="col-sm-12 col-lg-6">
         <%= content_tag(:h1, @product.name, data: {
@@ -15,10 +22,22 @@
         <%# <h1> %>
           <%#= @product.name %>
         <%# </h1> %>
-        <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+
+        <% if @product.discount_price_cents != nil && @product.discount_price_cents != 0 %>
+          <p style="text-decoration:line-through;">Prix: <%= humanized_money_with_symbol(@product.price)%></p>
+          <p>Prix Promo: <%= humanized_money_with_symbol(@product.discount_price_cents / 100.00)%></p>
+        <% else %>
+          <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+        <%end%>
         <%= content_tag(:p, @product.description, data: {
           share_target: "body"
         }) %>
+
+
+
+
+
+
         <%# <p>Description: %>
           <%#= @product.description %>
         <%# </p> %>
@@ -65,3 +84,8 @@
     <% end%>
   </div>
 </div>
+  <div class="" style="background:white;border-top:1px solid grey;border-bottom:1px solid grey">
+    <h3>Les produits suivants pourraient vous intéresser</h3>
+    <%= render "shared/#{Shop.first.card}", products: @products%>
+    <%# ICI IL FAUDRAIT UN CARROUSSEL FACON AMAZON, POUR DISPLAY A L'INFINI ET SUPPRIMER DANS LE CONTROLLER LA LIMITE D'AFFICHAGE%>
+  </div>

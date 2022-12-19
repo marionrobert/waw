@@ -2,14 +2,14 @@
 </div>
 <div id="panierflottant" class="menupanier">
   <div  id="cart">
+  <div style="text-align:end;">
+    <button class="btn btn-warning", style="z-index:1001;margin-top:10vh;", data-controller="panier", data-action="click->panier#removePanier">X
+    </button>
+  </div>
     <%if @cart && @cart.line_items.any? %>
       <%= render "carts/cart", cart: @cart %>
     <%else%>
-      <div style="text-align:end;">
-        <button class="btn btn-warning", style="z-index:1001;", data-controller="panier", data-action="click->panier#removePanier">X
-        </button>
-      </div>
-      <h2 style="text-align:center">Panier vide</h2>
+      <h2 style="text-align:center;margin:100px;margin-top:10vh;">Panier vide</h2>
     <%end%>
   </div>
 </div>

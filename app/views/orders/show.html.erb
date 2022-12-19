@@ -10,7 +10,7 @@
       <h2>Numéro de commande: <%= @order.id %> </h2>
       <p>Statut de votre commande: <%= @order.state %></p>
       <p class="list-unstyled"><strong>Commande passée le </strong> <%= @order.created_at.to_date %></p>
-      <p>Livraison estimée sous <strong>7 jours ouvrés (en dur)</strong></p>
+      <p style="color:red">Livraison estimée sous <strong>7 jours ouvrés (en dur)</strong></p>
     </div>
   </div>
   <hr class="mb-5">

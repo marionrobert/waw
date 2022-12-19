@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   include CurrentCart
-
+  before_action :set_subcategory, except: %i[search]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @subcategories = Subcategory.all
     if params[:query].present?
       @products = Product.search_by_name("%#{params[:query]}%")
     else
@@ -14,6 +15,8 @@ class ProductsController < ApplicationController
   def show
     @current_user = current_user
     @product = Product.find(params[:id])
+    products = Product.where(subcategory: @product.subcategory)
+    @products = (products.reject { |element| element.id == @product.id }).sample(3)
   end
 
   def new
@@ -23,7 +26,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to product_path(@product), success: "Le produit \"#{@product.name}\" est généré et disponible à la vente"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +37,6 @@ class ProductsController < ApplicationController
     @product.update(product_params)
     if @product.save
       redirect_to product_path(@product), success: "L'article #{@product.name} a bien été mis à jour"
-      # flash[:alert] = "#{@product.name} a bien été mis à jour"
     else
       render :new, status: :unprocessable_entity
     end
@@ -70,7 +72,21 @@ class ProductsController < ApplicationController
 
 private
 
+  def set_subcategory
+    @categories = Category.all
+  end
+
   def product_params
-    params.require(:product).permit(:name, :sku, :description, :images, :price_cents, photos: [])
+    params.require(:product).permit(
+      :name,
+      :category_id,
+      :subcategory_id,
+      :sku,
+      :description,
+      :images,
+      :price_cents,
+      :discount_price_cents,
+      photos: []
+    )
   end
 end

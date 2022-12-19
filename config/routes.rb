@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :line_items
+  post 'line_items/addone'
+  post 'line_items/removeone'
   resources :carts
 
   devise_for :users, controllers: {
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get 'payments/new'
+  get 'shops/legal'
+  get 'shops/cgv'
+
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -44,6 +49,10 @@ Rails.application.routes.draw do
   get "/amount_off", to: "coupons#amount_off", as: :amount_off_coupon
   get "/percent_off", to: "coupons#percent_off", as: :percent_off_coupon
 
+  resources :categories do
+    resources :subcategories
+  end
+
   # autocomplete
   resources :products do
     collection do
@@ -57,5 +66,6 @@ Rails.application.routes.draw do
   end
 
   resources :favorites, only: [:index, :destroy]
+
 
 end

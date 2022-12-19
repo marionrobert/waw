@@ -18,7 +18,8 @@ export default class extends Controller {
     try {
       await navigator.share(shareData);
       // pas grand intérêt
-      this.resultTarget.textContent = "Partage effectué";
+      // la ligne du dessous permet d'affiché une notice comme quoi le partage est effectué
+      // this.resultTarget.textContent = "Partage effectué";
     } catch (err) {
       // pas grand intérêt
       this.resultTarget.textContent = `Erreur: ${err}`

@@ -1,7 +1,17 @@
+<%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+<main class="navfixedwithbanner">
+<%else%>
 <main class="navfixed">
+<%end%>
  <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
     <div class="container-fluid">
-      <%= link_to "ACCUEIL", "/", class:"navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+      <%= link_to "ACCUEIL", "/", class:"acceuil navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+
+      <div class="displaybtncategories", data-controller="category", data-action="click->category#displaycategorymenu">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
+      </div>
+
+
       <div class="btncart", style="position:relative" data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
         <%if @cart.line_items.count > 0%>
           <div class="circle_items_count">
@@ -30,6 +40,7 @@
                 <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;color:white;"%>
               </li>
             <%end%>
+
             <%if current_user && current_user.admin? %>
               <li class="nav-item" >
                 <%= link_to "Ajouter une code promo", coupons_path, style:"text-decoration:none;"%>
@@ -57,17 +68,24 @@
                 <ul class="dropdown-menu" style="border-left:none; border-right:none;">
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Mes commandes", profile_path, style:"text-decoration:none;"%></li>
                   <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Modifier mot de passe", edit_user_password_path, style:"text-decoration:none;"%></li>
-                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Deconnexion", destroy_user_session_path,'data-turbo-method': :delete, style:"text-decoration:none;"%></li>
+                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Déconnexion", destroy_user_session_path,'data-turbo-method': :delete, style:"text-decoration:none;"%></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item" href="/contacts/new">Formulaire de contact</a></li>
                 </ul>
               </li>
+            <%if current_user && current_user.admin? %>
+              <li class="nav-link active btn btn-warning" >
+                <%= link_to "(BETA) AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT (TEST)", categories_path, style:"text-decoration:none;color:yellow;background:red;"%>
+              </li>
+            <%end%>
             <%end%>
           </ul>
         </div>
       </div>
     </div>
+
+
   </nav>
 </main>
