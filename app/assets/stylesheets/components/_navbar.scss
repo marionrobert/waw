@@ -17,3 +17,27 @@
   width:100%;
   z-index: 1000;
 }
+
+.navfixedwithbanner {
+  position:absolute;
+  position:fixed;
+  top:5vh;
+  left:0;
+  width:100%;
+  z-index: 1000;
+}
+
+.bannerpub {
+
+  position:absolute;
+  position: fixed;
+  top:0;
+  left:0;
+  padding:1vh;
+  width:100%;
+  background:black;
+  color:white;
+  text-align:center;
+  font-size:2vh;
+  z-index: 50000;
+}

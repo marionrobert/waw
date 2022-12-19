@@ -66,6 +66,7 @@ class ShopsController < ApplicationController
       :card,
       :themebgcolor,
       :themefont,
+      :bannerpub,
       photos: [],
       schedules_attributes: %i[id am_opens_at am_closes_at pm_opens_at pm_closes_at weekday destroy]
     )
