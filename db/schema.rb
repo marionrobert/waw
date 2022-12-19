@@ -143,6 +143,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_133055) do
     t.string "card"
     t.string "themebgcolor", default: "white"
     t.string "themefont", default: "arial"
+    t.string "bannerpub"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"

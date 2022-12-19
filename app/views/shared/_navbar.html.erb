@@ -1,4 +1,9 @@
+<%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+  <p class="bannerpub"><%=Shop.first.bannerpub%></p>
+<main class="navfixedwithbanner">
+<%else%>
 <main class="navfixed">
+<%end%>
  <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
     <div class="container-fluid">
       <%= link_to "ACCUEIL", "/", class:"acceuil navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
@@ -78,5 +83,7 @@
         </div>
       </div>
     </div>
+
+
   </nav>
 </main>

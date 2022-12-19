@@ -10,6 +10,7 @@ class CreateShops < ActiveRecord::Migration[7.0]
       t.string :card
       t.string :themebgcolor, default: "white"
       t.string :themefont, default: "arial"
+      t.string :bannerpub
       t.timestamps
     end
   end

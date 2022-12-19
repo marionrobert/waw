@@ -14,6 +14,8 @@
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :themebgcolor, as: :color, input_html: { style:"width:200px;height:150px" }, label: "Couleur d'arrière-plan", label_html:{ class:"labelcolor" }  %>
     <%= f.input :themefont, collection: Shop::THEMEFONT,label: "Police d'écriture", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :bannerpub, label: "Bandeau Publicitaire (si champ vide : aucun bandeau)", label_html:{ class:"labelcolor" }  %>
+
     <table class="schedule-editor labelcolor">
       <thead>
         <tr>
