@@ -86,6 +86,6 @@
 </div>
   <div class="" style="background:white;border-top:1px solid grey;border-bottom:1px solid grey">
     <h3>Les produits suivants pourraient vous intéresser</h3>
-    <%= render "shared/#{Shop.first.card}"%>
+    <%= render "shared/#{Shop.first.card}", products: @products%>
     <%# ICI IL FAUDRAIT UN CARROUSSEL FACON AMAZON, POUR DISPLAY A L'INFINI ET SUPPRIMER DANS LE CONTROLLER LA LIMITE D'AFFICHAGE%>
   </div>
