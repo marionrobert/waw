@@ -15,6 +15,11 @@ class ProductsController < ApplicationController
   def show
     @current_user = current_user
     @product = Product.find(params[:id])
+    # crossselling = []
+    # crossselling << Product.all
+    # @products = crossselling.sample(4)
+    @products = Product.where(subcategory: @product.subcategory).sample(4)
+    # PROBLEME, @products display le produit de la show dans les suggestions. Il ne devrait pas se suggéré lui meme
   end
 
   def new
