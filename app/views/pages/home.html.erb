@@ -19,6 +19,6 @@
 
 <div class="container mt-3">
   <h1 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
-  <%= render "shared/#{Shop.first.card}"%>
+  <%= render "shared/#{Shop.first.card}", products: @products%>
   </div>
 </div>

@@ -69,10 +69,11 @@
 
 
 
+
     <%# //LE TYPE DE CARD ICI %>
     <div class="container pt-5">
       <h1 class="mb-5 text-center">Produits disponibles</h1>
-      <%= render "shared/#{Shop.first.card}"%>
+      <%= render "shared/#{Shop.first.card}", products: @products%>
     </div>
 
   <%# </div> %>
