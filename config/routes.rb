@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get 'payments/new'
+  get 'shops/legal'
+  get 'shops/cgv'
+
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
