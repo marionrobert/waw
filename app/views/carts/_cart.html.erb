@@ -1,6 +1,6 @@
 <h2 style="text-align:center">Panier en cours</h2>
-<div class="container p-2 scroller">
-  <div>
+<div class="scroller">
+  <div class="container">
       <table>
         <thead>
           <tr>
@@ -106,7 +106,13 @@
       <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
       class: "cartempty", remote: true %>
     </div>
-    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-    <%= render "shared/#{Shop.first.card}", products: current_user.favorite_products.sample(3)%>
+    <div class="container">
+      <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+      <div class="row d-flex justify-content-center" data-controller="favorites">
+        <% current_user.favorite_products.sample(3).each do |product| %>
+          <%= render "shared/#{Shop.first.card}", product: product%>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
