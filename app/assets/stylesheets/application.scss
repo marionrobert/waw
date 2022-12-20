@@ -27,8 +27,8 @@
 }
 
 .scroller {
-  width: 100%;
-  height: 50vh;
+  width: 97%;
+  height: 100vh;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
@@ -123,8 +123,8 @@ tfoot {
     text-decoration: none;
     font-size: smaller;
     margin-right: 2vw;
-    margin-top: 8vw;
-    margin-bottom: 5vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
   }
 
 .darkenmenuopen {
@@ -339,7 +339,7 @@ tfoot {
 
   .displaysubcat {
     transition-duration: 350ms;
-    transform:translateX(200%);
+    transform:translateX(198%);
   }
 
   .displaycat {
