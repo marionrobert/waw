@@ -30,16 +30,14 @@
       <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
           <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
-
       <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
        <div id="smalldevicecategories" class="MENUCATEGORY" >
-       <br>
         <% @categories.each do |category| %>
           <div class="categorymenu", data-action="click->category#displaysubcategory">
             <p><%=category.name%></p>
           </div>
         <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;position:absolute;bottom:15vh;left:5vw;" data-action="click->category#hidecategorymenu">
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
       </div>
 
       <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
@@ -49,7 +47,7 @@
             <%= subcategory.name %>
           </p>
         <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" style="height:50px;z-index:101;position:absolute;bottom:15vh;left:5vw;" data-action="click->category#hidesubcategorymenu">
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="subcategoryarrowback" data-action="click->category#hidesubcategorymenu">
       </div>
 
     </div>
