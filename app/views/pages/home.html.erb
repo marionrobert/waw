@@ -4,14 +4,12 @@
   <%else %>
     <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
   <%end%>
-      <div class="container">
-        <div class="p-5" style="margin-top:5vh">
-            <h1><strong><%= Shop.first.name %></strong></h1>
-            <h3 style="color:white;", class="my-4"><%= Shop.first.description %></h3>
-            <div style="position:absolute;bottom:5vh;">
-            <%= link_to "Voir tous les produits", products_path, class:"btn btn-success p-3", style:"font-size:x-large;" %>
-            </div>
-        </div>
+  <div class="container">
+    <div style="padding-top:18vh;text-align:center;">
+        <h1><strong><%= Shop.first.name %></strong></h1>
+        <h3 style="color:white;padding-bottom:10vh;"><%= Shop.first.description %></h3>
+      <div style="border-radius:3vh;", class="btn btn-success", style="justify-content:center;">
+        <%= link_to "Voir tous les produits", products_path, style:"font-size:bolder;height:6vh;width:40vw;text-decoration:none;color:white;" %>
       </div>
     </div>
 
