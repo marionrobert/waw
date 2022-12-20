@@ -12,13 +12,15 @@
         <%= link_to "Voir tous les produits", products_path, style:"font-size:bolder;height:6vh;width:40vw;text-decoration:none;color:white;" %>
       </div>
     </div>
-  </div>
-</div>
 
 
 
-<div class="container mt-3">
-  <h1 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
-  <%= render "shared/#{Shop.first.card}", products: @products%>
-  </div>
+    <div class="container mt-3">
+      <h1 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
+      <div class="row d-flex justify-content-center" data-controller="favorites">
+        <% @products.each do |product| %>
+          <%= render "shared/#{Shop.first.card}", product: product%>
+        <% end %>
+      </div>
+    </div>
 </div>

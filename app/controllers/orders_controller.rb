@@ -123,6 +123,8 @@ class OrdersController < ApplicationController
       cancel_url: order_url(order)
     )
     order.update(checkout_session_id: session.id)
+    # attention, à partir de la page stripe, si on fait "retour" sans avoir payé, on arrive sur la show de la commande (comme si elle avait été validée/payée)
+    # solution avec webhook ?
     redirect_to new_order_payment_path(order)
   end
 

@@ -1,37 +1,35 @@
-<div class="row d-flex justify-content-center" data-controller="favorites">
-    <% products.each do |product| %>
-      <% cache product do %>
-        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
-          <div class="card-sl3">
-          <% if product.photos.attached? %>
-            <div style="background-size:cover;overflow:hidden;">
-              <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <%= cl_image_tag product.photos.first.key, class:"spin_zoom_img card-image3"%>
-            </div>
-              <%end%>
-            <%else %>
-              <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="spin_zoom_img card-image3" alt="no_images_available" >
-              <%end%>
+<% cache product do %>
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
+    <div class="card-sl3">
+      <div style="background-size:cover;overflow:hidden;">
+        <% if product.photos.attached? %>
+
+            <%= link_to product_path(product), style:"text-decoration:none;" do %>
+              <%= cl_image_tag product.photos.first.key, class:"spin_zoom_img card-image3"%>
             <%end%>
-          </div>
-            <i class="card-action3 fa fa-heart <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action="click->favorites#fav" data-favorites-product-id-param="<%= product.id %>"></i>
-            <div class="card-heading3">
-              <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <%=product.name%>
-              <%end%>
-            </div>
-            <div class="card-text3">
-              <%= link_to product_path(product), style:"text-decoration:none;" do %>
-                <%=product.description%>
-              <%end%>
-            </div>
-            <div class="card-text3">
-                <%=humanized_money_with_symbol(product.price)%>
-            </div>
-            <%= button_to "Ajouter au panier", line_items_path(product_id: product), class:"card-button3", remote: true %>
-        </div>
-      <%end%>
-    <%end%>
-</div>
+         %else %>
+            <%= link_to product_path(product), style:"text-decoration:none;" do %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="spin_zoom_img card-image3" alt="no_images_available" >
+            <%end%>
+         <%end%>
+      </div>
+      <i class="card-action3 fa fa-heart <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action="click->favorites#fav" data-favorites-product-id-param="<%= product.id %>"></i>
+      <div class="card-heading3">
+        <%= link_to product_path(product), style:"text-decoration:none;" do %>
+          <%=product.name%>
+        <%end%>
+      </div>
+      <div class="card-text3">
+        <%= link_to product_path(product), style:"text-decoration:none;" do %>
+          <%=product.description%>
+        <%end%>
+      </div>
+      <div class="card-text3">
+          <%=humanized_money_with_symbol(product.price)%>
+      </div>
+      <%= button_to "Ajouter au panier", line_items_path(product_id: product), class:"card-button3", remote: true %>
+    </div>
+  </div>
+<%end%>
+
 <%# La hauteur des image et de la div moitie inferieur on un probleme de hauteur %>
