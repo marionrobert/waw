@@ -9,7 +9,7 @@
           <%= product.input :subcategory_id, label: "Sous-catégorie", collection: Subcategory.all.order('name'), label_html:{ class:"labelcolor" }%>
           <%= product.input :name, label: "Nom", placeholder: "nom du produit", label_html:{ class:"labelcolor" }%>
           <%= product.input :sku, placeholder: "reference interne", label_html:{ class:"labelcolor" }%>
-          <%= product.input :description, placeholder: "brève description", label_html:{ class:"labelcolor" } %>
+          <%= product.input :description, placeholder: "Brève description", label_html:{ class:"labelcolor" } %>
           <%= product.input :price_cents, label: "Prix (en centimes)", placeholder: "2990", label_html:{ class:"labelcolor" }, input_html: { min: '1'} %>
           <%= product.input :discount_price_cents, label: "Prix promotionnel (0 si aucune promo en cours)", placeholder: "1990", label_html:{ class:"labelcolor" }, input_html: { min: '0'} %>
           <%= product.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>

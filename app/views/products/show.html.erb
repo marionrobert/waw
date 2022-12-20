@@ -1,58 +1,59 @@
 <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
+
   <div class="mt-5">
     <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
       <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
     <% end %>
   </div>
+
   <div class="row d-flex justify-content-center mt-5">
     <div class="col-sm-12 col-lg-6" style="position:relative">
-    <%if @product.discount_price_cents != nil && @product.discount_price_cents != 0%>
-    <span style="position:absolute;right:150px;top:50px;border:1px solid red;color:red;padding:4px;background:white;z-index:2;">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
-    <%end%>
+
+      <%if @product.discount_price_cents != 0%>
+        <span style="position:absolute;right:150px;top:50px;border:1px solid red;color:red;padding:4px;background:white;z-index:2;">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
+      <%end%>
+
       <% if @product.photos.attached? %>
         <%= render "carrousel-product", product: @product %>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", size: "250x250", alt: "Pas d'image disponible", class: 'd-block mx-auto')  %>
       <% end %>
+
     </div>
+
     <div class="col-sm-12 col-lg-6">
-        <%= content_tag(:h1, @product.name, data: {
-          share_target: "title"
-        }) %>
-        <%# <h1> %>
-          <%#= @product.name %>
-        <%# </h1> %>
 
-        <% if @product.discount_price_cents != nil && @product.discount_price_cents != 0 %>
-          <p style="text-decoration:line-through;">Prix: <%= humanized_money_with_symbol(@product.price)%></p>
-          <p>Prix Promo: <%= humanized_money_with_symbol(@product.discount_price_cents / 100.00)%></p>
-        <% else %>
-          <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
-        <%end%>
-        <%= content_tag(:p, @product.description, data: {
-          share_target: "body"
-        }) %>
+      <%= content_tag(:h1, @product.name, data: {
+        share_target: "title"
+      }) %>
 
 
+      <% if @product.discount_price_cents != 0 %>
+        <p style="text-decoration:line-through;">Prix: <%= humanized_money_with_symbol(@product.price)%></p>
+        <p>Prix Promo: <%= humanized_money_with_symbol(@product.discount_price_cents / 100.00)%></p>
+      <% else %>
+        <p>Prix: <%= humanized_money_with_symbol(@product.price) %></p>
+      <%end%>
 
+      <%= content_tag(:p, @product.description, data: {
+        share_target: "body"
+      }) %>
 
-
-
-        <%# <p>Description: %>
-          <%#= @product.description %>
-        <%# </p> %>
     </div>
+
   </div>
+
+
   <div class="row">
-  <div class="col-sm-6">
-    <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
-      <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
-    <% end %>
-    <%# les éléments ci-dessous n'ont pas grand intérêt %>
-    <%= content_tag(:p, "", class:"result", data: {
-      share_target: "result"
-    }) %>
-  </div>
+    <div class="col-sm-6">
+      <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
+        <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
+      <% end %>
+      <%# les éléments ci-dessous n'ont pas grand intérêt %>
+      <%= content_tag(:p, "", class:"result", data: {
+        share_target: "result"
+      }) %>
+    </div>
   </div>
 
   <div class="row">
@@ -72,20 +73,23 @@
     </div>
   </div>
 
-  <div class="row my-5">
-    <% if current_user == nil || current_user.admin == false %>
-    <%else current_user.admin%>
-      <div class="row", style="text-align:center">
-        <div class="my-3" >
-          <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning" %>
-          <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
-        </div>
-      </div>
-    <% end%>
+  <div class="row my-5", style="text-align:center">
+    <div class="col">
+      <% if current_user && current_user.admin %>
+        <%= link_to "Modifier produit", edit_product_path(@product), class: "btn btn-warning mb-3" %>
+        <%= link_to "Supprimer le produit", @product, data: { turbo_method: :delete }, class: "btn btn-danger mb-3" %>
+      <% end%>
+    </div>
   </div>
+
 </div>
-  <div class="" style="background:white;border-top:1px solid grey;border-bottom:1px solid grey">
-    <h3>Les produits suivants pourraient vous intéresser</h3>
-    <%= render "shared/#{Shop.first.card}", products: @products%>
+
+  <div style="background:white" class="py-2">
+    <h3 class="p-5">Les produits suivants pourraient vous intéresser</h3>
+    <div class="row d-flex justify-content-center" data-controller="favorites">
+      <% @products.each do |product| %>
+        <%= render "shared/#{Shop.first.card}", product: product%>
+      <% end %>
+    </div>
     <%# ICI IL FAUDRAIT UN CARROUSSEL FACON AMAZON, POUR DISPLAY A L'INFINI ET SUPPRIMER DANS LE CONTROLLER LA LIMITE D'AFFICHAGE%>
   </div>
