@@ -121,5 +121,8 @@
       <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
       class: "cartempty", remote: true %>
     </div>
+
+    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+    <%= render "shared/#{Shop.first.card}", products: current_user.favorite_products.sample(3)%>
   </div>
 </div>

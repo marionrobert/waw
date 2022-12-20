@@ -33,6 +33,7 @@
 
       <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
        <div id="smalldevicecategories" class="MENUCATEGORY" >
+       <br>
         <% @categories.each do |category| %>
           <div class="categorymenu", data-action="click->category#displaysubcategory">
             <p><%=category.name%></p>

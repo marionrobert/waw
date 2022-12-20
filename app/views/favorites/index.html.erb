@@ -1,14 +1,8 @@
-<h1> Favorites</h1>
-<div class="container-index" data-controller="favorites">
-  <% current_user.favorite_products.each do |product|%>
-    <div class="card-index my-2 mx-2">
-      <i class="fa-solid fa-heart <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-product-id-param="<%= product.id %>"></i>
-      <div class="card-index-bot mx-2">
-        <div class="card-index-text">
-          <h3 class="text-center"><%= link_to product.name, product_path(product) %></h3>
-          <p class= "text-align-justify text-ellipsis--2 pt-2"><%=product.description%></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="container-index pt-5" data-controller="favorites">
+<h1 class="mb-5 text-center"> Mes favoris</h1>
+  
+  <%= render "shared/#{Shop.first.card}", products: current_user.favorite_products %>
+
+  <%= console %>
 </div>
+

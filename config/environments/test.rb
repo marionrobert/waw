@@ -5,6 +5,9 @@ require "active_support/core_ext/integer/time"
 # your test database is "scratch space" for the test suite and is wiped
 # and recreated between test runs. Don't rely on the data there!
 
+
+Rails.application.config.hosts << " https://9fcf-2001-861-e385-1190-f4c3-21c3-ee1f-bb81.eu.ngrok.io"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
