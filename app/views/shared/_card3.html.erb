@@ -7,7 +7,7 @@
             <%= link_to product_path(product), style:"text-decoration:none;" do %>
               <%= cl_image_tag product.photos.first.key, class:"spin_zoom_img card-image3"%>
             <%end%>
-         %else %>
+         <%else %>
             <%= link_to product_path(product), style:"text-decoration:none;" do %>
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="spin_zoom_img card-image3" alt="no_images_available" >
             <%end%>
@@ -31,5 +31,3 @@
     </div>
   </div>
 <%end%>
-
-<%# La hauteur des image et de la div moitie inferieur on un probleme de hauteur %>
