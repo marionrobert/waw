@@ -84,8 +84,8 @@
 
 </div>
 
-  <div style="background:white" class="py-2">
-    <h3 class="p-5">Les produits suivants pourraient vous intéresser</h3>
+  <div class="container", style="background:white">
+    <h3 class="ml-4">Les produits suivants pourraient vous intéresser</h3>
     <div class="row d-flex justify-content-center" data-controller="favorites">
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>

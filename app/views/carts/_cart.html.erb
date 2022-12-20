@@ -1,6 +1,6 @@
 <h2 style="text-align:center">Panier en cours</h2>
-<div class="container p-2">
-  <div class="scroller">
+<div class="container p-2 scroller">
+  <div>
       <table>
         <thead>
           <tr>
@@ -32,7 +32,6 @@
                   <%= button_to line_items_addone_path(item), method: :post, style:"width:25px;height:25px" do%>
                     <i class="fa-solid fa-plus"></i>
                   <% end %>
-
                   <%# ENLEVER LA QUANTITE DE 1 %>
                   <%= item.quantity  %>
                       <%if item.quantity > 1%>
@@ -49,7 +48,6 @@
                       </button>
                       <br>
                   <% end %>
-
                   <%# SUPPRIMER LA LINE ITEMS QU'IMPORTE LA QUANTITEE %>
                   <%= link_to line_item_path(item),
                   data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
@@ -57,7 +55,6 @@
                   <% end %>
                 </td>
                 <%end%>
-
                 <td class="col-1" style="text-align:right">
                 <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
                   <p style="text-decoration:line-through;"><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
@@ -67,35 +64,22 @@
                   <p><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
                 <%end%>
                 </td>
-
-
-
-
-
                 <td class="col-1" style="text-align:right">
                 <% if item.product.discount_price_cents >0 && item.product.discount_price_cents < item.product.price_cents %>
                   <p>€<%= ((item.product.discount_price_cents / 100.00)* item.quantity).round(2)  %> ttc </p>
                 <%else%>
                   <p>€<%= ((item.product.price_cents / 100.00)* item.quantity).round(2) %> ttc </p>
                 <%end%>
-                  <%# PRECION 2 A REVOIR, TUTO VIDEO 1, POSSIBLEMENT %>
-                <%# MA VERSION QUI MARCHE MAIS PAS CELLE DU TUTO %>
-                <%#=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u")%>
-                <%# celle du tuto %>
                 </td>
               </tr>
-
-
             </div>
           <% end %>
-
         <thead>
           <tr>
             <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>
             <td class="col-1", style="text-align:right;", colspan="1">
             <% sub_total = [] %>
             <% cart.line_items.each do |item| %>
-            <%# dans la video il supprime le @ (video 8 sur 9) 1minute 50 %>
               <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
                 <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
               <%else%>
@@ -107,8 +91,8 @@
         </tbody>
       </table>
   </div>
-  <p style="color: green"><%= notice %></p>
-  <div style="margin-bottom:20vh">
+  <p style="color:green"><%= notice %></p>
+  <div>
     <% if user_signed_in? %>
       <%= form_with url: orders_path, method: :post do %>
         <%= hidden_field_tag 'cart_id', cart.id %>
@@ -117,9 +101,12 @@
     <% else %>
       <%= link_to "Finaliser ma commande", user_session_path, style:"width:100%;justify-content:center;", class: 'btn btn-primary d-flex justify-content-center' %>
     <% end %>
+    </div>
     <div style="text-align:end;">
       <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
       class: "cartempty", remote: true %>
     </div>
+    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+    <%= render "shared/#{Shop.first.card}", products: current_user.favorite_products.sample(3)%>
   </div>
 </div>

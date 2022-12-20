@@ -1,5 +1,4 @@
 <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-  <p class="bannerpub"><%=Shop.first.bannerpub%></p>
 <main class="navfixedwithbanner">
 <%else%>
 <main class="navfixed">
@@ -54,6 +53,9 @@
             <%end%>
             <li class="nav-item active">
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Mes favoris", favorites_path, style:"text-decoration:none;"%>
             </li>
             <li class="nav-item">
               <%= link_to "Horaires et contacts", shop_path(Shop.first) , style:"text-decoration:none;"%>
