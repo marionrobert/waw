@@ -32,15 +32,15 @@
   <%end%>
     <%= render "shared/navbar" %>
   </header>
-  <body class= "d-flex flex-column min-vh-100 main-bg" style="font-family:<%=Shop.first.themefont%>">
-    <div class="main-bg" style="background-color:<%=Shop.first.themebgcolor%>;">
+  <%# <div class="main-bg" style="background-color:=Shop.first.themebgcolor;"> %>
+    <body class= "d-flex flex-column", style="font-family:<%=Shop.first.themefont%>;background:<%=Shop.first.themebgcolor%>;">
       <%= render "shared/panier"%>
       <p id="alert"><%= alert %></p>
       <p id="notice"><%= notice %></p>
       <%= render "shared/flashes" %>
       <%= yield %>
-    </div>
-  </body>
+    </body>
+  <%# </div> %>
   <footer class="footer">
     <%= render "shared/footer"%>
   </footer>

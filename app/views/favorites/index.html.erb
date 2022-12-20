@@ -1,8 +1,10 @@
-<div class="container-index pt-5" data-controller="favorites">
-<h1 class="mb-5 text-center"> Mes favoris</h1>
-  
-  <%= render "shared/#{Shop.first.card}", products: current_user.favorite_products %>
+<div class="container container-index pt-5" data-controller="favorites">
+  <h1 class="mb-5 text-center"> Mes favoris</h1>
 
-  <%= console %>
+  <div class="row d-flex justify-content-center" data-controller="favorites">
+    <% current_user.favorite_products.sample(3).each do |product| %>
+      <%= render "shared/#{Shop.first.card}", product: product%>
+    <% end %>
+  </div>
+
 </div>
-
