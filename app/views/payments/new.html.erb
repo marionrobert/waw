@@ -1,3 +1,18 @@
+<script>
+// CONDITIONS GENERALES DE PAYMENT ACCEPTATION
+ var checker = document.getElementById('checkcgv');
+ var agree = document.getElementById('pay');
+ // when unchecked or checked, run the function
+ checker.onchange = function(){
+if(this.checked){
+    agree.disabled = false;
+} else {
+    agree.disabled = true;
+}
+
+}
+</script>
+
 <div class="container">
   <div class="row py-4">
   <%# bug de recuperation de l'image à traiter %>
@@ -51,9 +66,13 @@
         </thead>
         </tbody>
       </table>
-
+      <div>
+<%# BOUTON DE VALIDATION DES CGV %>
+        <input type="checkbox" id="checkcgv"/>
+        <label for="checkcgv" style="color:black">En cochant cette case, j'accepte les conditions générales de ventes et de garanties </label>
+      </div>
       <div class="d-flex justify-content-center m-5">
-        <button id="pay" class="btn btn-primary">Finaliser votre commande</button>
+        <input type="submit" id="pay" disabled="disabled" class="btn btn-primary" value="Finaliser votre commande"/>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');

@@ -21,3 +21,5 @@ export default class extends Controller {
     dark.classList.remove("darkenmenuopen")
   }
 }
+
+
