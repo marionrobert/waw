@@ -16,13 +16,21 @@ class Product < ApplicationRecord
   # en attente de debug error pour les images
   # validate :images, presence: true
 
-  scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
+  # NE PAS SUPPRIMER
+  # include PgSearch::Model
 
-  include PgSearch::Model
-  pg_search_scope :search_by_name,
-                  against: [:name],
-                  using: {
-                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
-                  }
+  # multisearchable against: [ :name ]
+
+  # pg_search_scope :global_search,
+
+  # against: [ :name, :description, :sku ],
+
+  # associated_against: {
+  #   subcategory: [ :name ]
+  # },
+
+  # using: {
+  #   tsearch: { prefix: true }
+  # }
 
 end
