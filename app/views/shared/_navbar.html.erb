@@ -3,25 +3,29 @@
 <%else%>
 <main class="navfixed">
 <%end%>
- <nav class="navbar bg-light " aria-label="Light offcanvas navbar">
-    <div class="container-fluid">
-      <%= link_to "ACCUEIL", "/", class:"acceuil navbar-brand btn btn-dark", style:"color:white;text-decoration:none;"%>
+ <nav class="navbar bg-light d-flex " aria-label="Light offcanvas navbar">
+    <%# <div class="container-fluid"> %>
 
       <div class="displaybtncategories", data-controller="category", data-action="click->category#displaycategorymenu">
         <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
       </div>
+      <div data-controller="category", data-action="mouseleave->category#TESTHOMEOUT">
+      <%= link_to "/", style:"justify-content:center;" do%>
+          <i class="fa-solid fa-house btnhome", style="color:gray;margin-left:-15px;padding-bottom:-15px;", data-controller="category", data-action="mouseover->category#TESTHOME"><span id="TESTHOME" class="TESTHIDE">HOME</span></i>
+      <%end%>
+      </div>
 
-
-      <div class="btncart", style="position:relative" data-controller="panier", data-action="click->panier#updatePanier2"><i class="fa-solid fa-cart-shopping"></i>
+      <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
+      <i class="fa-solid fa-cart-shopping", style="color:gray"></i>
         <%if @cart.line_items.count > 0%>
           <div class="circle_items_count">
-          </div>
-          <div style="position:absolute;bottom:0;right:0;">
-            <% cartcontent = [] %>
-            <%@cart.line_items.each do |item|%>
-            <%cartcontent << item.quantity %>
-            <%end%>
-            <%=cartcontent.sum%>
+            <div style="margin:-7px -3px;">
+              <% cartcontent = [] %>
+              <%@cart.line_items.each do |item|%>
+              <%cartcontent << item.quantity %>
+              <%end%>
+              <%=cartcontent.sum%>
+            </div>
           </div>
         <%end%>
       </div>
@@ -43,7 +47,7 @@
 
             <%if current_user && current_user.admin? %>
               <li class="nav-item" >
-                <%= link_to "Ajouter une code promo", coupons_path, style:"text-decoration:none;"%>
+                <%= link_to "Ajouter un code promo", coupons_path, style:"text-decoration:none;"%>
               </li>
             <%end%>
             <%if !current_user %>
@@ -84,7 +88,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    <%# </div> %>
 
 
   </nav>

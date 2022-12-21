@@ -17,6 +17,23 @@
   box-sizing: border-box;
 }
 
+.TESTHIDE {
+  transition: 150ms;
+  // transform: translateX(-100%);
+  color:rgba(0,0,0,0);
+}
+
+.TESTAPPEARHOME {
+  margin-left:25px;
+  transition: 800ms;
+  // transform: translateX(100%);
+  color:gray;
+}
+
+.offcanvas-header {
+  z-index: 10;
+}
+
 .mentionslegales {
   font-size:2vh;
   list-style-type:none;
@@ -28,7 +45,7 @@
 
 .scroller {
   width: 97%;
-  height: 75vh;
+  height: 85vh;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
@@ -139,9 +156,11 @@ tfoot {
 }
 
 .btncart {
-  padding:8px 50px;
-  border-radius: 10px;
-  background: rgba(200,200,200,0.4);
+  padding: 5px 9px;
+  border-radius: 20px;
+  position: absolute;
+  right: 80px;
+  border: 1px solid grey;
   cursor: pointer;
 }
 
@@ -149,6 +168,64 @@ tfoot {
   background: rgba(200,200,200,0.3);
   box-shadow: inset 3px 3px rgba(200,200,200,0.7);
 }
+
+
+@media screen and (max-width: 481px) {
+  .categoryarrowback {
+    height:50px;
+    z-index:101;
+    position:absolute;
+    bottom:25vh;
+    left:40vw;
+  }
+  .subcategoryarrowback {
+    height:50px;
+    z-index:101;
+    position:absolute;
+    bottom:25vh;
+    left:40vw;
+  }
+}
+
+@media screen and (min-width: 482px) {
+  .categoryarrowback {
+    height:50px;
+    z-index:101;
+    position:absolute;
+    bottom:25vh;
+    left:6vw;
+  }
+  .subcategoryarrowback {
+    height:50px;
+    z-index:101;
+    position:absolute;
+    bottom:25vh;
+    left:6vw;
+  }
+}
+
+.btnhome {
+  transition-delay: 50ms;
+  transition-duration: 400ms;
+  padding: 10px 10px 10px 10px;
+  border-radius: 20px;
+  position: absolute;
+  left: 60px;
+  width: 40px;
+  bottom: 8px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.btnhome:hover {
+  padding: 10px 120px 10px 10px;
+  transition-delay: 50ms;
+  transition-duration: 400ms;
+  background: rgba(200,200,200,0.3);
+  box-shadow: inset 3px 3px rgba(200,200,200,0.7);
+  background:rgba(157, 212, 157, 0.65);
+}
+
 
 .spin_zoom_img {
   background-size: cover;
@@ -162,19 +239,22 @@ tfoot {
 }
 
 .circle_items_count {
+  font-size: 10px;
   background:rgba(254, 169, 1, 0.8);
   position:absolute;
-  bottom:0;
-  right:-8px;
+  bottom:-6px;
+  right:-6px;
   border-radius:50%;
   border: 1px solid rgba(90, 61, 3, 0.8);
-  padding:12px;
+  padding:8px;
+  height: 15px;
+  width: 15px;
 }
 
 
 @media screen and (max-width: 481px) {
   .acceuil{
-    display:none;
+    justify-content: center;
   }
 }
 

@@ -93,6 +93,9 @@
   </div>
   <p style="color:green"><%= notice %></p>
   <div>
+  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+    <p style="width:100%;text-align:center;background:black;color:white;"><%=Shop.first.bannerpub%></p>
+  <%end%>
     <% if user_signed_in? %>
       <%= form_with url: orders_path, method: :post do %>
         <%= hidden_field_tag 'cart_id', cart.id %>
@@ -106,7 +109,7 @@
       <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
       class: "cartempty", remote: true %>
     </div>
-    <% if current_user %>
+    <% if current_user && current_user.favorite_products.count > 0%>
       <div class="container">
         <h3 class="mb-5 text-center"> Vos produits favoris</h3>
         <div class="row d-flex justify-content-center" data-controller="favorites">

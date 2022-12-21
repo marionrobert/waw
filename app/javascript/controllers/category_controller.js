@@ -7,6 +7,22 @@ export default class extends Controller {
 
   }
 
+  TESTHOME() {
+    // alert("CONNECTE")
+    const test= document.getElementById("TESTHOME");
+    test.classList.remove("TESTHIDE");
+    test.classList.add("TESTAPPEARHOME");
+    // test.classList.remove("TESTAPPEARHOME");
+    // test.classList.add("TESTHIDE");
+  }
+
+  TESTHOMEOUT() {
+    // alert("CONNECTE")
+    const test2= document.getElementById("TESTHOME");
+    test2.classList.remove("TESTAPPEARHOME");
+    test2.classList.add("TESTHIDE");
+  }
+
   displaycategorymenu() {
     const catmenu = document.getElementById('smalldevicecategories');
     catmenu.classList.add("displaycat");
