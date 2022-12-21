@@ -71,15 +71,8 @@ if(this.checked){
         <input type="checkbox" id="checkcgv"/>
         <label for="checkcgv" style="color:black">En cochant cette case, j'accepte les conditions générales de ventes et de garanties </label>
       </div>
-
       <div class="d-flex justify-content-center m-5">
-        <%# <input type="submit" name="pay" class="inputButton" disabled="disabled" id="pay" value=" Finaliser la commande " /> %>
-        <%# <button type="submit" name="agreepayement" class="inputButton" disabled="disabled" id="pay">Finaliser la commande</button> %>
-
-        <%# <button id="pay" class="btn btn-primary">Finaliser votre commande</button> %>
-
-        <button id="pay" disabled="disabled" class="btn btn-primary">Finaliser votre commande</button>
-
+        <input type="submit" id="pay" disabled="disabled" class="btn btn-primary" value="Finaliser votre commande"/>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');
