@@ -8,10 +8,10 @@ export default class extends Controller {
 
   }
 
-  livesearch() {
-    const searchzone = document.getElementById("search")
-    let html = "<p> My new paragraph.</p>";
-    searchzone.insertAdjacentHTML("afterend", html);
+  // livesearch() {
     // alert("i'm listening")
-  }
+    // const searchzone = document.getElementById("search")
+    // let html = "<p> My new paragraph.</p>";
+    // searchzone.insertAdjacentHTML("afterend", html);
+  // }
 }
