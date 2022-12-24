@@ -1,0 +1,8 @@
+<div id="search", data-controller="searcharea", data-action="keyup->searcharea#livesearch">
+  <%= search_form_for(@query, url: search_path, method: :get, class:"d-flex") do |f| %>
+      <%= f.search_field :name_or_description_or_sku_cont_any,
+      placeholder: "Tapez votre recherche ici",
+      class: "form-control me-2"%>
+      <%= f.submit "Rechercher", class:"btn btn-outline-success" %>
+  <% end %>
+</div>

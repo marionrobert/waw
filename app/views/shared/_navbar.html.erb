@@ -15,6 +15,14 @@
       <%end%>
       </div>
 
+
+
+      <div>
+        <%= render "search/form" %>
+      </div>
+
+
+
       <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
       <i class="fa-solid fa-cart-shopping", style="color:gray"></i>
         <%if @cart.line_items.count > 0%>

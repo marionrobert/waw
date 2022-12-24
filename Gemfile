@@ -48,3 +48,5 @@ group :test do
 end
 
 gem "cloudinary"
+
+gem "ransack", "~> 3.2"
