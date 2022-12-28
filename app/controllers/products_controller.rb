@@ -59,24 +59,6 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
-  def search
-    if params.dig(:name_search).present?
-      # @products = Product.where('name ILIKE ?', "%#{params[:name_search]}%").order(created_at: :desc)
-      @products = Product.global_search(params[:name_search]).order(created_at: :desc)
-    else
-      @products = []
-    end
-    respond_to do |format|
-      format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.update("search_results",
-            partial: "products/search_results",
-            locals: { products: @products })
-          ]
-      end
-    end
-  end
-
 private
 
   def set_subcategory

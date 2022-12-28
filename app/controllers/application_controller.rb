@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   before_action :authenticate_user!
   before_action :set_query
+  skip_before_action :authenticate_user!, only: %i[set_query]
 
   add_flash_types :success
 
