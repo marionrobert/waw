@@ -19,7 +19,7 @@ export default class extends Controller {
       .then((data) => {
         if (data.unfav) {
           if (data.page === "/favorites") {
-            evt.target.closest('container-index > div').remove();
+            evt.target.closest('.container-index> div > div').remove();
           } else {
             evt.target.style.color = "black";
           }
