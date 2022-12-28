@@ -6,22 +6,18 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     @subcategories = Subcategory.all
-    if params[:query].present?
-      sql_query = <<~SQL
-        products.name @@ :query
-        OR products.description @@ :query
-        OR products.sku @@ :query
-        OR subcategories.name @@ :query
-      SQL
-      @products = Product.joins(:subcategory).where(sql_query, query: "%#{params[:query]}%")
-    else
+    # if params[:query].present?
+    #   sql_query = <<~SQL
+    #     products.name @@ :query
+    #     OR products.description @@ :query
+    #     OR products.sku @@ :query
+    #     OR subcategories.name @@ :query
+    #   SQL
+    #   @products = Product.joins(:subcategory).where(sql_query, query: "%#{params[:query]}%")
+    # else
       @products = Product.all
-    end
+    # end
   end
-# SEARCHBAR
-  # https://kitt.lewagon.com/camps/940/lectures/05-Rails%2F09-Airbnb-SMTP#video-0
-# RANSACK
-# https://www.google.fr/search?source=hp&ei=tWH6Xd6HBseOlwSUg56ABQ&q=rails+7+search+bar+dynamic&btnK=Recherche+Google&oq=19+All%C3%A9e+des+Marronniers++78035+Versailles&gs_l=psy-ab.3..0j0i22i30.722.722..29683...0.0..0.140.275.0j2......0....2j1..gws-wiz.....0.nXZlX5qWhsI&ved=0ahUKEwietpar3L_mAhVHx4UKHZSBB1AQ4dUDCAY&uact=5#fpstate=ive&vld=cid:3b70d6bc,vid:PYP_IYeMqW0
 
   def show
     @current_user = current_user

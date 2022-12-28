@@ -1,21 +1,7 @@
 <div class="container">
-  <table>
-    <thead>
-      <tr>
-      <th><%= sort_link(@query, :name, "Name", default_order: :asc) %></th>
-      <th><%= sort_link(@query, :description, "Description", default_order: :asc) %></th>
-      <th><%= sort_link(@query, :sku, "Sku", default_order: :asc) %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.name, product %></td>
-        <td><%= product.description.truncate_words(25)%></td>
-        <td><%= link_to product.sku%></td>
-      </tr>
-        <% end %>
-    </tbody>
-  </table>
+    <div>
+      <% @products.each do |product| %>
+        <%= render "shared/#{Shop.first.card}", product: product%>
+      <% end %>
+    </div>
 </div>
