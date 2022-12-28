@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :cookies_modal do %>
+  <% if session[:cookies_accepted].nil? %>
+  <section class="cookies-modal">
+    <h1>Ce site web utilise des cookies</h1>
+    <p>Accepter tout les cookies</p>
+    <div class="d-flex justify-content-around">
+      <%= link_to "accept", cookies_path(cookies_accepted: true), class:"btn btn-success" %>
+      <%= link_to "reject", cookies_path(cookies_accepted: false), class:"btn btn-warning" %>
+    </div>
+  </section>
+  <% end %>
+<% end %>

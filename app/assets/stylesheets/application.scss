@@ -17,6 +17,19 @@
   box-sizing: border-box;
 }
 
+.cookies-modal {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 5000;
+  background: rgba(236, 224, 199,0.4);
+  padding: 2vw;
+  word-break: break-word;
+  border-radius: 0.5rem;
+  min-width: 50vw;
+  max-width: 95vw;
+}
+
 .TESTHIDE {
   transition: 150ms;
   // transform: translateX(-100%);

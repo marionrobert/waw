@@ -25,6 +25,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
+    <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
   </head>
   <header>
   <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
@@ -32,15 +34,17 @@
   <%end%>
     <%= render "shared/navbar" %>
   </header>
-  <%# <div class="main-bg" style="background-color:=Shop.first.themebgcolor;"> %>
     <body class= "d-flex flex-column", style="font-family:<%=Shop.first.themefont%>;background:<%=Shop.first.themebgcolor%>;">
       <%= render "shared/panier"%>
       <p id="alert"><%= alert %></p>
       <p id="notice"><%= notice %></p>
       <%= render "shared/flashes" %>
+      <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
+      <%= session[:cookies_accepted] %>
       <%= yield %>
+      <%# CONTROLLEUR LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
+      <%= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>
     </body>
-  <%# </div> %>
   <footer class="footer">
     <%= render "shared/footer"%>
   </footer>
