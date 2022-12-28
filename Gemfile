@@ -1,11 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# voir tuto lewagon,mais non utilisé pour l'heure car recours à query
+# gem "pg_search"
+
 ruby "3.1.2"
 gem "geocoder"
 gem "autoprefixer-rails"
 gem "bootsnap", require: false
-
 # Authentification
 gem "devise"
 gem 'omniauth'
@@ -17,7 +19,6 @@ gem "jbuilder"
 gem "jsbundling-rails"
 gem 'money-rails'
 gem "pg", "~> 1.1"
-gem "pg_search"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "rails_admin", "~> 3.0"
@@ -47,3 +48,5 @@ group :test do
 end
 
 gem "cloudinary"
+
+gem "ransack", "~> 3.2"

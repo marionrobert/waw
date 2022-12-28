@@ -39,39 +39,24 @@
         share_target: "body"
       }) %>
 
-    </div>
+      <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
 
-  </div>
-
-
-  <div class="row">
-    <div class="col-sm-6">
       <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
         <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>
       <% end %>
       <%# les éléments ci-dessous n'ont pas grand intérêt %>
-      <%= content_tag(:p, "", class:"result", data: {
+      <%#= content_tag(:p, "", class:"result", data: {
         share_target: "result"
       }) %>
     </div>
+
   </div>
 
+
   <div class="row">
-    <div class="button">
-      <% if user_signed_in? %>
-        <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
-        <%#= form_with url: orders_path do %>
-          <%#= hidden_field_tag 'product_id', @product.id %>
-          <%#= submit_tag 'Acheter', class: 'btn btn-primary' %>
-        <%# end %>
-        <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
-      <% else %>
-        <%# Le bouton acheter pour achat immediat necessite la creation d'à minima 1 line items, pour l'instant on le hide %>
-        <%#= link_to "Acheter", user_session_path, class: 'btn btn-primary' %>
-        <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
-      <% end %>
-    </div>
   </div>
+
+<%# ADMIN ZONE %>
 
   <div class="row my-5", style="text-align:center">
     <div class="col">
@@ -84,8 +69,12 @@
 
 </div>
 
+<%# CROSS SELLING %>
+
   <div class="container">
+  <%if @products.count > 0%>
     <h3 class="ml-4">Les produits suivants pourraient vous intéresser</h3>
+  <%end %>
     <div class="row d-flex justify-content-center" data-controller="favorites">
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>

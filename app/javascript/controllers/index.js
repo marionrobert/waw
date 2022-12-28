@@ -24,3 +24,6 @@ application.register("share", ShareController)
 
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
+
+import SearchareaController from "./searcharea_controller"
+application.register("searcharea", SearchareaController)

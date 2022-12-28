@@ -1,0 +1,6 @@
+<h1 class="text-center", style="margin-top:10vh;"><%= pluralize(@products.count, "resultat(s) à votre recherche") %></h1>
+<%#= render "search/form" %>
+<h3 style="text-align:end;"><%= link_to "Retournez aux produits", products_path%></h3>
+
+
+<%= render "search/result" %>

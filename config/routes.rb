@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'search/index'
+  # gem ransack
+  get 'search', to: 'search#index'
+
+  
   resources :line_items
   post 'line_items/addone'
   post 'line_items/removeone'

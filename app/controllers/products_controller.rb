@@ -6,11 +6,18 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     @subcategories = Subcategory.all
-    if params[:query].present?
-      @products = Product.search_by_name("%#{params[:query]}%")
-    else
+    # if params[:query].present?
+    #   sql_query = <<~SQL
+    #     products.name @@ :query
+    #     OR products.description @@ :query
+    #     OR products.sku @@ :query
+    #     OR subcategories.name @@ :query
+    #   SQL
+    #   @products = Product.joins(:subcategory).where(sql_query, query: "%#{params[:query]}%")
+    # else
       @products = Product.all
-    end
+    # end
+    # VOIR CORRECTION DE LEWAGON
   end
 
   def show
@@ -51,24 +58,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
-  end
-
-  def search
-    if params.dig(:name_search).present?
-      # @products = Product.where('name ILIKE ?', "%#{params[:name_search]}%").order(created_at: :desc)
-      @products = Product.filter_by_name(params[:name_search]).order(created_at: :desc)
-    else
-      @products = []
-    end
-    respond_to do |format|
-      format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.update("search_results",
-            partial: "products/search_results",
-            locals: { products: @products })
-          ]
-      end
-    end
   end
 
 private

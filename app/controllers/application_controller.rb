@@ -2,8 +2,14 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   before_action :set_cart
   before_action :authenticate_user!
+  before_action :set_query
+  skip_before_action :authenticate_user!, only: %i[set_query]
 
   add_flash_types :success
+
+  def set_query
+    @query = Product.ransack(params[:q])
+  end
 # comment everything below before_action if it doesnt work
   # private
 
