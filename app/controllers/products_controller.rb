@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     # else
       @products = Product.all
     # end
+    # VOIR CORRECTION DE LEWAGON
   end
 
   def show
