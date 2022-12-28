@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success
 
+  before_action :reset_cookies
+
+
+  def reset_cookies
+    # permet en passant par le controlleur de reinitialiser les cookies et donc la modal cookies accepte reject si decommenté
+    # session[:cookies_accepted] = nil
+  end
+
   def set_query
     @query = Product.ransack(params[:q])
   end
