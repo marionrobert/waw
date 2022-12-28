@@ -2,9 +2,8 @@
   <h1 class="mb-5 text-center"> Mes favoris</h1>
 
   <div class="row d-flex justify-content-center" data-controller="favorites">
-    <% current_user.favorite_products.sample(3).each do |product| %>
+    <% current_user.favorite_products.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product%>
     <% end %>
   </div>
-
 </div>
