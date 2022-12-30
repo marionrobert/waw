@@ -1,5 +1,5 @@
 <h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
-<div class="scroller">
+<div class="scroller" style="padding-bottom:10vh;">
   <div class="container">
     <% cart.line_items.each do |item| %>
     <%# ligne complete %>
@@ -105,8 +105,16 @@
         <%# Bidouillage qui permet de supprimer l'euro devant et de le mettre à la fin, la gem ne le proposant pas %>
         <%sub_total_euro_end = humanized_money_with_symbol(sub_total.sum) + " " + humanized_money_with_symbol(sub_total.sum).first%>
         <p><%=sub_total_euro_end.slice(1..50)%></p>
-        <%console%>
       </div>
+    </div>
+  </div>
+<%# ////////////////FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS/////////////// %>
+  <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+  <div class="container" style="margin-bottom:15vh;height:75vh;">
+    <div class="row" style="height:5vh;">
+      <% current_user.favorite_products.sample(3).each do |product| %>
+      <%= render "shared/#{Shop.first.card}", product: product %>
+      <% end %>
     </div>
   </div>
 </div>
