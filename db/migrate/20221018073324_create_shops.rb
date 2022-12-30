@@ -11,6 +11,12 @@ class CreateShops < ActiveRecord::Migration[7.0]
       t.string :themebgcolor, default: "white"
       t.string :themefont, default: "arial"
       t.string :bannerpub
+      t.string :juridicform
+      t.integer :capitalisation
+      t.string :localregister
+      t.string :email
+      t.string :president
+      t.string :uetva
       t.timestamps
     end
   end
