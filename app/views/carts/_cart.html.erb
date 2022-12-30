@@ -1,123 +1,129 @@
-<h2 style="text-align:center">Panier en cours</h2>
+<h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
 <div class="scroller">
   <div class="container">
-      <table>
-        <thead>
-          <tr>
-            <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
-            <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% cart.line_items.each do |item| %>
-          <%# LA LINE ITEM SE DETRUIT SI ON A MOINS DE 1 AU PANIER - CEPENDANT BUG D'AFFICHAGE NECESSITE 2 REFRESH DU CART %>
-                <%if item.quantity < 1 %>
-                  <%item.destroy %>
-                <%else%>
-            <div class="row">
-              <tr>
-                <td class="col-6" style="text-align:left">
-                    <%if item.product.photos.attached?%>
-                      <%= cl_image_tag item.product.photos.first.key , style:"width:4vw;height:6vh;" %>
-                    <%else%>
-                      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style:"width:4vw;height:6vh;", alt: "Pas d'image disponible")  %>
-                    <%end%>
-                    <%= item.product.name %>
-                    <br>
-                    <p style="margin-left:20px;text-decoration"><i><%= item.product.sku %></i></p></td>
-                    <td class="col-1" style="text-align:center">
-                  <%# AJOUTER 1 DE QUANTITE %>
-                  <%= button_to line_items_addone_path(item), method: :post, style:"width:25px;height:25px" do%>
-                    <i class="fa-solid fa-plus"></i>
-                  <% end %>
-                  <%# ENLEVER LA QUANTITE DE 1 %>
-                  <%= item.quantity  %>
-                      <%if item.quantity > 1%>
-                  <%= button_to line_items_removeone_path(item), style:"width:25px;height:25px" do%>
-                    <i class="fa-solid fa-minus"></i>
-                      <%end%>
-                      <%else %>
-                      <br>
-                      <button style="width:25px;height:25px;">
-                  <%= link_to line_item_path(item),
-                  data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
-                    <i class="fa-solid fa-minus"></i>
-                      <% end %>
-                      </button>
-                      <br>
-                  <% end %>
-                  <%# SUPPRIMER LA LINE ITEMS QU'IMPORTE LA QUANTITEE %>
-                  <%= link_to line_item_path(item),
-                  data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
-                    <i class="fa-solid fa-trash-can"></i>
-                  <% end %>
-                </td>
-                <%end%>
-                <td class="col-1" style="text-align:right">
-                <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
-                  <p style="text-decoration:line-through;"><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
-                  <p style="color:green;"><%= humanized_money_with_symbol(item.product.discount_price_cents / 100.00)  %> ttc </p>
-                  <span style="border:1px solid red;color:red;padding:4px;">- <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>%</span>
-                <%else%>
-                  <p><%= humanized_money_with_symbol(item.product.price_cents / 100.00)  %> ttc </p>
-                <%end%>
-                </td>
-                <td class="col-1" style="text-align:right">
-                <% if item.product.discount_price_cents >0 && item.product.discount_price_cents < item.product.price_cents %>
-                  <p>€<%= ((item.product.discount_price_cents / 100.00)* item.quantity).round(2)  %> ttc </p>
-                <%else%>
-                  <p>€<%= ((item.product.price_cents / 100.00)* item.quantity).round(2) %> ttc </p>
-                <%end%>
-                </td>
-              </tr>
-            </div>
+    <% cart.line_items.each do |item| %>
+    <%# ligne complete %>
+    <div class="row" class="cart-line-item">
+
+      <%# photo - possiblement ajouté max-width:100%; a l'image%>
+      <div class="vignette-line-item">
+        <%if item.product.photos.attached?%>
+          <%= cl_image_tag item.product.photos.first.key %>
+        <%else%>
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")  %>
+        <%end%>
+      </div>
+
+<%# ////////////////bloc central ///////////////%>
+      <div class="line-item-central-area">
+        <%# product info %>
+        <div class="line-item-info">
+          <p class="line-item-product-name"><%= item.product.name %></p>
+          <p class="line-item-sku"><%= item.product.sku %></p>
+        </div>
+
+
+
+<%#///////////////// Gestionnaire de quantité ////////////////%>
+
+  <%#///////////// + quantité -///////////// %>
+        <div class="quantity-zone">
+  <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
+          <%= button_to line_items_addone_path(item), method: :post, class:"add-one" do%>
+            <i class="fa-solid fa-plus"></i>
           <% end %>
-        <thead>
-          <tr>
-            <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">SOUS-TOTAL</td>
-            <td class="col-1", style="text-align:right;", colspan="1">
-            <% sub_total = [] %>
-            <% cart.line_items.each do |item| %>
-              <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
-                <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
-              <%else%>
-                <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
+  <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
+          <p style="margin-left:2vw;margin-right:2vw"><%= item.quantity  %></p>
+              <%if item.quantity > 1%>
+          <%= button_to line_items_removeone_path(item), class:"remove-one" do%>
+            <i class="fa-solid fa-minus"></i>
               <%end%>
-            <%end%>
-              <span><%=humanized_money_with_symbol(sub_total.sum)%>ttc </span>
-        </thead>
-        </tbody>
-      </table>
-  </div>
-  <p style="color:green"><%= notice %></p>
-  <div>
-  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-    <p style="width:100%;text-align:center;background:black;color:white;"><%=Shop.first.bannerpub%></p>
-  <%end%>
-    <% if user_signed_in? %>
-      <%= form_with url: orders_path, method: :post do %>
-        <%= hidden_field_tag 'cart_id', cart.id %>
-        <%= submit_tag 'Finaliser ma commande', style:"width:100%;justify-content:center;", class: 'btn btn-primary' %>
-      <% end %>
-    <% else %>
-      <%= link_to "Finaliser ma commande", user_session_path, style:"width:100%;justify-content:center;", class: 'btn btn-primary d-flex justify-content-center' %>
-    <% end %>
-    </div>
-    <div style="text-align:end;">
-      <%= button_to "Vider le panier", cart, method: :delete, data: { confirm: "êtes-vous sûr?" },
-      class: "cartempty", remote: true %>
-    </div>
-    <% if current_user && current_user.favorite_products.count > 0%>
-      <div class="container">
-        <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-        <div class="row d-flex justify-content-center" data-controller="favorites">
-          <% current_user.favorite_products.sample(3).each do |product| %>
-            <%= render "shared/#{Shop.first.card}", product: product%>
+              <%else %>
+              <button class="remove-one">
+          <%= link_to line_item_path(item),
+          data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
+            <i class="fa-solid fa-minus" style="color:grey;"></i>
+              <% end %>
+              </button>
           <% end %>
         </div>
       </div>
+
+
+
+
+<%# ///////////////// prix produit * qté et promo *qté///////////// %>
+      <div class="price-zone">
+  <%# /////////////si promo ///////////// %>
+        <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
+  <%# /////////////////prix classique barré //////////////%>
+          <% prixbarre = (item.product.price_cents / 100.00)* item.quantity%>
+          <p class="price-off"><%= humanized_money_with_symbol(prixbarre) %></p>
+  <%#/////////////// REMISE EN % ///////////////%>
+          <span class="discount-percent">- <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>%</span>
+  <%#//////////// prix promo en vert %>
+            <% prixpromo = humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity) + " " + humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity).first%>
+            <p class="promo-price"><%= prixpromo.slice(1..50) %></p>
+        <%else%>
+  <%# /////////////sinon prix classique ///////////////%>
+            <% prix = humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity) + " " + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first%>
+            <p><%= prix.slice(1..50) %></p>
+        <%end%>
+      </div>
+
+
+
+
+
+<%# //////////// la Poubelle - detruit la line item //////// %>
+      <div class="trashzone">
+        <%= link_to line_item_path(item),
+        data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
+        <i class="fa-solid fa-trash-can" style="color:grey"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="line-item-separator">
+    </div>
     <% end %>
+
+<%# ////////// SOUS TOTAL DU PANIER ////////////%>
+    <div class="container subtotal-line" >
+      <div class="subtotal-txt">
+        <p>SOUS-TOTAL TTC</p>
+      </div>
+      <div class="subtotal">
+      <% sub_total = [] %>
+      <% cart.line_items.each do |item| %>
+        <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
+          <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
+        <%else%>
+          <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
+        <%end%>
+      <%end%>
+        <%# Bidouillage qui permet de supprimer l'euro devant et de le mettre à la fin, la gem ne le proposant pas %>
+        <%sub_total_euro_end = humanized_money_with_symbol(sub_total.sum) + " " + humanized_money_with_symbol(sub_total.sum).first%>
+        <p><%=sub_total_euro_end.slice(1..50)%></p>
+        <%console%>
+      </div>
+    </div>
   </div>
 </div>
+<%# ///////////////BANNIERE PUB///////////////////// %>
+    <div class="cartpub">
+      <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+        <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
+      <%end%>
+    </div>
+<%# ///////////////FINALISER LA COMMANDE///////////////////// %>
+    <div class="cartvalidate">
+      <% if user_signed_in? %>
+        <%= form_with url: orders_path, method: :post do %>
+          <%= hidden_field_tag 'cart_id', cart.id %>
+          <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
+        <% end %>
+      <% else %>
+        <%= link_to "Finaliser ma commande", user_session_path, class: 'btn btn-primary d-flex justify-content-center validcartbtn' %>
+      <% end %>
+    </div>

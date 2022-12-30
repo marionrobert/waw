@@ -43,7 +43,6 @@
 
 
     <div data-controller="category">
-
       <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
           <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
@@ -56,7 +55,6 @@
         <% end %>
         <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
       </div>
-
       <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
       <div id="subcatmenu" class="subcategorymenu">
         <% Subcategory.all.each do |subcategory| %>
@@ -66,7 +64,6 @@
         <% end %>
         <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="subcategoryarrowback" data-action="click->category#hidesubcategorymenu">
       </div>
-
     </div>
 
     <div class="container pt-5">
