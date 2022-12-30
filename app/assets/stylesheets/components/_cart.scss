@@ -1,0 +1,275 @@
+@media screen and (min-width: 481px) {
+
+  .cart-line-item {
+    margin-left:1vw;
+    height:12vh;
+    width:53vw;
+    margin-bottom:3vh;
+  }
+
+  .vignette-line-item {
+    width:12vw;
+    height:12vh;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    margin-bottom:3vh;
+  }
+
+  .line-item-central-area {
+    height:12vh;
+    width:25vw;
+    margin-bottom:3vh;
+  }
+
+  .line-item-info {
+    height:8vh;
+  }
+
+  .line-item-product-name {
+    margin-bottom:-0.5vh;
+  }
+
+  .line-item-sku {
+    margin-left:2vw;
+    color:grey;
+    font-style:italic;
+    font-size:smaller;
+  }
+
+  .quantity-zone {
+    height:4vh;
+    display:flex;
+    justify-content: flex-start;
+  }
+
+  .add-one {
+    color: grey;
+    width:25px;
+    height:25px;
+  }
+
+  .remove-one {
+    color: grey;
+    width:25px;
+    height:25px;
+  }
+
+  .price-zone {
+    width:10vw;
+    height:12vh;
+    text-align:right;
+    margin-bottom:3vh;
+  }
+
+  .price-off {
+    text-decoration:line-through;
+    margin-bottom:1vh;
+  }
+
+  .discount-percent {
+    border:1px solid red;
+    color:red;
+    padding:4px;
+  }
+
+  .promo-price {
+    color:green;
+    margin-top:1vh;
+  }
+
+  .trashzone {
+    width:5vw;
+    height:12vh;
+    text-align:right;
+    margin-bottom:3vh;
+  }
+
+  .line-item-separator {
+    height: 2vh;
+    border-top: 1px solid grey;
+    width: 45vw;
+    margin-left: 5vw;
+  }
+
+  .subtotal-line {
+    display:flex;
+    text-align:right;
+    padding-bottom:15vh;
+  }
+
+  .subtotal-txt {
+    width:37vw;
+    font-weight:bolder;
+  }
+
+  .subtotal {
+    width:10vw;
+    font-weight:bolder;
+  }
+
+  .cartpub {
+    background:black;
+    position:absolute;
+    bottom:8vh;
+    left:0;
+    right:0;
+    width:auto;
+    text-align:center;
+    height:5vh;
+    padding-top:1vh;
+  }
+
+  .cartvalidate {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    width:auto;
+    text-align:center;
+    height:8vh;
+  }
+
+  .validcartbtn {
+    width:100%;
+    height:8vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .cart-line-item {
+    margin-left:1vw;
+    height:12vh;
+    width:90vw;
+    margin-bottom:3vh;
+  }
+
+  .vignette-line-item {
+    width:95vw;
+    height:12vh;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    margin-bottom:3vh;
+  }
+
+  .line-item-central-area {
+    height:12vh;
+    width:52vw;
+    margin-bottom:3vh;
+  }
+
+  .line-item-info {
+    height:8vh;
+  }
+
+  .line-item-product-name {
+    margin-bottom:-0.5vh;
+  }
+
+  .line-item-sku {
+    margin-left:3.5vw;
+    color:grey;
+    font-style:italic;
+    font-size:smaller;
+  }
+
+  .quantity-zone {
+    height:4vh;
+    display:flex;
+    justify-content: space-evenly;
+  }
+
+  .add-one {
+    color: grey;
+    width:25px;
+    height:25px;
+  }
+
+  .remove-one {
+    color: grey;
+    width:25px;
+    height:25px;
+  }
+
+  .price-zone {
+    width:30vw;
+    height:12vh;
+    text-align:right;
+    margin-bottom:3vh;
+  }
+
+  .price-off {
+    text-decoration:line-through;
+    margin-bottom:1vh;
+  }
+
+  .discount-percent {
+    border:1px solid red;
+    color:red;
+    padding:4px;
+  }
+
+  .promo-price {
+    color:green;
+    margin-top:1vh;
+  }
+
+  .trashzone {
+    width:10vw;
+    height:12vh;
+    text-align:right;
+    margin-bottom:3vh;
+  }
+
+  .line-item-separator {
+    height: 2vh;
+    border-top: 1px solid grey;
+    width: 76vw;
+    margin-left: 5vw;
+  }
+
+  .subtotal-line {
+    display:flex;
+    text-align:right;
+    padding-bottom:15vh;
+  }
+
+  .subtotal-txt {
+    width:55vw;
+    font-weight:bolder;
+  }
+
+  .subtotal {
+    width:22vw;
+    font-weight:bolder;
+  }
+
+  .cartpub {
+    background:black;
+    position:absolute;
+    bottom:8vh;
+    left:0;
+    right:0;
+    width:auto;
+    text-align:center;
+    height:5vh;
+    padding-top:1vh;
+  }
+
+  .cartvalidate {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    width:auto;
+    text-align:center;
+    height:8vh;
+  }
+
+  .validcartbtn {
+    width:100%;
+    height:8vh;
+  }
+}
