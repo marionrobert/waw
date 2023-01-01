@@ -2,9 +2,8 @@
 <div>
   <%= search_form_for(@query, url: search_path, method: :get, class:"d-flex") do |f| %>
       <%= f.search_field :name_or_description_or_sku_cont_any,
-      placeholder: "Tapez votre recherche ici",
-      class: "form-control me-2 searchinput"%>
-      <%= f.submit "",
-      class:"searchbutton" %>
+      placeholder: "Tapez votre recherche ici", style:"width:85%",
+      class: "form-control me-2"%>
+      <%= f.submit "SEARCH", :type => :image, :src => "https://cdn-icons-png.flaticon.com/128/149/149852.png", style:"height:3vh;margin-top:auto;margin-bottom:auto;" %>
   <% end %>
 </div>
