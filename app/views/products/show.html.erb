@@ -1,3 +1,7 @@
+<%# <div class=""> %>
+  <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
+<%# </div> %>
+
 <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
 
   <div class="mt-5">
@@ -39,7 +43,9 @@
         share_target: "body"
       }) %>
 
-      <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success" %>
+      <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart2" %>
+
+
 
       <%= link_to products_path, :class => "btn btn-dark mt-5", :data => {action: "click->share#share"} do%>
         <span><i class="fa-solid fa-share-nodes"></i> Partager ce produit</span>

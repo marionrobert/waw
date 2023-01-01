@@ -1,0 +1,26 @@
+@media screen and (max-width: 480px) {
+  .addtocart {
+    position:absolute;
+    bottom:-5px;
+    padding-bottom: 5px;
+    left:0;
+    right:0;
+    width:auto;
+    text-align:center;
+    height: 7vh;
+    // position:sticky;
+    position:fixed;
+    // background: rgb(166, 211, 154);
+    z-index: 2;
+  }
+
+  .addtocart2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .addtocart {
+    display:none;
+  }
+}
