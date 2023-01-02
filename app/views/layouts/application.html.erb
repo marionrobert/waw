@@ -35,10 +35,10 @@
   </header>
     <body class= "d-flex flex-column", style="font-family:<%=Shop.first.themefont%>;background:<%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar" %>
-      <% session[:cookies_accepted] %>
+      <%#= render "shared/categories_and_subcategories"%>
+      <%= session[:cookies_accepted] %>
       <%= render "shared/panier"%>
       <%= render "shared/flashes" %>
-      <%= render "shared/categories_and_subcategories"%>
       <p id="alert"><%= alert %></p>
       <p id="notice"><%= notice %></p>
       <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>

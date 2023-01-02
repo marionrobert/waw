@@ -1,5 +1,9 @@
 @media screen and (min-width: 481px) {
 
+  .enable_on_smartphone {
+    display:none
+  }
+
   .subcategorymenu {
     z-index:1000;
   }
@@ -109,4 +113,26 @@
     left:-60vw;
   }
 
+  .enable_on_desktop {
+    margin:0;
+    width:100vw;
+    padding:0;
+    display:flex;
+    justify-content:space-around;
+    background:rgba(255, 255, 255, 0.781);
+  }
+
+  .subcategorydesktopmenu {
+    margin:0;
+    width:100vw;
+    height:20vh;
+    padding:0;
+    display:flex;
+    justify-content:space-around;
+    background:rgba(178, 178, 230, 0.781);
+  }
+
+  .desktop_subcat_hide_or_not {
+    display:none;
+  }
 }
