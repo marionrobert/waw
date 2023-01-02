@@ -1,0 +1,70 @@
+
+//////CES CLASSES ET ID ONT EGALEMENT DES COMPOSANTES @MEDIA, VOIR DOSSIER COMPONENT ///////////
+
+#removeMenuCatArrow {
+  transform: rotate(50deg);
+  position:absolute;
+}
+
+.categoryarrowback {
+  height:50px;
+  z-index:101;
+  position:absolute;
+  bottom:25vh;
+}
+
+.subcategoryarrowback {
+  height:50px;
+  z-index:101;
+  position:absolute;
+  bottom:25vh;
+}
+
+.navbar {
+  padding-right: 1vw;
+  padding-left: 1vw;
+  justify-content: space-between;
+}
+
+.open {
+  position:fixed;
+  transition-duration: 350ms;
+  transform:translateX(100%);
+  background-color:white;
+}
+
+.menupanier {
+  min-height: 100vh;
+  position:fixed;
+  position: absolute;
+  top:0vh;
+  z-index: 1001;
+  background-color:white;
+  transition-duration: 350ms;
+}
+
+.menucategory {
+  position:absolute;
+  top:0;
+  padding-top: 10vh;
+  position:fixed;
+  background: rgb(247,247,247);
+  border-top-right-radius: 4px ;
+  border-bottom-right-radius: 4px ;
+  z-index:1001;
+}
+
+.displaycat {
+  transition-duration: 350ms;
+}
+
+.subcategorymenu {
+  position:absolute;
+  top:0;
+  padding-top: 10vh;
+  padding-left: 2rem;
+  position:fixed;
+  background: rgb(240,240,240);
+  border-top-right-radius: 4px ;
+  border-bottom-right-radius: 4px ;
+}

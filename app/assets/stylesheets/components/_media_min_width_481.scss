@@ -1,0 +1,112 @@
+@media screen and (min-width: 481px) {
+
+  .subcategorymenu {
+    z-index:1000;
+  }
+
+
+  #categories_left_barre {
+    position:absolute;
+    top:35vh;
+    left:0vw;
+    position:fixed;
+    height:30vh;
+    width:3vw;
+    background: black;
+    color:white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index:101;
+  }
+
+  #removeMenuCatArrow {
+    height: 50px;
+    z-index: 102;
+    bottom: 10%;
+    left: 45%;
+  }
+
+  #removeMenuCatArrow:hover {
+    transition-duration: 500ms;
+    transform: rotate(-310deg);
+  }
+
+  .removeMenuArrow {
+    transform: rotate(50deg);
+    position: absolute;
+    height: 50px;
+    z-index: 102;
+    bottom: 10%;
+    left: 45%;
+  }
+
+  .removeMenuArrow:hover {
+    transition-duration: 500ms;
+    transform: rotate(-310deg);
+  }
+
+  .displaybtncategories {
+    display:none;
+  }
+
+  .menucategory {
+    left:-15vw;
+    padding-left: 2vw;
+    height:100vh;
+    width:15vw;
+
+  }
+
+  .subcategorymenu {
+    left:-15vw;
+    height:100vh;
+    width:15vw;
+  }
+
+  .subcathover:hover {
+    text-decoration: underline;
+    cursor:pointer;
+    transition-duration: 350ms;
+    transform:translateX(1vw);
+  }
+
+  .displaysubcat {
+    transition-duration: 350ms;
+    transform:translateX(198%);
+  }
+
+  .displaycat {
+    transform:translateX(100%);
+  }
+
+  .responsivesearchbarplacesmall {
+    width: 60vw;
+  }
+
+  .responsivesearchbarplacebig {
+    display:none;
+  }
+
+  .categoryarrowback {
+    left:6vw;
+  }
+
+  .subcategoryarrowback {
+    left:6vw;
+  }
+
+  .btnhome:hover {
+    padding: 10px 120px 10px 10px;
+    transition-delay: 50ms;
+    transition-duration: 400ms;
+    background: rgba(200,200,200,0.3);
+    box-shadow: inset 3px 3px rgba(200,200,200,0.7);
+    background:rgba(157, 212, 157, 0.65);
+  }
+
+  .menupanier {
+    width: 60vw;
+    left:-60vw;
+  }
+
+}

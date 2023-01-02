@@ -1,0 +1,83 @@
+@media screen and (max-width: 480px) {
+
+  .subcategorymenu {
+    z-index:1001;
+  }
+
+  .menucategory {
+    left:-190vw;
+    padding-left: 2rem;
+    position:fixed;
+    height:110vh;
+    width:95vw;
+  }
+
+  .displaycat {
+    transform:translateX(200%);
+  }
+
+  .subcategorymenu {
+    left:-95vw;
+    height:110vh;
+    width:95vw;
+  }
+
+  .removeMenuArrow {
+    transform: rotate(50deg);
+    position:absolute;
+    bottom:20vh;
+    left:45vw;
+  }
+
+  .removeMenuArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #removeMenuCatArrow {
+    bottom:20vh;
+    left:45vw;
+  }
+
+  #removeMenuCatArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #categories_left_barre {
+    display:none;
+  }
+
+  .responsivesearchbarplacesmall {
+    display: none;
+  }
+
+  .responsivesearchbarplacebig {
+    width:95vw;
+    margin:2vw;
+  }
+
+  .categoryarrowback {
+    left:40vw;
+  }
+
+  .subcategoryarrowback {
+    left:40vw;
+  }
+
+  .searchbar {
+    position: absolute;
+    top: 7vh;
+    left:1vw;
+  }
+
+  .menupanier {
+    left:-97vw;
+    width: 97vw;
+  }
+
+  .displaysubcat {
+    transition-duration: 350ms;
+    transform:translateX(100%);
+  }
+}

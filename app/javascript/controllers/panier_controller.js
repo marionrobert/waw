@@ -6,7 +6,6 @@ export default class extends Controller {
   }
 
   updatePanier2() {
-    // alert("PANIER CLICK OK");
     const panierflottant = document.getElementById("panierflottant")
     const dark = document.getElementById("darken")
     panierflottant.classList.add("open")
@@ -14,12 +13,9 @@ export default class extends Controller {
   }
 
   removePanier() {
-    // alert("PANIER CLICK OK");
     const panierflottant = document.getElementById("panierflottant")
     const dark= document.getElementById("darken")
     panierflottant.classList.remove("open")
     dark.classList.remove("darkenmenuopen")
   }
 }
-
-

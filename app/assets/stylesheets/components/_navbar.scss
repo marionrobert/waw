@@ -41,3 +41,41 @@
   font-size:2vh;
   z-index: 30;
 }
+
+.btncart {
+  padding: 5px 9px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.btncart:hover {
+  background: rgba(200,200,200,0.3);
+  box-shadow: inset 3px 3px rgba(200,200,200,0.7);
+}
+
+.btnhome {
+  transition-delay: 50ms;
+  transition-duration: 400ms;
+  padding: 10px 10px 10px 10px;
+  border-radius: 20px;
+  width: 40px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.circle_items_count {
+  font-size: 10px;
+  background:rgba(254, 169, 1, 0.8);
+  position: absolute;
+  border-radius:50%;
+  padding:8px;
+  height: 15px;
+  width: 15px;
+}
+
+.nav {
+  background-color: transparent;
+  border-style: none;
+  text-align: center;
+}

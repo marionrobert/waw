@@ -1,0 +1,32 @@
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+table {
+  font-family: arial;
+}
+
+
+table,
+td {
+  padding:5px 10px;
+}
+
+th {
+  border: 1px solid black;
+  text-align: center;
+  background: white;
+}
+
+td {
+    border: 1px solid gray;
+}
+
+thead,
+tfoot {
+    background-color: rgba(0,0,0,0);
+    color: black;
+}

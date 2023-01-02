@@ -14,9 +14,9 @@
     </div>
 
     <%# ////////BOUTON HOME ///////////// %>
-    <div data-controller="category", data-action="mouseleave->category#TESTHOMEOUT">
+    <div data-controller="category", data-action="mouseleave->category#homebuttonrestore">
       <%= link_to "/" do%>
-          <i class="fa-solid fa-house btnhome", style="color:grey", data-controller="category", data-action="mouseover->category#TESTHOME"><span id="TESTHOME" class="TESTHIDE">HOME</span></i>
+          <i class="fa-solid fa-house btnhome", style="color:grey", data-controller="category", data-action="mouseover->category#homebuttondeploy"><span id="homebutton" class="deploy_home_icon">HOME</span></i>
       <%end%>
     </div>
 
