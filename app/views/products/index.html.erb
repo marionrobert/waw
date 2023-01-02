@@ -1,71 +1,5 @@
-<%# searchbar %>
-<%# <div class="main-bg"> %>
 
-
-  <div class="container" , style="margin-top:10vh">
-
-<%# CECI EST L'ANCIENNE SEARCHBAR, MERCI DE NE PAS LA SUPPRIMER, IL MANQUE ENCORE L'AJAX POUR LA SUGGESTION SUR LA SEARCHBAR SUIVANTE QUI EST PARTIELLEMENT REPARE %>
-    <%# <div class="row justify-content-center" style="padding-top:10vh;"> %>
-      <%# <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0"> %>
-        <%#= form_with url: search_products_path, method: :post, data: { controller: 'debounce', debounce_target: 'form' }, class: "d-flex" do |form| %>
-          <%#= text_field_tag :name_search,
-            params[:name_search],
-            class: "form-control",
-            style: "font-size:x-large",
-            placeholder: "rechercher un produit",
-            data: { action: "input->debounce#search" }
-          %>
-          <%#= submit_tag "Valider", class: "btn btn-primary p-2", style: "font-size:x-large;"%>
-        <%# end %>
-      <%# </div> %>
-    <%# </div> %>
-
-    <%# <div class="row justify-content-center"> %>
-      <%# <div id="search_results", class="col-sm-12 col-md-8 col-lg-6 d-flex flex-column" style="background-color:white; z-index:999"></div> %>
-    <%# </div> %>
-
-
-
-    <%# <div class="row justify-content-center" style="padding-top:10vh;"> %>
-      <%# <div class="col-sm-12 col-md-8 col-lg-6" style="padding:0"> %>
-        <%#= form_with url: products_path, method: :get, class: "d-flex" do %>
-          <%#= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Produits recherché"
-          %>
-          <%#= submit_tag "Valider", class: "btn btn-primary" %>
-        <%# end %>
-      <%# </div> %>
-    <%# </div> %>
-
-
-
-
-    <div data-controller="category">
-      <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
-          <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
-      </div>
-      <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
-       <div id="smalldevicecategories" class="MENUCATEGORY" >
-        <% @categories.each do |category| %>
-          <div class="categorymenu", data-action="click->category#displaysubcategory">
-            <p><%=category.name%></p>
-          </div>
-        <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
-      </div>
-      <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
-      <div id="subcatmenu" class="subcategorymenu">
-        <% Subcategory.all.each do |subcategory| %>
-          <p class="subcat subcathidden <%=subcategory.category.name%>">
-            <%= subcategory.name %>
-          </p>
-        <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="subcategoryarrowback" data-action="click->category#hidesubcategorymenu">
-      </div>
-    </div>
-
+  <div class="container" , style="margin-top:10vh;">
     <div class="container pt-5">
       <h1 class="mb-5 text-center">Produits disponibles</h1>
       <div class="row d-flex justify-content-center" data-controller="favorites">
@@ -74,6 +8,4 @@
         <% end %>
       </div>
     </div>
-
   </div>
-<%# </div> %>

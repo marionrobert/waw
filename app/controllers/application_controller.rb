@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   before_action :authenticate_user!
   before_action :set_query
+
+  # Ne fonctionne pas pour avoir les subcat partout
+  before_action :set_subcategory
+
   skip_before_action :authenticate_user!, only: %i[set_query]
 
   add_flash_types :success
@@ -18,6 +22,16 @@ class ApplicationController < ActionController::Base
   def set_query
     @query = Product.ransack(params[:q])
   end
+
+  # Ne fonctionne pas pour avoir les subcat partout
+  def set_subcategory
+    @categories = Category.all
+    @subcategories = Subcategory.all
+  end
+
+
+
+
 # comment everything below before_action if it doesnt work
   # private
 

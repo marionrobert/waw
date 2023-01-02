@@ -69,7 +69,7 @@ if(this.checked){
       <div>
 <%# BOUTON DE VALIDATION DES CGV %>
         <input type="checkbox" id="checkcgv"/>
-        <label for="checkcgv" style="color:black">En cochant cette case, j'accepte les conditions générales de ventes et de garanties </label>
+        <label for="checkcgv" style="color:black">En cochant cette case, je reconnais avoir pris connaissance des <%= link_to "mentions legales", shops_legal_path, target: "_blank"%> et accepte les <%= link_to "conditions générales de ventes et de garanties", shops_cgv_path, target:"_blank"%></label>
       </div>
       <div class="d-flex justify-content-center m-5">
         <input type="submit" id="pay" disabled="disabled" class="btn btn-primary" value="Finaliser votre commande"/>
