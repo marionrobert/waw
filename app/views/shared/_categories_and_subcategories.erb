@@ -5,6 +5,9 @@
     </div>
     <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
       <div id="smalldevicecategories" class="MENUCATEGORY" >
+      <div class="categorymenu">
+        <p><%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%></p>
+      </div>
       <% @categories.each do |category| %>
         <div class="categorymenu", data-action="click->category#displaysubcategory">
         <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi %>
