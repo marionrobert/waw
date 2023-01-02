@@ -7,20 +7,16 @@ export default class extends Controller {
 
   }
 
-  TESTHOME() {
-    // alert("CONNECTE")
-    const test= document.getElementById("TESTHOME");
-    test.classList.remove("TESTHIDE");
-    test.classList.add("TESTAPPEARHOME");
-    // test.classList.remove("TESTAPPEARHOME");
-    // test.classList.add("TESTHIDE");
+  homebuttondeploy() {
+    const homebtn= document.getElementById("homebutton");
+    homebtn.classList.remove("deploy_home_icon");
+    homebtn.classList.add("TESTAPPEARHOME");
   }
 
-  TESTHOMEOUT() {
-    // alert("CONNECTE")
-    const test2= document.getElementById("TESTHOME");
-    test2.classList.remove("TESTAPPEARHOME");
-    test2.classList.add("TESTHIDE");
+  homebuttonrestore() {
+    const homebtn2= document.getElementById("homebutton");
+    homebtn2.classList.remove("TESTAPPEARHOME");
+    homebtn2.classList.add("deploy_home_icon");
   }
 
   displaycategorymenu() {

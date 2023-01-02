@@ -10,6 +10,16 @@
 
   /* Card Styles */
 
+  .spin_zoom_img {
+    background-size: cover;
+    transition: transform .7s ease-in-out;
+    overflow: hidden;
+  }
+
+  .spin_zoom_img:hover {
+    transform: rotate(10deg) scale(120%);
+  }
+
   .card-sl3 {
       border-radius: 8px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
