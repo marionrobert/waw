@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   include CurrentCart
 
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, except: %i[:edit :update :destroy]
 
   def new
     @shop = Shop.new

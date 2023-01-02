@@ -3,11 +3,17 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name, label: "Nom", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :name, label: "Nom de l'entreprise", label_html:{ class:"labelcolor" }  %>
     <%= f.input :description, label: "Description de votre magasin", label_html:{ class:"labelcolor" }  %>
     <%= f.input :address, label: "Adresse de votre magasin", label_html:{ class:"labelcolor" }  %>
     <%= f.input :phone, label: "Téléphone", label_html:{ class:"labelcolor" }  %>
     <%= f.input :siren, label: "Numéro de SIREN", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :juridicform, label: "Forme juridique", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :capitalisation, label: "Capital de (en euros)", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :localregister, label: "Ville d'enregistrement au greffe", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :email, label: "email de contact", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :uetva, label: "N° de TVA intracomunnautaire ", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :president, label: "Nom et prenom du directeur général", label_html:{ class:"labelcolor" }  %>
     <%= f.input :card, collection: Shop::CARD, label:"Format carte produit", label_html:{ class:"labelcolor" } %>
     <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
     <%= f.input :footer, as: :file, label: "Pied de page", label_html:{ class:"labelcolor" }  %>

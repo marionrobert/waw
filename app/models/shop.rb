@@ -27,6 +27,12 @@ class Shop < ApplicationRecord
   validates :phone, presence: true, length: { minimum: 10 }
   validates :card, inclusion: { in: CARD }
   validates :themefont, inclusion: { in: THEMEFONT}
+  validates :juridicform, presence: true
+  validates :capitalisation, presence: true
+  validates :localregister, presence: true
+  validates :email, presence: true
+  validates :uetva, presence: true
+  validates :president, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

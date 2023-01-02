@@ -153,6 +153,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_205253) do
     t.string "themebgcolor", default: "white"
     t.string "themefont", default: "arial"
     t.string "bannerpub"
+    t.string "juridicform"
+    t.integer "capitalisation"
+    t.string "localregister"
+    t.string "email"
+    t.string "president"
+    t.string "uetva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"

@@ -32,15 +32,16 @@
   <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
     <p class="bannerpub"><%=Shop.first.bannerpub%></p>
   <%end%>
-    <%= render "shared/navbar" %>
   </header>
     <body class= "d-flex flex-column", style="font-family:<%=Shop.first.themefont%>;background:<%=Shop.first.themebgcolor%>;">
+      <%= render "shared/navbar" %>
+      <% session[:cookies_accepted] %>
       <%= render "shared/panier"%>
+      <%= render "shared/flashes" %>
+      <%= render "shared/categories_and_subcategories"%>
       <p id="alert"><%= alert %></p>
       <p id="notice"><%= notice %></p>
-      <%= render "shared/flashes" %>
       <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
-      <%= session[:cookies_accepted] %>
       <%= yield %>
       <%# CONTROLLEUR LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
       <%= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>

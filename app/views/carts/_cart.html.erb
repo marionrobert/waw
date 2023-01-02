@@ -109,14 +109,20 @@
     </div>
   </div>
 <%# ////////////////FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS/////////////// %>
-  <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-  <div class="container" style="margin-bottom:15vh;height:75vh;">
-    <div class="row" style="height:5vh;">
-      <% current_user.favorite_products.sample(3).each do |product| %>
-      <%= render "shared/#{Shop.first.card}", product: product %>
-      <% end %>
+  <%if current_user != nil%>
+    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+    <%if current_user.favorite_products%>
+      <p style="text-align:center;"><i>Vous n'avez aucun produit en favoris</i></p>
+    <%else%>
+    <div class="container" style="margin-bottom:15vh;height:75vh;">
+      <div class="row" style="height:5vh;">
+          <% current_user.favorite_products.sample(3).each do |product| %>
+          <%= render "shared/#{Shop.first.card}", product: product %>
+          <% end %>
+      </div>
     </div>
-  </div>
+    <%end%>
+  <%end%>
 </div>
 <%# ///////////////BANNIERE PUB///////////////////// %>
     <div class="cartpub">

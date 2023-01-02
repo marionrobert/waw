@@ -1,29 +1,35 @@
+<%# //////////////// PERMET DE PLACER LA NAVBAR SOUS LA PUB SI IL Y A PUB /////////////// %>
 <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-<main class="navfixedwithbanner">
+  <main class="navfixedwithbanner">
 <%else%>
 <main class="navfixed">
-<%end%>
- <nav class="navbar bg-light d-flex " aria-label="Light offcanvas navbar">
+  <%end%>
+  <nav class="navbar bg-light d-flex" aria-label="Light offcanvas navbar">
     <%# <div class="container-fluid"> %>
 
-      <div class="displaybtncategories", data-controller="category", data-action="click->category#displaycategorymenu">
-        <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
-      </div>
-      <div data-controller="category", data-action="mouseleave->category#TESTHOMEOUT">
-      <%= link_to "/", style:"justify-content:center;" do%>
-          <i class="fa-solid fa-house btnhome", style="color:gray;margin-left:-15px;padding-bottom:-15px;", data-controller="category", data-action="mouseover->category#TESTHOME"><span id="TESTHOME" class="TESTHIDE">HOME</span></i>
+
+    <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
+    <div class="displaybtncategories", data-controller="category", data-action="click->category#displaycategorymenu">
+      <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
+    </div>
+
+    <%# ////////BOUTON HOME ///////////// %>
+    <div data-controller="category", data-action="mouseleave->category#TESTHOMEOUT">
+      <%= link_to "/" do%>
+          <i class="fa-solid fa-house btnhome", style="color:grey", data-controller="category", data-action="mouseover->category#TESTHOME"><span id="TESTHOME" class="TESTHIDE">HOME</span></i>
       <%end%>
-      </div>
+    </div>
+
+
+    <%# ////////////barre de recherche/////////////////// %>
+    <div class="responsivesearchbarplacesmall">
+      <%= render "search/form" %>
+    </div>
 
 
 
-      <div>
-        <%= render "search/form" %>
-      </div>
-
-
-
-      <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
+    <%# /////////////////PANIER///////////////// %>
+    <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
       <i class="fa-solid fa-cart-shopping", style="color:gray"></i>
         <%if @cart.line_items.count > 0%>
           <div class="circle_items_count">
@@ -36,7 +42,11 @@
             </div>
           </div>
         <%end%>
-      </div>
+    </div>
+
+
+    <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
+    <div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -96,8 +106,11 @@
           </ul>
         </div>
       </div>
-    <%# </div> %>
+    </div>
 
-
+    <div class="responsivesearchbarplacebig">
+      <%= render "search/form" %>
+    </div>
+        <%# </div> %>
   </nav>
 </main>
