@@ -41,6 +41,7 @@ export default class extends Controller {
     arrayallSubcategories.forEach(function(subcategory){
       subcategory.classList.remove("displaysubcat");
     });
+
   }
 
 
