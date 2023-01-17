@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { Alert } from "bootstrap";
 
 // Connects to data-controller="panier"
 export default class extends Controller {
@@ -76,11 +77,26 @@ export default class extends Controller {
 
   }
 
-  hidesubcategorymenu(){
+
+
+
+  hidesubcategorymenu() {
     console.log("this is hidesubcategorymenu function");
     const subcatmenu = document.getElementById("subcatmenu")
     subcatmenu.classList.remove("displaysubcat")
   }
+
+  sub_cat_deploy_desktop() {
+    // Alert("CONNECTE")
+    const subcatdesktop = document.getElementById("subcatdesktopmenu");
+    subcatdesktop.style.removeProperty("display");
+  }
+
+  sub_cat_hidding_desktop(){
+    const subcatdesktop = document.getElementById("subcatdesktopmenu");
+    subcatdesktop.style.setProperty('display', 'none')
+  }
+
 }
 
 // quand je display la subcat je dois appliquer la classname displaysubcat à la div entière et je passe les chossenSubcatégories en block et les autres restent en hidden
