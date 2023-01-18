@@ -2,26 +2,27 @@
 <%# ///////////////////////@ MEDIA > 480px ////////////////////////// %>
 
 <%#§////////////////// les categories/////////////////////  %>
-<div class="enable_on_desktop">
-  <p>
-  <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
-  </p>
-  <% @categories.each do |category| %>
-  <div id="testcategorydesktop", data-controller="category", data-action="mouseenter->category#sub_cat_deploy_desktop">
-    <p><%=category.name%></p>
-  </div>
-  <% end %>
-</div>
-<%#//////////////////////////////// les sous-categories /////////////////////%>
+<div data-controller="category">
 
-  <div id="subcatdesktopmenu", class="subcategorydesktopmenu", style="display:none", data-controller="category", data-action="mouseleave->category#sub_cat_hidding_desktop">
-    <% Subcategory.all.each do |subcategory| %>
-      <p  class="<%=subcategory.category.name%>" style="color:black">
-        <%= subcategory.name %>
-      </p>
+  <div class="enable_on_desktop">
+    <p>
+      <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
+    </p>
+    <% @categories.each do |category| %>
+      <div data-action="mouseenter->category#sub_cat_deploy_desktop">
+        <p><%=category.name%></p>
+      </div>
     <% end %>
+  <%#//////////////////////////////// les sous-categories /////////////////////%>
   </div>
-
+    <div id="subcatdesktopmenu", class="subcategorydesktopmenu", style="display:none", data-controller="category", data-action="mouseleave->category#sub_cat_hidding_desktop">
+      <% Subcategory.all.each do |subcategory| %>
+        <p  class="subcat <%=subcategory.category.name%>" style="color:black">
+          <%= subcategory.name %>
+        </p>
+      <% end %>
+    </div>
+</div>
 
 
 <%# ///////////////////////@ MEDIA < 481px ////////////////////////// %>
@@ -31,24 +32,23 @@
       <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
           <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
-      <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
-        <div id="smalldevicecategories" class="menucategory" >
-          <div class="categorymenu">
-            <p><%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%></p>
-          </div>
-        <% @categories.each do |category| %>
-          <div class="categorymenu", data-action="click->category#displaysubcategory">
-          <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi %>
-            <p style="color:black"><%=category.name%></p>
-          </div>
-          <% end %>
-          <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
+      <div id="smalldevicecategories" class="menucategory" >
+        <div class="categorymenu">
+          <p><%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%></p>
         </div>
-      <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
+      <% @categories.each do |category| %>
+        <div class="categorymenu", data-action="click->category#displaysubcategory">
+        <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi %>
+          <p style="color:black"><%=category.name%></p>
+        </div>
+        <% end %>
+        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
+      </div>
+      <%# <% sous catégories listées dans un premier temps mais le menu n'ets pas display, avec le nom de leur catégorie référente en class %>
       <div id="subcatmenu" class="subcategorymenu">
         <% Subcategory.all.each do |subcategory| %>
           <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi%>
-          <p class="subcat subcathidden <%=subcategory.category.name%>" style="color:black">
+          <p class="subcat <%=subcategory.category.name%>" style="color:black">
             <%= subcategory.name %>
           </p>
         <% end %>
