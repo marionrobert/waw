@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'cookies', to: "cookies#index"
   get 'search', to: 'search#index'
 
+  resources :blogposts
 
   resources :line_items
   post 'line_items/addone'

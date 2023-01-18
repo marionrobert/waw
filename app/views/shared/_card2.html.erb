@@ -1,7 +1,5 @@
 <% cache product do %>
-
   <div class="col col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">
-
     <div class="card h-100 shadow-sm">
       <% if product.photos.attached? %>
         <%= link_to product_path(product) do %>
@@ -12,28 +10,20 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="card-img-top" alt="no_images_available" >
         <%end%>
       <%end%>
-
       <div class="card-body">
-
         <div class="clearfix mb-3">
           <%= link_to product_path(product), style:"text-decoration:none;" do %>
-            <span class="float-start badge rounded-pill bg-primary"><%=product.name%></span>
-            <span class="float-end price-hp"><%=humanized_money_with_symbol(product.price)%></span>
+            <p class="float-start badge rounded-pill bg-primary" style="width:100%;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;"><%=product.name%></p>
+            <p class="float-end price-hp"><%=humanized_money_with_symbol(product.price)%></p>
           <%end%>
         </div>
-
         <%= link_to product_path(product), style:"text-decoration:none;" do %>
           <h5 class="card-title"><%=product.description%></h5>
         <%end%>
-
         <div class="text-center my-4">
           <%= button_to "Ajouter", line_items_path(product_id: product), class:"btn btn-warningbis", remote: true %>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 <%end%>

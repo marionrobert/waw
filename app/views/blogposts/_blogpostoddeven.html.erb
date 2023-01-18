@@ -1,0 +1,53 @@
+<div class="container">
+  <% @blogposts.each_with_index do |blogpost, index| %>
+      <%# <div class="container mb-4"> %>
+
+        <% if index.odd? %>
+          <div class="container mb-4" style="margin-left:-18vh;">
+            <div class="d-flex flex-row-reverse postline" style="margin-left:18vh;" >
+              <div class="postimagezone">
+                <div class="postcirclelayer" style="margin-left:18vh">
+                  <%if blogpost.photos.attached?%>
+                        <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%"%>
+                  <%else%>
+                    <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"width:100%;height:100%;")  %>
+                  <%end%>
+                </div>
+              </div>
+              <div class="blopostcontent">
+                <h2 style="margin-left:1vw;"><%= blogpost.title %></h2>
+                <p class="bloposttext"><%= blogpost.content %></p>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="container mb-4">
+            <div class="d-flex flex-row postline" style="margin-left:18vh;" >
+              <div class="postimagezone">
+                <div class="postcirclelayer" style="margin-left:-18vh">
+                  <%if blogpost.photos.attached?%>
+                    <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%;" %>
+                  <%else%>
+                    <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"width:100%;height:100%")  %>
+                  <%end%>
+                </div>
+              </div>
+              <div class="blopostcontent" >
+                <h2 style="margin-left:1vw;"><%= blogpost.title %></h2>
+                <p class="blogposttext"><%= blogpost.content %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      <% if current_user && current_user.admin %>
+        <div style="display:flex;justify-content:center">
+          <p><%= link_to "Modifier", edit_blogpost_path(blogpost), class: "btn btn-warning m-3" %></p>
+
+          <p><%= link_to "Supprimer", blogpost, data: { turbo_method: :delete }, class: "btn btn-danger m-3" %></p>
+        </div>
+      <%end%>
+
+
+  <% end %>
+</div>
