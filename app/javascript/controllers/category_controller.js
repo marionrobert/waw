@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
 
-  
+
   ////////   FOR MOBILE VERSION   /////////
 
   /* 1 - slide category menu */
@@ -120,5 +120,3 @@ export default class extends Controller {
   }
 
 }
-
-// quand je display la subcat je dois appliquer la classname displaysubcat à la div entière et je passe les chossenSubcatégories en block et les autres restent en hidden
