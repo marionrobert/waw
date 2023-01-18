@@ -10,6 +10,8 @@ Product.destroy_all
 puts " et enfin destockage on vide les rayons de tout les produits malgrès aussi un dependent destroy"
 Favorite.destroy_all
 puts "on detruit les favoris enregistrés pour chaque utilisateurs"
+Blogpost.destroy_all
+puts "on detruit tout les articles de blog"
 
 
 puts "creation de 4 utilisateurs format prenom@gmail.com   mot de passe = 123456"
@@ -47,6 +49,32 @@ blogpost_1 = Blogpost.create!(title:"Quel vin choisir avec quel plat ?",
                                       non-characteristic words etc.")
                               file1 = URI.open("https://french-wine-thailand.com/wp-content/uploads/2021/09/All-about-red-wine.jpg")
                               blogpost_1.photos.attach(io: file1, filename: "blogpost_1_photo.png")
+
+blogpost_2 = Blogpost.create!(title:"Quand reviser son vehicule ?",
+                              content:"There are many variations of passages of Lorem Ipsum available, but the majority have
+                                      suffered alteration in some form, by injected humour, or randomised words which don't look
+                                      even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
+                                      sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                      generators on the Internet tend to repeat predefined chunks as necessary, making this the
+                                      first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                                      with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+                                      The generated Lorem Ipsum is therefore always free from repetition, injected humour, or
+                                      non-characteristic words etc.")
+                              file1 = URI.open("https://assets.prod.roole.fr/data/assets/vidange_vignette_1fc3e66524.png")
+                              blogpost_2.photos.attach(io: file1, filename: "blogpost_1_photo.png")
+
+blogpost_3 = Blogpost.create!(title:"Où partir en 2023 ?",
+                              content:"There are many variations of passages of Lorem Ipsum available, but the majority have
+                                      suffered alteration in some form, by injected humour, or randomised words which don't look
+                                      even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
+                                      sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                      generators on the Internet tend to repeat predefined chunks as necessary, making this the
+                                      first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                                      with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+                                      The generated Lorem Ipsum is therefore always free from repetition, injected humour, or
+                                      non-characteristic words etc.")
+                              file1 = URI.open("https://media.routard.com/image/40/2/panneaux-voyage.1603402.w430.jpg")
+                              blogpost_3.photos.attach(io: file1, filename: "blogpost_1_photo.png")
 
 
 
