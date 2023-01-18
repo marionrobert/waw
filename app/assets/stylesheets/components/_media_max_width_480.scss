@@ -3,10 +3,6 @@
     display:none;
   }
 
-  .subcategorymenu {
-    z-index:1001;
-  }
-
   .menucategory {
     left:-190vw;
     padding-left: 2rem;
@@ -23,6 +19,8 @@
     left:-95vw;
     height:110vh;
     width:95vw;
+    z-index:1001;
+    padding-bottom: 4vh;
   }
 
   .removeMenuArrow {

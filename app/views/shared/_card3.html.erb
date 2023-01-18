@@ -1,9 +1,8 @@
 <% cache product do %>
-  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
-    <div class="card-sl3">
-      <div style="background-size:cover;overflow:hidden;">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4 ">
+    <div class="h-100 card-sl3">
+      <div style="background-size:contain;overflow:hidden;">
         <% if product.photos.attached? %>
-
             <%= link_to product_path(product), style:"text-decoration:none;" do %>
               <%= cl_image_tag product.photos.first.key, class:"spin_zoom_img card-image3"%>
             <%end%>
@@ -16,12 +15,12 @@
       <i class="card-action3 fa fa-heart <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action="click->favorites#fav" data-favorites-product-id-param="<%= product.id %>"></i>
       <div class="card-heading3">
         <%= link_to product_path(product), style:"text-decoration:none;" do %>
-          <%=product.name%>
+          <p style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;"><%=product.name%></p>
         <%end%>
       </div>
-      <div class="card-text3">
+      <div class="card-text3 h-25">
         <%= link_to product_path(product), style:"text-decoration:none;" do %>
-          <%=product.description%>
+          <p style="display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;overflow: hidden;"><%=product.description%></p>
         <%end%>
       </div>
       <div class="card-text3">

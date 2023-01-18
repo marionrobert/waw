@@ -3,7 +3,6 @@
 
 <%#§////////////////// les categories/////////////////////  %>
 <div data-controller="category">
-
   <div class="enable_on_desktop">
     <p>
       <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
@@ -32,7 +31,10 @@
       <div id="categories_left_barre" data-action="mouseover->category#slidecategorymenu">
           <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
-      <div id="smalldevicecategories" class="menucategory" >
+      <div id="smalldevicecategories" class="menucategory" style="overflow:auto" >
+         <div class="categorymenu">
+            <%= link_to "BLOG", blogposts_path, style:"text-decoration:none;color:blue;"%>
+         </div>
         <div class="categorymenu">
           <p><%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%></p>
         </div>
@@ -44,11 +46,11 @@
         <% end %>
         <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
       </div>
-      <%# <% sous catégories listées dans un premier temps mais le menu n'ets pas display, avec le nom de leur catégorie référente en class %>
-      <div id="subcatmenu" class="subcategorymenu">
+      <%# <% sous catégories listées dans un premier temps mais le menu n'est pas display, avec le nom de leur catégorie référente en class %>
+      <div id="subcatmenu" class="subcategorymenu" style="overflow:auto">
         <% Subcategory.all.each do |subcategory| %>
           <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi%>
-          <p class="subcat <%=subcategory.category.name%>" style="color:black">
+          <p class="subcat <%=subcategory.category.name%>" style="color:black;padding-bottom:4vh;">
             <%= subcategory.name %>
           </p>
         <% end %>
