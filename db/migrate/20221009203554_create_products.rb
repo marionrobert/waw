@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :sku
       t.text :description
       t.string :images, array: true, default: []
+      t.integer :stock_quantity
       t.timestamps
       t.references :subcategory, null: false, foreign_key: true
     end

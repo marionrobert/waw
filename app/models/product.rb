@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :line_items, dependent: :nullify
   has_many :favorites
   belongs_to :subcategory
+  validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
 
   validates :description, :name, :price_cents, :subcategory_id, presence: true
 

@@ -1,5 +1,6 @@
+<%=render "products/quantitymodule"%>
 <%# <div class=""> %>
-  <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
+<%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
 <%# </div> %>
 
 <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
@@ -25,6 +26,7 @@
 
     </div>
 
+
     <div class="col-sm-12 col-lg-6">
 
       <%= content_tag(:h1, @product.name, data: {
@@ -43,6 +45,15 @@
         share_target: "body"
       }) %>
 
+      <div style="margin:2vw;">
+        <%if @product.stock_quantity > 0%>
+          <p style="color:green;text-decoration:underline"><strong>En stock</strong></p>
+          <p><i>quantité disponible:<%=@product.stock_quantity%></i></p>
+        <%else%>
+          <p><i>disponible sous XXXXXXXXX semaines</i></p>
+          <%# voir :delay_retailer a ajouter a product %>
+        <%end%>
+      </div>
       <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart2" %>
 
 

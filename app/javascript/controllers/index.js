@@ -27,3 +27,6 @@ application.register("category", CategoryController)
 
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
+
+import QuantitymoduleController from "./quantitymodule_controller"
+application.register("quantitymodule", QuantitymoduleController)
