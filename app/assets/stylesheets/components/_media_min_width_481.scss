@@ -119,7 +119,8 @@
     padding:0;
     display:flex;
     justify-content:space-around;
-    background:rgba(255, 255, 255, 0.781);
+    background:rgb(255, 255, 255);
+    // border-bottom: 1px solid grey;
   }
 
   .subcategorydesktopmenu {
@@ -129,7 +130,8 @@
     padding:0;
     display:flex;
     justify-content:space-around;
-    background:rgba(178, 178, 230, 0.781);
+    background:rgb(255, 255, 255);
+    border-bottom: 1px solid grey;
   }
 
   .desktop_subcat_hide_or_not {

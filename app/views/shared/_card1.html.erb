@@ -1,8 +1,6 @@
 <% cache product do %>
-
   <div class="col col-sm-9 col-md-6 col-lg-4 col-xl-3 mb-4">
-    <div class="radius-bottom">
-
+    <div class="card h-100 radius-bottom">
       <div class="card-trip radius-top" style="box-shadow: 5px 5px 5px rgb(211,211,211);">
         <% if product.photos.attached? %>
           <%= link_to product_path(product), class:"d-flex justify-content-center" do %>
@@ -58,15 +56,11 @@
             <%end%>
           <%end%>
         </div>
-
         <div class="d-flex-column", style="text-align:center">
           <%= button_to "ajouter au panier", line_items_path(product_id: product), class:"btn btn-success", remote: true %>
           <%= link_to "Plus de détails", product_path(product), class: "btn btn-primary mt-2 mb-2" %>
         </div>
-
       </div>
-
     </div>
   </div>
-
 <%end%>

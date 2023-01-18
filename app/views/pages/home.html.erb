@@ -6,7 +6,7 @@
   <%end%>
   <div class="container">
     <div style="padding-top:18vh;text-align:center;">
-        <h1><strong><%= Shop.first.name %></strong></h1>
+        <h1 class="bannerh1"><strong><%= Shop.first.name %></strong></h1>
         <h3 style="color:white;padding-bottom:10vh;"><%= Shop.first.description %></h3>
       <div style="border-radius:3vh;", class="btn btn-success", style="justify-content:center;">
         <%= link_to "Voir tous les produits", products_path, style:"font-size:bolder;height:6vh;width:40vw;text-decoration:none;color:white;" %>
@@ -21,6 +21,10 @@
         <% @products.each do |product| %>
           <%= render "shared/#{Shop.first.card}", product: product%>
         <% end %>
+      </div>
+      <h1 class="mt-5 mb-5 bannerh1" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
+      <div class="row d-flex justify-content-center" data-controller="favorites">
+        <%= render "blogposts/blogpostoddeven"%>
       </div>
     </div>
 </div>

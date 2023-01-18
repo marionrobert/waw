@@ -4,7 +4,10 @@
 <%#§////////////////// les categories/////////////////////  %>
 <div class="enable_on_desktop">
   <p>
-  <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
+    <%= link_to "BLOG", blogposts_path, style:"text-decoration:none;color:blue;"%>
+  </p>
+  <p>
+    <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
   </p>
   <% @categories.each do |category| %>
   <div id="testcategorydesktop", data-controller="category", data-action="mouseenter->category#sub_cat_deploy_desktop">
@@ -32,7 +35,10 @@
           <h3 style="writing-mode: vertical-rl;text-align:center;margin-top:3vh;">CATEGORIES</h3>
       </div>
       <%# AFFICHER LES CATEGORIES ET SUBCATEGORIES AVEC NOTRE PROPRE CODE %>
-        <div id="smalldevicecategories" class="menucategory" >
+        <div id="smalldevicecategories" class="menucategory" style="overflow:auto">
+          <div class="categorymenu">
+              <%= link_to "BLOG", blogposts_path, style:"text-decoration:none;color:blue;"%>
+          </div>
           <div class="categorymenu">
             <p><%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%></p>
           </div>
@@ -45,10 +51,10 @@
           <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
         </div>
       <%# <% les sous catégories sont toutes display dans un premier temps, avec le nom de leur catégorie référente en class %>
-      <div id="subcatmenu" class="subcategorymenu">
+      <div id="subcatmenu" class="subcategorymenu" style="overflow:auto">
         <% Subcategory.all.each do |subcategory| %>
           <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi%>
-          <p class="subcat subcathidden <%=subcategory.category.name%>" style="color:black">
+          <p class="subcat subcathidden <%=subcategory.category.name%>" style="color:black;padding-bottom:4vh;">
             <%= subcategory.name %>
           </p>
         <% end %>

@@ -1,0 +1,63 @@
+.blogpostimage {
+  width:30%;
+  display:flex;
+  align-items:center;
+}
+
+.blopostcontent {
+  width:55%;
+}
+
+.postline {
+  height:30vh;
+  background:rgba(50,50,50,0.1);
+  align-items:center;
+}
+
+.postimagezone {
+  width:35vh;
+  height:35vh;
+  text-align:center;
+}
+
+.postcirclelayer {
+  width:35vh;
+  height:35vh;
+  background:rgba(0,0,0,0);
+  border:5px solid grey;
+  left:0;
+  top:0;
+  overflow:hidden;
+  display:flex;
+  border-radius:20vh;
+}
+
+.blogposttext {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-left:1vw;
+}
+
+
+// .circle {
+//   width: 200px; /* pour être responsive */
+//   padding-bottom: 100%; /* pour créer un cercle */
+//   position: relative; /* pour positionner l'image en arrière-plan */
+// }
+
+// .circle-bg {
+//   position: absolute; /* pour positionner l'image en arrière-plan */
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .circle-bg img {
+//   width: 100%; /* pour conserver les proportions de l'image */
+//   height: auto; /* pour conserver les proportions de l'image */
+//   display: block; /* pour centrer l'image verticalement et horizontalement */
+//   margin: 0 auto; /* pour centrer l'image verticalement et horizontalement */
+// }

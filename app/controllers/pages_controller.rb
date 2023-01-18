@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def home
     @shop = Shop.last
     @products = Product.last(3)
+    @blogposts = Blogpost.last(5)
     @categories = Category.all
     @subcategories = Subcategory.all
   end
