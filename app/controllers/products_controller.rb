@@ -42,7 +42,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
+      if params[:product][:photos] == [""]
+        @product.update(product_params).except!(:photos)
+      else
+      @product.update(product_params)
+      end
     if @product.save
       redirect_to product_path(@product), success: "L'article #{@product.name} a bien été mis à jour"
     else
@@ -79,4 +83,5 @@ private
       photos: []
     )
   end
+
 end
