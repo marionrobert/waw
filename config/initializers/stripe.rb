@@ -22,36 +22,8 @@ StripeEvent.configure do |events|
     order.update(state: 'paid')
   end
 
-  events.subscribe 'payment_intent.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
+  # events.subscribe 'payment_intent.succeeded' do |event|
+  # end
 
-  events.subscribe 'payout.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'identity.verification_session.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'quote.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'setup_intent.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'source.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'topup.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
-
-  events.subscribe 'transfer.canceled' do |event|
-    redirect_to products_path, status: :see_other
-  end
 
 end

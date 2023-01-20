@@ -1,0 +1,59 @@
+<div class="container" , style="margin-top:10vh;">
+  <h1 class="mb-5 text-center">Gestion du stock</h1>
+  <table>
+    <thead>
+      <tr>
+        <th class="col-2", colspan="1", style="background:rgba(255,255,255,0.4);">images</th>
+        <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
+        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
+        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix</th>
+        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix promo</th>
+        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <div class="row">
+          <tr>
+            <td>
+              <div >
+              <%if product.photos.attached?%>
+                <%= cl_image_tag product.photos.first.key, style:"max-height:80px" %>
+              <%else%>
+                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"max-height:100px")  %>
+              <%end%>
+              </div>
+            </td>
+            <td class="col-6" style="text-align:left"><%= product.name %><br>
+            <p style="margin-left:20px;text-decoration"><i><%= product.sku %></i></p></td>
+
+            <td class="col-1" style="text-align:right">
+            <%= product.stock_quantity %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            </td>
+
+            <td class="col-1" style="text-align:right">
+            <% prix = humanized_money_with_symbol(product.price_cents / 100.00) + " " + humanized_money_with_symbol(product.price_cents / 100.00).first%>
+            <%= prix.slice(1..50) %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            </td>
+
+            <td class="col-1" style="text-align:right">
+            <% prixpromo = humanized_money_with_symbol(product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(product.discount_price_cents / 100.00).first%>
+            <%= prixpromo.slice(1..50) %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            </td>
+
+            <td class="col-1">
+              <div style="display:flex;justify-content: space-around;">
+                <%= link_to edit_product_path(product) do %>
+                  <i class="fa-solid fa-eraser"></i>
+                <%end%>
+                 <%= link_to product, data: { turbo_method: :delete } do %>
+                  <i class="fa-solid fa-trash"></i>
+                <%end%>
+              </div>
+            </td>
+          </tr>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
+</div>
