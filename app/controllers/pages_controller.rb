@@ -16,9 +16,9 @@ class PagesController < ApplicationController
     # les nom ne colle plus à l'état
     @my_pending_orders = current_user.orders.where(state: "pending").order(updated_at: :desc)
     @my_paid_orders = current_user.orders.where(state: "paid").order(updated_at: :desc)
-    @my_past_orders = current_user.orders.where(state: "delivered").order(updated_at: :desc)
+    @my_delivered_orders = current_user.orders.where(state: "delivered").order(updated_at: :desc)
     @admin_paid_orders = Order.where(state: "paid").order(updated_at: :desc)
-    @admin_past_orders = Order.where(state: "delivered").order(updated_at: :desc)
+    @admin_delivered_orders = Order.where(state: "delivered").order(updated_at: :desc)
   end
 
   def is_admin
