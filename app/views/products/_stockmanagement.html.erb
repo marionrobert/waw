@@ -28,17 +28,52 @@
             <p style="margin-left:20px;text-decoration"><i><%= product.sku %></i></p></td>
 
             <td class="col-1" style="text-align:right">
-            <%= product.stock_quantity %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            <%= product.stock_quantity %><br>
+            <%= simple_form_for(product) do |product| %>
+            <%= product.error_notification %>
+            <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+            <div class="form-inputs" >
+              <%= product.input :stock_quantity, input_html: { min: '0'} %>
+            </div>
+            <div class="form-actions">
+              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
+              <i class="fa-regular fa-circle-check"></i>
+              <% end %>
+            </div>
+            <%end%>
             </td>
 
             <td class="col-1" style="text-align:right">
             <% prix = humanized_money_with_symbol(product.price_cents / 100.00) + " " + humanized_money_with_symbol(product.price_cents / 100.00).first%>
-            <%= prix.slice(1..50) %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            <%= prix.slice(1..50) %><br>            <%= simple_form_for(product) do |product| %>
+            <%= product.error_notification %>
+            <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+            <div class="form-inputs" >
+              <%= product.input :price_cents, input_html: { min: '0'} %>
+            </div>
+            <div class="form-actions">
+              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
+              <i class="fa-regular fa-circle-check"></i>
+              <% end %>
+            </div>
+            <%end%>
             </td>
 
             <td class="col-1" style="text-align:right">
             <% prixpromo = humanized_money_with_symbol(product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(product.discount_price_cents / 100.00).first%>
-            <%= prixpromo.slice(1..50) %><br><input style="width:70%;margin-right:5px"/><i class="fa-regular fa-circle-check"></i>
+            <%= prixpromo.slice(1..50) %><br>
+            <%= simple_form_for(product) do |product| %>
+            <%= product.error_notification %>
+            <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+            <div class="form-inputs" >
+              <%= product.input :discount_price_cents, input_html: { min: '0'} %>
+            </div>
+            <div class="form-actions">
+              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
+              <i class="fa-regular fa-circle-check"></i>
+              <% end %>
+            </div>
+            <%end%>
             </td>
 
             <td class="col-1">
