@@ -3,12 +3,12 @@
   <table>
     <thead>
       <tr>
-        <th class="col-2", colspan="1", style="background:rgba(255,255,255,0.4);">images</th>
-        <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
-        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
-        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix</th>
-        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix promo</th>
-        <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Action</th>
+        <th style="background:rgba(255,255,255,0.4);width:15%">images</th>
+        <th style="background:rgba(255,255,255,0.4);width:25%">References</th>
+        <th style="background:rgba(255,255,255,0.4);width:10%">Quantité</th>
+        <th style="background:rgba(255,255,255,0.4);width:20%">Prix</th>
+        <th style="background:rgba(255,255,255,0.4);width:20%">Promo</th>
+        <th style="background:rgba(255,255,255,0.4);width:10%">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +24,15 @@
               <%end%>
               </div>
             </td>
-            <td class="col-6" style="text-align:left"><%= product.name %><br>
+            <%if product.name.size > 31%>
+              <td  style="text-align:left"><%= product.name.first(30) %>...<br>
+            <%else%>
+              <td  style="text-align:left"><%= product.name%><br>
+            <%end%>
+
             <p style="margin-left:20px;text-decoration"><i><%= product.sku %></i></p></td>
 
-            <td class="col-1" style="text-align:right">
+            <td  style="text-align:right">
             <%= product.stock_quantity %><br>
             <%= simple_form_for(product) do |product| %>
             <%= product.error_notification %>
@@ -35,53 +40,57 @@
             <div class="form-inputs" >
               <%= product.input :stock_quantity, input_html: { min: '0'} %>
             </div>
-            <div class="form-actions">
-              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
+              <div class="form-actions" style="text-align:center">
+              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
               <i class="fa-regular fa-circle-check"></i>
               <% end %>
             </div>
             <%end%>
             </td>
 
-            <td class="col-1" style="text-align:right">
+            <td  style="text-align:right">
             <% prix = humanized_money_with_symbol(product.price_cents / 100.00) + " " + humanized_money_with_symbol(product.price_cents / 100.00).first%>
-            <%= prix.slice(1..50) %><br>            <%= simple_form_for(product) do |product| %>
+            <%= prix.slice(1..50) %><br>
+            <%= simple_form_for(product) do |product| %>
             <%= product.error_notification %>
             <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
             <div class="form-inputs" >
               <%= product.input :price_cents, input_html: { min: '0'} %>
             </div>
-            <div class="form-actions">
-              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
+              <div class="form-actions" style="text-align:center">
+              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
               <i class="fa-regular fa-circle-check"></i>
               <% end %>
             </div>
             <%end%>
             </td>
 
-            <td class="col-1" style="text-align:right">
-            <% prixpromo = humanized_money_with_symbol(product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(product.discount_price_cents / 100.00).first%>
-            <%= prixpromo.slice(1..50) %><br>
-            <%= simple_form_for(product) do |product| %>
-            <%= product.error_notification %>
-            <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
-            <div class="form-inputs" >
-              <%= product.input :discount_price_cents, input_html: { min: '0'} %>
-            </div>
-            <div class="form-actions">
-              <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:black;") do %>
-              <i class="fa-regular fa-circle-check"></i>
-              <% end %>
-            </div>
-            <%end%>
+            <td  style="text-align:right">
+              <% prixpromo = humanized_money_with_symbol(product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(product.discount_price_cents / 100.00).first%>
+              <%= prixpromo.slice(1..50) %><br>
+              <%= simple_form_for(product) do |product| %>
+              <%= product.error_notification %>
+              <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+              <div class="form-inputs" >
+                <%= product.input :discount_price_cents, input_html: { min: '0'} %>
+              </div>
+              <div class="form-actions" style="text-align:center">
+                <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
+                <i class="fa-regular fa-circle-check"></i>
+                <% end %>
+              </div>
+              <%end%>
             </td>
 
-            <td class="col-1">
+
+
+
+            <td >
               <div style="display:flex;justify-content: space-around;">
                 <%= link_to edit_product_path(product) do %>
                   <i class="fa-solid fa-eraser"></i>
                 <%end%>
-                 <%= link_to product, data: { turbo_method: :delete } do %>
+                 <%= link_to product, data: { turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cette reference des stocks?"} do %>
                   <i class="fa-solid fa-trash"></i>
                 <%end%>
               </div>
