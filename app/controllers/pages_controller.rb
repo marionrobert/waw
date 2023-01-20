@@ -13,7 +13,6 @@ class PagesController < ApplicationController
 
   def profile
     @order = current_user.orders.where(state: "pending").last
-    # les nom ne colle plus à l'état
     @my_pending_orders = current_user.orders.where(state: "pending").order(updated_at: :desc)
     @my_paid_orders = current_user.orders.where(state: "paid").order(updated_at: :desc)
     @my_delivered_orders = current_user.orders.where(state: "delivered").order(updated_at: :desc)
