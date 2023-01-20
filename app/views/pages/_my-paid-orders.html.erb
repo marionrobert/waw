@@ -1,9 +1,9 @@
 <div class="row mx-1 my-2">
   <div class="col-12">
     <% if @my_paid_orders.empty? %>
-      <p>Vous n'avez pas de commandes en attente de livraison. N'attendez plus pour commander!</p>
+      <p>Vous n'avez pas de commandes en attente. N'attendez plus pour commander!</p>
     <% else %>
-      <% @my_pending_orders.each do |order| %>
+      <% @my_paid_orders.each do |order| %>
         <div class="border-bottom my-2">
           <p><b>Commande n° <%= order.id %></b> - <small>Passée le <%= order.created_at.to_date %></small> </p>
           <div class="row d-flex justify-content-between">
