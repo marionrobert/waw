@@ -111,7 +111,7 @@
 <%# ////////////////FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS/////////////// %>
   <%if current_user != nil%>
     <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-    <%if current_user.favorite_products%>
+    <%if current_user.favorite_products.count == 0%>
       <p style="text-align:center;"><i>Vous n'avez aucun produit en favoris</i></p>
     <%else%>
     <div class="container" style="margin-bottom:15vh;height:75vh;">

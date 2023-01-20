@@ -43,12 +43,17 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
       if params[:product][:photos] == [""]
-        @product.update(product_params).except!(:photos)
+        @product.update(product_params.except(:photos))
       else
-      @product.update(product_params)
+        @product.update(product_params)
       end
     if @product.save
-      redirect_to product_path(@product), success: "L'article #{@product.name} a bien été mis à jour"
+      # Ici il faudra changer par le vrai chemin du site web
+      if request.referrer.include?(products_path)
+        redirect_back(fallback_location: products_path, success: "L'article a été mis à jour")
+      else
+        redirect_to product_path(@product), success: "L'article #{@product.name} a bien été mis à jour"
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -80,6 +85,7 @@ private
       :images,
       :price_cents,
       :discount_price_cents,
+      :stock_quantity,
       photos: []
     )
   end

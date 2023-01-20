@@ -354,6 +354,7 @@ product_1 = Product.create!(
   description: "Radiateur eau chaude horizontal blanc acier classique basse témperature chauffage central H.60 x L.83 cm",
   price_cents: 29000,
   discount_price_cents: 25900,
+  stock_quantity: 5,
   subcategory: subcategory1)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/912239.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -372,6 +373,7 @@ product_2 = Product.create!(
   description: "Radiateur électrique double système chauffant 1500W SAUTER Malao horizontal bl.",
   price_cents: 55900,
   discount_price_cents: 49000,
+  stock_quantity: 2,
   subcategory: subcategory1)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/1085145.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/981776.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -391,6 +393,7 @@ product_3 = Product.create!(
   description: "Sèche-serviettes électrique soufflant SAUTER 1750W Asama connecté blanc",
   price_cents: 37900,
   discount_price_cents: 0,
+  stock_quantity: 38,
   subcategory: subcategory1)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82582607/1286413.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82582607/1461501.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -410,6 +413,7 @@ product_4 = Product.create!(
   description: "Poêle étanche avec sortie des fumées par le haut en concentrique ou normal (nécessite une découpe de la tôle). La technologie étanche améliore le rendement et le confort en général. La sortie des fumées par le haut permet d'installer le poêle plus près du mur. Ce poêle peut également être installé dans un angle.  ",
   price_cents: 329000,
   discount_price_cents: 299000,
+  stock_quantity: 0,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/00d1f5ce-132f-44a0-ab73-44bfe2d622ec.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -431,6 +435,7 @@ product_5 = Product.create!(
   Une technologie performante qui permet de réaliser des économies de chauffage avec le maximum de respect pour l’écosystème.",
   price_cents: 249000,
   discount_price_cents: 0,
+  stock_quantity: 2,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/72b6c63a-9f96-4796-8007-ab4d7cbf5758.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/78ae6355-c0ca-4c3b-87ac-77a8838ce9d6.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -450,6 +455,7 @@ product_6 = Product.create!(
   description: "Grâce à leur capacité innovante de réduction d'émission de particules, les poêles Aduro Hybrides ont reçu le Prix Européen de l'Environnement pour les entreprises.",
   price_cents: 399000,
   discount_price_cents: 379000,
+  stock_quantity: 7,
   subcategory: subcategory2)
 
 puts "Produit #{Product.last.id} créé"
@@ -464,6 +470,7 @@ product_7 = Product.create!(
   Une technologie performante qui permet de réaliser des économies de chauffage avec le maximum de respect pour l’écosystème.",
   price_cents: 3790,
   discount_price_cents: 0,
+  stock_quantity: 0,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84905572/6f5be75c-d9ed-4c91-962c-f63b2edb2750.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84905572/52d46c83-0f1a-4d28-8918-48d94b67c342.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -482,6 +489,7 @@ product_8 = Product.create!(
   Poêle à granulés canalisable Extraflame DAHIANA PLUS VSF IVOIR",
   price_cents: 549000,
   discount_price_cents: 389000,
+  stock_quantity: 0,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84342479/3271958.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 
@@ -498,6 +506,7 @@ product_9 = Product.create!(
   description: "Cassette de plafond encastré multi-split",
   price_cents: 159000,
   discount_price_cents: 0,
+  stock_quantity: 12,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/85407537/e6b19f32a9dc9f9561a0e177c2ab1668.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_9.photos.attach(io: file1, filename: "product_9_photo.png")
@@ -513,6 +522,7 @@ product_10 = Product.create!(
   description: "Baxi Nanuk RZGD70 Ducted Air Conditioning avec le nouveau gaz réfrigérant R32. Avec pompe de vidange incluse et seulement 245 mm de haut. Sa puissance est de 6 020 Kcal en froid et de 6 880 Kcal en chaud. Classe énergétique A++/A+.",
   price_cents: 143279,
   discount_price_cents: 0,
+  stock_quantity: 2,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/86287526/437ee142acf02e6de9abbcefaeeb808a.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/86287526/b0bcde31cb1e6ab51a37f20c98a65e42.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -532,6 +542,7 @@ product_11 = Product.create!(
   description: "Contrairement à d'autres climatiseurs monoblocs, il n'est pas nécessaire de faire appel à un professionnel certifié afin d'installer ce produit.",
   price_cents: 219000,
   discount_price_cents: 0,
+  stock_quantity: 12,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82248777/987099.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82248777/3276882.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -551,6 +562,7 @@ product_12 = Product.create!(
   description: "Pièce jusqu’à 25m2 (9K BTU / 2,5KW) • Classe Froid: A / EER : 2,6 • Niveau sonore : 64db • Usages complémentaires : Ventilation, déshumidification • Minuteur 1-12h • Filtre Hepa • Gaz réfrigérant : R290 • Couleur : Blanc • Dimensions : 44,8 x 74, 4 x 40 • Equipements : télécommande, support télécommande intégré, poignées de transport, 4 roulettes, kit fenêtre. Fonctions : 6ème sens : le capteur thermique évalue automatiquement la température de la pièce. Le climatiseur identifie alors la combinaison optimale des fonctions nécessaires (chauffage, refroidissement, ventilation ou déshumidification) pour atteindre les conditions souhaitées le plus rapidement possible. Around U : Un capteur intégré dans la télécommande permet d'obtenir une température ambiante uniforme. Mode Silence : le climatiseur est capable de fonctionner très silencieusement (49db), pour un confort optimal.",
   price_cents: 79000,
   discount_price_cents: 54900,
+  stock_quantity: 1,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82145119/9e2fb844-b31f-4d94-b978-7d7d468f63be.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82145119/ed327f91-d428-4032-aeee-310929a4cfb7.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -574,6 +586,7 @@ product_13 = Product.create!(
   description: "attention - description can't be blank",
   price_cents: 19900,
   discount_price_cents: 0,
+  stock_quantity: 9,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/83739144/cdfe59a40090afa038fed0365e4779f5.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/83739144/b182f9630952527743c665434240aed2.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -593,6 +606,7 @@ product_14 = Product.create!(
   description: "Mode turbo, télécommande, mode sommeil, programmation : 12 heures, oscillant sur angle, hauteur : 116cm, ventilation : 3 vitesses. Ventilateur tour 116cm LED avec télécommande - turbo tactile",
   price_cents: 9900,
   discount_price_cents: 8900,
+  stock_quantity: 78,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82538013/9b73ffbf-c1a9-411d-8580-2ab615e1bc27.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82538013/b71eb774-2336-4499-84aa-593c8ce0b59d.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -610,6 +624,7 @@ product_15 = Product.create!(
   description: "Ventilateur tour oscillant à poser puissant et compact. Il est équipé de 3 programmes de ventilation et 3 vitesses de fonctionnement. Il offre le niveau sonore faible grâce à sa vitesse de rotation et sa pression d'air basse. Le ventilateur peut être contrôlé à l'aide d'une télécommande incluse. Il est doté d'une fonction de minuterie, CARACTÉRISTIQUES TECHNIQUES: Alimentation: 230V / 50Hz, Puissance: 75W, 3 vitesses de ventilation, Diamètre: 40cm / 16'', Diamètre socle: 40cm, Oscillation à 90°, Hauteur: 115cm - 135cm, Minuterie: 0,5 - 7,5h, Télécommande",
   price_cents: 12699,
   discount_price_cents: 7924,
+  stock_quantity: 27,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/85226388/60abf773abb0f9f5d161c030eba7bb84.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/85226388/72409ddb504c877f0e5e2179e0dc25f3.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -633,6 +648,7 @@ product_16 = Product.create!(
   description: "Ventilateur colonne 75cm | minuterie 120 mn | 50W | Blanc | Débit d'air 26,25m³/min.| Vitesse de l'air 2,65m/sec | Sonore: 55,9 dB",
   price_cents: 3758,
   discount_price_cents: 0,
+  stock_quantity: 5,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/83501179/c54e817e786ec6fe6f6db291d876f13c.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/83501179/519a53492bcfa899b700957df64f05bf.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -672,6 +688,7 @@ product_17 = Product.create!(
   Produit emballé : poids (en kg)	4",
   price_cents: 4090,
   discount_price_cents: 3790,
+  stock_quantity: 34,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/78621361/6d8bc2f3-9bf8-4b1b-9f44-c114a7697cc3.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_17.photos.attach(io: file1, filename: "product_17_photo.png")
@@ -688,6 +705,7 @@ product_18 = Product.create!(
   Grâce à son design moderne, Globe s’intègre parfaitement sur toute table, bureau ou plan de travail. Mais sa beauté n’est pas seulement superficielle. Ce ventilateur de table est doté d’un moteur CC puissant d’une portée de 7 mètres, optimisé par l’oscillation horizontale (90⁰) et verticale (80⁰). Cette nouvelle caractéristique unique permet au ventilateur d’atteindre les moindres recoins d’une pièce. Look unique Globe se caractérise par un design discret qui s’intègre parfaitement dans tout intérieur. Grâce à son look minimaliste et son panneau de commande tactile convivial, ce ventilateur saura vous séduire. Globe est disponible en blanc ou noir. Puissant et économe en énergie Globe est doté d’un puissant moteur CC, ce qui lui assure une portée impressionnante de 7 mètres. Ça doit consommer beaucoup non ? Pas du tout ! Le ventilateur de table ne consomme que 2 W à la vitesse la plus faible. Fonctionnement simple Globe possède trois réglages de vitesse manuels, pour une entière liberté de réglage de sa puissance. Son oscillation horizontale (90⁰) et verticale (80⁰) permet une circulation d'air dans toute la pièce et le mode de mise en veille automatique permet à Globe de s’arrêter même si vous dormez déjà. Gardez le contrôle Globe se commande facilement grâce à son panneau de commande tactile convivial. Ses indicateurs d’état LED sont faciles à lire et affichent le réglage exact du ventilateur. Vous voulez rester dans votre sofa ? Vous avez accès à toutes les fonctionnalités de Globe avec la télécommande incluse.",
   price_cents: 9490,
   discount_price_cents: 0,
+  stock_quantity: 4,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82538377/715307fe-4bef-4653-abe1-1fdf1539ef90.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82538377/13678356-b8b8-4619-bb78-235bcab21d76.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -736,6 +754,7 @@ product_19 = Product.create!(
   Livrée dans son emballage d'origine",
   price_cents: 15090,
   discount_price_cents: 12990,
+  stock_quantity: 107,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/82802516/3988fb713fab7dcd3fb7e7c73b2fe2e1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_19.photos.attach(io: file1, filename: "product_19_photo.png")
@@ -751,6 +770,7 @@ product_20 = Product.create!(
   description: "can't be blank",
   price_cents: 700,
   discount_price_cents: 0,
+  stock_quantity: 90,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/81895199/e84bbff7-cfdc-4073-88a1-7cd42adb25b1.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/81895199/74e55730-e84d-4bef-94a9-281d8b3d7018.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -774,6 +794,7 @@ product_21 = Product.create!(
   Un air trop humide peut provoquer des problèmes de santé tels que l'asthme ou la bronchite, des troubles occulaires ou musculaires. Il faut donc s'assurer que le taux d'humidité de sa maison n'est pas trop important.",
   price_cents: 1,
   discount_price_cents: 0,
+  stock_quantity: 0,
   subcategory: subcategory5)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82887286/1655297.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_21.photos.attach(io: file1, filename: "product_21_photo.png")

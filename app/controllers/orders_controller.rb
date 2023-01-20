@@ -23,6 +23,12 @@ class OrdersController < ApplicationController
   end
 
   def create
+    pending_orders = current_user.orders.where(state: "pending")
+    if pending_orders.count > 0
+      pending_orders.each do |order|
+        order.destroy
+      end
+    end
     # pour l'achat immédiat d'un seul article sans création de panier (il faudra faire un if /else --> passage par panier ou pas)
     # product = Product.find(params[:product_id])
     @items_for_stripe = []
@@ -123,8 +129,6 @@ class OrdersController < ApplicationController
       cancel_url: order_url(order)
     )
     order.update(checkout_session_id: session.id)
-    # attention, à partir de la page stripe, si on fait "retour" sans avoir payé, on arrive sur la show de la commande (comme si elle avait été validée/payée)
-    # solution avec webhook ?
     redirect_to new_order_payment_path(order)
   end
 

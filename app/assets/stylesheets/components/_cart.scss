@@ -16,7 +16,8 @@
 .scroller {
   width: 97%;
   height: 85vh;
-  overflow-y: scroll;
+  overflow:auto;
+  // overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
