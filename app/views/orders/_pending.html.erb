@@ -1,5 +1,14 @@
 <div style="display:flex;justify-content: space-between;">
-  <h3>Vous avez une commande en attente</h3>
+  <% if params[:action] == "profile" %>
+    <h3>Vous avez une commande en attente d'être finalisée</h3>
+    <div>
+      <%= link_to order_path(@order), class: "link-order-profile" do %>
+        <p>Détails de la commande <i class="fa-solid fa-eye"></i></p>
+      <% end %>
+    </div>
+  <% elsif params[:action] == "show"  %>
+    <h3>Votre commande est en attente d'être finalisée.</h3>
+  <% end %>
   <input type="submit" id="pay" class="btn btn-primary" value="Finaliser votre commande"/>
   <script src="https://js.stripe.com/v3/"></script>
   <script>

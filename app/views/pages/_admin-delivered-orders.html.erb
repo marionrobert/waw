@@ -1,9 +1,9 @@
 <div class="row mx-1 my-2">
   <div class="col-12">
-    <% if @admin_pending_orders.empty? %>
-      <p>Vous n'avez pas de commandes en attente.</p>
+    <% if @admin_delivered_orders.empty? %>
+      <p>Vous n'avez pas de commandes archivées.</p>
     <% else %>
-      <% @admin_pending_orders.each do |order| %>
+      <% @admin_delivered_orders.each do |order| %>
         <div class="border-bottom my-2">
           <p><b>Commande n° <%= order.id %></b> - <small>Passée le <%= order.created_at.to_date %></small> </p>
           <p>N° client: <%= order.user_id%> - Contact client: <%= order.user.email %></p>

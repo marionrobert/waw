@@ -1,12 +1,11 @@
 <div class="row mx-1 my-2">
   <div class="col-12">
-    <% if @admin_past_orders.empty? %>
-      <p>Vous n'avez pas de commandes archivées.</p>
+    <% if @my_paid_orders.empty? %>
+      <p>Vous n'avez pas de commandes en attente. N'attendez plus pour commander!</p>
     <% else %>
-      <% @admin_past_orders.each do |order| %>
+      <% @my_paid_orders.each do |order| %>
         <div class="border-bottom my-2">
           <p><b>Commande n° <%= order.id %></b> - <small>Passée le <%= order.created_at.to_date %></small> </p>
-          <p>N° client: <%= order.user_id%> - Contact client: <%= order.user.email %></p>
           <div class="row d-flex justify-content-between">
             <div class="col-sm-7">
               <% sub_total = [] %>

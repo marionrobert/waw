@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     #   SQL
     #   @products = Product.joins(:subcategory).where(sql_query, query: "%#{params[:query]}%")
     # else
-      @products = Product.all
+    @products = Product.all.order(:name)
     # end
     # VOIR CORRECTION DE LEWAGON
   end
