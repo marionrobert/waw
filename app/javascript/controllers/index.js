@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CategoryController from "./category_controller"
+application.register("category", CategoryController)
+
 import DebounceController from "./debounce_controller"
 application.register("debounce", DebounceController)
 
@@ -19,14 +22,14 @@ application.register("map", MapController)
 import PanierController from "./panier_controller"
 application.register("panier", PanierController)
 
-import ShareController from "./share_controller"
-application.register("share", ShareController)
+import PreviewPriceChangeController from "./preview_price_change_controller"
+application.register("preview-price-change", PreviewPriceChangeController)
 
-import CategoryController from "./category_controller"
-application.register("category", CategoryController)
+import QuantitymoduleController from "./quantitymodule_controller"
+application.register("quantitymodule", QuantitymoduleController)
 
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
 
-import QuantitymoduleController from "./quantitymodule_controller"
-application.register("quantitymodule", QuantitymoduleController)
+import ShareController from "./share_controller"
+application.register("share", ShareController)

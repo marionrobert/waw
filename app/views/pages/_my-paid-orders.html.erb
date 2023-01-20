@@ -1,7 +1,7 @@
 <div class="row mx-1 my-2">
   <div class="col-12">
-    <% if @my_pending_orders.empty? %>
-      <p>Vous n'avez pas de commandes en attente. N'attendez plus pour commander!</p>
+    <% if @my_paid_orders.empty? %>
+      <p>Vous n'avez pas de commandes en attente de livraison. N'attendez plus pour commander!</p>
     <% else %>
       <% @my_pending_orders.each do |order| %>
         <div class="border-bottom my-2">

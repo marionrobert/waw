@@ -86,7 +86,7 @@ export default class extends Controller {
 
   ///////// FOR DESKTOP VERSION   ////////
 
-  sub_cat_deploy_desktop() {
+  sub_cat_deploy_desktop(event) {
     // Alert("CONNECTE")
 
     // cacher les sous-catégories qui étaient affichées
