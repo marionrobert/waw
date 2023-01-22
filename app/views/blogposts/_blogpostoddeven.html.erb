@@ -1,12 +1,10 @@
-<div class="container">
   <% @blogposts.each_with_index do |blogpost, index| %>
-      <%# <div class="container mb-4"> %>
 
         <% if index.odd? %>
-          <div class="container mb-4" style="margin-left:-18vh;">
-            <div class="d-flex flex-row-reverse postline" style="margin-left:18vh;" >
+          <div class="container mb-4 containerbgblogpost">
+            <div class="d-flex flex-row-reverse postlineodd">
               <div class="postimagezone">
-                <div class="postcirclelayer" style="margin-left:18vh">
+                <div class="postcirclelayerright">
                   <%if blogpost.photos.attached?%>
                         <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%"%>
                   <%else%>
@@ -15,16 +13,16 @@
                 </div>
               </div>
               <div class="blopostcontent">
-                <h2 style="margin-left:1vw;"><%= blogpost.title %></h2>
+                <h2 style="margin-left:1vw;font-size:larger"><%= blogpost.title %></h2>
                 <p class="blogposttext"><%= blogpost.content %></p>
               </div>
             </div>
           </div>
         <% else %>
-          <div class="container mb-4">
-            <div class="d-flex flex-row postline" style="margin-left:18vh;" >
+          <div class="container mb-4 containerbgblogpost">
+            <div class="d-flex flex-row postlineeven"  >
               <div class="postimagezone">
-                <div class="postcirclelayer" style="margin-left:-18vh">
+                <div class="postcirclelayerleft">
                   <%if blogpost.photos.attached?%>
                     <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%;" %>
                   <%else%>
@@ -33,7 +31,7 @@
                 </div>
               </div>
               <div class="blopostcontent" >
-                <h2 style="margin-left:1vw;"><%= blogpost.title %></h2>
+                <h2 style="margin-left:1vw;font-size:larger"><%= blogpost.title %></h2>
                 <p class="blogposttext"><%= blogpost.content %></p>
               </div>
             </div>
@@ -50,4 +48,3 @@
 
 
   <% end %>
-</div>

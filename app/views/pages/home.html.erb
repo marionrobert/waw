@@ -16,15 +16,13 @@
 
 
     <div class="container mt-3">
-      <h1 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
+      <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
       <div class="row d-flex justify-content-center" data-controller="favorites">
         <% @products.each do |product| %>
           <%= render "shared/#{Shop.first.card}", product: product%>
         <% end %>
       </div>
-      <h1 class="mt-5 mb-5 bannerh1" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
-      <div class="row d-flex justify-content-center" data-controller="favorites">
+      <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
         <%= render "blogposts/blogpostoddeven"%>
-      </div>
     </div>
 </div>
