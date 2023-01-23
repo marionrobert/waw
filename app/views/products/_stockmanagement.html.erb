@@ -19,7 +19,7 @@
             <td>
               <div >
               <%if product.photos.attached?%>
-                <%= cl_image_tag product.photos.first.key, style:"max-height:80px" %>
+                <%= cl_image_tag product.photos.first.key, style:"max-height:80px", alt: "Photo du produit #{product.name}" %>
               <%else%>
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"max-height:100px")  %>
               <%end%>
@@ -59,7 +59,7 @@
                 <%= product.error_notification %>
                 <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
                 <div class="form-inputs" >
-                  <%= product.input :price_cents, input_html: { min: '0', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelcolor" } %>
+                  <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelcolor" } %>
                   <p id=<%= "input_price_#{index}" %> style="font-size: 12px;">Renseignez un prix pour le convertir en euros</p>
                 </div>
                   <div class="form-actions" style="text-align:center">
