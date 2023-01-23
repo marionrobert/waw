@@ -1,10 +1,13 @@
-<div class="container" , style="margin-top:10vh;">
-  <div class="container pt-5">
-    <h1 class="mb-5 text-center">Produits disponibles</h1>
-    <div class="row d-flex justify-content-center" data-controller="favorites">
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <% end %>
-    </div>
+<div class="container pt-5" style="margin-top: 10vh;">
+  <h1 class="mb-5 text-center"
+      data-search-target="title">
+    <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
+  </h1>
+  <div class="row d-flex justify-content-center" 
+       data-controller="favorites"
+       data-search-target="list">
   </div>
 </div>
