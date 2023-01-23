@@ -28,6 +28,9 @@ application.register("preview-price-change", PreviewPriceChangeController)
 import QuantitymoduleController from "./quantitymodule_controller"
 application.register("quantitymodule", QuantitymoduleController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
 
