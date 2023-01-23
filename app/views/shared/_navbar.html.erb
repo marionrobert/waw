@@ -71,7 +71,7 @@
             <%end%>
             <li class="nav-item active">
             <%if current_user && current_user.admin? %>
-              <%= link_to "Gestion des stocks", products_path, style:"text-decoration:none;"%>
+              <%= link_to "Gestion des stocks", stockmanagement_path, style:"text-decoration:none;"%>
             <%else%>
               <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
             <%end%>
