@@ -39,6 +39,9 @@ Rails.application.routes.draw do
 
   resources :products, only: %i[index show new update] do
     resources :favorites, only: [:create]
+    collection do
+      post :search, to: 'products#index'
+    end
   end
   
   get "stockmanagement", to: "pages#stockmanagement"
