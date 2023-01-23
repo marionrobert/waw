@@ -20,6 +20,13 @@ class PagesController < ApplicationController
     @admin_delivered_orders = Order.where(state: "delivered").order(updated_at: :desc)
   end
 
+  def stockmanagement
+    @products = Product.all
+    if !current_user.admin
+      redirect_to products_path
+    end
+  end
+
   def is_admin
     @user = User.signed_in(params[:admin == "true"])
   end

@@ -35,13 +35,16 @@ Rails.application.routes.draw do
 
   resources :shops, only: %i[new create edit update show]
 
-  #commande
+  # commande
   resources :orders, only: %i[show create update] do
     resources :payments, only: :new
   end
 
-  #dashboard
+  # dashboard for admin and user
   get 'profile', to: 'pages#profile'
+
+  # stockmanagement for admin
+  get "stockmanagement", to: "pages#stockmanagement"
 
 
   # boutton de la landing page qui envoi vers tout les produits
