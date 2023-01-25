@@ -1,23 +1,23 @@
 class ProductsController < ApplicationController
   include CurrentCart
+  include ActionView::Helpers::TextHelper
   before_action :set_subcategory, except: %i[search]
   skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :set_query, only: %i[index]
 
   def index
-    @categories = Category.all
-    @subcategories = Subcategory.all
-    # if params[:query].present?
-    #   sql_query = <<~SQL
-    #     products.name @@ :query
-    #     OR products.description @@ :query
-    #     OR products.sku @@ :query
-    #     OR subcategories.name @@ :query
-    #   SQL
-    #   @products = Product.joins(:subcategory).where(sql_query, query: "%#{params[:query]}%")
-    # else
-    @products = Product.all.order(:name)
-    # end
-    # VOIR CORRECTION DE LEWAGON
+    @query = Product.ransack(params[:q])
+    @products = @query.result.joins(:subcategory).order(:name)
+
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: { 
+          list: render_to_string(partial: "products/list", locals: { products: @products }, layout: false, formats: [:html]),
+          title: pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles')
+        }
+      end
+    end
   end
 
   def show

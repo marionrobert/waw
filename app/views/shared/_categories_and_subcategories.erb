@@ -40,21 +40,35 @@
         </div>
       <% @categories.each do |category| %>
         <div class="categorymenu", data-action="click->category#displaysubcategory">
-        <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi %>
           <p style="color:black"><%=category.name%></p>
         </div>
         <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="categoryarrowback" data-action="click->category#hidecategorymenu">
-      </div>
-      <%# <% sous catégories listées dans un premier temps mais le menu n'est pas display, avec le nom de leur catégorie référente en class %>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  style="position: absolute;
+                         top: 4vh;
+                         left: 4vw;
+                         z-index: 101;"
+                  data-action="click->category#hidecategorymenu">
+          </button>
       <div id="subcatmenu" class="subcategorymenu" style="overflow:auto">
         <% Subcategory.all.each do |subcategory| %>
-          <%# Le style color black doit etre forcé en balise pour le pages home je ne sais pas pourquoi%>
           <p class="subcat <%=subcategory.category.name%>" style="color:black;padding-bottom:4vh;">
             <%= subcategory.name %>
           </p>
         <% end %>
-        <img src="https://www.svgrepo.com/show/50/circular-arrow.svg" class="subcategoryarrowback" data-action="click->category#hidesubcategorymenu">
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  style="position: absolute;
+                         top: 4vh;
+                         left: 4vw;
+                         z-index: 102;"
+                  data-action="click->category#hidesubcategorymenu">
+          </button>
       </div>
     </div>
   </div>

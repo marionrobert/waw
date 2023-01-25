@@ -33,7 +33,9 @@
     <p class="bannerpub"><%=Shop.first.bannerpub%></p>
   <%end%>
   </header>
-    <body class= "d-flex flex-column", style="font-family:<%=Shop.first.themefont%>;background:<%=Shop.first.themebgcolor%>;">
+    <body class= "d-flex flex-column"
+          data-controller="search"
+          style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar" %>
       <%#= render "shared/categories_and_subcategories"%>
       <%= session[:cookies_accepted] %>

@@ -49,22 +49,14 @@
     display:none;
   }
 
-  .responsivesearchbarplacesmall {
-    display: none;
+  .responsivesearchbar {
+    width: 90vw;
+    margin-top:2vh;
   }
 
-  .responsivesearchbarplacebig {
-    width:95vw;
-    margin:2vw;
-  }
 
-  .categoryarrowback {
-    left:40vw;
-  }
 
-  .subcategoryarrowback {
-    left:40vw;
-  }
+
 
   .searchbar {
     position: absolute;
