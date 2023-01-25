@@ -31,8 +31,8 @@ export default class extends Controller {
 
   /* 1 - hide category menu */
   hidecategorymenu() {
-    const catarrow = document.getElementById("smalldevicecategories");
-    catarrow.classList.remove("displaycat");
+    const catcross = document.getElementById("smalldevicecategories");
+    catcross.classList.remove("displaycat");
 
     // supprimer les sub-catégories qui étaient affichées selon la catégorie sélectionnée
     // remise à zéro

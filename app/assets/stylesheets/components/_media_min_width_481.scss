@@ -1,5 +1,9 @@
 @media screen and (min-width: 481px) {
 
+  .responsivesearchbar {
+    width: 70vw;
+  }
+
   .enable_on_smartphone {
     display:none
   }
@@ -81,22 +85,6 @@
 
   .displaycat {
     transform:translateX(100%);
-  }
-
-  .responsivesearchbarplacesmall {
-    width: 60vw;
-  }
-
-  .responsivesearchbarplacebig {
-    display:none;
-  }
-
-  .categoryarrowback {
-    left:6vw;
-  }
-
-  .subcategoryarrowback {
-    left:6vw;
   }
 
   .btnhome:hover {
