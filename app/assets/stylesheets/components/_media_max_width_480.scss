@@ -3,6 +3,10 @@
     display:none;
   }
 
+  .searchinputlength {
+    width:80vw;
+  }
+
   .menucategory {
     left:-190vw;
     padding-left: 2rem;
@@ -50,8 +54,33 @@
   }
 
   .responsivesearchbar {
-    width: 90vw;
+    transition-duration: 500ms;
+    position:absolute;
+    top:-200%;
+    left:0;
+    width: 100vw;
     margin-top:2vh;
+    z-index:0;
+  }
+
+  .responsivesearchbaronclick {
+    transition-duration: 500ms;
+    position:absolute;
+    top:100%;
+    left:0;
+    width: 100vw;
+    margin-top:2vh;
+    z-index:50;
+  }
+
+  #mobile-magnifying-glass {
+    font-size: xx-large;
+    color:rgb(95, 95, 224);
+  }
+
+  .mobile-magnifying-glass-masked {
+    display:none;
+    transition-duration: 200ms;
   }
 
 

@@ -1,7 +1,18 @@
 @media screen and (min-width: 481px) {
 
+  #mobile-magnifying-glass {
+    display:none;
+  }
+
+  #close-search-input {
+    display:none;
+  }
+
+  .searchinputlength {
+    width:60vw;
+  }
+
   .responsivesearchbar {
-    width: 70vw;
   }
 
   .enable_on_smartphone {

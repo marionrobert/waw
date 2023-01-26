@@ -28,11 +28,11 @@
     <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
     <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
   </head>
-  <header>
-  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-    <p class="bannerpub"><%=Shop.first.bannerpub%></p>
-  <%end%>
-  </header>
+    <header>
+    <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+      <p class="bannerpub"><%=Shop.first.bannerpub%></p>
+    <%end%>
+    </header>
     <body class= "d-flex flex-column"
           data-controller="search"
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
