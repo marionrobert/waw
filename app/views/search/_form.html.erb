@@ -1,20 +1,27 @@
-<%= search_form_for @query, url: products_path, 
-              method: :get, 
-              html: {
-                class: "d-flex", 
-                data: {
-                  search_target: "form"
-                }
-              } do |f| %>
-  <%= f.text_field :name_or_description_or_sku_cont,
-                    class: "form-control me-2",
-                    placeholder: "Tapez votre recherche ici",
-                    value: params[:query],
-                    data: {
-                      action: "keyup->search#update"
-                    } %>
-  <%= f.submit "SEARCH", 
-              type: :image, 
-              src: image_path('icons/magnifying_glass.png'), 
-              style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
-<% end %>
+<div style="display:flex;">
+  <div style="margin:0 5vw 0 5vw;font-size:x-large">
+    <i class="mobilemaskcrossinput fa-solid fa-xmark", id="close-search-input", data-controller="search", data-action="click->search#hideMobileSearchInput"></i>
+  </div>
+  <div class="searchinputlength">
+  <%= search_form_for @query, url: products_path,
+                method: :get,
+                html: {
+                  class: "d-flex",
+                  data: {
+                    search_target: "form"
+                  }
+                } do |f| %>
+    <%= f.text_field :name_or_description_or_sku_cont,
+                      class: "form-control me-2",
+                      placeholder: "Tapez votre recherche ici",
+                      value: params[:query],
+                      data: {
+                        action: "keyup->search#update"
+                      } %>
+    <%= f.submit "SEARCH",
+                type: :image,
+                src: image_path('icons/magnifying_glass.png'),
+                style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
+  <% end %>
+  </div>
+</div>

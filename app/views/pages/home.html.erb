@@ -1,17 +1,22 @@
+<%= link_to products_path do%>
 <div>
-  <%if Shop.first.banner.key%>
-    <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.banner.key %>')">
-  <%else %>
-    <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
-  <%end%>
-  <div class="container">
-    <div style="padding-top:18vh;text-align:center;">
-        <h1 class="bannerh1"><strong><%= Shop.first.name %></strong></h1>
-        <h3 style="color:white;padding-bottom:10vh;"><%= Shop.first.description %></h3>
-      <div style="border-radius:3vh;", class="btn btn-success", style="justify-content:center;">
-        <%= link_to "Voir tous les produits", products_path, style:"font-size:bolder;height:6vh;width:40vw;text-decoration:none;color:white;" %>
+<%if Shop.first.banner.key%>
+  <div class="banner" style="background-image: url('<%= cl_image_path Shop.first.banner.key %>')">
+<%else %>
+  <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
+<%end%>
+    <div class="container">
+      <div style="padding-top:18vh;text-align:center;">
+          <h1 class="bannerh1"><%= Shop.first.name%></h1>
+          <h3 style="color:white;padding-bottom:10vh;text-decoration:none"><%= Shop.first.description%></h3>
+        <%# <button class="btn btn-success", style="position:absolute;top:95vh;right:38vw;border-radius:3vh;justify-content:center;font-size:bolder;height:6vh;width:26vw;text-decoration:none;color:white;">
+        Accédez aux Produits
+        </button> %>
       </div>
     </div>
+  </div>
+</div>
+<%end%>
 
 
 
@@ -24,5 +29,5 @@
       </div>
       <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
         <%= render "blogposts/blogpostoddeven"%>
-    </div>
+    <%# </div> %>
 </div>
