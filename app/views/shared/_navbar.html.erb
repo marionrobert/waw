@@ -20,9 +20,15 @@
       <%end%>
     </div>
 
+    <%# ////////////barre de recherche/////////////////// %>
+    <div class="responsivesearchbar" id="mobile-input-search">
+      <%= render "search/form" %>
+    </div>
 
-
-
+    <%# Bouton de recherche pour mobile %>
+    <div style="width:10vw">
+      <i class="fa-solid fa-magnifying-glass", id="mobile-magnifying-glass", data-controller="search", data-action="click->search#displayMobileSearchInput"></i>
+    </div>
 
     <%# /////////////////PANIER///////////////// %>
     <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
@@ -98,10 +104,7 @@
         </div>
       </div>
     </div>
-    <%# ////////////barre de recherche/////////////////// %>
-    <div class="responsivesearchbar">
-      <%= render "search/form" %>
-    </div>
+
   </nav>
     <%= render "shared/categories_and_subcategories" %>
 </main>
