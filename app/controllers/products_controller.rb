@@ -17,12 +17,12 @@ class ProductsController < ApplicationController
       result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
       if !result_category_name.empty?
         category = Category.where(name: result_category_name[0].content)
-        @products = Category.find_by(name: category[0].name).products.order(:name)
+        @products = Category.find_by(name: category[0].name).products
       elsif !result_subcategory_name.empty?
         subcategory = Subcategory.where(name: result_subcategory_name[0].content)
-        @products = Subcategory.find_by(name: subcategory[0].name).products.order(:name)
+        @products = Subcategory.find_by(name: subcategory[0].name).products
       elsif !result_product_name_or_description.empty?
-        @products = @results.order(:name)
+        @products = Product.name_and_description_search("%#{params[:query]}%")
       else
         @products = []
       end

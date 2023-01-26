@@ -21,4 +21,12 @@ class Product < ApplicationRecord
   include PgSearch::Model
   multisearchable against: %i[name description]
 
+  pg_search_scope :name_and_description_search,
+                  against: %i[name description],
+                  using: {
+                    tsearch: {
+                      prefix: true,
+                      dictionary: "french"
+                    }
+                  }
 end
