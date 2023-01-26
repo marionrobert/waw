@@ -1,6 +1,8 @@
 <%# <div class=""> %>
+<%if !current_user.admin%>
 <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
 <%# </div> %>
+<%end%>
 
 <div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
 
