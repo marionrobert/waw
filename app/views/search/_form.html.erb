@@ -1,9 +1,20 @@
-<%# <div id="search", data-controller="searcharea", data-action="keyup->searcharea#livesearch"> %>
-<div>
-  <%= search_form_for(@query, url: search_path, method: :get, class:"d-flex") do |f| %>
-      <%= f.search_field :name_or_description_or_sku_cont_any,
-      placeholder: "Tapez votre recherche ici", style:"width:85%",
-      class: "form-control me-2"%>
-      <%= f.submit "SEARCH", :type => :image, :src => "https://cdn-icons-png.flaticon.com/128/149/149852.png", style:"height:3vh;margin-top:auto;margin-bottom:auto;" %>
-  <% end %>
-</div>
+<%= search_form_for @query, url: products_path, 
+              method: :get, 
+              html: {
+                class: "d-flex", 
+                data: {
+                  search_target: "form"
+                }
+              } do |f| %>
+  <%= f.text_field :name_or_description_or_sku_cont,
+                    class: "form-control me-2",
+                    placeholder: "Tapez votre recherche ici",
+                    value: params[:query],
+                    data: {
+                      action: "keyup->search#update"
+                    } %>
+  <%= f.submit "SEARCH", 
+              type: :image, 
+              src: image_path('icons/magnifying_glass.png'), 
+              style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
+<% end %>
