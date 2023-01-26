@@ -6,31 +6,31 @@ class ProductsController < ApplicationController
   skip_before_action :set_query, only: %i[index]
 
   def index
-    @query = Product.ransack(params[:q])
-    @products = @query.result.joins(:subcategory).order(:name)
-    # @products = Product.all.order(:name)
-    # if params[:query].present?
-    #   PgSearch::Multisearch.rebuild(Product)
-    #   PgSearch::Multisearch.rebuild(Category)
-    #   PgSearch::Multisearch.rebuild(Subcategory)
-    #   @results = PgSearch.multisearch("%#{params[:query]}%")
-    #   result_category_name = @results.select { |element| element.searchable_type == "Category" }
-    #   result_subcategory_name = @results.select { |element| element.searchable_type == "Subcategory" }
-    #   result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
-    #   if !result_category_name.empty?
-    #     category = Category.where(name: result_category_name[0].content)
-    #     @products = Category.find_by(name: category[0].name).products
-    #   elsif !result_subcategory_name.empty?
-    #     subcategory = Subcategory.where(name: result_subcategory_name[0].content)
-    #     @products = Subcategory.find_by(name: subcategory[0].name).products
-    #   elsif !result_product_name_or_description.empty?
-    #     @products = @results
-    #   else
-    #     @products = []
-    #   end
-    # else
-    #   @products = Product.all
-    # end
+    # @query = Product.ransack(params[:q])
+    # @products = @query.result.joins(:subcategory).order(:name)
+    @products = Product.all.order(:name)
+    if params[:query].present?
+      PgSearch::Multisearch.rebuild(Product)
+      PgSearch::Multisearch.rebuild(Category)
+      PgSearch::Multisearch.rebuild(Subcategory)
+      @results = PgSearch.multisearch("%#{params[:query]}%")
+      result_category_name = @results.select { |element| element.searchable_type == "Category" }
+      result_subcategory_name = @results.select { |element| element.searchable_type == "Subcategory" }
+      result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
+      if !result_category_name.empty?
+        category = Category.where(name: result_category_name[0].content)
+        @products = Category.find_by(name: category[0].name).products
+      elsif !result_subcategory_name.empty?
+        subcategory = Subcategory.where(name: result_subcategory_name[0].content)
+        @products = Subcategory.find_by(name: subcategory[0].name).products
+      elsif !result_product_name_or_description.empty?
+        @products = @results
+      else
+        @products = []
+      end
+    else
+      @products = Product.all
+    end
 
     respond_to do |format|
       format.html
