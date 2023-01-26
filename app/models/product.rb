@@ -18,20 +18,7 @@ class Product < ApplicationRecord
   # validate :images, presence: true
 
   # NE PAS SUPPRIMER
-  # include PgSearch::Model
-
-  # multisearchable against: [ :name ]
-
-  # pg_search_scope :global_search,
-
-  # against: [ :name, :description, :sku ],
-
-  # associated_against: {
-  #   subcategory: [ :name ]
-  # },
-
-  # using: {
-  #   tsearch: { prefix: true }
-  # }
+  include PgSearch::Model
+  multisearchable against: %i[name description]
 
 end
