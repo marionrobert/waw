@@ -34,4 +34,28 @@ class Product < ApplicationRecord
   #   tsearch: { prefix: true }
   # }
 
+  def self.update_items(items:)
+    content = content_from_order(items:)
+    decrease_stock_quantities(content:)
+  end
+
+  def self.content_from_order(items:)
+    items.map do |key, item|
+      {
+        sku: item["sku"],
+        quantity: item["quantity"]
+      }
+    end
+  end
+
+  def self.decrease_stock_quantities(content:)
+    # OrdersController.new.paid(checkout_session_id:Order.where.not(checkout_session_id: [nil, ""]).first.checkout_session_id)
+    content.each do |product_quantity|
+      product = Product.find_by(sku: product_quantity[:sku])
+      product.update(stock_quantity: product.stock_quantity - product_quantity[:quantity] )
+      # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
+      # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
+    end
+  end
+
 end

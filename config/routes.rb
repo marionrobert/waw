@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   }
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
+
   root to: "pages#home"
 
-  
+
   resources :blogposts
   resources :carts
   resources :favorites, only: [:index, :destroy]
@@ -37,13 +37,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: %i[index show new update] do
+  resources :products, only: %i[index show new update edit] do
     resources :favorites, only: [:create]
     collection do
       post :search, to: 'products#index'
     end
   end
-  
+
   get "stockmanagement", to: "pages#stockmanagement"
   get 'profile', to: 'pages#profile'
   get 'promo', to: 'promo#index'

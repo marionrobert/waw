@@ -136,6 +136,15 @@ class OrdersController < ApplicationController
   def destroy
   end
 
+  def paid(checkout_session_id:)
+    # A rentrer
+    # OrdersController.new.paid(checkout_session_id:Order.where.not(checkout_session_id: [nil, ""]).first.checkout_session_id)
+    # debugger
+    order = Order.find_by(checkout_session_id:)
+    order.update(state: 'paid')
+    Product.update_items(items: order.items)
+  end
+
 # private
 #   def order_params
 #     params.require(:order).permit(:user_id, :product_id)
