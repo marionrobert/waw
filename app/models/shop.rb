@@ -18,7 +18,7 @@ class Shop < ApplicationRecord
             ]
 
   belongs_to :user, dependent: :destroy
-  has_many :schedules
+  has_many :schedules, dependent: :destroy
   accepts_nested_attributes_for :schedules, allow_destroy: true
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 5 }

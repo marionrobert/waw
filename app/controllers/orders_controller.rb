@@ -137,7 +137,7 @@ class OrdersController < ApplicationController
   end
 
   def paid(checkout_session_id:)
-    # A rentrer
+    # A rentrer en console pour tester
     # OrdersController.new.paid(checkout_session_id:Order.where.not(checkout_session_id: [nil, ""]).first.checkout_session_id)
     # debugger
     order = Order.find_by(checkout_session_id:)

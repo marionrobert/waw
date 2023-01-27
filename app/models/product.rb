@@ -4,13 +4,10 @@ class Product < ApplicationRecord
   has_many :favorites
   belongs_to :subcategory
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
-
   validates :description, :name, :price_cents, :subcategory_id, presence: true
-
-  monetize :price_cents
   validates :price_cents, numericality: { greater_than_or_equal_to: 1 }
-
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promo doit être inférieur au prix hors promo." }
+  monetize :price_cents
 
   delegate :category, to: :subcategory, allow_nil: true
 
@@ -49,6 +46,7 @@ class Product < ApplicationRecord
   end
 
   def self.decrease_stock_quantities(content:)
+    # a mettre en console pour simuler
     # OrdersController.new.paid(checkout_session_id:Order.where.not(checkout_session_id: [nil, ""]).first.checkout_session_id)
     content.each do |product_quantity|
       product = Product.find_by(sku: product_quantity[:sku])
