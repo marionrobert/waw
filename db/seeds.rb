@@ -24,7 +24,7 @@ user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: fa
 
 puts "La société est liquidé"
 Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
-address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card3", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
+address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card4", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
  juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
