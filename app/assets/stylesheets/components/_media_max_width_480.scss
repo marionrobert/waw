@@ -1,5 +1,125 @@
 @media screen and (max-width: 480px) {
 
+  .producthomecontainer {
+    width:97vw;
+    margin: 0 auto;
+  }
+
+  .catwrapperoddevencontent {
+    height:380px;
+    overflow:scroll;
+      &::-webkit-scrollbar{
+        border-radius: 10px;
+        height: 5px;
+        background-color: rgba(0,0,0,0);
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: rgba(100,100,100,0.4);
+      }
+      &::-webkit-scrollbar-track {
+        height: 16px;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+        background-color: rgba(0,0,0,0);
+      }
+    }
+
+    .oddcategory {
+      border-radius: 10px;
+      padding:15px;
+      margin-right:80px;
+      max-width:210px;
+      min-width:210px;
+      min-height:160px;
+      max-height:160px;
+      background:red
+    }
+
+    .evencategory {
+      border-radius: 10px;
+      padding:15px;
+      margin-left:100px;
+      max-width:210px;
+      min-width:210px;
+      min-height:160px;
+      max-height:160px;
+      background:orange
+    }
+
+    .catwrapperhomepage {
+      height:140px;
+      margin:0 auto;
+      display:flex;
+      &::-webkit-scrollbar{
+        border-radius: 10px;
+        // width: 12px;
+        height: 5px;
+        background-color: rgba(0,0,0,0);
+      }
+      // correspond à la bande defilante
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        // height: 30px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: rgba(120,120,120,0.4);
+      }
+      // correspond à la piste sur toute la longueur
+      &::-webkit-scrollbar-track {
+        height: 16px;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+        background-color: rgba(0,0,0,0);
+      }
+    }
+
+  .wrapperhomepage {
+    // width:70vw;
+    height:300px;
+    margin:0 auto;
+    display:flex;
+    overflow-x:auto;
+    &::-webkit-scrollbar{
+      border-radius: 10px;
+      // width: 12px;
+      height: 5px;
+      background-color: rgba(0,0,0,0);
+    }
+    // correspond à la bande defilante
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      // height: 30px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: rgba(120,120,120,0.4);
+    }
+    // correspond à la piste sur toute la longueur
+    &::-webkit-scrollbar-track {
+      height: 16px;
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .banner {
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    // height: 100vh;
+    padding-top: 0vh;
+    margin:0 auto;
+    margin-top: 4vh;
+    min-width: 100vw;
+    // max-width: 100vw;
+    z-index: 10;
+  }
+
+  .bannertextfield {
+    padding-top:5vh;
+    text-align:center;
+  }
+
   .stockmanage_update {
     position:absolute;
     right:2vw;
@@ -90,10 +210,6 @@
     transition-duration: 200ms;
   }
 
-
-
-
-
   .searchbar {
     position: absolute;
     top: 7vh;
@@ -109,4 +225,5 @@
     transition-duration: 350ms;
     transform:translateX(100%);
   }
+
 }

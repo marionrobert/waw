@@ -1,10 +1,129 @@
 @media screen and (min-width: 481px) {
+  .producthomecontainer {
+    width:70vw;
+    margin: 0 auto;
+  }
+
+  .oddcategory {
+    border-radius: 10px;
+    padding:15px;
+    margin-right:125px;
+    max-width:400px;
+    min-width:400px;
+    min-height:320px;
+    max-height:320px;
+    background:red
+  }
+
+  .evencategory {
+    border-radius: 10px;
+    padding:15px;
+    margin-left:175px;
+    max-width:400px;
+    min-width:400px;
+    min-height:320px;
+    max-height:320px;
+    background:orange
+  }
+
+  .catwrapperoddevencontent {
+  width:70vw;
+  height:600px;
+  overflow:scroll;
+    &::-webkit-scrollbar{
+      border-radius: 10px;
+      height: 20px;
+      background-color: rgba(0,0,0,0);
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: rgba(100,100,100,0.4);
+    }
+    &::-webkit-scrollbar-track {
+      height: 16px;
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .catwrapperhomepage {
+    width:70vw;
+    height:200px;
+    margin:0 auto;
+    display:flex;
+    &::-webkit-scrollbar{
+      border-radius: 10px;
+      // width: 12px;
+      height: 5px;
+      background-color: rgba(0,0,0,0);
+    }
+    // correspond à la bande defilante
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      // height: 30px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: rgba(120,120,120,0.4);
+    }
+    // correspond à la piste sur toute la longueur
+    &::-webkit-scrollbar-track {
+      height: 16px;
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .wrapperhomepage {
+    // width:70vw;
+    height:500px;
+    margin:0 auto;
+    display:flex;
+    overflow-x:auto;
+    &::-webkit-scrollbar{
+      border-radius: 10px;
+      height: 20px;
+      background-color: rgba(0,0,0,0);
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: rgba(100,100,100,0.4);
+    }
+    &::-webkit-scrollbar-track {
+      height: 16px;
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .mobileonly {
+    display:none;
+  }
+
+  .banner {
+    background-size:cover;
+    background-position: center;
+    height: 100vh;
+    padding-top: 0vh;
+    left: 0;
+    top: -25vh;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .bannertextfield {
+    padding-top:18vh;
+    text-align:center;
+  }
 
   .stockmanage_update {
     position:absolute;
     right:10vw;
     top:2vh;
-
+  }
   #mobile-magnifying-glass {
     display:none;
   }
@@ -143,4 +262,6 @@
   .desktop_subcat_hide_or_not {
     display:none;
   }
+
+
 }

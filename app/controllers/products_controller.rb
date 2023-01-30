@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: { 
+        render json: {
           list: render_to_string(partial: "products/list", locals: { products: @products }, layout: false, formats: [:html]),
           title: pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles')
         }
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     products = Product.where(subcategory: @product.subcategory)
-    @products = (products.reject { |element| element.id == @product.id }).sample(3)
+    @products = (products.reject { |element| element.id == @product.id }).sample(15)
   end
 
   def new
