@@ -5,6 +5,7 @@ class LineItemsController < ApplicationController
   skip_before_action :authenticate_user!, except: %i[index]
 
 
+
   # GET /line_items or /line_items.json
   def index
     @line_items = LineItem.all
