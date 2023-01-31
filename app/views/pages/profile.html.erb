@@ -18,7 +18,7 @@
   <%end%>
 
 
-  <div style="border-top:1px solid grey; border-bottom:1px solid grey;padding-bottom:10vh;">
+  <div style="border-top:1px solid grey; border-bottom:1px solid grey;padding-bottom:10vh;" data-controller="favorites">
     <%if current_user != nil && current_user.admin == false %>
       <h3 class="mt-3"> Vos produits favoris</h3>
       <%if current_user.favorite_products.count == 0%>

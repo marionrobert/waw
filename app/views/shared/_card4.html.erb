@@ -22,7 +22,7 @@
             <%= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
               <i class="fa-solid fa-cart-plus" style="color:blue"></i>
             <% end %>
-            <i class="fa-solid fa-heart c4-favorite" style="color:blue"></i>
+            <i class="fa-solid fa-heart c4-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
           </div>
           <div class="c4-pricearea">
           <%# NE RIEN METTRE ICI %>

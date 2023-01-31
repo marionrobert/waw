@@ -6,7 +6,7 @@ export default class extends Controller {
   }
 
   fav(evt) {
-    console.log("fav clicked")
+    // console.log("fav clicked")
     fetch(`/products/${evt.params.productId}/favorites`, {
       method: "POST",
       headers: {
@@ -28,7 +28,7 @@ export default class extends Controller {
         }
       })
     }
-    
+
     redirect() {
       console.log("Redirection");
       window.location.replace("http://localhost:3000/users/sign_in");
