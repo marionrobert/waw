@@ -1,41 +1,35 @@
 require "open-uri"
 
 Shop.destroy_all
-puts "boutique supprimée"
+puts "Boutique supprimée"
 User.destroy_all
-puts "tout les utilisateurs sont supprimés"
+puts "Tous les utilisateurs sont supprimés"
 Category.destroy_all
-puts "toute les categories sont supprimés"
+puts "Toutes les catégories sont supprimées"
 Subcategory.destroy_all
-puts "les sous-categories aussi - même si un dependent destroy existe"
+puts "Les sous-catégories aussi - même si un dependent destroy existe"
 Product.destroy_all
-puts " et enfin destockage on vide les rayons de tout les produits malgrès aussi un dependent destroy"
+puts " et enfin destockage on vide les rayons de tout les produits malgré un dependent destroy"
 Favorite.destroy_all
-puts "on detruit les favoris enregistrés pour chaque utilisateurs"
+puts "on détruit les favoris enregistrés pour chaque utilisateur"
 Blogpost.destroy_all
-puts "on detruit tout les articles de blog"
+puts "on détruit tous les articles de blog"
 
-
-puts "creation de 4 utilisateurs format prenom@gmail.com   mot de passe = 123456"
+puts "création de 4 utilisateurs format prenom@gmail.com et  mot de passe = 123456"
 user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
 user_two = User.create!(email: "jeannoel@gmail.com", password: "123456", admin: false)
 user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false)
 user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
+puts "#{User.count} utilisateurs créés"
+puts "1 profil administrateur créé(aurelien), 3 non admins créés"
 
-puts "La société est liquidé"
+puts "La société est liquidée"
 Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
 address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card4", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
  juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
  Coupon.destroy_all
-
-
-
-
- puts "#{User.count} utilisateurs créés"
- puts "1 profil administrateur créé(aurelien), 3 non admins créés"
-
 
 
 blogpost_1 = Blogpost.create!(title:"Quel vin choisir avec quel plat ?",
