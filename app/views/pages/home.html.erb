@@ -44,8 +44,8 @@
       <div class="catwrapperhomepage">
         <% @categories.each_with_index do |category, index| %>
             <% if index.odd? %>
-              <div class="oddcategory">
-                <h3><%= category.name %></h3>
+              <div class="oddcategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                <h3 style="font-weight:bolder;text-shadow: black 0px 0 5px;color:white"><%= category.name %></h3>
               </div>
             <% end%>
           <%end%>
@@ -55,8 +55,8 @@
       <div class="catwrapperhomepage">
         <% @categories.each_with_index do |category, index| %>
             <% if index.even? %>
-              <div class="evencategory">
-                <h3><%= category.name %></h3>
+              <div class="evencategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                <h3 style="font-weight:bolder;text-shadow: black 0px 0 5px;color:white"><%= category.name %></h3>
               </div>
             <% end%>
           <%end%>

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   has_many_attached :photos
-  has_many :line_items, dependent: :nullify
-  has_many :favorites
+  has_many :line_items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   belongs_to :subcategory
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :description, :name, :price_cents, :subcategory_id, presence: true

@@ -1,41 +1,35 @@
 require "open-uri"
 
 Shop.destroy_all
-puts "boutique supprimée"
+puts "Boutique supprimée"
 User.destroy_all
-puts "tout les utilisateurs sont supprimés"
+puts "Tous les utilisateurs sont supprimés"
 Category.destroy_all
-puts "toute les categories sont supprimés"
+puts "Toutes les catégories sont supprimées"
 Subcategory.destroy_all
-puts "les sous-categories aussi - même si un dependent destroy existe"
+puts "Les sous-catégories aussi - même si un dependent destroy existe"
 Product.destroy_all
-puts " et enfin destockage on vide les rayons de tout les produits malgrès aussi un dependent destroy"
+puts " et enfin destockage on vide les rayons de tout les produits malgré un dependent destroy"
 Favorite.destroy_all
-puts "on detruit les favoris enregistrés pour chaque utilisateurs"
+puts "on détruit les favoris enregistrés pour chaque utilisateur"
 Blogpost.destroy_all
-puts "on detruit tout les articles de blog"
+puts "on détruit tous les articles de blog"
 
-
-puts "creation de 4 utilisateurs format prenom@gmail.com   mot de passe = 123456"
+puts "création de 4 utilisateurs format prenom@gmail.com et  mot de passe = 123456"
 user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
 user_two = User.create!(email: "jeannoel@gmail.com", password: "123456", admin: false)
 user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false)
 user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
+puts "#{User.count} utilisateurs créés"
+puts "1 profil administrateur créé(aurelien), 3 non admins créés"
 
-puts "La société est liquidé"
+puts "La société est liquidée"
 Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
 address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card4", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
  juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
  Coupon.destroy_all
-
-
-
-
- puts "#{User.count} utilisateurs créés"
- puts "1 profil administrateur créé(aurelien), 3 non admins créés"
-
 
 
 blogpost_1 = Blogpost.create!(title:"Quel vin choisir avec quel plat ?",
@@ -84,6 +78,8 @@ puts "CREATION DES DIFFERENTES CATEGORIES ET SOUS-CATEGORIES ASSOCIES"
 # CATEGORIE 1
 
 category1 = Category.create!(name:"Chauffage et filtration")
+            file1 = URI.open("https://media.gettyimages.com/id/163520892/fr/photo/homme-brille-lampe-de-poche-sur-un-chauffe-eau.jpg?s=612x612&w=gi&k=20&c=AtacdS9C26mjLAkYSJ350oDAgs-dpBmzzCdUxoEjFZ8=")
+            category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
   subcategory1 = Subcategory.new(name:"Chauffage electrique")
@@ -115,6 +111,8 @@ puts "category #{category1.name} créée"
 # CATEGORIE 2
 
 category2 = Category.create!(name:"Ameublement")
+            file1 = URI.open("https://www.univers-habitat.eu/img/articles/article-7311-diapo_1-but-inauguration-d-un-nouvel-espace-qui-s-inscrit-dans-l-air-du-temps-20181109_120107.jpg")
+            category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 
   subcategory6 = Subcategory.new(name:"Rangement dressing")
@@ -145,6 +143,8 @@ puts "category #{category2.name} créée"
 # CATEGORIE 3
 
 category3 = Category.create!(name:"Décoration")
+            file1 = URI.open("https://artwall-and-co.com/5910-pdt_540/decoration-murale-metal-tigre.jpg")
+            category3.photos.attach(io: file1, filename: "category_3_photo.png")
 puts "category #{category3.name} créée"
 
   subcategory11 = Subcategory.new(name:"Tableau")
@@ -171,6 +171,8 @@ puts "category #{category3.name} créée"
 # CATEGORIE 4
 
 category4 = Category.create!(name:"Outillage")
+            file1 = URI.open("https://bianucci-materiaux.com/images/Outillage/Outillage%20%C3%A0%20main/outillage-a-main.jpg")
+            category4.photos.attach(io: file1, filename: "category_4_photo.png")
 puts "category #{category4.name} créée"
 
   subcategory15 = Subcategory.new(name:"Percage et forage")
@@ -212,6 +214,8 @@ puts "category #{category4.name} créée"
 # CATEGORIE 5
 
 category5 = Category.create!(name:"Sols et parquet")
+            file1 = URI.open("https://www.renou-carrelage.fr/wp-content/uploads/2019/07/parquet2-768x438.jpg")
+            category5.photos.attach(io: file1, filename: "category_5_photo.png")
 puts "category #{category5.name} créée"
 
   subcategory21 = Subcategory.new(name:"Carrelage")
@@ -243,6 +247,8 @@ puts "category #{category5.name} créée"
 # CATEGORIE 6
 
 category6 = Category.create!(name:"Peintures et drogueries")
+            file1 = URI.open("https://www.maison-confort.fr/wp-content/uploads/2021/12/pots-de-peinture-murale-550x367.jpg")
+            category6.photos.attach(io: file1, filename: "category_6_photo.png")
 puts "category #{category6.name} créée"
 
   subcategory27 = Subcategory.new(name:"Sous-couche et vernis")
@@ -279,6 +285,8 @@ puts "category #{category6.name} créée"
 # CATEGORIE 7
 
 category7 = Category.create!(name:"Plomberie et sanitaire")
+            file1 = URI.open("https://www.abctravaux.org/wp-content/uploads/2021/11/tout-savoir-sur-la-plomberie-sanitaire.jpg")
+            category7.photos.attach(io: file1, filename: "category_7_photo.png")
 puts "category #{category7.name} créée"
 
   subcategory33 = Subcategory.new(name:"Tube et raccord")
@@ -309,6 +317,8 @@ puts "category #{category7.name} créée"
 # CATEGORIE 8
 
 category8 = Category.create!(name:"Luminaire")
+            file1 = URI.open("http://www.eminza.com/uploads/media/5cab35adcedcd/luminaire-blog-mea-1960x1228.jpg")
+            category8.photos.attach(io: file1, filename: "category_8_photo.png")
 puts "category #{category8.name} créée"
 
   subcategory34 = Subcategory.new(name:"Ampoules")
