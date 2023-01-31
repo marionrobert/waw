@@ -101,32 +101,40 @@
   // border: 1px dotted black;
 }
 
-    .c4-buttonarea {
-      display:flex;
-      justify-content:space-around;
-      align-items: center;
-      height:100%;
-      width:30%;
-      // background:hotpink;
-    }
+.c4-buttonarea {
+display:flex;
+justify-content:space-around;
+align-items: center;
+height:100%;
+width:30%;
+// background:hotpink;
+}
 
-    .c4-pricearea {
-      text-align: end;
-      margin: 0;
-      height: 100%;
-      width: 70%;
-    }
+.c4-pricearea {
+text-align: end;
+margin: 0;
+height: 100%;
+width: 70%;
+}
 
-        .c4-promoprice {
-          height : 50%;
-          width: 100%;
-          // background:purple;
-        }
+.c4-promoprice {
+height : 50%;
+width: 100%;
+// background:purple;
+}
 
-        .c4-classicprice {
-          height : 50%;
-          width: 100%;
-          // background:teal;
-        }
+.c4-classicprice {
+height : 50%;
+width: 100%;
+// background:teal;
+}
+
+.addToCartIcon {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 // FIN C4
