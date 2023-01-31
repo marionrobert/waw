@@ -84,6 +84,8 @@ puts "CREATION DES DIFFERENTES CATEGORIES ET SOUS-CATEGORIES ASSOCIES"
 # CATEGORIE 1
 
 category1 = Category.create!(name:"Chauffage et filtration")
+            file1 = URI.open("https://media.gettyimages.com/id/163520892/fr/photo/homme-brille-lampe-de-poche-sur-un-chauffe-eau.jpg?s=612x612&w=gi&k=20&c=AtacdS9C26mjLAkYSJ350oDAgs-dpBmzzCdUxoEjFZ8=")
+            category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
   subcategory1 = Subcategory.new(name:"Chauffage electrique")
@@ -115,6 +117,8 @@ puts "category #{category1.name} créée"
 # CATEGORIE 2
 
 category2 = Category.create!(name:"Ameublement")
+            file1 = URI.open("https://www.univers-habitat.eu/img/articles/article-7311-diapo_1-but-inauguration-d-un-nouvel-espace-qui-s-inscrit-dans-l-air-du-temps-20181109_120107.jpg")
+            category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 
   subcategory6 = Subcategory.new(name:"Rangement dressing")
@@ -145,6 +149,8 @@ puts "category #{category2.name} créée"
 # CATEGORIE 3
 
 category3 = Category.create!(name:"Décoration")
+            file1 = URI.open("https://artwall-and-co.com/5910-pdt_540/decoration-murale-metal-tigre.jpg")
+            category3.photos.attach(io: file1, filename: "category_3_photo.png")
 puts "category #{category3.name} créée"
 
   subcategory11 = Subcategory.new(name:"Tableau")
@@ -171,6 +177,8 @@ puts "category #{category3.name} créée"
 # CATEGORIE 4
 
 category4 = Category.create!(name:"Outillage")
+            file1 = URI.open("https://bianucci-materiaux.com/images/Outillage/Outillage%20%C3%A0%20main/outillage-a-main.jpg")
+            category4.photos.attach(io: file1, filename: "category_4_photo.png")
 puts "category #{category4.name} créée"
 
   subcategory15 = Subcategory.new(name:"Percage et forage")
@@ -212,6 +220,8 @@ puts "category #{category4.name} créée"
 # CATEGORIE 5
 
 category5 = Category.create!(name:"Sols et parquet")
+            file1 = URI.open("https://www.renou-carrelage.fr/wp-content/uploads/2019/07/parquet2-768x438.jpg")
+            category5.photos.attach(io: file1, filename: "category_5_photo.png")
 puts "category #{category5.name} créée"
 
   subcategory21 = Subcategory.new(name:"Carrelage")
@@ -243,6 +253,8 @@ puts "category #{category5.name} créée"
 # CATEGORIE 6
 
 category6 = Category.create!(name:"Peintures et drogueries")
+            file1 = URI.open("https://www.maison-confort.fr/wp-content/uploads/2021/12/pots-de-peinture-murale-550x367.jpg")
+            category6.photos.attach(io: file1, filename: "category_6_photo.png")
 puts "category #{category6.name} créée"
 
   subcategory27 = Subcategory.new(name:"Sous-couche et vernis")
@@ -279,6 +291,8 @@ puts "category #{category6.name} créée"
 # CATEGORIE 7
 
 category7 = Category.create!(name:"Plomberie et sanitaire")
+            file1 = URI.open("https://www.abctravaux.org/wp-content/uploads/2021/11/tout-savoir-sur-la-plomberie-sanitaire.jpg")
+            category7.photos.attach(io: file1, filename: "category_7_photo.png")
 puts "category #{category7.name} créée"
 
   subcategory33 = Subcategory.new(name:"Tube et raccord")
@@ -309,6 +323,8 @@ puts "category #{category7.name} créée"
 # CATEGORIE 8
 
 category8 = Category.create!(name:"Luminaire")
+            file1 = URI.open("http://www.eminza.com/uploads/media/5cab35adcedcd/luminaire-blog-mea-1960x1228.jpg")
+            category8.photos.attach(io: file1, filename: "category_8_photo.png")
 puts "category #{category8.name} créée"
 
   subcategory34 = Subcategory.new(name:"Ampoules")
