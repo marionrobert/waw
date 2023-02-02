@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       @order = current_user.orders.find(params[:id])
     end
     @sub_total = []
-    @order.items.each do |key, value|
+    @order.items.each do |key, _value|
       @sub_total << ((@order.items[key]["quantity"]) * (@order.items[key]["unit_amount"]) / 100.00)
     end
   end

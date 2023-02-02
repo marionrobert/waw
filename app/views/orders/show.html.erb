@@ -11,7 +11,7 @@
         <h2>Numéro de commande: <%= @order.id %> </h2>
         <% if @order.state = "paid" %>
           <p>Statut de votre commande: payée, en attente de livraison</p>
-        <% elsif @order.state = "delivered" %>
+        <% else %>
           <p>Statut de votre commande: livrée </p>
         <% end %>
 
