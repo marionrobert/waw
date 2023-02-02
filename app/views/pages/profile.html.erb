@@ -19,7 +19,7 @@
 
 
   <div style="height:20vh;">
-    <%if current_user != nil && current_user.admin == false %>
+    <%if !current_user.admin %>
       <h3 class="mt-3"> Vos produits favoris</h3>
       <%if current_user.favorite_products.count == 0%>
         <p style="text-align:center;margin-top:5vh;"><i>Vous n'avez aucun produit en favoris</i></p>
@@ -39,7 +39,7 @@
           <h3>NOMBRE DE COMMANDE EN COURS</h3>
         </div>
         <div style="width:100%;min-height:30%;max-height:30%;">
-          <h4 style="text-align:end"><%=Order.all.count%></h4>
+          <h4 style="text-align:end"><%= @admin_paid_orders.count %></h4>
         </div>
       </div>
       <div style="width:34%;min-height:100%;max-height:100%;margin:1vh;background:rgba(243,244,246,1);padding:2vh;border-radius:10px;border:2px solid grey">
@@ -47,7 +47,7 @@
           <h3>NOMBRE DE COMMANDE TERMINEES</h3>
         </div>
         <div style="width:100%;min-height:30%;max-height:30%;">
-          <h4 style="text-align:end"><%=Order.all.where(state:"paid").count%></h4>
+          <h4 style="text-align:end"><%= @admin_delivered_orders.count%></h4>
         </div>
       </div>
       <div style="width:33%;min-height:100%;max-height:100%;margin:1vh;background:rgba(243,244,246,1);padding:2vh;border-radius:10px;border:2px solid grey">
@@ -55,7 +55,8 @@
           <h3>C.A. TOTAL GENERE</h3>
         </div>
         <div style="width:100%;min-height:30%;max-height:30%;">
-          <h4 style="text-align:end">5.32m€ - en dur -</h4>
+          <%# <h4 style="text-align:end">5.32m€ - en dur -</h4> %>
+          <h4 style="text-align:end"><%= @turnover.sum %> € ttc</h4>
         </div>
       </div>
     </div>
@@ -104,3 +105,4 @@
     <% end %>
   </div>
 </div>
+<% console %>
