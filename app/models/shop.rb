@@ -36,7 +36,8 @@ class Shop < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
+  has_one_attached :leftbodybanner
+  has_one_attached :rightbodybanner
   has_one_attached :banner
   has_one_attached :footer
   has_many_attached :photos

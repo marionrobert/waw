@@ -11,6 +11,8 @@ class CreateShops < ActiveRecord::Migration[7.0]
       t.string :themebgcolor, default: "white"
       t.string :themefont, default: "arial"
       t.string :bannerpub
+      t.string :leftbodybanner
+      t.string :rightbodybanner
       t.string :juridicform
       t.integer :capitalisation
       t.string :localregister
