@@ -24,6 +24,22 @@ a.link-order-profile {
   margin-left: 20px;
 }
 
-.numbers-admin {
+.key-number {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+@media screen and (max-width: 481px) {
+  .display-key-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 482px) {
+  .display-key-numbers {
+    display: flex;
+    justify-content: space-around;
+  }
 }
