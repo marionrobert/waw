@@ -1,5 +1,11 @@
 @media screen and (min-width: 481px) {
 
+  .global_stat_circles_area {
+    display:flex;
+    justify-content: space-around;
+
+  }
+
   .leftbodybanner {
     width: 12vw;
     height: 100%;
