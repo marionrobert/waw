@@ -1,5 +1,5 @@
 <div class="container" style="min-height:100vh;">
-  <div style="margin:10vh;font-style:italic;">
+  <div style="margin-top:10vh;text-align:center;font-style:italic;">
     <%if current_user.full_name == nil %>
       <h1 class="pt-5">Bienvenue <%= current_user.email %></h1>
     <%elsif current_user.full_name != nil%>
@@ -39,22 +39,22 @@
     <div class="global_stat_circles_area">
       <div class="statcircle">
       <h3 class="circlestath3"><%= @admin_paid_orders.count %></h3>
-        <p style="font-size:0.90rem;text-align:center">
+        <p class="circlestatp">
           <%= @admin_paid_orders.count > 1 ? "Commandes en cours" : "Commande en cours" %>
         </p>
       </div>
       <div class="statcircle">
         <h3 class="circlestath3"><%= @admin_delivered_orders.count %></h3>
-        <p style="font-size:0.90rem;text-align:center">
+        <p class="circlestatp">
           <%= @admin_delivered_orders.count > 1 ? "Commandes terminées" : "Commande terminée" %>
         </p>
       </div>
       <div class="statcircle">
         <h3 class="circlestath3"><%= @turnover.sum %></h3>
-        <p >€ TTC de C.A généré</p>
+        <p class="circlestatp">€ TTC de C.A généré</p>
       </div>
     </div>
-    
+
     <%end%>
   </div>
 
