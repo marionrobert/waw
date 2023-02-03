@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>EShopEasy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%# <meta name="viewport" content="width=device-width, initial-scale=1"> %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <%# Avoid zoom on mobile %>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.104.2">
@@ -37,6 +39,7 @@
           data-controller="search"
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar" %>
+      <%= render "shared/lateralbanner"%>
       <%#= render "shared/categories_and_subcategories"%>
       <%= session[:cookies_accepted] %>
       <%= render "shared/panier"%>

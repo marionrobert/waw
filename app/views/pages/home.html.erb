@@ -15,9 +15,11 @@
 </div>
 <%end%>
 <div class="mobileonly">
-  <button class="btn btn-primary", style="background:cornflowerblue;border: none;margin:0 auto;display:flex;justify-content:center;align-items: center;text-align:center;border-radius:3px;font-weight:bolder;font-size:12px;height:6vh;width:50vw;text-decoration:none;color:white;">
-  Accédez aux Produits
-  </button>
+  <%=link_to products_path do%>
+    <button class="btn btn-primary", style="background:cornflowerblue;border: none;margin:0 auto;display:flex;justify-content:center;align-items: center;text-align:center;border-radius:3px;font-weight:bolder;font-size:12px;height:6vh;width:50vw;text-decoration:none;color:white;">
+    Accédez aux Produits
+    </button>
+  <%end%>
 </div>
 
 <div class="producthomecontainer" data-controller="favorites">
