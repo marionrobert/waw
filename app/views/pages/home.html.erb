@@ -1,28 +1,73 @@
+<%= link_to products_path do%>
 <div>
-  <%if Shop.first.banner.key%>
-    <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.banner.key %>')">
-  <%else %>
-    <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
+<%if Shop.first.banner.key%>
+  <div class="banner" style="background-image: url('<%= cl_image_path Shop.first.banner.key %>')">
+<%else %>
+  <div class="banner" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
+<%end%>
+    <div class="container">
+      <div class="bannertextfield">
+          <h1 class="bannerh1"><%= Shop.first.name%></h1>
+          <h3 style="color:white;padding-bottom:10vh;text-decoration:none"><%= Shop.first.description%></h3>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+<div class="mobileonly">
+  <%=link_to products_path do%>
+    <button class="btn btn-primary", style="background:cornflowerblue;border: none;margin:0 auto;display:flex;justify-content:center;align-items: center;text-align:center;border-radius:3px;font-weight:bolder;font-size:12px;height:6vh;width:50vw;text-decoration:none;color:white;">
+    Accédez aux Produits
+    </button>
   <%end%>
-  <div class="container">
-    <div style="padding-top:18vh;text-align:center;">
-        <h1 class="bannerh1"><strong><%= Shop.first.name %></strong></h1>
-        <h3 style="color:white;padding-bottom:10vh;"><%= Shop.first.description %></h3>
-      <div style="border-radius:3vh;", class="btn btn-success", style="justify-content:center;">
-        <%= link_to "Voir tous les produits", products_path, style:"font-size:bolder;height:6vh;width:40vw;text-decoration:none;color:white;" %>
+</div>
+
+<div class="producthomecontainer" data-controller="favorites">
+  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Découvrez les derniers tendances</h3>
+  <div style="display:flex;">
+    <div class="wrapperhomepage">
+      <% @products.each do |product| %>
+        <%= render "shared/#{Shop.first.card}", product: product%>
+      <%end%>
+    </div>
+  </div>
+
+
+  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Découvrez les nouveautés du magasin !</h1>
+  <div class="row d-flex justify-content-center" >
+    <% @products.each do |product| %>
+      <%= render "shared/#{Shop.first.card}", product: product%>
+    <% end %>
+  </div>
+
+  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Produits par catégories</h3>
+  <div class="catwrapperoddevencontent">
+    <div style="display:flex">
+      <div class="catwrapperhomepage">
+        <% @categories.each_with_index do |category, index| %>
+            <% if index.odd? %>
+              <div class="oddcategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                <h3 style="font-weight:bolder;text-shadow: black 0px 0 5px;color:white"><%= category.name %></h3>
+              </div>
+            <% end%>
+          <%end%>
       </div>
     </div>
-
-
-
-    <div class="container mt-3">
-      <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les nouveautés du magasin !</h1>
-      <div class="row d-flex justify-content-center" data-controller="favorites">
-        <% @products.each do |product| %>
-          <%= render "shared/#{Shop.first.card}", product: product%>
-        <% end %>
+    <div style="display:flex">
+      <div class="catwrapperhomepage">
+        <% @categories.each_with_index do |category, index| %>
+            <% if index.even? %>
+              <div class="evencategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                <h3 style="font-weight:bolder;text-shadow: black 0px 0 5px;color:white"><%= category.name %></h3>
+              </div>
+            <% end%>
+          <%end%>
       </div>
-      <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
-        <%= render "blogposts/blogpostoddeven"%>
     </div>
+  </div>
+
+  <div style="margin-bottom:5vh;">
+    <h2 class="mt-5 mb-5" style="padding-top:8vh;text-align:center;">Découvrez les derniers articles publiés !</h1>
+      <%= render "blogposts/blogpostoddeven"%>
+  </div>
 </div>

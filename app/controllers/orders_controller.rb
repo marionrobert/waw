@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       @order = current_user.orders.find(params[:id])
     end
     @sub_total = []
-    @order.items.each do |key, value|
+    @order.items.each do |key, _value|
       @sub_total << ((@order.items[key]["quantity"]) * (@order.items[key]["unit_amount"]) / 100.00)
     end
   end
@@ -134,6 +134,15 @@ class OrdersController < ApplicationController
 
 
   def destroy
+  end
+
+  def paid(checkout_session_id:)
+    # A rentrer en console pour tester
+    # OrdersController.new.paid(checkout_session_id:Order.where.not(checkout_session_id: [nil, ""]).first.checkout_session_id)
+    # debugger
+    order = Order.find_by(checkout_session_id:)
+    order.update(state: 'paid')
+    Product.update_items(items: order.items)
   end
 
 # private

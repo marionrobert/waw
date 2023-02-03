@@ -39,7 +39,7 @@
         <% end %>
 
       <% if current_user && current_user.admin %>
-        <div style="display:flex;justify-content:center">
+        <div style="display:flex;justify-content:center;width:50vw;margin:0 auto">
           <p><%= link_to "Modifier", edit_blogpost_path(blogpost), class: "btn btn-warning m-3" %></p>
 
           <p><%= link_to "Supprimer", blogpost, data: { turbo_method: :delete }, class: "btn btn-danger m-3" %></p>

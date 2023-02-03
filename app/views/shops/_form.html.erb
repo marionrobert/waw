@@ -16,6 +16,8 @@
     <%= f.input :president, label: "Nom et prenom du directeur général", label_html:{ class:"labelcolor" }  %>
     <%= f.input :card, collection: Shop::CARD, label:"Format carte produit", label_html:{ class:"labelcolor" } %>
     <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :leftbodybanner, as: :file, label: "Bannière évènement lateral gauche", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :rightbodybanner, as: :file, label: "Bannière évènement lateral droite", label_html:{ class:"labelcolor" }  %>
     <%= f.input :footer, as: :file, label: "Pied de page", label_html:{ class:"labelcolor" }  %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :themebgcolor, as: :color, input_html: { style:"width:200px;height:150px" }, label: "Couleur d'arrière-plan", label_html:{ class:"labelcolor" }  %>

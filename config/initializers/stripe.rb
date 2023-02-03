@@ -18,8 +18,10 @@ StripeEvent.signing_secret = Rails.configuration.stripe[:signing_secret]
 StripeEvent.configure do |events|
 
   events.subscribe 'checkout.session.completed' do |event|
-    order = Order.find_by(checkout_session_id: event.data.object.id)
-    order.update(state: 'paid')
+    OrdersController.new.paid(checkout_session_id: event.data.object.id)
+    # la suite est dans la fonction paid de order
+    # order = Order.find_by(checkout_session_id: event.data.object.id)
+    # order.update(state: 'paid')
   end
 
   # events.subscribe 'payment_intent.succeeded' do |event|

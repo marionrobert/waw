@@ -1,0 +1,60 @@
+      <div class="c4-fullcard" style="position:relative">
+        <%# NE RIEN METTRE ICI %>
+
+      <%= link_to product_path(product) do%>
+        <div class="c4-imagediv">
+          <% if product.photos.attached? %>
+            <%= cl_image_tag product.photos.first.key, class:"c4-image"%>
+          <%else %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" class="c4-image" alt="no_images_available" >
+          <%end%>
+        </div>
+
+
+        <div class="c4-descriptiondiv">
+          <h3 class="c4-fontsize" style="margin-left:5px;text-decoration:none;color:black;"><%= product.name[0..35] %>...</h3>
+        </div>
+      <%end%>
+
+        <div class="c4-actionandpricearea">
+        <%# NE RIEN METTRE ICI %>
+          <div class="c4-buttonarea c4-fontsize">
+            <%= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
+              <i class="fa-solid fa-cart-plus" style="color:blue"></i>
+            <% end %>
+            <i class="fa-solid fa-heart c4-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
+          </div>
+          <div class="c4-pricearea">
+          <%# NE RIEN METTRE ICI %>
+                    <%# SI IL EXISTE UN PRIX PROMO %>
+            <%if product.discount_price_cents != 0%>
+
+              <%# PRIX DE BASE BARRE %>
+              <%if humanized_money_with_symbol(product.price).include?(",") %>
+                <span class="c4-fontsize" style="text-align:end;font-weight:bolder;text-decoration:line-through;"><%= humanized_money_with_symbol(product.price)[/^(.+?),/].slice(1..50)%></span>
+                <span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:5px;left:-10px;text-decoration:line-through;">,<%= humanized_money_with_symbol(product.price).last(2)%> €</span>
+              <%else %>
+                <span class="c4-fontsize" style="text-align:right;font-weight:bolder;text-decoration:line-through;"><%= humanized_money_with_symbol(product.price).slice(1..50)%>,</span><span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:8px;left:-4px">, 00 €</span>
+              <%end%>
+              <br>
+
+              <%# PRIX PROMO %>
+              <%if humanized_money_with_symbol(product.discount_price_cents/100).include?(",") %>
+                <span class="c4-fontsize" style="text-align:end;font-weight:bolder;color:green;"><%= humanized_money_with_symbol(product.discount_price_cents/100)[/^(.+?),/].slice(1..50)%></span>
+                <span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:5px;left:-10px;color:green;">,<%= humanized_money_with_symbol(product.discount_price_cents/100).last(2)%> €</span>
+              <%else %>
+                <span class="c4-fontsize" style="text-align:right;font-weight:bolder;color:green;"><%= humanized_money_with_symbol(product.discount_price_cents/100).slice(1..50)%>,</span><span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:8px;left:-4px;color:green">, 00 €</span>
+              <%end%>
+
+            <%else%>
+              <%# SINON PRIX NORMAL SEULEMENT %>
+              <%if humanized_money_with_symbol(product.price).include?(",") %>
+                <span class="c4-fontsize" style="text-align:end;font-weight:bolder;"><%= humanized_money_with_symbol(product.price)[/^(.+?),/].slice(1..50)%></span>
+                <span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:5px;left:-10px;">,<%= humanized_money_with_symbol(product.price).last(2)%> €</span>
+              <%else %>
+                <span class="c4-fontsize" style="text-align:right;font-weight:bolder;"><%= humanized_money_with_symbol(product.price).slice(1..50)%>,</span><span class="c4-fontsizebis" style="text-align:end;font-weight:bolder;position:relative;bottom:8px;left:-4px">, 00 €</span>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>

@@ -1,8 +1,8 @@
-<%# <div class=""> %>
-<%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
-<%# </div> %>
+<% unless user_signed_in? && current_user.admin %>
+  <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart " %>
+<%end%>
 
-<div class="container" data-controller="share" data-share-url-value= "<%= product_url(@product) %>">
+<div class="container" data-controller="share, favorites" data-share-url-value= "<%= product_url(@product) %>">
 
   <div class="mt-5">
     <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
@@ -14,8 +14,10 @@
     <div class="col-sm-12 col-lg-6" style="position:relative">
 
       <%if @product.discount_price_cents != 0%>
-        <span style="position:absolute;right:150px;top:50px;border:1px solid red;color:red;padding:4px;background:white;z-index:2;">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
+        <span style="position:absolute;right:10%;top:5%;border:1px solid red;color:red;padding:4px;background:white;z-index:2;">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
       <%end%>
+
+      <i class="fa-solid fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= @product.id %>"></i>
 
       <% if @product.photos.attached? %>
         <%= render "carrousel-product", product: @product %>
@@ -87,15 +89,26 @@
 
 <%# CROSS SELLING %>
 
-  <div class="container">
-  <%if @products.count > 0%>
-    <h3 class="ml-4">Les produits suivants pourraient vous intéresser</h3>
-  <%end %>
-    <div class="row d-flex justify-content-center" data-controller="favorites">
+
+<div class="producthomecontainer">
+  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
+  <div style="display:flex;">
+    <div class="wrapperhomepage"  style="height:500px" data-controller="favorites">
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
-      <% end %>
+      <%end%>
     </div>
   </div>
-    <%# ICI IL FAUDRAIT UN CARROUSSEL FACON AMAZON, POUR DISPLAY A L'INFINI ET SUPPRIMER DANS LE CONTROLLER LA LIMITE D'AFFICHAGE%>
 </div>
+
+  <%# <div class="container"> %>
+  <%#if @products.count > 0%>
+    <%# <h3 class="ml-4">Les produits suivants pourraient vous intéresser</h3> %>
+  <%#end %>
+    <%# <div class="row d-flex justify-content-center" data-controller="favorites"> %>
+      <%# @products.each do |product| %>
+        <%#= render "shared/#{Shop.first.card}", product: product%>
+      <%# end %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>

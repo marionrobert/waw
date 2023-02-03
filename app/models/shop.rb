@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
 
-  CARD = ["card1","card2","card3"]
+  CARD = ["card1","card2","card3","card4"]
 
   THEMEFONT = [
               "'Courier New', Courier, monospace",
@@ -18,7 +18,7 @@ class Shop < ApplicationRecord
             ]
 
   belongs_to :user, dependent: :destroy
-  has_many :schedules
+  has_many :schedules, dependent: :destroy
   accepts_nested_attributes_for :schedules, allow_destroy: true
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 5 }
@@ -36,7 +36,8 @@ class Shop < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
+  has_one_attached :leftbodybanner
+  has_one_attached :rightbodybanner
   has_one_attached :banner
   has_one_attached :footer
   has_many_attached :photos

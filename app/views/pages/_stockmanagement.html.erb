@@ -1,47 +1,62 @@
 <div class="container" , style="margin-top:10vh;">
   <h1 class="mt-5 mb-4 text-center">Gestion des stocks</h1>
-  <table class="mb-5">
-    <thead style="background:black;color:white">
-      <tr>
-        <th style="background:rgba(255,255,255,0.4);width:15%;padding:1vh">Images</th>
-        <th style="background:rgba(255,255,255,0.4);width:25%;padding:1vh">Références</th>
-        <th style="background:rgba(255,255,255,0.4);width:10%;padding:1vh">Quantité</th>
-        <th style="background:rgba(255,255,255,0.4);width:20%;padding:1vh">Prix</th>
-        <th style="background:rgba(255,255,255,0.4);width:20%;padding:1vh">Prix promotionnel</th>
-        <th style="background:rgba(255,255,255,0.4);width:10%;padding:1vh">Actions</th>
-      </tr>
-    </thead>
-    <tbody data-controller="preview-price-change">
-      <%# <input type="text" data-target="test" data-action=> %>
       <% @products.each_with_index do |product, index| %>
-        <div class="row">
-          <tr>
-            <td>
-              <div >
-              <%if product.photos.attached?%>
-                <%= cl_image_tag product.photos.first.key, style:"max-height:80px", alt: "Photo du produit #{product.name}" %>
-              <%else%>
-                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"max-height:100px")  %>
-              <%end%>
+      <table style="width:100%;margin-bottom:5vh;position:relative;">
+        <tbody colspan="3" data-controller="preview-price-change" style="border:none;border-bottom:3px solid rgba(200,200,200,0.7)">
+          <tr rowspan="2" style="max-height:6vh;border:none">
+            <td colspan="1" rowspan="2" style="width:30%;border:none">
+              <div style="position:absolute;right:2vw;top:2vh">
+                <%= link_to product, data: { turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer définitivement cette référence des stocks?"} do %>
+                <i class="fa-solid fa-circle-xmark" style="color:red"></i>
+                <%end%>
               </div>
+              <%if product.photos.attached?%>
+                <%= cl_image_tag product.photos.first.key, style:"max-width:100%;max-height:20vh;", alt: "Photo du produit #{product.name}" %>
+              <%else%>
+                <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style:"max-width:100%;max-height:20vh;", alt: "Pas d'image disponible")  %>
+              <%end%>
             </td>
-            <td style="text-align:left">
-              <%if product.name.size > 31%>
-                <%= product.name[0, 25] %>...
-              <% else %>
-                <%= product.name%>
-              <% end %>
-              <p style="margin-left:20px;text-decoration"><i><%= product.sku %></i></p></td>
+            <td colspan="2" style="width:auto;max-height:4vh;text-align:left;overflow:hidden;border:none">
+          <%if product.name.size > 31%>
+            <%= link_to product_path(product), style:"color:black;text-decoration:none;pointer:cursor" do %>
+              <p style="font-weight:bolder;margin-right:5vw"><%= product.name[0..40] %>...</p>
+            <%end%>
+          <% else %>
+            <%= link_to product_path(product), style:"color:black;text-decoration:none;pointer:cursor" do %>
+              <p style="font-weight:bolder;margin-right:5vw"><%= product.name%></p>
+            <%end%>
+          <% end %>
             </td>
-
-            <%# input de mise a jour de quantité %>
-            <td  style="text-align:right">
-              <%= product.stock_quantity %><br>
+          </tr>
+          <tr>
+            <td colspan="2" style="width:auto;max-height:2vh;text-align:right;overflow:hidden;border:none">
+            <div class="stockmanage_update">
+              <%= link_to edit_product_path(product) do %>
+                <i class="fa-solid fa-eraser" style="color:blue"></i>
+              <%end%>
+            </div>
+              <p style="font-size:smaller"><i><%= product.sku %></i><i class="fa-solid fa-barcode" style="margin-left:2vw"></i></p></td>
+            </td>
+          </tr>
+                <tr rowspan="1">
+	  <td colspan="1" style="border:none">
+      <i class="fa-solid fa-euro-sign"></i>
+    </td>
+    <td colspan="1" style="border:none">
+      <i class="fa-solid fa-cubes-stacked"></i>
+    </td>
+    <td colspan="1" style="border:none">
+      <i class="fa-solid fa-tags"></i>
+    </td>
+      </tr>
+          <tr rowspan="1">
+            <td colspan="1"  style="width:37%;border:none">
               <%= simple_form_for(product) do |product| %>
                 <%= product.error_notification %>
                 <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
                 <div class="form-inputs" >
-                  <%= product.input :stock_quantity, input_html: { min: '0'} %>
+                  <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                  <p id=<%= "input_price_#{index}" %> style="font-size: 12px;">cents >>> €</p>
                 </div>
                   <div class="form-actions" style="text-align:center">
                   <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
@@ -50,17 +65,14 @@
                 </div>
               <%end%>
             </td>
+            <td colspan="1" style="width:26%;border:none;vertical-align:baseline">
+              <%#= product.stock_quantity %><br>
 
-            <%# input de mise a jour du prix %>
-            <td  style="text-align:right">
-              <% prix = humanized_money_with_symbol(product.price_cents / 100.00) + " " + humanized_money_with_symbol(product.price_cents / 100.00).first%>
-              <%= prix.slice(1..50) %><br>
-              <%= simple_form_for(product) do |product| %>
+              <%= simple_form_for(product, html: { style: "" }) do |product| %>
                 <%= product.error_notification %>
                 <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
                 <div class="form-inputs" >
-                  <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelcolor" } %>
-                  <p id=<%= "input_price_#{index}" %> style="font-size: 12px;">Renseignez un prix pour le convertir en euros</p>
+                  <%= product.input :stock_quantity, input_html: { min: '0'}, label: "Quantité en stock", label_html:{ class:"labelstockmobile" } %>
                 </div>
                   <div class="form-actions" style="text-align:center">
                   <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
@@ -69,17 +81,13 @@
                 </div>
               <%end%>
             </td>
-
-            <%# input de mise a jour du prix remisé %>
-            <td  style="text-align:right">
-              <% prixpromo = humanized_money_with_symbol(product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(product.discount_price_cents / 100.00).first%>
-              <%= prixpromo.slice(1..50) %><br>
+            <td colspan="1"  style="width:37%;border:none">
               <%= simple_form_for(product) do |product| %>
                 <%= product.error_notification %>
                 <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
                 <div class="form-inputs" >
-                  <%= product.input :discount_price_cents, input_html: { min: '0', :class => "input_discount_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelcolor" } %>
-                  <p id=<%= "input_discount_price_#{index}"%> style="font-size: 12px;">Renseignez un prix pour le convertir en euro</p>
+                  <%= product.input :discount_price_cents, input_html: { min: '0', :class => "input_discount_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                  <p id=<%= "input_discount_price_#{index}"%> style="font-size: 12px;">cents >>> €</p>
                 </div>
                 <div class="form-actions" style="text-align:center">
                   <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
@@ -88,21 +96,14 @@
                 </div>
               <%end%>
             </td>
-
-            <%# les 2 boutons pour modifier et supprimer le product%>
-            <td >
-              <div style="display:flex;justify-content: space-around;">
-                <%= link_to edit_product_path(product) do %>
-                  <i class="fa-solid fa-eraser"></i>
-                <%end%>
-                 <%= link_to product, data: { turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer définitivement cette référence des stocks?"} do %>
-                  <i class="fa-solid fa-trash" style="color:red"></i>
-                <%end%>
-              </div>
-            </td>
           </tr>
-        </div>
-      <% end %>
-    </tbody>
-  </table>
+
+        </tbody>
+
+
+
+
+
+      </table>
+    <%end%>
 </div>

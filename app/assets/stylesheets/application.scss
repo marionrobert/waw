@@ -13,6 +13,10 @@
 
 
 
+.labelstockmobile{
+  display:none;
+}
+
 .categorymenu {
   padding-bottom:4vh;
 }
@@ -37,7 +41,7 @@
   left: 0.5rem;
   bottom: 0.5rem;
   z-index: 5000;
-  background: rgba(236, 224, 199,0.4);
+  background: rgb(247, 196, 133);
   padding: 2vw;
   word-break: break-word;
   border-radius: 0.5rem;

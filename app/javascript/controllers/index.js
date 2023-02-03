@@ -36,3 +36,6 @@ application.register("searcharea", SearchareaController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
+
+import ScrollController from "./scroll_controller"
+application.register("scroll", ScrollController)

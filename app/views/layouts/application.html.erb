@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>EShopEasy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%# <meta name="viewport" content="width=device-width, initial-scale=1"> %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <%# Avoid zoom on mobile %>
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.104.2">
@@ -28,15 +30,16 @@
     <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
     <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
   </head>
-  <header>
-  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-    <p class="bannerpub"><%=Shop.first.bannerpub%></p>
-  <%end%>
-  </header>
+    <header>
+    <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+      <p class="bannerpub"><%=Shop.first.bannerpub%></p>
+    <%end%>
+    </header>
     <body class= "d-flex flex-column"
           data-controller="search"
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar" %>
+      <%= render "shared/lateralbanner"%>
       <%#= render "shared/categories_and_subcategories"%>
       <%= session[:cookies_accepted] %>
       <%= render "shared/panier"%>

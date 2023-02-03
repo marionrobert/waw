@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :orders
-  has_many :favorites
+  # est-ce que toutes les orders d'un utilisateur qui supprime son compte doivent être supprimées ?
+  has_many :orders, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :favorite_products, through: :favorites, source: :product
   # has_many :products
   has_one :shop, dependent: :destroy

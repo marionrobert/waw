@@ -1,40 +1,35 @@
 require "open-uri"
 
+Shop.destroy_all
+puts "Boutique supprimée"
 User.destroy_all
-puts "tout les utilisateurs sont supprimés"
+puts "Tous les utilisateurs sont supprimés"
 Category.destroy_all
-puts "toute les categories sont supprimés"
+puts "Toutes les catégories sont supprimées"
 Subcategory.destroy_all
-puts "les sous-categories aussi - même si un dependent destroy existe"
+puts "Les sous-catégories aussi - même si un dependent destroy existe"
 Product.destroy_all
-puts " et enfin destockage on vide les rayons de tout les produits malgrès aussi un dependent destroy"
+puts " et enfin destockage on vide les rayons de tout les produits malgré un dependent destroy"
 Favorite.destroy_all
-puts "on detruit les favoris enregistrés pour chaque utilisateurs"
+puts "on détruit les favoris enregistrés pour chaque utilisateur"
 Blogpost.destroy_all
-puts "on detruit tout les articles de blog"
+puts "on détruit tous les articles de blog"
 
-
-puts "creation de 4 utilisateurs format prenom@gmail.com   mot de passe = 123456"
+puts "création de 4 utilisateurs format prenom@gmail.com et  mot de passe = 123456"
 user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
 user_two = User.create!(email: "jeannoel@gmail.com", password: "123456", admin: false)
 user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false)
 user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
+puts "#{User.count} utilisateurs créés"
+puts "1 profil administrateur créé(aurelien), 3 non admins créés"
 
-Shop.destroy_all
-puts "La société est liquidé"
+puts "La société est liquidée"
 Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
-address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card3", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
+address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card4", themebgcolor: "white", themefont: "'Courier New', Courier, monospace", bannerpub: "Livraison offerte pour Noël!",
  juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
  Coupon.destroy_all
-
-
-
-
- puts "#{User.count} utilisateurs créés"
- puts "1 profil administrateur créé(aurelien), 3 non admins créés"
-
 
 
 blogpost_1 = Blogpost.create!(title:"Quel vin choisir avec quel plat ?",
@@ -83,6 +78,8 @@ puts "CREATION DES DIFFERENTES CATEGORIES ET SOUS-CATEGORIES ASSOCIES"
 # CATEGORIE 1
 
 category1 = Category.create!(name:"Chauffage et filtration")
+            file1 = URI.open("https://media.gettyimages.com/id/163520892/fr/photo/homme-brille-lampe-de-poche-sur-un-chauffe-eau.jpg?s=612x612&w=gi&k=20&c=AtacdS9C26mjLAkYSJ350oDAgs-dpBmzzCdUxoEjFZ8=")
+            category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
   subcategory1 = Subcategory.new(name:"Chauffage electrique")
@@ -114,6 +111,8 @@ puts "category #{category1.name} créée"
 # CATEGORIE 2
 
 category2 = Category.create!(name:"Ameublement")
+            file1 = URI.open("https://www.univers-habitat.eu/img/articles/article-7311-diapo_1-but-inauguration-d-un-nouvel-espace-qui-s-inscrit-dans-l-air-du-temps-20181109_120107.jpg")
+            category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 
   subcategory6 = Subcategory.new(name:"Rangement dressing")
@@ -144,6 +143,8 @@ puts "category #{category2.name} créée"
 # CATEGORIE 3
 
 category3 = Category.create!(name:"Décoration")
+            file1 = URI.open("https://artwall-and-co.com/5910-pdt_540/decoration-murale-metal-tigre.jpg")
+            category3.photos.attach(io: file1, filename: "category_3_photo.png")
 puts "category #{category3.name} créée"
 
   subcategory11 = Subcategory.new(name:"Tableau")
@@ -170,6 +171,8 @@ puts "category #{category3.name} créée"
 # CATEGORIE 4
 
 category4 = Category.create!(name:"Outillage")
+            file1 = URI.open("https://bianucci-materiaux.com/images/Outillage/Outillage%20%C3%A0%20main/outillage-a-main.jpg")
+            category4.photos.attach(io: file1, filename: "category_4_photo.png")
 puts "category #{category4.name} créée"
 
   subcategory15 = Subcategory.new(name:"Percage et forage")
@@ -211,6 +214,8 @@ puts "category #{category4.name} créée"
 # CATEGORIE 5
 
 category5 = Category.create!(name:"Sols et parquet")
+            file1 = URI.open("https://www.renou-carrelage.fr/wp-content/uploads/2019/07/parquet2-768x438.jpg")
+            category5.photos.attach(io: file1, filename: "category_5_photo.png")
 puts "category #{category5.name} créée"
 
   subcategory21 = Subcategory.new(name:"Carrelage")
@@ -242,6 +247,8 @@ puts "category #{category5.name} créée"
 # CATEGORIE 6
 
 category6 = Category.create!(name:"Peintures et drogueries")
+            file1 = URI.open("https://www.maison-confort.fr/wp-content/uploads/2021/12/pots-de-peinture-murale-550x367.jpg")
+            category6.photos.attach(io: file1, filename: "category_6_photo.png")
 puts "category #{category6.name} créée"
 
   subcategory27 = Subcategory.new(name:"Sous-couche et vernis")
@@ -278,6 +285,8 @@ puts "category #{category6.name} créée"
 # CATEGORIE 7
 
 category7 = Category.create!(name:"Plomberie et sanitaire")
+            file1 = URI.open("https://www.abctravaux.org/wp-content/uploads/2021/11/tout-savoir-sur-la-plomberie-sanitaire.jpg")
+            category7.photos.attach(io: file1, filename: "category_7_photo.png")
 puts "category #{category7.name} créée"
 
   subcategory33 = Subcategory.new(name:"Tube et raccord")
@@ -308,6 +317,8 @@ puts "category #{category7.name} créée"
 # CATEGORIE 8
 
 category8 = Category.create!(name:"Luminaire")
+            file1 = URI.open("http://www.eminza.com/uploads/media/5cab35adcedcd/luminaire-blog-mea-1960x1228.jpg")
+            category8.photos.attach(io: file1, filename: "category_8_photo.png")
 puts "category #{category8.name} créée"
 
   subcategory34 = Subcategory.new(name:"Ampoules")
@@ -354,7 +365,7 @@ product_1 = Product.create!(
   description: "Radiateur eau chaude horizontal blanc acier classique basse témperature chauffage central H.60 x L.83 cm",
   price_cents: 29000,
   discount_price_cents: 25900,
-  stock_quantity: 5,
+  stock_quantity: 15,
   subcategory: subcategory1)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/912239.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -373,7 +384,7 @@ product_2 = Product.create!(
   description: "Radiateur électrique double système chauffant 1500W SAUTER Malao horizontal bl.",
   price_cents: 55900,
   discount_price_cents: 49000,
-  stock_quantity: 2,
+  stock_quantity: 20,
   subcategory: subcategory1)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/1085145.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/981776.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -413,7 +424,7 @@ product_4 = Product.create!(
   description: "Poêle étanche avec sortie des fumées par le haut en concentrique ou normal (nécessite une découpe de la tôle). La technologie étanche améliore le rendement et le confort en général. La sortie des fumées par le haut permet d'installer le poêle plus près du mur. Ce poêle peut également être installé dans un angle.  ",
   price_cents: 329000,
   discount_price_cents: 299000,
-  stock_quantity: 0,
+  stock_quantity: 60,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/00d1f5ce-132f-44a0-ab73-44bfe2d622ec.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -435,7 +446,7 @@ product_5 = Product.create!(
   Une technologie performante qui permet de réaliser des économies de chauffage avec le maximum de respect pour l’écosystème.",
   price_cents: 249000,
   discount_price_cents: 0,
-  stock_quantity: 2,
+  stock_quantity: 12,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/72b6c63a-9f96-4796-8007-ab4d7cbf5758.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/78ae6355-c0ca-4c3b-87ac-77a8838ce9d6.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -455,7 +466,7 @@ product_6 = Product.create!(
   description: "Grâce à leur capacité innovante de réduction d'émission de particules, les poêles Aduro Hybrides ont reçu le Prix Européen de l'Environnement pour les entreprises.",
   price_cents: 399000,
   discount_price_cents: 379000,
-  stock_quantity: 7,
+  stock_quantity: 9,
   subcategory: subcategory2)
 
 puts "Produit #{Product.last.id} créé"
@@ -470,7 +481,7 @@ product_7 = Product.create!(
   Une technologie performante qui permet de réaliser des économies de chauffage avec le maximum de respect pour l’écosystème.",
   price_cents: 3790,
   discount_price_cents: 0,
-  stock_quantity: 0,
+  stock_quantity: 42,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84905572/6f5be75c-d9ed-4c91-962c-f63b2edb2750.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84905572/52d46c83-0f1a-4d28-8918-48d94b67c342.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -489,7 +500,7 @@ product_8 = Product.create!(
   Poêle à granulés canalisable Extraflame DAHIANA PLUS VSF IVOIR",
   price_cents: 549000,
   discount_price_cents: 389000,
-  stock_quantity: 0,
+  stock_quantity: 32,
   subcategory: subcategory2)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84342479/3271958.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
 
@@ -506,7 +517,7 @@ product_9 = Product.create!(
   description: "Cassette de plafond encastré multi-split",
   price_cents: 159000,
   discount_price_cents: 0,
-  stock_quantity: 12,
+  stock_quantity: 16,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/85407537/e6b19f32a9dc9f9561a0e177c2ab1668.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_9.photos.attach(io: file1, filename: "product_9_photo.png")
@@ -522,7 +533,7 @@ product_10 = Product.create!(
   description: "Baxi Nanuk RZGD70 Ducted Air Conditioning avec le nouveau gaz réfrigérant R32. Avec pompe de vidange incluse et seulement 245 mm de haut. Sa puissance est de 6 020 Kcal en froid et de 6 880 Kcal en chaud. Classe énergétique A++/A+.",
   price_cents: 143279,
   discount_price_cents: 0,
-  stock_quantity: 2,
+  stock_quantity: 42,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/86287526/437ee142acf02e6de9abbcefaeeb808a.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/86287526/b0bcde31cb1e6ab51a37f20c98a65e42.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -542,7 +553,7 @@ product_11 = Product.create!(
   description: "Contrairement à d'autres climatiseurs monoblocs, il n'est pas nécessaire de faire appel à un professionnel certifié afin d'installer ce produit.",
   price_cents: 219000,
   discount_price_cents: 0,
-  stock_quantity: 12,
+  stock_quantity: 51,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82248777/987099.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82248777/3276882.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -562,7 +573,7 @@ product_12 = Product.create!(
   description: "Pièce jusqu’à 25m2 (9K BTU / 2,5KW) • Classe Froid: A / EER : 2,6 • Niveau sonore : 64db • Usages complémentaires : Ventilation, déshumidification • Minuteur 1-12h • Filtre Hepa • Gaz réfrigérant : R290 • Couleur : Blanc • Dimensions : 44,8 x 74, 4 x 40 • Equipements : télécommande, support télécommande intégré, poignées de transport, 4 roulettes, kit fenêtre. Fonctions : 6ème sens : le capteur thermique évalue automatiquement la température de la pièce. Le climatiseur identifie alors la combinaison optimale des fonctions nécessaires (chauffage, refroidissement, ventilation ou déshumidification) pour atteindre les conditions souhaitées le plus rapidement possible. Around U : Un capteur intégré dans la télécommande permet d'obtenir une température ambiante uniforme. Mode Silence : le climatiseur est capable de fonctionner très silencieusement (49db), pour un confort optimal.",
   price_cents: 79000,
   discount_price_cents: 54900,
-  stock_quantity: 1,
+  stock_quantity: 36,
   subcategory: subcategory3)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82145119/9e2fb844-b31f-4d94-b978-7d7d468f63be.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82145119/ed327f91-d428-4032-aeee-310929a4cfb7.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -648,7 +659,7 @@ product_16 = Product.create!(
   description: "Ventilateur colonne 75cm | minuterie 120 mn | 50W | Blanc | Débit d'air 26,25m³/min.| Vitesse de l'air 2,65m/sec | Sonore: 55,9 dB",
   price_cents: 3758,
   discount_price_cents: 0,
-  stock_quantity: 5,
+  stock_quantity: 58,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/MKP/83501179/c54e817e786ec6fe6f6db291d876f13c.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/MKP/83501179/519a53492bcfa899b700957df64f05bf.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -688,7 +699,7 @@ product_17 = Product.create!(
   Produit emballé : poids (en kg)	4",
   price_cents: 4090,
   discount_price_cents: 3790,
-  stock_quantity: 34,
+  stock_quantity: 346,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/78621361/6d8bc2f3-9bf8-4b1b-9f44-c114a7697cc3.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_17.photos.attach(io: file1, filename: "product_17_photo.png")
@@ -705,7 +716,7 @@ product_18 = Product.create!(
   Grâce à son design moderne, Globe s’intègre parfaitement sur toute table, bureau ou plan de travail. Mais sa beauté n’est pas seulement superficielle. Ce ventilateur de table est doté d’un moteur CC puissant d’une portée de 7 mètres, optimisé par l’oscillation horizontale (90⁰) et verticale (80⁰). Cette nouvelle caractéristique unique permet au ventilateur d’atteindre les moindres recoins d’une pièce. Look unique Globe se caractérise par un design discret qui s’intègre parfaitement dans tout intérieur. Grâce à son look minimaliste et son panneau de commande tactile convivial, ce ventilateur saura vous séduire. Globe est disponible en blanc ou noir. Puissant et économe en énergie Globe est doté d’un puissant moteur CC, ce qui lui assure une portée impressionnante de 7 mètres. Ça doit consommer beaucoup non ? Pas du tout ! Le ventilateur de table ne consomme que 2 W à la vitesse la plus faible. Fonctionnement simple Globe possède trois réglages de vitesse manuels, pour une entière liberté de réglage de sa puissance. Son oscillation horizontale (90⁰) et verticale (80⁰) permet une circulation d'air dans toute la pièce et le mode de mise en veille automatique permet à Globe de s’arrêter même si vous dormez déjà. Gardez le contrôle Globe se commande facilement grâce à son panneau de commande tactile convivial. Ses indicateurs d’état LED sont faciles à lire et affichent le réglage exact du ventilateur. Vous voulez rester dans votre sofa ? Vous avez accès à toutes les fonctionnalités de Globe avec la télécommande incluse.",
   price_cents: 9490,
   discount_price_cents: 0,
-  stock_quantity: 4,
+  stock_quantity: 46,
   subcategory: subcategory4)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82538377/715307fe-4bef-4653-abe1-1fdf1539ef90.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82538377/13678356-b8b8-4619-bb78-235bcab21d76.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -794,7 +805,7 @@ product_21 = Product.create!(
   Un air trop humide peut provoquer des problèmes de santé tels que l'asthme ou la bronchite, des troubles occulaires ou musculaires. Il faut donc s'assurer que le taux d'humidité de sa maison n'est pas trop important.",
   price_cents: 1,
   discount_price_cents: 0,
-  stock_quantity: 0,
+  stock_quantity: 47,
   subcategory: subcategory5)
 file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82887286/1655297.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_21.photos.attach(io: file1, filename: "product_21_photo.png")
