@@ -1,5 +1,18 @@
 @media screen and (max-width: 480px) {
 
+  .global_stat_circles_area {
+    display:grid;
+    justify-content: center;
+  }
+
+  .leftbodybanner {
+    display:none;
+  }
+
+  .rightbodybanner {
+    display:none;
+  }
+
   .producthomecontainer {
     // width:9100;
     // margin: 0 auto;
