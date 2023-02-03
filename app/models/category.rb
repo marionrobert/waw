@@ -4,8 +4,8 @@ class Category < ApplicationRecord
   has_many :products, through: :subcategories
   has_many_attached :photos
 
-  # NE PAS SUPPRIMER
-  # include PgSearch::Model
-  # multisearchable against: [ :name ]
+
+  include PgSearch::Model
+  multisearchable against: [:name]
 
 end

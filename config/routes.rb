@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :products do
     resources :favorites, only: [:create]
     collection do
