@@ -5,6 +5,9 @@
 <div data-controller="category">
   <div class="enable_on_desktop">
     <p>
+      <%= link_to "BLOG", blogposts_path, style:"text-decoration:none;color:blue;"%>
+    </p>
+    <p>
       <%= link_to "PROMO", promo_path, style:"text-decoration:none;color:red;"%>
     </p>
     <% @categories.each do |category| %>
