@@ -22,8 +22,7 @@
   <%end%>
 </div>
 
-<div class="producthomecontainer">
-<%# Ne pas passez la classe au dela de 93vw, au dela mouvement lateral sur mobile %>
+<div class="producthomecontainer" data-controller="favorites">
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Découvrez les derniers tendances</h3>
   <div style="display:flex;">
     <div class="wrapperhomepage">
@@ -35,7 +34,7 @@
 
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Découvrez les nouveautés du magasin !</h1>
-  <div class="row" style="margin:0 auto;display:flex;justify-content:center" data-controller="favorites">
+  <div class="row d-flex justify-content-center" >
     <% @products.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product%>
     <% end %>
