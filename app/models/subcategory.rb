@@ -3,5 +3,6 @@ class Subcategory < ApplicationRecord
   belongs_to :category
   has_many :products, dependent: :destroy
 
-
+  include PgSearch::Model
+  multisearchable against: [:name]
 end

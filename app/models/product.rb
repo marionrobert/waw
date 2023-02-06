@@ -9,28 +9,20 @@ class Product < ApplicationRecord
   validates :price_cents, numericality: { greater_than_or_equal_to: 1 }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promo doit être inférieur au prix hors promo." }
   monetize :price_cents
-
   delegate :category, to: :subcategory, allow_nil: true
 
-  # en attente de debug error pour les images
-  # validate :images, presence: true
 
-  # NE PAS SUPPRIMER
-  # include PgSearch::Model
+  include PgSearch::Model
+  multisearchable against: %i[name description]
 
-  # multisearchable against: [ :name ]
-
-  # pg_search_scope :global_search,
-
-  # against: [ :name, :description, :sku ],
-
-  # associated_against: {
-  #   subcategory: [ :name ]
-  # },
-
-  # using: {
-  #   tsearch: { prefix: true }
-  # }
+  pg_search_scope :name_and_description_search,
+                  against: %i[name description],
+                  using: {
+                    tsearch: {
+                      prefix: true,
+                      dictionary: "french"
+                    }
+                  }
 
   def self.update_items(items:)
     content = content_from_order(items:)
