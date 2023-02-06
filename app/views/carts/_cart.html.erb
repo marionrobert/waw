@@ -25,22 +25,24 @@
         </div>
 <%#///////////////// Gestionnaire de quantité ////////////////%>
   <%#///////////// + quantité -///////////// %>
-        <div class="quantity-zone">
+        <div class="quantity-zone" data-controller="line-item-quantity" data-line-item-quantity-target="quantity" >
   <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
           <%= button_to line_items_addone_path(item),
               method: :post,
-              class:"add-one" do%>
-            <i class="fa-solid fa-plus"></i>
-          <% end %>
+              class:"add-one",
+              data: { action: "click->line-item-quantity#addOne" } do%>
+                <i class="fa-solid fa-plus"></i>
+              <% end %>
   <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
-          <p style="margin-left:2vw;margin-right:2vw">
+          <p style="margin-left:2vw;margin-right:2vw" data-target="line-item-quantity.quantity">
             <%= item.quantity  %>
           </p>
 
           <%if item.quantity > 1%>
-            <%= button_to line_items_removeone_path(item), class:"remove-one" do%>
-              <i class="fa-solid fa-minus"></i>
-            <%end%>
+            <%= button_to line_items_removeone_path(item),
+                class:"remove-one" do%>
+                  <i class="fa-solid fa-minus"></i>
+              <%end%>
           <%else %>
             <button class="remove-one">
               <%= link_to line_item_path(item),
