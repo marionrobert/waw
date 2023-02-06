@@ -67,6 +67,7 @@ class ShopsController < ApplicationController
       :themebgcolor,
       :themefont,
       :bannerpub,
+      :logo,
       :leftbodybanner,
       :rightbodybanner,
       photos: [],

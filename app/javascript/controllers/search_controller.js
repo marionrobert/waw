@@ -45,6 +45,6 @@ export default class extends Controller {
     searchinput.classList.remove("responsivesearchbaronclick")
     searchinput.classList.add("responsivesearchbar")
     loupe.classList.remove("mobile-magnifying-glass-masked")
-    closesearchinput.classList.add("mobilemaskcrossinput")
+    // closesearchinput.classList.add("mobilemaskcrossinput")
   }
 }

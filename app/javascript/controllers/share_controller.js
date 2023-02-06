@@ -9,6 +9,8 @@ export default class extends Controller {
   }
 
   async share(event) {
+    alert("BLABLA")
+    console.log("SHARE EVENT ICI")
     event.preventDefault();
     const shareData = {
       title: this.titleTarget.textContent,

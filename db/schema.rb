@@ -170,6 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_161606) do
     t.string "phone"
     t.string "address"
     t.string "card"
+    t.string "logo"
     t.string "themebgcolor", default: "white"
     t.string "themefont", default: "arial"
     t.string "bannerpub"

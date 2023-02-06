@@ -1,7 +1,9 @@
 <%if Shop.first.footer.key %>
-  <div class="footer mt-auto text-center" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%), url('<%= cl_image_path Shop.first.footer.key %>')">
+  <div class="footer mt-auto text-center"
+       style="background-image: url('<%= cl_image_path Shop.first.footer.key %>')">
 <%else%>
-  <div class="footer mt-auto text-center" style="background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)">
+  <div class="footer mt-auto text-center"
+       style="background:rgb(180,120,140)">
 <%end%>
   <div style="margin-top:12vh">
     <ul style="list-style:none">
@@ -17,13 +19,13 @@
       </li>
       <li>
         <%# <p>Horaires et contact</p> %>
-        <%= link_to "- Horaires et contacts -", shop_path(Shop.first) , style:"text-decoration:none;color:white;"%>
+        <%= link_to "- Horaires et contacts -", shop_path(Shop.first) , class:"white_deco_none"%>
       </li>
     </ul>
   <div>
     <ul>
-      <li class="mentionslegales"><%= link_to "Conditions générales de ventes", shops_cgv_path , style:"text-decoration:none;color:white;"%></li>
-      <li class="mentionslegales"><%= link_to "Mentions legales", shops_legal_path , style:"text-decoration:none;color:white;"%></li>
+      <li class="mentionslegales"><%= link_to "Conditions générales de ventes", shops_cgv_path , class:"white_deco_none"%></li>
+      <li class="mentionslegales"><%= link_to "Mentions legales", shops_legal_path , class:"white_deco_none"%></li>
     </ul>
   </div>
   </div>

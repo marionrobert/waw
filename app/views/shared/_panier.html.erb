@@ -1,11 +1,18 @@
 <div id="darken">
 </div>
-<div id="panierflottant" class="menupanier">
+<div id="panierflottant"
+     class="menupanier">
   <div  id="cart">
-  <div style="text-align:end;">
-    <button class="btn btn-warning", style="z-index:1001;margin:1vh;", data-controller="panier", data-action="click->panier#removePanier">X
-    </button>
-  </div>
+    <div style="text-align:end;">
+      <button type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+          style=" z-index:1001;margin-top:4vh;margin-right:4vw;"
+          data-controller="panier",
+          data-action="click->panier#removePanier">
+      </button>
+    </div>
     <%if @cart && @cart.line_items.any? %>
       <%= render "carts/cart", cart: @cart %>
     <%else%>
