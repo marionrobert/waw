@@ -35,6 +35,28 @@
   z-index: 1000;
 }
 
+.add-one {
+  color: grey;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-one {
+  color: grey;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 481px) {
 
   .cart-line-item {
@@ -85,17 +107,6 @@
     justify-content: flex-end;
   }
 
-  .add-one {
-    color: grey;
-    width:25px;
-    height:25px;
-  }
-
-  .remove-one {
-    color: grey;
-    width:25px;
-    height:25px;
-  }
 
   .price-zone {
     width:30%;
@@ -226,18 +237,6 @@
     height:30%;
     display:flex;
     justify-content: space-evenly;
-  }
-
-  .add-one {
-    color: grey;
-    width:25px;
-    height:25px;
-  }
-
-  .remove-one {
-    color: grey;
-    width:25px;
-    height:25px;
   }
 
   .price-zone {
