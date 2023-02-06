@@ -4,35 +4,55 @@
 <%else%>
   <main class="navfixed">
   <%end%>
-  <nav class="navbar bg-light d-flex" style="width: 100vw;" aria-label="Light offcanvas navbar">
-    <%# <div class="container-fluid"> %>
-
-
+  <nav class="navbar bg-light d-flex"
+       style="width: 100vw;"
+       aria-label="Light offcanvas navbar">
     <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
-    <div class="displaybtncategories", data-controller="category", data-action="click->category#slidecategorymenu">
-      <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png", style="border:2px solid grey;border-radius:5px;height:40px;">
+    <div class="displaybtncategories",
+         data-controller="category",
+         data-action="click->category#slidecategorymenu">
+      <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png",
+           style="border:2px solid grey;border-radius:5px;height:40px;">
     </div>
-
     <%# ////////BOUTON HOME ///////////// %>
-    <div data-controller="category", data-action="mouseleave->category#homebuttonrestore">
+    <div style="max-width:12%;min-width:15%", data-controller="category", data-action="mouseleave->category#homebuttonrestore">
       <%= link_to "/" do%>
+        <%if Shop.first.logo.key %>
+          <div style="height:50px;width:200px;background-size:cover;background-image: url('<%= cl_image_path Shop.first.logo.key %>')">
+          </div>
+        <%else%>
           <i class="fa-solid fa-house btnhome", style="color:grey", data-controller="category", data-action="mouseover->category#homebuttondeploy"><span id="homebutton" class="deploy_home_icon">HOME</span></i>
+        <%end%>
       <%end%>
     </div>
-
+    <%console%>
+    <%# BOUTON BLOG %>
+    <div class="blognavbar">
+      <p style="display:flex;align-items:center;margin:0 auto">
+        <%= link_to "BLOG",
+            blogposts_path,
+            style:'display:flex;align-items:center'
+        %>
+      </p>
+    </div>
     <%# ////////////barre de recherche/////////////////// %>
-    <div class="responsivesearchbar" id="mobile-input-search">
+    <div id="mobile-input-search"
+         class="responsivesearchbar">
       <%= render "search/form" %>
     </div>
-
     <%# Bouton de recherche pour mobile %>
-    <div style="width:10vw">
-      <i class="fa-solid fa-magnifying-glass", id="mobile-magnifying-glass", data-controller="search", data-action="click->search#displayMobileSearchInput"></i>
+    <div class="mobileglassdiv">
+      <i id="mobile-magnifying-glass",
+         class="fa-solid fa-magnifying-glass",
+         data-controller="search",
+         data-action="click->search#displayMobileSearchInput"></i>
     </div>
-
     <%# /////////////////PANIER///////////////// %>
-    <div class="btncart", data-controller="panier", data-action="click->panier#updatePanier2">
-      <i class="fa-solid fa-cart-shopping", style="color:gray"></i>
+    <div class="btncart desktopcartmargin",
+         data-controller="panier",
+         data-action="click->panier#updatePanier2">
+      <i class="fa-solid fa-cart-shopping",
+         style="color:gray"></i>
         <%if @cart.line_items.count > 0%>
           <div class="circle_items_count">
             <div style="margin:-7px -3px;">
@@ -45,50 +65,87 @@
           </div>
         <%end%>
     </div>
-
-
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
     <div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight">
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbarLight"
+              aria-controls="offcanvasNavbarLight">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel">
+      <div id="offcanvasNavbarLight"
+           class="offcanvas offcanvas-end"
+           tabindex="-1"
+           aria-labelledby="offcanvasNavbarLightLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLightLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 id="offcanvasNavbarLightLabel"
+              class="offcanvas-title">Menu
+          </h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close">
+          </button>
         </div>
-        <div class="offcanvas-body" style="display:block;line-height:4rem">
+        <div class="offcanvas-body"
+             style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <%if current_user && current_user.admin? %>
               <li class="nav-link active btn btn-warning" >
-                <%= link_to "AJOUTER UN PRODUIT", new_product_path, style:"text-decoration:none;color:white;"%>
+                <%= link_to "AJOUTER UN PRODUIT",
+                    new_product_path,
+                    class:"white_deco_none"%>
               </li>
             <%end%>
-
 
             <%if !current_user %>
               <li class="nav-item">
-                <%= link_to "Connexion", new_user_session_path, style:"text-decoration:none;"%>
+                <%= link_to "Connexion",
+                    new_user_session_path,
+                    style:"text-decoration:none;"%>
               </li>
             <%end%>
             <li class="nav-item active">
-            <%if current_user && current_user.admin? %>
-              <%= link_to "Gestion des stocks", stockmanagement_path, style:"text-decoration:none;"%>
-            <%else%>
-              <%= link_to "Tous les produits", products_path, style:"text-decoration:none;"%>
-            <%end%>
+              <%if current_user && current_user.admin? %>
+                <%= link_to "Gestion des stocks",
+                    stockmanagement_path,
+                    style:"text-decoration:none;"%>
+              <%else%>
+                <%= link_to "Tous les produits",
+                    products_path,
+                    style:"text-decoration:none;"%>
+              <%end%>
             </li>
             <li class="nav-item">
-              <%= link_to "Horaires et contacts", shop_path(Shop.first) , style:"text-decoration:none;"%>
+              <%= link_to "Horaires et contacts", shop_path(Shop.first) ,
+                  style:"text-decoration:none;"%>
             </li>
             <%if current_user%>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="text-decoration:none; color:blue;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle"
+                   style="text-decoration:none; color:blue;"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
                   Mon compte
                 </a>
-                <ul class="dropdown-menu" style="border-left:none; border-right:none;">
-                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Tableau de bord", profile_path, style:"text-decoration:none;"%></li>
-                  <li class="pl-3 pr-3 mt-2 dropdown-item"><%= link_to "Déconnexion", destroy_user_session_path,'data-turbo-method': :delete, style:"text-decoration:none;"%></li>
+                <ul class="dropdown-menu"
+                    style="border-left:none; border-right:none;">
+                  <li class="pl-3 pr-3 mt-2 dropdown-item">
+                    <%= link_to "Tableau de bord",
+                        profile_path,
+                        style:"text-decoration:none;"
+                    %>
+                  </li>
+                  <li class="pl-3 pr-3 mt-2 dropdown-item">
+                    <%= link_to "Déconnexion",
+                        destroy_user_session_path,
+                        'data-turbo-method': :delete,
+                        style:"text-decoration:none;"
+                    %>
+                  </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -96,7 +153,10 @@
               </li>
             <%if current_user && current_user.admin? %>
               <li class="nav-link active btn btn-warning" >
-                <%= link_to "(BETA) AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT (TEST)", categories_path, style:"text-decoration:none;color:yellow;background:red;"%>
+                <%= link_to "(BETA) AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT (TEST)",
+                    categories_path,
+                    style:"text-decoration:none;color:yellow;background:red;"
+                %>
               </li>
             <%end%>
             <%end%>
@@ -104,7 +164,6 @@
         </div>
       </div>
     </div>
-
   </nav>
     <%= render "shared/categories_and_subcategories" %>
 </main>

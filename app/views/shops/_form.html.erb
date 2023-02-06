@@ -14,6 +14,7 @@
     <%= f.input :email, label: "email de contact", label_html:{ class:"labelcolor" }  %>
     <%= f.input :uetva, label: "N° de TVA intracomunnautaire ", label_html:{ class:"labelcolor" }  %>
     <%= f.input :president, label: "Nom et prenom du directeur général", label_html:{ class:"labelcolor" }  %>
+    <%= f.input :logo, as: :file, label: "Logo barre de navigation", label_html:{ class:"labelcolor" }  %>
     <%= f.input :card, collection: Shop::CARD, label:"Format carte produit", label_html:{ class:"labelcolor" } %>
     <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
     <%= f.input :leftbodybanner, as: :file, label: "Bannière évènement lateral gauche", label_html:{ class:"labelcolor" }  %>

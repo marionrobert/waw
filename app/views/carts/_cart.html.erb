@@ -1,79 +1,97 @@
 <h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
-<div class="scroller" style="padding-bottom:10vh;">
+<div class="scroller">
   <div class="container">
     <% cart.line_items.each do |item| %>
     <%# ligne complete %>
-    <div class="row" class="cart-line-item">
-
+    <div class="row">
       <%# photo - possiblement ajouté max-width:100%; a l'image%>
       <div class="vignette-line-item">
         <%if item.product.photos.attached?%>
           <%= cl_image_tag item.product.photos.first.key %>
         <%else%>
-          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")  %>
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
         <%end%>
       </div>
-
 <%# ////////////////bloc central ///////////////%>
       <div class="line-item-central-area">
         <%# product info %>
         <div class="line-item-info">
-          <p class="line-item-product-name"><%= item.product.name %></p>
-          <p class="line-item-sku"><%= item.product.sku %></p>
+          <p class="line-item-product-name">
+            <%= item.product.name %>
+          </p>
+          <p class="line-item-sku">
+            REF: <%= item.product.sku %>
+          </p>
         </div>
-
-
-
 <%#///////////////// Gestionnaire de quantité ////////////////%>
-
   <%#///////////// + quantité -///////////// %>
         <div class="quantity-zone">
   <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
-          <%= button_to line_items_addone_path(item), method: :post, class:"add-one" do%>
+          <%= button_to line_items_addone_path(item),
+              method: :post,
+              class:"add-one" do%>
             <i class="fa-solid fa-plus"></i>
           <% end %>
   <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
-          <p style="margin-left:2vw;margin-right:2vw"><%= item.quantity  %></p>
-              <%if item.quantity > 1%>
-          <%= button_to line_items_removeone_path(item), class:"remove-one" do%>
-            <i class="fa-solid fa-minus"></i>
-              <%end%>
-              <%else %>
-              <button class="remove-one">
-          <%= link_to line_item_path(item),
-          data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
-            <i class="fa-solid fa-minus" style="color:grey;"></i>
+          <p style="margin-left:2vw;margin-right:2vw">
+            <%= item.quantity  %>
+          </p>
+
+          <%if item.quantity > 1%>
+            <%= button_to line_items_removeone_path(item), class:"remove-one" do%>
+              <i class="fa-solid fa-minus"></i>
+            <%end%>
+          <%else %>
+            <button class="remove-one">
+              <%= link_to line_item_path(item),
+                  data: {turbo_method: :delete,
+                  turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do
+              %>
+                <i class="fa-solid fa-minus" style="color:grey;"></i>
               <% end %>
-              </button>
+            </button>
           <% end %>
         </div>
       </div>
-
-
-
 
 <%# ///////////////// prix produit * qté et promo *qté///////////// %>
       <div class="price-zone">
   <%# /////////////si promo ///////////// %>
         <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
   <%# /////////////////prix classique barré //////////////%>
-          <% prixbarre = (item.product.price_cents / 100.00)* item.quantity%>
-          <p class="price-off"><%= humanized_money_with_symbol(prixbarre) %></p>
+            <% prixbarre =
+              humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity)
+              + " "
+              + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first
+            %>
+          <p class="price-off">
+            <%= prixbarre.slice(1..50) %>
+          </p>
   <%#/////////////// REMISE EN % ///////////////%>
-          <span class="discount-percent">- <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>%</span>
+          <span class="discount-percent">
+            -
+            <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>
+            %
+          </span>
   <%#//////////// prix promo en vert %>
-            <% prixpromo = humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity) + " " + humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity).first%>
-            <p class="promo-price"><%= prixpromo.slice(1..50) %></p>
+          <% prixpromo = humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity)
+            + " "
+            + humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity).first
+          %>
+          <p class="promo-price">
+            <%= prixpromo.slice(1..50) %>
+          </p>
         <%else%>
   <%# /////////////sinon prix classique ///////////////%>
-            <% prix = humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity) + " " + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first%>
-            <p><%= prix.slice(1..50) %></p>
+          <% prix = humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity)
+            + " "
+            + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first
+          %>
+          <p>
+            <%= prix.slice(1..50) %>
+          </p>
         <%end%>
       </div>
-
-
-
-
 
 <%# //////////// la Poubelle - detruit la line item //////// %>
       <div class="trashzone">
@@ -112,7 +130,7 @@
   <%if current_user != nil%>
     <h3 class="mb-5 text-center"> Vos produits favoris</h3>
     <%if current_user.favorite_products.count == 0%>
-      <p style="text-align:center;"><i>Vous n'avez aucun produit en favoris</i></p>
+      <p style="text-align:center;margin-bottom:15vh;"><i>Vous n'avez aucun produit en favoris</i></p>
     <%else%>
     <div class="container" style="margin-bottom:15vh;height:75vh;">
       <div class="row" style="height:5vh;">

@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 
+gem 'image_processing', '~> 1.2'
+
 ruby "3.1.2"
 gem "geocoder"
 gem "autoprefixer-rails"

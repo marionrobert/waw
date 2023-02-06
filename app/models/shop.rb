@@ -39,6 +39,7 @@ class Shop < ApplicationRecord
   has_one_attached :leftbodybanner
   has_one_attached :rightbodybanner
   has_one_attached :banner
+  has_one_attached :logo
   has_one_attached :footer
   has_many_attached :photos
 

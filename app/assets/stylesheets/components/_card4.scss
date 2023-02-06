@@ -1,4 +1,65 @@
-// C4
+.c4-fullprice {
+  position:relative;
+}
+
+.c4-price00 {
+  position:relative;
+  bottom:8px;
+  left:-4px
+}
+
+.c4-fontpromobis {
+  position:relative;
+  bottom:5px;
+  left:-10px;
+}
+
+.c4-font {
+  text-align:end;
+  font-weight:bolder;
+}
+
+.c4-promo {
+  color:green;
+}
+
+.c4promoprice00 {
+  text-align:end;
+  font-weight:bolder;
+  position:relative;
+  bottom:8px;
+  left:-4px;
+  color:green
+}
+
+.c4-offprice00 {
+  text-align:end;
+  font-weight:bolder;
+  position:relative;
+  bottom:8px;
+  left:-4px
+}
+
+.c4-offprice {
+  text-align:end;
+  font-weight:bolder;
+  text-decoration:line-through;
+}
+
+.c4-offpricebis {
+  text-align:end;
+  font-weight:bolder;
+  position:relative;
+  bottom:5px;
+  left:-10px;
+  text-decoration:line-through;
+}
+
+.c4-productname {
+  margin-left:5px;
+  text-decoration:none;
+  color:black;
+}
 
 @media screen and (min-width: 481px) {
 
@@ -11,14 +72,13 @@
   }
 
   .c4-fullcard {
+    position:relative;
     box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     min-height:450px;
     max-height:450px;
     min-width:270px;
     max-width:270px;
-    // background:cyan;
-    // border:1px solid red;
     background:white;
     margin:10px;
   }
@@ -30,7 +90,6 @@
     height:100%;
     min-width:50%;
     max-width:50%
-    // background:hotpink;
   }
 
   .c4-pricearea {
@@ -59,14 +118,13 @@
   }
 
   .c4-fullcard {
+    position:relative;
     box-shadow: 5px 6px 8px 1px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     min-height:270px;
     max-height:270px;
     min-width:162px;
     max-width:162px;
-    // background:red;
-    // border:1px solid cyan;
     background: white;
     margin:5px;
   }
@@ -84,21 +142,18 @@
   align-items: center;
   height: 55%;
   width: 100%;
-  // background: yellow;
 }
 
 .c4-descriptiondiv {
   height: 20%;
   width: 100%;
   overflow: hidden;
-  // background: green;
 }
 
 .c4-actionandpricearea {
   display:flex;
   height: 25%;
   width: 100%;
-  // border: 1px dotted black;
 }
 
 .c4-buttonarea {
@@ -107,7 +162,6 @@ justify-content:space-around;
 align-items: center;
 height:100%;
 width:30%;
-// background:hotpink;
 }
 
 .c4-pricearea {
@@ -120,13 +174,11 @@ width: 70%;
 .c4-promoprice {
 height : 50%;
 width: 100%;
-// background:purple;
 }
 
 .c4-classicprice {
 height : 50%;
 width: 100%;
-// background:teal;
 }
 
 .c4-favorite {
@@ -144,7 +196,3 @@ width: 100%;
 .addToCartIcon:hover{
   cursor: pointer;
 }
-
-
-
-// FIN C4

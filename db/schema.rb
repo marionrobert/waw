@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_112432) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_161606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_112432) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "images", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -169,9 +170,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_112432) do
     t.string "phone"
     t.string "address"
     t.string "card"
+    t.string "logo"
     t.string "themebgcolor", default: "white"
     t.string "themefont", default: "arial"
     t.string "bannerpub"
+    t.string "leftbodybanner"
+    t.string "rightbodybanner"
     t.string "juridicform"
     t.integer "capitalisation"
     t.string "localregister"
