@@ -26,9 +26,8 @@
           <%= cl_image_tag Shop.first.logo.key, style:"max-height:8vh;max-width:100%;margin:0 auto" %>
         <%else%>
           <i class="fa-solid fa-house btnhome",
-             style="color:black",
+             style="color:black;display:flex",
              data-controller="category",
-             style="margin:0 auto",
              data-action="mouseover->category#homebuttondeploy">
              <span id="homebutton"
                    class="deploy_home_icon">
