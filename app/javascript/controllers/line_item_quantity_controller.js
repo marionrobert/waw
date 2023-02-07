@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    console.log("hello")
+    console.log("hooooo")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -18,8 +18,7 @@ export default class extends Controller {
       headers: {
         "content-Type": "application/json",
         "Accept": "application/json",
-        "X-CSRF-TOKEN": this.token },
-      body: JSON.stringify({ page: window.location.pathname })
+        "X-CSRF-TOKEN": this.token }
     })
       .then(response => response.json())
       .then(data => {
@@ -41,8 +40,7 @@ export default class extends Controller {
       headers: {
         "content-Type": "application/json",
         "Accept": "application/json",
-        "X-CSRF-TOKEN": this.token },
-      body: JSON.stringify({ page: window.location.pathname })
+        "X-CSRF-TOKEN": this.token }
     })
       .then(response => response.json())
       .then(data => {
