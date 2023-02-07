@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
+    console.log("hello")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -23,6 +24,16 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         quantityTarget.innerText = data.quantity;
+        // // change style color
+        // quantityTarget.style.color = "green"
+        // setTimeout(function() {
+        //   quantityTarget.style.color = "black"
+        // }, 1000);
+        // add/remove class with keyframe effect
+        quantityTarget.classList.add("afterchange")
+        setTimeout(function() {
+          quantityTarget.classList.remove("afterchange")
+        }, 8000);
         // alert(data.success);
       });
   }
@@ -42,6 +53,16 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         quantityTarget.innerText = data.quantity;
+        // // change style color
+        // quantityTarget.style.color = "green"
+        // setTimeout(function() {
+        //   quantityTarget.style.color = "black"
+        // }, 1000);
+        // add/remove class with keyframe effect
+        quantityTarget.classList.add("afterchange")
+        setTimeout(function() {
+          quantityTarget.classList.remove("afterchange")
+        }, 8000);
         // alert(data.success);
       });
   }

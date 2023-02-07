@@ -94,10 +94,19 @@
     height:25px;
     margin: 0;
     text-align: center;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
-  .quantity-icon:hover {
-    cursor: pointer;
+  .afterchange {
+    animation: afterchange 2000ms forwards;
+  }
+
+  @keyframes afterchange {
+    0% { color: black;}
+    50% {color: rgb(19, 185, 85);}
+    100% { color: rgba(0,0,0,0);}
   }
 
   .price-zone {
@@ -238,10 +247,9 @@
     color: grey;
     width:25px;
     height:25px;
-  }
-
-  .quantity-icon:hover {
-    cursor: pointer;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   .price-zone {
