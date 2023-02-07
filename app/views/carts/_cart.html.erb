@@ -45,7 +45,8 @@
             <button class="remove-one">
               <%= link_to line_item_path(item),
                   data: {turbo_method: :delete,
-                  turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do
+                  turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?",
+                  style:"display: flex;align-items: center;justify-content:center"}  do
               %>
                 <i class="fa-solid fa-minus" style="color:grey;"></i>
               <% end %>

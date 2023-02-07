@@ -42,16 +42,33 @@
   z-index: 30;
 }
 
+.profile_div {
+  width:4%;
+  display:flex;
+  justify-content: center;
+}
+
+.profilebutton {
+  background: rgba(0,0,0,0);
+  margin: 0 auto;
+  border: none;
+  font-size: 2.4vh;
+  color: black;
+}
+
 .btncart {
-  padding: 5px 9px;
-  border-radius: 20px;
-  border: 1px solid grey;
+  height: 4vh;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+  position:relative;
   cursor: pointer;
 }
 
 .btncart:hover {
-  background: rgba(200,200,200,0.3);
-  box-shadow: inset 3px 3px rgba(200,200,200,0.7);
+
 }
 
 .btnhome {
@@ -66,12 +83,13 @@
 
 .circle_items_count {
   font-size: 10px;
-  background:rgba(254, 169, 1, 0.8);
+  background:rgba(254, 169, 1, 1);
   position: absolute;
   border-radius:50%;
   padding:8px;
   height: 15px;
   width: 15px;
+  top:0;
 }
 
 .nav {
