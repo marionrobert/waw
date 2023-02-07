@@ -114,6 +114,7 @@ private
       :sku,
       :description,
       :images,
+      :promo_end_timer,
       :price_cents,
       :discount_price_cents,
       :stock_quantity,

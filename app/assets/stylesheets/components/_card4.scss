@@ -1,3 +1,10 @@
+.promo_timer {
+  height:7%;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+}
+
 .c4-fullprice {
   position:relative;
 }
@@ -75,8 +82,8 @@
     position:relative;
     box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    min-height:450px;
-    max-height:450px;
+    min-height:500px;
+    max-height:500px;
     min-width:270px;
     max-width:270px;
     background:white;
@@ -94,7 +101,7 @@
 
   .c4-pricearea {
     text-align: end;
-    margin: 0;
+    margin-top: 7%;
     height: 100%;
     min-width:50%;
     max-width:50%
@@ -121,8 +128,8 @@
     position:relative;
     box-shadow: 5px 6px 8px 1px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    min-height:270px;
-    max-height:270px;
+    min-height:300px;
+    max-height:300px;
     min-width:162px;
     max-width:162px;
     background: white;
@@ -140,7 +147,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 55%;
+  height: 50%;
   width: 100%;
 }
 
@@ -152,7 +159,7 @@
 
 .c4-actionandpricearea {
   display:flex;
-  height: 25%;
+  height: 23%;
   width: 100%;
 }
 
@@ -166,7 +173,7 @@ width:30%;
 
 .c4-pricearea {
 text-align: end;
-margin: 0;
+margin-top: 7%;
 height: 100%;
 width: 70%;
 }

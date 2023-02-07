@@ -142,6 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_161606) do
     t.text "description"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
+    t.datetime "promo_end_timer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id", null: false
