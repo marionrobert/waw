@@ -1,5 +1,17 @@
 @media screen and (max-width: 480px) {
 
+  .homelogo {
+    width:40%;
+  }
+
+  .displaybtncategories {
+    display: flex;
+    width: 10%;
+    font-size: 3vh;
+    margin: 0 2vw;
+    justify-content: center;
+  }
+
   .productdataarea {
     width:100%;
   }
@@ -245,17 +257,23 @@
   }
 
   .mobileglassdiv {
-    width:10vw
+    display: flex;
+    justify-content: center;
+    width:10%;
   }
+
+
 
   .mobilemaskcrossinput {
     margin: 0 5vw 0 0;
   }
 
   #mobile-magnifying-glass {
-    font-size: xx-large;
-    color:rgb(95, 95, 224);
+    font-size: 3vh;
+    color: black;
   }
+
+
 
   .mobile-magnifying-glass-masked {
     display:none;
