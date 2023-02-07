@@ -22,10 +22,27 @@
   <%end%>
 </div>
 
+<% @products = Product.where("discount_price_cents > 0")%>
 <div class="producthomecontainer" data-controller="favorites">
+  <% promomax = []%>
+  <% @products.each do |product|%>
+    <% promomax << (100-((product.discount_price_cents).to_f / (product.price_cents).to_f)*100).round(0)%></span>
+  <%end%>
+  <h2 class="carrousselh2">Les articles en promotions - Jusqu'à <span style="color:white;background:red;padding:0.4vh 0.4vw;"><i>- <%=promomax.max%> %</i></span></h2>
+  <div style="display:flex;">
+    <div class="wrapperhomepage">
+      <% @products.each do |product| %>
+        <%#if product.discount_price_cents > 0%>
+          <%= render "shared/#{Shop.first.card}", product: product%>
+        <%#end%>
+      <%end%>
+    </div>
+  </div>
+
   <h2 class="carrousselh2">Découvrez les derniers tendances</h3>
   <div style="display:flex;">
     <div class="wrapperhomepage">
+      <% @products = Product.last(15)%>
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <%end%>
