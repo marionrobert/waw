@@ -17,6 +17,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
+        console.log(data)
         if (data.unfav) {
           if (data.page === "/favorites") {
             evt.target.closest('.container-index> div > div').remove();

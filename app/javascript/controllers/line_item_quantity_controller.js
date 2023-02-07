@@ -3,29 +3,46 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    console.log("Hello from line item quantity controller")
+    this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
   static targets = [ "quantity" ]
 
   addOne(event) {
-    // event.preventDefault();
-    console.log("add one clicked");
-    let button = event.currentTarget;
-    console.log(button);
-    let url = button.getAttribute("href");
-    let quantityTarget = this.quantityTarget;
+    let quantityTarget = this.quantityTarget
+    let url = `/line_items/addone.${event.params.itemId}`
 
     fetch(url, {
       method: "POST",
       headers: {
+        "content-Type": "application/json",
         "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
+        "X-CSRF-TOKEN": this.token },
+      body: JSON.stringify({ page: window.location.pathname })
     })
       .then(response => response.json())
       .then(data => {
         quantityTarget.innerText = data.quantity;
+        // alert(data.success);
+      });
+  }
+
+  removeOne(event){
+    let quantityTarget = this.quantityTarget
+    let url = `/line_items/removeone.${event.params.itemId}`
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+        "Accept": "application/json",
+        "X-CSRF-TOKEN": this.token },
+      body: JSON.stringify({ page: window.location.pathname })
+    })
+      .then(response => response.json())
+      .then(data => {
+        quantityTarget.innerText = data.quantity;
+        // alert(data.success);
       });
   }
 }
