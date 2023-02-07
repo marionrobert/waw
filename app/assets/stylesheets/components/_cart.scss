@@ -81,20 +81,23 @@
 
   .quantity-zone {
     height:30%;
+    width: 75%;
+    margin: 0;
     display:flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
   }
 
-  .add-one {
+  .quantity-icon {
     color: grey;
     width:25px;
     height:25px;
+    margin: 0;
+    text-align: center;
   }
 
-  .remove-one {
-    color: grey;
-    width:25px;
-    height:25px;
+  .quantity-icon:hover {
+    cursor: pointer;
   }
 
   .price-zone {
@@ -224,20 +227,21 @@
 
   .quantity-zone {
     height:30%;
+    width: 75%;
+    margin: 0;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .add-one {
+  .quantity-icon {
     color: grey;
     width:25px;
     height:25px;
   }
 
-  .remove-one {
-    color: grey;
-    width:25px;
-    height:25px;
+  .quantity-icon:hover {
+    cursor: pointer;
   }
 
   .price-zone {
