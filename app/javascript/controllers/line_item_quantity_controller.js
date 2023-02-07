@@ -34,7 +34,6 @@ export default class extends Controller {
         setTimeout(function() {
           quantityTarget.classList.remove("afterchange")
         }, 8000);
-        // alert(data.success);
       });
   }
 
@@ -63,7 +62,7 @@ export default class extends Controller {
         setTimeout(function() {
           quantityTarget.classList.remove("afterchange")
         }, 8000);
-        // alert(data.success);
+
       });
   }
 }
