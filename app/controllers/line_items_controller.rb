@@ -57,6 +57,9 @@ class LineItemsController < ApplicationController
   def addone
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity += 1
+    @line_item.save
+    render json: { quantity: @line_item.quantity }
+    # # render json: { success: "La quantité a été mise à jour avec succès", quantity: @line_item.quantity }
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
@@ -67,27 +70,24 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-    # @line_item.save
-    # render json: { quantity: @line_item.quantity }
-    # # render json: { success: "La quantité a été mise à jour avec succès", quantity: @line_item.quantity }
   end
 
   def removeone
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity -= 1
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
-        format.json { render json: { quantity: @line_item.quantity } }
-        # format.json { render json: { success: "La quantité a été mise à jour avec succès", quantity: @line_item.quantity } }
-      else
-        format.html { redirect_to products_path, status: :unprocessable_entity }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
     @line_item.save
     render json: { quantity: @line_item.quantity }
     # render json: { success: "La quantité a été mise à jour avec succès", quantity: @line_item.quantity }
+    # respond_to do |format|
+    #   if @line_item.save
+    #     format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
+    #     format.json { render json: { quantity: @line_item.quantity } }
+    #     # format.json { render json: { success: "La quantité a été mise à jour avec succès", quantity: @line_item.quantity } }
+    #   else
+    #     format.html { redirect_to products_path, status: :unprocessable_entity }
+    #     format.json { render json: @line_item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /line_items/1 or /line_items/1.json
