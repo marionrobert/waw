@@ -58,7 +58,13 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity += 1
     @line_item.save
-    render json: { quantity: @line_item.quantity }
+    render json: {
+      quantity: @line_item.quantity,
+      amount_cart: @line_item.cart.total,
+      final_price: @line_item.total,
+      price_promo: @line_item.total_discount,
+      price_original: @line_item.total_basic
+    }
     # respond_to do |format|
     #   if @line_item.save
     #     format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
@@ -74,7 +80,13 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity -= 1
     @line_item.save
-    render json: { quantity: @line_item.quantity }
+    render json: {
+      quantity: @line_item.quantity,
+      amount_cart: @line_item.cart.total,
+      final_price: @line_item.total,
+      price_promo: @line_item.total_discount,
+      price_original: @line_item.total_basic
+    }
     # respond_to do |format|
     #   if @line_item.save
     #     format.html { redirect_to products_path, success: "La quantité à été mise à jour" }

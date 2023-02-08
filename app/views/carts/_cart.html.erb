@@ -1,6 +1,6 @@
 <h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
 <div class="scroller">
-  <div class="container">
+  <div class="container" data-controller="line-item-quantity">
     <% cart.line_items.each do |item| %>
     <%# ligne complete %>
     <div class="row">
@@ -25,7 +25,7 @@
         </div>
 <%#///////////////// Gestionnaire de quantité ////////////////%>
   <%#///////////// + quantité -///////////// %>
-        <div class="quantity-zone" data-controller="line-item-quantity" >
+        <div class="quantity-zone">
   <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
           <span class="quantity-icon" data-action="click->line-item-quantity#addOne" data-line-item-quantity-item-id-param="<%= item.id %>">
             <i class="fa-solid fa-plus "></i>
@@ -36,7 +36,7 @@
                 <%# <i class="fa-solid fa-plus"></i> %>
               <%# end %>
   <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
-          <span style="margin-left:2vw;margin-right:2vw" data-line-item-quantity-target="quantity">
+          <span style="margin-left:2vw;margin-right:2vw" id="quantityItem<%= item.id %>">
             <%= item.quantity  %>
           </span>
 
@@ -65,13 +65,8 @@
   <%# /////////////si promo ///////////// %>
         <% if item.product.discount_price_cents.positive? %>
   <%# /////////////////prix classique barré //////////////%>
-            <% prixbarre =
-              humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity)
-              + " "
-              + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first
-            %>
           <p class="price-off">
-            <%= prixbarre.slice(1..50) %> €
+            <span id="totalOriginalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span> €
           </p>
   <%#/////////////// REMISE EN % ///////////////%>
           <span class="discount-percent">
@@ -80,12 +75,19 @@
             %
           </span>
   <%#//////////// prix promo en vert %>
-          <p class="promo-price">
-            <%= item.total / 100.00 %> €
+          <p class="promo-price" >
+            <span id="totalPromoPrice<%= item.id %>"><%= item.total_discount / 100.00 %></span> €
           </p>
+          <%# need this none-displayed line for js !!! %>
+          <span style="display:none" id="totalPrice<%= item.id %>"></span>
         <%else%>
   <%# /////////////sinon prix classique ///////////////%>
-          <p><%= item.total / 100.00 %> €</p>
+          <p>
+            <span id="totalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span>€
+          </p>
+          <%# need these 2 none-displayed lines for js !!! %>
+          <span style="display:none" id="totalOriginalPrice<%= item.id %>"></span>
+          <span style="display:none" id="totalPromoPrice<%= item.id %>"></span>
         <%end%>
       </div>
 
@@ -108,8 +110,8 @@
         <p>SOUS-TOTAL TTC</p>
       </div>
       <div class="subtotal">
-        <p>
-          <%= cart.total / 100 %> €
+        <p >
+          <span id="amountCart"><%= cart.total / 100 %></span> €
         </p>
       </div>
     </div>

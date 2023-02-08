@@ -40,7 +40,7 @@
         <br>
         <%# PRIX PROMO %>
         <span class="c4-fontsize c4-font c4-promo"><%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
-        <span class="c4-fontsizebis c4-fontsizebis c4-font c4-promo c4-fontpromobis" >
+        <span class="c4-fontsizebis c4-font c4-promo c4-fontpromobis" >
           <% if (product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
             <%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
           <% else %>
@@ -50,8 +50,8 @@
 
       <%else%>
         <%# SINON PRIX NORMAL SEULEMENT %>
-        <span class="c4-fontsize c4-offprice"><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
-        <span class="c4-fontsizebis c4-offprice00" >
+        <span class="c4-fontsize c4-font "><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
+        <span class="c4-fontsizebis c4-font c4-fontpromobis" >
           <% if (product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
             <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
           <% else %>

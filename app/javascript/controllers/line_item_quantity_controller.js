@@ -3,14 +3,16 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    console.log("hello you")
+    console.log("hellooooooo")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
-  static targets = [ "quantity" ]
-
   addOne(event) {
-    let quantityTarget = this.quantityTarget
+    let formerQuantity = document.getElementById(`quantityItem${event.params.itemId}`)
+    let amountCart = document.getElementById(`amountCart`)
+    let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
+    let totalPromoPrice = document.getElementById(`totalPromoPrice${event.params.itemId}`)
+    let totalPrice = document.getElementById(`totalPrice${event.params.itemId}`)
     let url = `/line_items/addone.${event.params.itemId}`
 
     fetch(url, {
@@ -22,17 +24,26 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
-        quantityTarget.innerText = data.quantity;
+        console.log(data)
+        formerQuantity.innerText = data.quantity;
+        amountCart.innerText = data.amount_cart / 100.00;
+        totalOriginalPrice.innerText = data.price_original / 100.00;
+        totalPromoPrice.innerText = data.price_promo / 100.00;
+        totalPrice.innerText = data.final_price / 100.00;
         // add-remove class with keyframe effect
-        quantityTarget.classList.add("afterchange")
+        formerQuantity.classList.add("afterchange")
         setTimeout(function() {
-          quantityTarget.classList.remove("afterchange")
+          formerQuantity.classList.remove("afterchange")
         }, 4000);
       });
   }
 
   removeOne(event){
-    let quantityTarget = this.quantityTarget
+    let formerQuantity = document.getElementById(`quantityItem${event.params.itemId}`)
+    let amountCart = document.getElementById(`amountCart`)
+    let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
+    let totalPromoPrice = document.getElementById(`totalPromoPrice${event.params.itemId}`)
+    let totalPrice = document.getElementById(`totalPrice${event.params.itemId}`)
     let url = `/line_items/removeone.${event.params.itemId}`
 
     fetch(url, {
@@ -44,11 +55,18 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
-        quantityTarget.innerText = data.quantity;
+        console.log(data)
+        let new_price_original = (data.price_original) / 100.00
+        console.log(new_price_original)
+        formerQuantity.innerText = data.quantity;
+        amountCart.innerText = data.amount_cart / 100.00;
+        totalOriginalPrice.innerText = data.price_original / 100.00;
+        totalPromoPrice.innerText = data.price_promo / 100.00;
+        totalPrice.innerText = data.final_price / 100.00;
         // add-remove class with keyframe effect
-        quantityTarget.classList.add("afterchange")
+        formerQuantity.classList.add("afterchange")
         setTimeout(function() {
-          quantityTarget.classList.remove("afterchange")
+          formerQuantity.classList.remove("afterchange")
         }, 4000);
       });
   }

@@ -12,4 +12,12 @@ class LineItem < ApplicationRecord
       return product.price_cents * quantity
     end
   end
+
+  def total_basic
+    product.price_cents * quantity
+  end
+
+  def total_discount
+    product.discount_price_cents * quantity
+  end
 end
