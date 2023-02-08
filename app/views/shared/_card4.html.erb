@@ -42,8 +42,8 @@
           <span class="c4-fontsize c4-font c4-promo"><%= humanized_money_with_symbol(product.discount_price_cents/100)[/^(.+?),/].slice(1..50)%></span>
           <span class="c4-fontsizebis c4-font c4-promo c4-fontpromobis" ><%= humanized_money_with_symbol(product.discount_price_cents/100).last(2)%> €</span>
         <%else %>
-          <span class="c4-fontsize c4-font c4-promo"><%= humanized_money_with_symbol(product.discount_price_cents/100).slice(1..50)%></span>
-          <span class="c4-fontsizebis c4-promoprice00">, 00 €</span>
+          <span class="c4-fontsize c4-font c4-promo"><%= humanized_money_with_symbol(product.discount_price_cents/100.00).slice(1..50)%></span>
+          <span class="c4-fontsizebis c4-promoprice00"><%= humanized_money_with_symbol(product.discount_price_cents/100.00).last(2)%> €</span>
         <%end%>
 
       <%else%>

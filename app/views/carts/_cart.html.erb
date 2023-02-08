@@ -63,7 +63,7 @@
 <%# ///////////////// prix produit * qté et promo *qté///////////// %>
       <div class="price-zone">
   <%# /////////////si promo ///////////// %>
-        <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
+        <% if item.product.discount_price_cents.positive? %>
   <%# /////////////////prix classique barré //////////////%>
             <% prixbarre =
               humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity)
@@ -71,7 +71,7 @@
               + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first
             %>
           <p class="price-off">
-            <%= prixbarre.slice(1..50) %>
+            <%= prixbarre.slice(1..50) %> €
           </p>
   <%#/////////////// REMISE EN % ///////////////%>
           <span class="discount-percent">
@@ -80,22 +80,12 @@
             %
           </span>
   <%#//////////// prix promo en vert %>
-          <% prixpromo = humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity)
-            + " "
-            + humanized_money_with_symbol((item.product.discount_price_cents / 100.00)* item.quantity).first
-          %>
           <p class="promo-price">
-            <%= prixpromo.slice(1..50) %>
+            <%= item.total / 100.00 %> €
           </p>
         <%else%>
   <%# /////////////sinon prix classique ///////////////%>
-          <% prix = humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity)
-            + " "
-            + humanized_money_with_symbol((item.product.price_cents / 100.00)* item.quantity).first
-          %>
-          <p>
-            <%= prix.slice(1..50) %>
-          </p>
+          <p><%= item.total / 100.00 %> €</p>
         <%end%>
       </div>
 
@@ -118,17 +108,9 @@
         <p>SOUS-TOTAL TTC</p>
       </div>
       <div class="subtotal">
-      <% sub_total = [] %>
-      <% cart.line_items.each do |item| %>
-        <% if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents %>
-          <%sub_total << ((item.quantity) * (item.product.discount_price_cents / 100.00))%>
-        <%else%>
-          <%sub_total << ((item.quantity) * (item.product.price_cents / 100.00))%>
-        <%end%>
-      <%end%>
-        <%# Bidouillage qui permet de supprimer l'euro devant et de le mettre à la fin, la gem ne le proposant pas %>
-        <%sub_total_euro_end = humanized_money_with_symbol(sub_total.sum) + " " + humanized_money_with_symbol(sub_total.sum).first%>
-        <p><%=sub_total_euro_end.slice(1..50)%></p>
+        <p>
+          <%= cart.total / 100 %> €
+        </p>
       </div>
     </div>
   </div>
