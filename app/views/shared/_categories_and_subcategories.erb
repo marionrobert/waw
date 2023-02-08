@@ -20,9 +20,11 @@
         %>
       </p>
       <% @categories.each do |category| %>
-        <div data-action="mouseenter->category#sub_cat_deploy_desktop">
-          <p><%=category.name%></p>
-        </div>
+        <%=link_to category_path(category) do%>
+          <div data-action="mouseenter->category#sub_cat_deploy_desktop">
+            <p><%=category.name%></p>
+          </div>
+        <%end%>
       <% end %>
     </div>
   <%#//////////////////////////////// les sous-categories /////////////////////%>
@@ -35,7 +37,9 @@
       <% Subcategory.all.each do |subcategory| %>
         <p class="subcat <%=subcategory.category.name%>"
             style="color:black">
-          <%= subcategory.name %>
+          <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+            <%= subcategory.name %>
+          <%end%>
         </p>
       <% end %>
     </div>
