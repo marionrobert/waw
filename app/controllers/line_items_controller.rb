@@ -43,7 +43,6 @@ class LineItemsController < ApplicationController
 
   # PATCH/PUT /line_items/1 or /line_items/1.json
   def update
-    raise
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to line_item_url(@line_item), notice: "Le panier à été mis à jour" }
@@ -59,37 +58,52 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity += 1
     @line_item.save
-    redirect_to products_path, success: "La quantité à été mise à jour"
+    render json: { quantity: @line_item.quantity }
+    # respond_to do |format|
+    #   if @line_item.save
+    #     format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
+    #     format.json { render json: { quantity: @line_item.quantity } }
+    #   else
+    #     format.html { redirect_to products_path, status: :unprocessable_entity }
+    #     format.json { render json: @line_item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def removeone
     @line_item = LineItem.find(params[:format])
     @line_item.quantity = @line_item.quantity -= 1
     @line_item.save
-    redirect_to products_path, success: "La quantité à été mise à jour"
+    render json: { quantity: @line_item.quantity }
+    # respond_to do |format|
+    #   if @line_item.save
+    #     format.html { redirect_to products_path, success: "La quantité à été mise à jour" }
+    #     format.json { render json: { quantity: @line_item.quantity } }
+    #   else
+    #     format.html { redirect_to products_path, status: :unprocessable_entity }
+    #     format.json { render json: @line_item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
-
-
 
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
     @line_item.destroy
-
     respond_to do |format|
-
       format.html { redirect_to products_path, status: :see_other, notice: "\"#{@line_item.product.name}\" à été supprimé du panier." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def line_item_params
-      params.require(:line_item).permit(:cart_id, :product_id, :quantity)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def line_item_params
+    params.require(:line_item).permit(:cart_id, :product_id, :quantity)
+  end
 end
