@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: %i[add_one create]
-  before_action :set_line_item, only: %i[add_one show edit update destroy]
+  before_action :set_line_item, only: %i[add_one show edit update]
   skip_before_action :authenticate_user!, except: %i[index]
 
 
@@ -100,6 +100,7 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
+    @line_item = LineItem.find(params[:id])
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to products_path, status: :see_other, notice: "\"#{@line_item.product.name}\" à été supprimé du panier." }
