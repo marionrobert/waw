@@ -3,15 +3,15 @@
     <h2><%=@category.name%></h2>
   </div>
   <%@subcategories.each do |subcategory|%>
-  <%=link_to category_subcategory_path(subcategory) do%>
-    <button class="btn btn-primary m-5 p-3">Voir tous nos produits « <%=subcategory.name%> »</button>
-  <%end%>
-  <div style="display:flex;">
-    <div class="wrapperhomepage">
-      <% subcategory.products.each do |product| %>
-        <%= render "shared/#{Shop.first.card}", product: product%>
-      <%end%>
+    <%=link_to category_subcategory_path(subcategory) do%>
+      <button class="btn btn-primary m-5 p-3">Voir tous nos produits « <%=subcategory.name%> »</button>
+    <%end%>
+    <div style="display:flex;">
+      <div class="wrapperhomepage">
+        <% subcategory.products.each do |product| %>
+          <%= render "shared/#{Shop.first.card}", product: product%>
+        <%end%>
+      </div>
     </div>
-  </div>
   <%end%>
 </div>
