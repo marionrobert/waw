@@ -1,1 +1,21 @@
-<h2 style="padding-top:100px">MAINTENANT FAUT LE FORM DE SUBCATEGORY</h2>
+<h2 style="padding-top:100px;text-align:center;"> CHOIX DE LA CATEGORIE </h2>
+
+<div class="container", style="background-color:<%=Shop.first.themebgcolor%>;">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-4", style="background-color:rgba(130,130,130,0.3);border-radius:10px;">
+      <%= simple_form_for(@category) do |category| %>
+        <%= category.error_notification %>
+        <%= category.error_notification message: category.object.errors[:base].to_sentence if category.object.errors[:base].present? %>
+
+        <%# MENU DEROULANT DE CATEGORIE%>
+        <div class="form-inputs" >
+          <%= category.input :name, collection: Category.all, default: Category.first, label:"Choisir la categorie", label_html:{ class:"labelcolor" } %>
+        </div>
+        <% end %>
+        <%# BOUTON QUI REDIRIGE VERS CREATION DE NOUVELLE CATEGORIE%>
+        <div style="padding-top:50px">
+          <%= link_to "créer une nouvelle categorie", new_category_path, class:"btn btn-warning", remote: true %>
+        </div>
+    </div>
+  </div>
+</div>
