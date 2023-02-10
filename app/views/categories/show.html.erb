@@ -4,11 +4,11 @@
   </div>
   <%@subcategories.each do |subcategory|%>
   <%=link_to category_subcategory_path(subcategory) do%>
-    <button class="btn btn-primary m-5 p-3"><%=subcategory.name%></button> <-Voir tout
+    <button class="btn btn-primary m-5 p-3">Voir tous nos produits « <%=subcategory.name%> »</button>
   <%end%>
   <div style="display:flex;">
     <div class="wrapperhomepage">
-      <% @products.each do |product| %>
+      <% subcategory.products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <%end%>
     </div>
