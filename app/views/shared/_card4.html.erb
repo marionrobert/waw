@@ -1,64 +1,66 @@
-<div class="c4-fullcard">
-  <%# NE RIEN METTRE ICI %>
-<%= link_to product_path(product) do%>
-  <div class="c4-imagediv">
-    <% if product.photos.attached? %>
-      <%= cl_image_tag product.photos.first.key, class:"c4-image"%>
-    <%else %>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-            class="c4-image"
-            alt="no_images_available" >
-    <%end%>
-  </div>
+<% cache product do %>
+  <div class="c4-fullcard">
+    <%# NE RIEN METTRE ICI %>
+    <%= link_to product_path(product) do%>
+      <div class="c4-imagediv">
+        <% if product.photos.attached? %>
+          <%= cl_image_tag product.photos.first.key, class:"c4-image"%>
+        <%else %>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                class="c4-image"
+                alt="no_images_available" >
+        <%end%>
+      </div>
 
-  <div class="c4-descriptiondiv">
-    <h3 class="c4-fontsize c4-productname" ><%= product.name[0..35] %>...</h3>
+      <div class="c4-descriptiondiv">
+        <h3 class="c4-fontsize c4-productname" ><%= product.name[0..35] %>...</h3>
+      </div>
+    <%end%>
+
+    <div class="c4-actionandpricearea">
+    <%# NE RIEN METTRE ICI %>
+      <div class="c4-buttonarea c4-fontsize">
+        <%= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
+          <i class="fa-solid fa-cart-plus" style="color:blue"></i>
+        <% end %>
+        <i class="fa-solid fa-heart c4-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
+      </div>
+      <div class="c4-pricearea">
+      <%# NE RIEN METTRE ICI %>
+                <%# SI IL EXISTE UN PRIX PROMO %>
+        <%if product.discount_price_cents.positive? %>
+          <%# PRIX DE BASE BARRE %>
+          <span class="c4-fontsize c4-offprice"><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
+          <span class="c4-fontsizebis c4-offprice00" >
+            <% if (product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
+              <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
+            <% else %>
+              <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
+            <% end%>
+          </span>
+          <br>
+          <%# PRIX PROMO %>
+          <span class="c4-fontsize c4-font c4-promo"><%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
+          <span class="c4-fontsizebis c4-font c4-promo c4-fontpromobis" >
+            <% if (product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
+              <%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
+            <% else %>
+              <%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
+            <% end%>
+          </span>
+
+        <%else%>
+          <%# SINON PRIX NORMAL SEULEMENT %>
+          <span class="c4-fontsize c4-font "><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
+          <span class="c4-fontsizebis c4-font c4-fontpromobis" >
+            <% if (product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
+              <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
+            <% else %>
+              <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
+            <% end%>
+          </span>
+        <%end%>
+      </div>
+    </div>
   </div>
 <%end%>
-
-  <div class="c4-actionandpricearea">
-  <%# NE RIEN METTRE ICI %>
-    <div class="c4-buttonarea c4-fontsize">
-      <%= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
-        <i class="fa-solid fa-cart-plus" style="color:blue"></i>
-      <% end %>
-      <i class="fa-solid fa-heart c4-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
-    </div>
-    <div class="c4-pricearea">
-    <%# NE RIEN METTRE ICI %>
-              <%# SI IL EXISTE UN PRIX PROMO %>
-      <%if product.discount_price_cents.positive? %>
-        <%# PRIX DE BASE BARRE %>
-        <span class="c4-fontsize c4-offprice"><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
-        <span class="c4-fontsizebis c4-offprice00" >
-          <% if (product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
-            <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
-          <% else %>
-            <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
-          <% end%>
-        </span>
-        <br>
-        <%# PRIX PROMO %>
-        <span class="c4-fontsize c4-font c4-promo"><%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
-        <span class="c4-fontsizebis c4-font c4-promo c4-fontpromobis" >
-          <% if (product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
-            <%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
-          <% else %>
-            <%=(product.discount_price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
-          <% end%>
-        </span>
-
-      <%else%>
-        <%# SINON PRIX NORMAL SEULEMENT %>
-        <span class="c4-fontsize c4-font "><%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[1]%>,</span>
-        <span class="c4-fontsizebis c4-font c4-fontpromobis" >
-          <% if (product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3].size == 1 %>
-            <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%>0 €
-          <% else %>
-            <%=(product.price_cents / 100.00).to_s.match(/^(\d+)(\.)(\d+)$/)[3]%> €
-          <% end%>
-        </span>
-      <%end%>
-    </div>
-  </div>
-</div>

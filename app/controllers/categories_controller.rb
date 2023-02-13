@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @category = Category.new
     @categories = Category.all
   end
 
   def show
     @category = Category.find(params[:id])
+    @subcategories = @category.subcategories
   end
 
   def new
@@ -15,8 +17,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-
-      redirect_to categories_path, success: "Catégorie créée."
+      redirect_to categories_path, success: "Catégorie #{@category.name} créée."
     else
       render :new, status: :unprocessable_entity
     end
