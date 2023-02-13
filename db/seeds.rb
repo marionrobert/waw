@@ -9,7 +9,7 @@ puts "Toutes les catégories sont supprimées"
 Subcategory.destroy_all
 puts "Les sous-catégories aussi - même si un dependent destroy existe"
 Product.destroy_all
-puts " et enfin destockage on vide les rayons de tout les produits malgré un dependent destroy"
+puts " et enfin destockage on vide les rayons de tous les produits malgré un dependent destroy"
 Favorite.destroy_all
 puts "on détruit les favoris enregistrés pour chaque utilisateur"
 Blogpost.destroy_all
