@@ -9,7 +9,11 @@ class Product < ApplicationRecord
   validates :price_cents, numericality: { greater_than_or_equal_to: 1 }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promo doit être inférieur au prix hors promo." }
   monetize :price_cents
+  validates :discount_ending_date, presence: true, if: :discount_price_positive?
   delegate :category, to: :subcategory, allow_nil: true
+
+
+
   # validates :promo_end_timer, if discount_price_cents: { greater_than_or_equal_to: 0 }
   # validates :promo_end_timer, presence: true, if: -> {discount_price_cents > 0}
 # Fait crasher la seed si implementé dedans
@@ -49,6 +53,10 @@ class Product < ApplicationRecord
       # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
       # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
     end
+  end
+
+  def discount_price_positive?
+    discount_price_cents > 0
   end
 
 end

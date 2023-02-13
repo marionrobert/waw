@@ -13,11 +13,8 @@
           <%= product.input :price_cents, label: "Prix (en centimes)", placeholder: "2990", label_html:{ class:"labelcolor" }, input_html: { min: '1', :class => "input_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
           <p id=<%= "input_price" %> style="font-size: 12px;">Renseignez un prix pour le convertir en euros</p>
           <%= product.input :discount_price_cents, label: "Prix promotionnel (0 si aucune promo en cours)", placeholder: "1990", label_html:{ class:"labelcolor" }, input_html: { min: '0', :class => "input_discount_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
-
           <p id=<%= "input_discount_price"%> style="font-size: 12px;">Renseignez un prix pour le convertir en euro</p>
-          <%# non détecté %>
-          <% product.input :promo_end_timer, label: "Date de fin de promotion (obligatoire si promotion en cours)", label_html:{ class:"labelcolor" }%>
-          <%# non detecté %>
+          <%= product.input :discount_ending_date, label: "Date de fin de promotion (obligatoire si promotion en cours)", label_html:{ class:"labelcolor" }%>
           <%= product.input :stock_quantity, label: "Quantité disponible en stock", placeholder: "92", label_html:{ class:"labelcolor" }, input_html: { min: '0'} %>
           <%= product.input :photos, as: :file, label: "Photos du produit", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
         </div>
@@ -28,7 +25,7 @@
             <%= product.button :submit, class:"btn btn-success", value:"Modifier le produit"%>
           <%end%>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
