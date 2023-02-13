@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    console.log("hello")
+    console.log("hellokgckjgcjgckcjckcj you")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -38,11 +38,13 @@ export default class extends Controller {
   }
 
   removeOne(event){
+    event.preventDefault();
     let formerQuantity = document.getElementById(`quantityItem${event.params.itemId}`)
     let amountCart = document.getElementById(`amountCart`)
     let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
     let totalPromoPrice = document.getElementById(`totalPromoPrice${event.params.itemId}`)
     let totalPrice = document.getElementById(`totalPrice${event.params.itemId}`)
+    let lineItem = document.getElementById(`lineItem${event.params.itemId}`)
 
     if (formerQuantity.innerText === "1") {
       if (confirm("Êtes-vous sûr de vouloir supprimer cet article de votre panier ?")) {
@@ -54,8 +56,11 @@ export default class extends Controller {
             "Accept": "application/json",
             "X-CSRF-TOKEN": this.token }
         })
-        location.reload();
-      }
+        .then(response => response.json())
+        .then(data => {
+          lineItem.style.display = "none";
+          amountCart.innerText = data.amount_cart / 100.00;
+      });
     } else {
       let url = `/line_items/removeone.${event.params.itemId}`
 
@@ -79,7 +84,7 @@ export default class extends Controller {
             formerQuantity.classList.remove("afterchange")
           }, 4000);
         });
+      }
     }
-
   }
 }

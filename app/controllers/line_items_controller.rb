@@ -56,7 +56,7 @@ class LineItemsController < ApplicationController
 
   def addone
     @line_item = LineItem.find(params[:format])
-    @line_item.quantity = @line_item.quantity += 1
+    @line_item.quantity += 1
     @line_item.save
     render json: {
       quantity: @line_item.quantity,
@@ -78,7 +78,7 @@ class LineItemsController < ApplicationController
 
   def removeone
     @line_item = LineItem.find(params[:format])
-    @line_item.quantity = @line_item.quantity -= 1
+    @line_item.quantity -= 1
     @line_item.save
     render json: {
       quantity: @line_item.quantity,
@@ -102,10 +102,9 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to products_path, status: :see_other, notice: "\"#{@line_item.product.name}\" à été supprimé du panier." }
-      format.json { head :no_content }
-    end
+    render json: {
+      amount_cart: @line_item.cart.total
+    }
   end
 
   private

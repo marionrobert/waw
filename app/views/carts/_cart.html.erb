@@ -2,88 +2,90 @@
 <div class="scroller">
   <div class="container" data-controller="line-item-quantity">
     <% cart.line_items.each do |item| %>
-    <%# ligne complete %>
-    <div class="row">
-      <%# photo - possiblement ajouté max-width:100%; a l'image%>
-      <div class="vignette-line-item">
-        <%if item.product.photos.attached?%>
-          <%= cl_image_tag item.product.photos.first.key %>
-        <%else%>
-          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
-        <%end%>
-      </div>
-<%# ////////////////bloc central ///////////////%>
-      <div class="line-item-central-area">
-        <%# product info %>
-        <div class="line-item-info">
-          <p class="line-item-product-name">
-            <%= item.product.name %>
-          </p>
-          <p class="line-item-sku">
-            REF: <%= item.product.sku %>
-          </p>
+      <div id="lineItem<%= item.id %>">
+        <%# ligne complete %>
+        <div class="row">
+          <%# photo - possiblement ajouté max-width:100%; a l'image%>
+          <div class="vignette-line-item">
+            <%if item.product.photos.attached?%>
+              <%= cl_image_tag item.product.photos.first.key %>
+            <%else%>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
+            <%end%>
+          </div>
+    <%# ////////////////bloc central ///////////////%>
+          <div class="line-item-central-area">
+            <%# product info %>
+            <div class="line-item-info">
+              <p class="line-item-product-name">
+                <%= item.product.name %>
+              </p>
+              <p class="line-item-sku">
+                REF: <%= item.product.sku %>
+              </p>
+            </div>
+
+    <%#///////////////// Gestionnaire de quantité ////////////////%>
+            <div class="quantity-zone">
+      <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
+              <span class="quantity-icon" data-action="click->line-item-quantity#addOne" data-line-item-quantity-item-id-param="<%= item.id %>">
+                <i class="fa-solid fa-plus "></i>
+              </span>
+      <%#//////////// QUANTITE/////////// %>
+              <span style="margin-left:2vw;margin-right:2vw" id="quantityItem<%= item.id %>">
+                <%= item.quantity  %>
+              </span>
+      <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
+              <span class="quantity-icon" data-action="click->line-item-quantity#removeOne" data-line-item-quantity-item-id-param="<%= item.id %>" >
+                <i class="fa-solid fa-minus"></i>
+              </span>
+
+            </div>
+          </div>
+
+    <%# ///////////////// prix produit * qté et promo *qté///////////// %>
+          <div class="price-zone">
+      <%# /////////////si promo ///////////// %>
+            <% if item.product.discount_price_cents.positive? %>
+      <%# /////////////////prix classique barré //////////////%>
+              <p class="price-off">
+                <span id="totalOriginalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span> €
+              </p>
+      <%#/////////////// REMISE EN % ///////////////%>
+              <span class="discount-percent">
+                -
+                <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>
+                %
+              </span>
+      <%#//////////// prix promo en vert %>
+              <p class="promo-price" >
+                <span id="totalPromoPrice<%= item.id %>"><%= item.total_discount / 100.00 %></span> €
+              </p>
+              <%# need this none-displayed line for js !!! %>
+              <span style="display:none" id="totalPrice<%= item.id %>"></span>
+            <%else%>
+      <%# /////////////sinon prix classique ///////////////%>
+              <p>
+                <span id="totalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span>€
+              </p>
+              <%# need these 2 none-displayed lines for js !!! %>
+              <span style="display:none" id="totalOriginalPrice<%= item.id %>"></span>
+              <span style="display:none" id="totalPromoPrice<%= item.id %>"></span>
+            <%end%>
+          </div>
+
+    <%# //////////// la Poubelle - detruit la line item //////// %>
+          <div class="trashzone">
+            <%= link_to line_item_path(item),
+            data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
+            <i class="fa-solid fa-trash-can" style="color:grey"></i>
+            <% end %>
+          </div>
         </div>
 
-<%#///////////////// Gestionnaire de quantité ////////////////%>
-        <div class="quantity-zone">
-  <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
-          <span class="quantity-icon" data-action="click->line-item-quantity#addOne" data-line-item-quantity-item-id-param="<%= item.id %>">
-            <i class="fa-solid fa-plus "></i>
-          </span>
-  <%#//////////// QUANTITE/////////// %>
-          <span style="margin-left:2vw;margin-right:2vw" id="quantityItem<%= item.id %>">
-            <%= item.quantity  %>
-          </span>
-  <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
-          <span class="quantity-icon" data-action="click->line-item-quantity#removeOne" data-line-item-quantity-item-id-param="<%= item.id %>" >
-            <i class="fa-solid fa-minus"></i>
-          </span>
-
+        <div class="line-item-separator">
         </div>
       </div>
-
-<%# ///////////////// prix produit * qté et promo *qté///////////// %>
-      <div class="price-zone">
-  <%# /////////////si promo ///////////// %>
-        <% if item.product.discount_price_cents.positive? %>
-  <%# /////////////////prix classique barré //////////////%>
-          <p class="price-off">
-            <span id="totalOriginalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span> €
-          </p>
-  <%#/////////////// REMISE EN % ///////////////%>
-          <span class="discount-percent">
-            -
-            <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>
-            %
-          </span>
-  <%#//////////// prix promo en vert %>
-          <p class="promo-price" >
-            <span id="totalPromoPrice<%= item.id %>"><%= item.total_discount / 100.00 %></span> €
-          </p>
-          <%# need this none-displayed line for js !!! %>
-          <span style="display:none" id="totalPrice<%= item.id %>"></span>
-        <%else%>
-  <%# /////////////sinon prix classique ///////////////%>
-          <p>
-            <span id="totalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span>€
-          </p>
-          <%# need these 2 none-displayed lines for js !!! %>
-          <span style="display:none" id="totalOriginalPrice<%= item.id %>"></span>
-          <span style="display:none" id="totalPromoPrice<%= item.id %>"></span>
-        <%end%>
-      </div>
-
-<%# //////////// la Poubelle - detruit la line item //////// %>
-      <div class="trashzone">
-        <%= link_to line_item_path(item),
-        data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
-        <i class="fa-solid fa-trash-can" style="color:grey"></i>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="line-item-separator">
-    </div>
     <% end %>
 
 <%# ////////// SOUS TOTAL DU PANIER ////////////%>
