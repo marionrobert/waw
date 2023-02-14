@@ -140,6 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_161606) do
     t.string "name"
     t.string "sku"
     t.text "description"
+    t.text "full_description"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
     t.datetime "created_at", null: false

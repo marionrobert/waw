@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :sku
       t.text :description
+      t.text :full_description
       t.string :images, array: true, default: []
       t.integer :stock_quantity
       t.timestamps

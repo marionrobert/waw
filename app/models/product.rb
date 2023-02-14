@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :subcategory
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :description, :name, :price_cents, :subcategory_id, :sku, presence: true
-  # has_rich_text :description
+  has_rich_text :full_description
   validates :price_cents, numericality: { greater_than_or_equal_to: 1 }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promo doit être inférieur au prix hors promo." }
   monetize :price_cents
