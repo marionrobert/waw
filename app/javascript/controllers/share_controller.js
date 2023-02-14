@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   async share(event) {
-    console.log("SHARE EVENT ICI")
     event.preventDefault();
     const shareData = {
       title: this.titleTarget.textContent,
@@ -18,8 +17,7 @@ export default class extends Controller {
     try {
       await navigator.share(shareData);
     } catch (err) {
-      // pas grand intérêt
-      console.log(`Erreur: ${err}`)
+      // console.log(`Erreur: ${err}`)
     }
   }
 }

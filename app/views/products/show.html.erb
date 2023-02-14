@@ -7,7 +7,6 @@
     </div>
 
     <%# ADMIN ZONE %>
-
     <div class="adminaction">
       <% if current_user && current_user.admin %>
         <%= link_to "Modifier produit",
@@ -74,11 +73,12 @@
             <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
           <%end%>
       </div>
+
     </div>
+
   </div>
 
   <%= content_tag(:p, @product.description, style:"border-top:1px solid grey;margin:3vh;", data: {share_target: "body"}) %>
-
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
@@ -88,4 +88,6 @@
       <%end%>
     </div>
   </div>
+
 </div>
+
