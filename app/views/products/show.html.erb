@@ -63,7 +63,7 @@
         <div style="margin:2vw;">
           <%if @product.stock_quantity > 0%>
             <p style="color:green;text-decoration:underline"><strong>En stock</strong></p>
-            <p><i>quantité disponible:<%=@product.stock_quantity%></i></p>
+            <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
           <%else%>
             <p><i>disponible sous XXXXXXXXX semaines</i></p>
             <%# voir :delay_retailer a ajouter a product %>
@@ -78,7 +78,15 @@
 
   </div>
 
-  <%= content_tag(:p, @product.description, style:"border-top:1px solid grey;margin:3vh;", data: {share_target: "body"}) %>
+  <%# Product description area %>
+  <div style="margin-top:3vh;border-top:1px solid grey;">
+    <%# Simple description %>
+    <%= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
+    <%# Simple description %>
+    <p>
+      <%= @product.full_description %>
+    </p>
+  </div >
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
@@ -90,4 +98,3 @@
   </div>
 
 </div>
-
