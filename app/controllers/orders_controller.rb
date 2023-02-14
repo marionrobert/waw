@@ -23,6 +23,22 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    delivery_delay = []
+    notavailable = []
+    @cart.line_items.each do |item|
+      if item.product.stock_quantity === 0
+      notavailable << item.product
+      delivery_delay << item.product.supplier_delay
+      end
+    end
+
+    if notavailable.length > 0
+    stock_delay = delivery_delay.max
+    else
+    stock_delay = 3
+    end
+
     pending_orders = current_user.orders.where(state: "pending")
     if pending_orders.count > 0
       pending_orders.each do |order|
@@ -87,16 +103,16 @@ class OrdersController < ApplicationController
               amount: 500,
               currency: 'eur',
             },
-            display_name: 'Free shipping',
+            display_name: 'Livraison gratuite',
             # Delivers between 5-7 business days
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
-                value: 5,
+                value: stock_delay,
               },
               maximum: {
                 unit: 'business_day',
-                value: 7,
+                value: stock_delay + 7,
               },
             }
           }
@@ -108,16 +124,16 @@ class OrdersController < ApplicationController
               amount: 1500,
               currency: 'eur',
             },
-            display_name: 'Next day air',
+            display_name: 'Livraison express',
             # Delivers in exactly 1 business day
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
-                value: 1,
+                value: stock_delay,
               },
               maximum: {
                 unit: 'business_day',
-                value: 1,
+                value: stock_delay + 2,
               },
             }
           }
