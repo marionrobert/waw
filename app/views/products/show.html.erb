@@ -23,10 +23,8 @@
     <div class="product_top_view">
       <div class="productcarrousselarea">
         <%# Share button %>
-        <%= link_to products_path, :class => "shareicon", :data => {action: "click->share#share"} do%>
-          <div class="shareiconbg">
-            <i class="fa-solid fa-share-nodes"></i>
-          </div>
+        <%= link_to products_path, :class => "shareiconbg", :data => {action: "click->share#share"} do%>
+            <i class="fa-solid fa-share-nodes shareicon"></i>
         <% end %>
         <%# Promo span %>
         <%if @product.discount_price_cents != 0%>
@@ -91,4 +89,3 @@
     </div>
   </div>
 </div>
-
