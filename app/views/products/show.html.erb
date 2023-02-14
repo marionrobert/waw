@@ -1,5 +1,5 @@
-<div class="producthomecontainer">
-  <div class="container" data-controller="share, favorites" data-share-url-value= "<%= product_url(@product) %>">
+<div class="producthomecontainer" data-controller="share favorites" data-share-url-value= "<%= product_url(@product) %>">
+  <div class="container" >
     <div class="mt-5">
       <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
         <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
@@ -24,9 +24,9 @@
       <div class="productcarrousselarea">
         <%# Share button %>
         <%= link_to products_path, :class => "shareicon", :data => {action: "click->share#share"} do%>
-        <div class="shareiconbg">
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
+          <div class="shareiconbg">
+            <i class="fa-solid fa-share-nodes"></i>
+          </div>
         <% end %>
         <%# Promo span %>
         <%if @product.discount_price_cents != 0%>
@@ -79,9 +79,7 @@
     </div>
   </div>
 
-  <%= content_tag(:p, @product.description, style:"border-top:1px solid grey;margin:3vh;", data: {
-    share_target: "body"
-  }) %>
+  <%= content_tag(:p, @product.description, style:"border-top:1px solid grey;margin:3vh;", data: {share_target: "body"}) %>
 
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
@@ -93,4 +91,4 @@
     </div>
   </div>
 </div>
-<%= console %>
+
