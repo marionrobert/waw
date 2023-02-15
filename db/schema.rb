@@ -140,9 +140,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_101700) do
     t.string "name"
     t.string "sku"
     t.text "description"
+    t.text "full_description"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
-    t.integer "supplier_delay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id", null: false
@@ -201,7 +201,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_101700) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "full_name"
     t.string "uid"
     t.string "avatar_url"
     t.string "provider"

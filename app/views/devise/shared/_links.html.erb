@@ -25,12 +25,9 @@
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to omniauth_authorize_path(resource_name, provider), method: :post, style:"display:block" do %>
-        <% if provider.to_s.include?("google") %>
-          <%= image_tag "btn_google_signin.png", :style => "width:288px;height:50px", :class => "mt-2" %>
-        <% elsif provider.to_s.include?("facebook") %>
-          <%= image_tag "btn_facebook_signin.png", :style => "width:288px;height:50px", :class => "mt-2" %>
-        <% end %>
+          <%= image_tag "signin_btns/btn_#{provider.to_s}_signin.png", :style => "width:288px;height:50px", :class => "mt-2" %>
       <% end %>
     <% end %>
   <% end %>
 </div>
+
