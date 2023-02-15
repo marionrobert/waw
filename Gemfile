@@ -5,8 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 gem 'image_processing', '~> 1.2'
-
+gem 'omniauth-facebook'
 ruby "3.1.2"
+gem 'figaro'
 gem "geocoder"
 gem "autoprefixer-rails"
 gem "bootsnap", require: false
