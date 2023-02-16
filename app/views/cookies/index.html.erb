@@ -4,9 +4,11 @@
     <h1>Ce site web utilise des cookies</h1>
     <p>Accepter tous les cookies</p>
     <div class="d-flex justify-content-around">
-      <%= link_to "accept", cookies_path(cookies_accepted: true), class:"btn btn-success" %>
-      <%= link_to "reject", cookies_path(cookies_accepted: false), class:"btn btn-warning" %>
+      <%= link_to "reject", cookies_path(cookies_accepted: false), class:"btn btn-warning", style:"color:grey;border:1px solid rgba(220,220,220,0.8);background:rgba(220,220,220,0.8)" %>
+      <%= link_to "accept", cookies_path(cookies_accepted: true), class:"btn btn-success", style:"color:white" %>
     </div>
   </section>
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:4900;background:rgba(0,0,0,0.5);backdrop-filter: blur(2px);">
+    </div>
   <% end %>
 <% end %>
