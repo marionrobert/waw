@@ -69,6 +69,13 @@
              %>
           </p>
         </div>
+        <div class="categorymenu">
+          <p><%= link_to "VOIR TOUS LES PRODUITS",
+                 products_path,
+                 class:"allproducts"
+             %>
+          </p>
+        </div>
       <% @categories.each do |category| %>
         <div class="categorymenu",
              data-action="click->category#displaysubcategory">

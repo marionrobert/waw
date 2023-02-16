@@ -1,5 +1,45 @@
 @media screen and (max-width: 480px) {
 
+  .shortcutbtntopm {
+    margin:7vh 20px 0vh 20px;
+  }
+
+  .shortcut_payement {
+    width:200px;
+    height:200px;
+    border-radius: 10px;
+    background:rgba(170,244,181,0.8);
+    position:fixed;
+    bottom:15vh;
+    right:5vw;
+    z-index:99999;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto;
+  }
+
+  .animationpub {
+    margin:0;
+    padding:0;
+    position:relative;
+    animation: 10s linear 1s infinite running slidein;
+  }
+
+  .sign_up_form {
+    width:400px;
+    height:500px;
+    font-size: smaller;
+    border: 1px solid grey;
+    margin: 10vh 0;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(150,150,150,0.5);
+  }
+
+  .create_account_form {
+    display:none
+  }
+
   .homelogo {
     width:40%;
   }

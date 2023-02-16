@@ -11,11 +11,13 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" } %>
+                        input_html: { autocomplete: "email" },
+                        label: "Entrez l'adresse e-mail associée à votre compte",
+                        label_html:{ class:"labelcolor" } %>
           </div>
 
           <div class="form-actions d-flex justify-content-center">
-            <%= f.button :submit, "Renvoyez" %>
+            <%= f.button :submit, "Renvoyer" %>
           </div>
         <% end %>
 
