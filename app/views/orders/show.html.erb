@@ -16,7 +16,8 @@
         <% end %>
 
         <p class="list-unstyled"><strong>Commande passée le </strong> <%= @order.created_at.to_date %></p>
-        <p style="color:red">Livraison estimée sous <strong>7 jours ouvrés (en dur)</strong></p>
+        <p style="color:red">Livraison estimée sous <strong><%= @order.estimated_delivery_time %></strong> jours</p>
+        <span style="color:red">délai estimé à gérer avec wehbook pour différencier livraison expresse/normale</span>
       <%else%>
         <%=render "orders/pending"%>
       <%end%>
@@ -73,4 +74,3 @@
     </div>
   </div>
 </div>
-

@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_161606) do
     t.bigint "user_id", null: false
     t.string "state", default: "pending"
     t.string "checkout_session_id"
+    t.integer "estimated_delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

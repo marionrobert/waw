@@ -10,8 +10,8 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.string :state, default: "pending"
       t.string :checkout_session_id
+      t.integer :estimated_delivery_time
       t.timestamps
-
     end
   end
 end
