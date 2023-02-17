@@ -15,6 +15,7 @@
           <p id=<%= "input_price" %> style="font-size: 12px;">Renseignez un prix pour le convertir en euros</p>
           <%= product.input :discount_price_cents, label: "Prix promotionnel (0 si aucune promo en cours)", placeholder: "1990", label_html:{ class:"labelcolor" }, input_html: { min: '0', :class => "input_discount_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
           <p id=<%= "input_discount_price"%> style="font-size: 12px;">Renseignez un prix pour le convertir en euro</p>
+          <%= product.input :discount_ending_date, label: "Date de fin de promotion (obligatoire si promotion en cours)", label_html:{ class:"labelcolor" }%>
           <%= product.input :stock_quantity, label: "Quantité disponible en stock", placeholder: "92", label_html:{ class:"labelcolor" }, input_html: { min: '0'} %>
           <%= product.input :supplier_delay, label: "Délai approvisionemment fournisseur en jours", placeholder: "21", label_html:{ class:"labelcolor" }, input_html: { min: '0'} %>
           <%= product.input :photos, as: :file, label: "Photos du produit", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
@@ -26,7 +27,7 @@
             <%= product.button :submit, class:"btn btn-success", value:"Modifier le produit"%>
           <%end%>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -144,6 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_101700) do
     t.text "full_description"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
+    t.date "discount_ending_date"
     t.integer "supplier_delay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

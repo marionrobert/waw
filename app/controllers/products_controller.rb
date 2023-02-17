@@ -115,6 +115,7 @@ private
       :description,
       :full_description,
       :images,
+      :discount_ending_date,
       :price_cents,
       :discount_price_cents,
       :stock_quantity,

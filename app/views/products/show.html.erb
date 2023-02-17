@@ -90,7 +90,7 @@
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
-    <div class="wrapperhomepage"  style="height:500px" data-controller="favorites">
+    <div class="wrapperhomepage" data-controller="favorites">
       <% @products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <%end%>
