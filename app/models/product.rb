@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :price_cents, numericality: { greater_than_or_equal_to: 1 }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promo doit être inférieur au prix hors promo." }
   monetize :price_cents
-  validates :discount_ending_date, presence: true, if: :discount_price_positive?
+  # validates :discount_ending_date, presence: true, if: :discount_price_positive?
   delegate :category, to: :subcategory, allow_nil: true
 
 
