@@ -1,5 +1,5 @@
 <div class="container" style="margin-top:20vh;min-height:55vh;" >
-  <h2>Resend confirmation instructions</h2>
+  <h2>Renvoyer les instructions de confirmation</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <%= f.error_notification %>
@@ -10,11 +10,13 @@
                   required: true,
                   autofocus: true,
                   value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { autocomplete: "email" },
+                  label: "Saisissez votre email",
+                  label_html:{ class:"labelcolor" } %>
     </div>
 
     <div class="form-actions d-flex justify-content-center">
-      <%= f.button :submit, "Resend confirmation instructions" %>
+      <%= f.button :submit, "Renvoyer les instructions de confirmation" %>
     </div>
   <% end %>
 

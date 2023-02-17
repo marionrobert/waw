@@ -113,11 +113,13 @@ private
       :subcategory_id,
       :sku,
       :description,
+      :full_description,
       :images,
       :discount_ending_date,
       :price_cents,
       :discount_price_cents,
       :stock_quantity,
+      :supplier_delay,
       photos: []
     )
   end

@@ -6,7 +6,7 @@
   <div class="enable_on_desktop">
     <div style="display:flex;justify-content:space-around">
       <p class="allproductlink">
-        <%= link_to "TOUT LES PRODUITS",
+        <%= link_to "TOUS NOS PRODUITS",
             products_path,
             style:"color:black"
         %>
@@ -20,9 +20,11 @@
         %>
       </p>
       <% @categories.each do |category| %>
-        <div data-action="mouseenter->category#sub_cat_deploy_desktop">
-          <p><%=category.name%></p>
-        </div>
+        <%=link_to category_path(category) do%>
+          <div data-action="mouseenter->category#sub_cat_deploy_desktop">
+            <p><%=category.name%></p>
+          </div>
+        <%end%>
       <% end %>
     </div>
   <%#//////////////////////////////// les sous-categories /////////////////////%>
@@ -35,7 +37,9 @@
       <% Subcategory.all.each do |subcategory| %>
         <p class="subcat <%=subcategory.category.name%>"
             style="color:black">
-          <%= subcategory.name %>
+          <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+            <%= subcategory.name %>
+          <%end%>
         </p>
       <% end %>
     </div>
@@ -65,6 +69,13 @@
              %>
           </p>
         </div>
+        <div class="categorymenu">
+          <p><%= link_to "VOIR TOUS LES PRODUITS",
+                 products_path,
+                 class:"allproducts"
+             %>
+          </p>
+        </div>
       <% @categories.each do |category| %>
         <div class="categorymenu",
              data-action="click->category#displaysubcategory">
@@ -84,7 +95,9 @@
       <div id="subcatmenu" class="subcategorymenu" style="overflow:auto">
         <% Subcategory.all.each do |subcategory| %>
           <p class="subcat <%=subcategory.category.name%>" style="color:black;padding-bottom:4vh;">
-            <%= subcategory.name %>
+            <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+              <%= subcategory.name %>
+            <%end%>
           </p>
         <% end %>
           <button type="button"

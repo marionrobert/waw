@@ -1,4 +1,5 @@
 class SubcategoriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @subcategory = Subcategory.new
@@ -7,6 +8,7 @@ class SubcategoriesController < ApplicationController
 
   def show
     @subcategory = Subcategory.find(params[:id])
+    @products = @subcategory.products
   end
 
   def new

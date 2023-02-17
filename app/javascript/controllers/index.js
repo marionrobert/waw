@@ -16,6 +16,9 @@ application.register("favorites", FavoritesController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LineItemQuantityController from "./line_item_quantity_controller"
+application.register("line-item-quantity", LineItemQuantityController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
@@ -25,8 +28,8 @@ application.register("panier", PanierController)
 import PreviewPriceChangeController from "./preview_price_change_controller"
 application.register("preview-price-change", PreviewPriceChangeController)
 
-import QuantitymoduleController from "./quantitymodule_controller"
-application.register("quantitymodule", QuantitymoduleController)
+import ScrollController from "./scroll_controller"
+application.register("scroll", ScrollController)
 
 import SearchController from "./search_controller"
 application.register("search", SearchController)
@@ -36,6 +39,3 @@ application.register("searcharea", SearchareaController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
-
-import ScrollController from "./scroll_controller"
-application.register("scroll", ScrollController)

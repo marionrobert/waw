@@ -32,7 +32,9 @@
   </head>
     <header>
     <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-      <p class="bannerpub"><%=Shop.first.bannerpub%></p>
+    <div class="bannerpub">
+      <p class="animationpub"><%=Shop.first.bannerpub%></p>
+    </div>
     <%end%>
     </header>
     <body class= "d-flex flex-column"
@@ -40,6 +42,9 @@
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar" %>
       <%= render "shared/lateralbanner"%>
+      <%# Cette div shortcutpay ne doit apparaitre qu'à la mise au panier d'un nouvel item %>
+      <%= render "shared/shortcutpay"%>
+
       <%#= render "shared/categories_and_subcategories"%>
       <%= session[:cookies_accepted] %>
       <%= render "shared/panier"%>

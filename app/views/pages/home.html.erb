@@ -35,7 +35,7 @@
 
   <h2 class="carrousselh2">Découvrez les derniers tendances</h3>
   <div style="display:flex;">
-    <div class="wrapperhomepage">
+    <div class="wrapperhomepage" data-controller="favorites">
       <% @last_products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <%end%>
@@ -44,8 +44,7 @@
 
 
   <h2 class="carrousselh2">Aperçu des produits en stock !</h1>
-  <div class="row d-flex justify-content-center"
-       style="width:100%;margin: 0 auto" >
+  <div class="row d-flex justify-content-center" style="width:100%;margin: 0 auto" data-controller="favorites" >
     <% @products_in_stock.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product%>
     <% end %>
