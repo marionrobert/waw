@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    // console.log("hello")
+    console.log("hello you")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -61,7 +61,9 @@ export default class extends Controller {
           lineItem.style.display = "none";
           amountCart.innerText = data.amount_cart / 100.00;
       });
-    } else {
+      }
+    }
+    else {
       let url = `/line_items/removeone.${event.params.itemId}`
 
       fetch(url, {
@@ -69,7 +71,8 @@ export default class extends Controller {
         headers: {
           "content-Type": "application/json",
           "Accept": "application/json",
-          "X-CSRF-TOKEN": this.token }
+          "X-CSRF-TOKEN": this.token
+        }
       })
         .then(response => response.json())
         .then(data => {
@@ -85,6 +88,5 @@ export default class extends Controller {
           }, 4000);
         });
       }
-    }
   }
 }
