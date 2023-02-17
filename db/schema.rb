@@ -122,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_101700) do
     t.bigint "user_id", null: false
     t.string "state", default: "pending"
     t.string "checkout_session_id"
+    t.integer "estimated_delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -143,6 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_101700) do
     t.text "full_description"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
+    t.integer "supplier_delay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id", null: false

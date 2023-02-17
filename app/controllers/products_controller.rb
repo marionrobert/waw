@@ -118,6 +118,7 @@ private
       :price_cents,
       :discount_price_cents,
       :stock_quantity,
+      :supplier_delay,
       photos: []
     )
   end

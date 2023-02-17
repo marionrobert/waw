@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart
+  before_action :destroy_pending_orders, only: %i[create]
+  before_action :set_stock_delay, only: %i[create]
 
   def index
     @orders = Order.all
@@ -23,12 +25,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    pending_orders = current_user.orders.where(state: "pending")
-    if pending_orders.count > 0
-      pending_orders.each do |order|
-        order.destroy
-      end
-    end
+
+    # call private methods: set_stock_delay and destroy_pending_orders
+
     # pour l'achat immédiat d'un seul article sans création de panier (il faudra faire un if /else --> passage par panier ou pas)
     # product = Product.find(params[:product_id])
     @items_for_stripe = []
@@ -56,12 +55,12 @@ class OrdersController < ApplicationController
 
     @items_for_order = {}
     @cart.line_items.each.with_index do |item, index|
-    actualprice = 0
-    if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents
-      actualprice = item.product.discount_price_cents
-    else
-      actualprice = item.product.price_cents
-    end
+      actualprice = 0
+      if item.product.discount_price_cents.positive? && item.product.discount_price_cents < item.product.price_cents
+        actualprice = item.product.discount_price_cents
+      else
+        actualprice = item.product.price_cents
+      end
       new_item = {
         unit_amount: actualprice,
         sku: item.product.sku,
@@ -85,19 +84,19 @@ class OrdersController < ApplicationController
             type: 'fixed_amount',
             fixed_amount: {
               amount: 500,
-              currency: 'eur',
+              currency: 'eur'
             },
-            display_name: 'Free shipping',
+            display_name: 'Livraison gratuite',
             # Delivers between 5-7 business days
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
-                value: 5,
+                value: @stock_delay
               },
               maximum: {
                 unit: 'business_day',
-                value: 7,
-              },
+                value: @stock_delay + 7
+              }
             }
           }
         },
@@ -106,32 +105,34 @@ class OrdersController < ApplicationController
             type: 'fixed_amount',
             fixed_amount: {
               amount: 1500,
-              currency: 'eur',
+              currency: 'eur'
             },
-            display_name: 'Next day air',
+            display_name: 'Livraison express',
             # Delivers in exactly 1 business day
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',
-                value: 1,
+                value: @stock_delay
               },
               maximum: {
                 unit: 'business_day',
-                value: 1,
-              },
+                value: @stock_delay + 2
+              }
             }
           }
-        },
+        }
       ],
       line_items: @items_for_stripe,
       mode: 'payment',
       success_url: order_url(order),
       cancel_url: order_url(order)
     )
-    order.update(checkout_session_id: session.id)
+    # à gérer avec un webhook,
+    # si le client choisit livraison express -> estimated_delivery_time = @stock_delay + 2
+    # si le client choisit livraison normale -> estimated_delivery_time = @stock_delay + 2
+    order.update(checkout_session_id: session.id, estimated_delivery_time: @stock_delay + 7)
     redirect_to new_order_payment_path(order)
   end
-
 
   def destroy
   end
@@ -145,8 +146,33 @@ class OrdersController < ApplicationController
     Product.update_items(items: order.items)
   end
 
-# private
-#   def order_params
-#     params.require(:order).permit(:user_id, :product_id)
-#   end
+  private
+
+  def set_stock_delay
+    all_delivery_delays = []
+    products_not_available = []
+    @cart.line_items.each do |item|
+      if item.product.stock_quantity.zero?
+        products_not_available << item.product
+        all_delivery_delays << item.product.supplier_delay
+      end
+    end
+
+    if products_not_available.length.positive?
+      @stock_delay = all_delivery_delays.max
+    else
+      @stock_delay = 3
+    end
+  end
+
+  def destroy_pending_orders
+    pending_orders = current_user.orders.where(state: "pending")
+    if pending_orders.count.positive?
+      pending_orders.destroy_all
+    end
+  end
+
+  # def order_params
+  #   params.require(:order).permit(:user_id, :product_id)
+  # end
 end
