@@ -5,10 +5,20 @@ class PagesController < ApplicationController
 
   def home
     @shop = Shop.last
-    @products = Product.last(10)
+    @products = Product.all
     @blogposts = Blogpost.last(5)
     @categories = Category.all
     @subcategories = Subcategory.all
+    @last_products = Product.last(15)
+    @products_in_stock = Product.where("stock_quantity > 0").first(20)
+
+
+    all_promo = []
+    @products_with_discount = Product.where("discount_price_cents > 0")
+    @products_with_discount.each do |product|
+      all_promo << (100-((product.discount_price_cents).to_f / (product.price_cents).to_f)*100).round(0)
+    end
+    @promo_max = all_promo.max
   end
 
   def profile
