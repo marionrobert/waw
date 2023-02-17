@@ -11,11 +11,12 @@
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" },
+                      label: "Entrez l'adresse e-mail associé à votre compte",
                       label_html:{ class:"labelcolor" } %>
         </div>
 
         <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, "Réinitialiser mon mot de passe" %>
+          <%= f.button :submit, "Réinitialiser mon mot de passe", class:"btn btn-warning" %>
         </div>
       <% end %>
 

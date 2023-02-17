@@ -1,5 +1,37 @@
 @media screen and (min-width: 481px) {
 
+  .shortcut_payement {
+    width:500px;
+    height:120px;
+    border-radius: 10px;
+    background:rgba(170,244,181,0.8);
+    position:fixed;
+    bottom:10vh;
+    right:5vw;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto
+  }
+
+  .animationpub {
+    margin:0;
+    padding:0;
+    position:relative;
+    animation: 20s linear 0s infinite running slidein;
+  }
+
+  .sign_up_form {
+    width:400px;
+    height:500px;
+    font-size: smaller;
+    border: 1px solid grey;
+    margin: 20vh 0;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(150,150,150,0.5);
+  }
+
   .blognavbar {
     width: 7%;
     border: 1px solid rgba(150,150,150,0.4);
@@ -372,6 +404,16 @@
 
   .desktop_subcat_hide_or_not {
     display:none;
+  }
+
+
+  .create_account_form {
+    width:400px;
+    height:500px;
+    border: 1px solid grey;
+    padding: 30px;
+    margin: 20vh 0;
+    box-shadow: 5px 5px 10px rgba(150,150,150,0.5);
   }
 
 

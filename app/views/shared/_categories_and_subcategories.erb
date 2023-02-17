@@ -6,7 +6,7 @@
   <div class="enable_on_desktop">
     <div style="width:12%;display:flex;justify-content:space-around">
       <p class="allproductlink">
-        <%= link_to "TOUS LES PRODUITS",
+        <%= link_to "TOUS NOS PRODUITS",
             products_path,
             style:"color:black"
         %>
@@ -66,6 +66,13 @@
           <p><%= link_to "PROMO",
                  promo_path,
                  class:"promolink"
+             %>
+          </p>
+        </div>
+        <div class="categorymenu">
+          <p><%= link_to "VOIR TOUS LES PRODUITS",
+                 products_path,
+                 class:"allproducts"
              %>
           </p>
         </div>

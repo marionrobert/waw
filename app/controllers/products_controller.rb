@@ -113,6 +113,7 @@ private
       :subcategory_id,
       :sku,
       :description,
+      :full_description,
       :images,
       :price_cents,
       :discount_price_cents,

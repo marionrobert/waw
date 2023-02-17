@@ -1,9 +1,9 @@
 <div class="container" style="min-height:100vh;">
   <div style="margin-top:10vh;text-align:center;font-style:italic;">
-    <%if current_user.full_name == nil %>
+    <%if current_user.first_name == nil %>
       <h1 class="pt-5">Bienvenue <%= current_user.email %></h1>
-    <%elsif current_user.full_name != nil%>
-      <h1 class="pt-5">Bienvenue <%= current_user.full_name %></h1>
+    <%elsif current_user.first_name != nil%>
+      <h1 class="pt-5">Bienvenue <%= current_user.first_name %></h1>
     <%else%>
       <h1 class="pt-5">Bienvenue</h1>
     <%end%>
