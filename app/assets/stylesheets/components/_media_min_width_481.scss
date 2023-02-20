@@ -80,6 +80,23 @@
     margin: 0 auto;
   }
 
+  .dashboardselector {
+    overflow:hidden;
+    transition: 1500ms;
+    text-align: left;
+    padding:20px 300px 20px 20px;
+    font-weight: bold;
+    color:white;
+  }
+
+  .dashboardselector:hover {
+    overflow:hidden;
+    transform: translateX(50px);
+    transition: 200ms;
+    background:white;
+    color:black;
+  }
+
   .oddcategory {
     box-shadow: 5px 5px 10px grey;
     border-radius: 10px;

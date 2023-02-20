@@ -1,0 +1,29 @@
+<div style="width:20%;min-height:100vh;background: rgb(147,112,219);background: rgb(147,112,219);background: linear-gradient(90deg, rgba(147,112,219,1) 95%, rgba(194,194,194,1) 98%, rgba(255,255,255,0) 100%);overflow-y: auto;">
+  <div style="font-size:20px">
+    <h3 style="text-align:center;margin:5vh;">Gestion</h3>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Synthèse</ul>
+      <%end%>
+      <%= link_to coupons_path do%>
+        <ul class="dashboardselector">Coupons & Codes promo</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Horaires et contact</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Ajouter une categorie</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Ajouter une sous-categorie</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Ajouter un produit</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Commande à traiter</ul>
+      <%end%>
+      <%=button_to products_path do%>
+        <ul class="dashboardselector">Historique des commandes</ul>
+      <%end%>
+  </div>
+</div>

@@ -12,7 +12,12 @@
 @import "pages/index";
 
 
-
+button {
+  background:rgba(0,0,0,0);
+  margin:0;
+  padding:0;
+  border:none;
+}
 
 .nobanner {
   background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)
