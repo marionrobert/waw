@@ -51,22 +51,22 @@
   </div>
 
 <%# Ajouter une categorie %>
-    <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
+  <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
     <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
   </div>
 
 <%# Ajouter une sous-categorie %>
-    <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
+  <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
     <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
   </div>
 
 <%# Ajouter un produit %>
-    <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
+  <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
     <%= render "admin-product-new", admin_product_new: @admin_product_new %>
   </div>
 
 <%# Commande à traiter %>
-    <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+  <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
     <%if current_user.admin == true %>
       <%= render "admin-paid-orders", admin_paid_orders: @admin_paid_orders %>
     <%else%>
@@ -75,12 +75,17 @@
   </div>
 
 <%# Historique des commandes %>
-    <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
-      <%if current_user.admin == true %>
-        <%= render "admin-delivered-orders", admin_delivered_orders: @admin_delivered_orders %>
-      <%else%>
-        <%= render "my-delivered-orders", my_delivered_orders: @my_delivered_orders %>
-      <%end%>
+  <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
+    <%if current_user.admin == true %>
+      <%= render "admin-delivered-orders", admin_delivered_orders: @admin_delivered_orders %>
+    <%else%>
+      <%= render "my-delivered-orders", my_delivered_orders: @my_delivered_orders %>
+    <%end%>
+  </div>
+
+<%#Articles de blog%>
+  <div class="tab-pane fade" id="nav-blogpost" role="tabpanel" aria-labelledby="nav-blogpost-tab">
+    <%= render "admin-blogpost", admin_blogpost: @admin_blogpost %>
   </div>
 
 </div>
