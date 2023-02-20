@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include CurrentCart
-  before_action :set_cart
+  before_action :set_cart, :set_number_icon_cart
   # The callback which stores the current location must be added before you authenticate the user
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
@@ -31,17 +31,6 @@ class ApplicationController < ActionController::Base
   def set_subcategory
     @categories = Category.all
     @subcategories = Subcategory.all
-  end
-
-  def set_number_icon_cart
-    if @cart.line_items.count.positive?
-      @cartnumber = 0
-      all_quantities = []
-      @cart.line_items.each do |item|
-        all_quantities << item.quantity
-      end
-      @cartcontent = all_quantities.sum
-    end
   end
 
   private
