@@ -4,7 +4,6 @@ export default class extends Controller {
 
   connect() {
     // console.log("Hello from the previous price change controller!")
-
   }
 
   preview(event){
