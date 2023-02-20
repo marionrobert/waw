@@ -3,4 +3,4 @@
 <ul>Nombre de références à vendre: <%=Product.all.count%></ul>
 <ul>Nombre de références en stock: <%=Product.where("stock_quantity > 0 ").count%></ul>
 <ul>Nombre de références en promotion: <%=Product.where("discount_price_cents > 0 ").count%></ul>
-<ul>Délai moyen d'approvisionnement fournisseur: <%=Product.first.supplier_delay %></ul>
+<ul>Délai moyen d'approvisionnement fournisseur: <%=@average_supplier_delay%> jours</ul>
