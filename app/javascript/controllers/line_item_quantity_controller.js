@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="line-item-quantity"
 export default class extends Controller {
   connect() {
-    console.log("hello")
+    console.log("hello yooouuuu")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -66,24 +66,9 @@ export default class extends Controller {
     let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
     let totalPromoPrice = document.getElementById(`totalPromoPrice${event.params.itemId}`)
     let totalPrice = document.getElementById(`totalPrice${event.params.itemId}`)
-    let lineItem = document.getElementById(`lineItem${event.params.itemId}`)
 
     if (formerQuantity.innerText === "1") {
-      if (confirm("Êtes-vous sûr de vouloir supprimer cet article de votre panier ?")) {
-        let url = `/line_items/${event.params.itemId}`
-        fetch(url, {
-          method: "DELETE",
-          headers: {
-            "content-Type": "application/json",
-            "Accept": "application/json",
-            "X-CSRF-TOKEN": this.token }
-        })
-        .then(response => response.json())
-        .then(data => {
-          lineItem.style.display = "none";
-          amountCart.innerText = data.amount_cart / 100.00;
-      });
-      }
+      this.delete(event);
     }
     else {
       let url = `/line_items/removeone.${event.params.itemId}`
