@@ -64,14 +64,13 @@
     <div class="btncart",
          data-controller="panier",
          data-action="click->panier#updatePanier2">
-      <i class="fa-solid fa-cart-shopping",
-         style="color:black; font-size: 2.3vh;"></i>
-        <%if @cart.line_items.count > 0%>
+      <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.3vh;"></i>
+        <%if @cart.line_items.count.positive? %>
           <div class="circle_items_count">
             <div style="margin:-7px -3px;">
               <% cartcontent = [] %>
               <%@cart.line_items.each do |item|%>
-              <%cartcontent << item.quantity %>
+                <%cartcontent << item.quantity %>
               <%end%>
               <%=cartcontent.sum%>
             </div>
