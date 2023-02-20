@@ -13,30 +13,35 @@
          style="margin:0 auto",
          data-action="click->category#slidecategorymenu">
          <i class="fa-solid fa-bars"></i>
-      <%# <img src="http://cdn.onlinewebfonts.com/svg/img_87908.png",
-           style="border:2px solid grey;border-radius:5px;height:40px;"> %>
     </div>
     <%# ////////BOUTON HOME ///////////// %>
-    <div class="homelogo",
-         data-controller="category",
-         style="margin:0 auto",
-         data-action="mouseleave->category#homebuttonrestore">
-      <%= link_to "/" do%>
         <%if Shop.first.logo.key %>
-          <%= cl_image_tag Shop.first.logo.key, style:"max-height:8vh;max-width:100%;margin:0 auto" %>
+          <div class="homelogo",
+              data-controller="category",
+              style="margin:0 auto">
+            <%= link_to "/" do%>
+                <%= cl_image_tag Shop.first.logo.key, style:"max-height:8vh;max-width:100%;margin:0 auto" %>
+            <%end%>
+          </div>
         <%else%>
-          <i class="fa-solid fa-house btnhome",
-             style="color:black;display:flex",
-             data-controller="category",
-             data-action="mouseover->category#homebuttondeploy">
-             <span id="homebutton"
-                   class="deploy_home_icon">
-                   HOME
-             </span>
-          </i>
+          <div class="homelogo",
+              data-controller="category",
+              style="margin:0 auto",
+              data-action="mouseleave->category#homebuttonrestore">
+            <%= link_to "/" do%>
+            <i class="fa-solid fa-house btnhome",
+              style="color:black;display:flex",
+              data-controller="category",
+              data-action="mouseover->category#homebuttondeploy">
+              <span id="homebutton"
+                    class="deploy_home_icon">
+                    HOME
+              </span>
+            </i>
+          </div>
         <%end%>
       <%end%>
-    </div>
+
     <%# BOUTON BLOG %>
     <div class="blognavbar">
       <p style="display:flex;align-items:center;margin:0 auto;">
