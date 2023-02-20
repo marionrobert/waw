@@ -1,0 +1,25 @@
+
+    <%# affichage des coupons %>
+<%# <div class="container" style="min-height:100vh;margin-top:15vh;"> %>
+<div style="display:grid">
+  <div class="btn btn-primary mt-2 mb-2" >
+    <%= link_to "Créer un coupon en montant fixe", amount_off_coupon_path, style:"text-decoration:none;color:white;"%>
+  </div>
+  <div class="btn btn-primary mt-2 mb-2">
+    <%= link_to "Créer un coupon en pourcentage", percent_off_coupon_path, style:"text-decoration:none;color:white;"%>
+  </div>
+</div>
+<h1 class="mb-5" style="text-align:left">Coupons et promotions en cours</h1>
+<%if @coupons.count == 0%>
+<div style="border-top: 1px solid grey;border-bottom: 1px solid grey;">
+  <p style="margin:15vh;">Aucunes promotions ou coupons en cours</p>
+</div>
+<%end%>
+<div class="row d-flex justify-content-center" style="margin-top:5vh;">
+  <% @coupons.each do |coupon| %>
+    <% cache coupon do %>
+      <%= link_to coupon.name, coupon_path(coupon), class: "btn btn-primary mt-2 mb-2" %>
+    <%end%>
+  <% end %>
+</div>
+<%# </div> %>

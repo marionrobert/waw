@@ -1,29 +1,15 @@
-<div style="width:20%;min-height:100vh;background: rgb(147,112,219);background: rgb(147,112,219);background: linear-gradient(90deg, rgba(147,112,219,1) 95%, rgba(194,194,194,1) 98%, rgba(255,255,255,0) 100%);overflow-y: auto;">
-  <div style="font-size:20px">
-    <h3 style="text-align:center;margin:5vh;">Gestion</h3>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Synthèse</ul>
-      <%end%>
-      <%= link_to coupons_path do%>
-        <ul class="dashboardselector">Coupons & Codes promo</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Horaires et contact</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Ajouter une categorie</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Ajouter une sous-categorie</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Ajouter un produit</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Commande à traiter</ul>
-      <%end%>
-      <%=button_to products_path do%>
-        <ul class="dashboardselector">Historique des commandes</ul>
-      <%end%>
-  </div>
+<div class="dashboard-div-selectors">
+  <h3 style="text-align:center;margin:5vh;">Gestion</h3>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto">
+      <button class="dashboardselector active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><p class="dashboard_p">Synthèse</p></button>
+      <button class="dashboardselector" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><p class="dashboard_p">Coupons & Codes promo</p></button>
+      <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><p class="dashboard_p">Horaires et contact</p></button>
+      <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><p class="dashboard_p">Ajouter une categorie</p></button>
+      <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><p class="dashboard_p">Ajouter une sous-categorie</p></button>
+      <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><p class="dashboard_p">Ajouter un produit</p></button>
+      <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><p class="dashboard_p">Commande à traiter</p></button>
+      <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><p class="dashboard_p">Historique des commandes</p></button>
+    </div>
+  </nav>
 </div>

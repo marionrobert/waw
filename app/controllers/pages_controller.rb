@@ -22,6 +22,10 @@ class PagesController < ApplicationController
   end
 
   def profile
+    # ajouté mais c'est pas la bonne facon de faire, la partial ne prend pas le bon controller
+    @product = Product.new
+    @coupons = Coupon.all
+
     @order = current_user.orders.where(state: "pending").last
     @my_pending_orders = current_user.orders.where(state: "pending").order(updated_at: :desc)
     @my_paid_orders = current_user.orders.where(state: "paid").order(updated_at: :desc)
