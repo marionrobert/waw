@@ -35,6 +35,28 @@ export default class extends Controller {
           formerQuantity.classList.remove("afterchange")
         }, 4000);
       });
+  };
+
+  delete(event){
+    event.preventDefault();
+    let amountCart = document.getElementById(`amountCart`)
+    let lineItem = document.getElementById(`lineItem${event.params.itemId}`)
+
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet article de votre panier ?")) {
+      let url = `/line_items/${event.params.itemId}`
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "content-Type": "application/json",
+          "Accept": "application/json",
+          "X-CSRF-TOKEN": this.token }
+      })
+      .then(response => response.json())
+      .then(data => {
+        lineItem.style.display = "none";
+        amountCart.innerText = data.amount_cart / 100.00;
+      });
+    };
   }
 
   removeOne(event){
@@ -88,5 +110,7 @@ export default class extends Controller {
           }, 4000);
         });
       }
-  }
+  };
+
+
 }
