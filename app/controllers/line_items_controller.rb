@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: %i[add_one create]
+  before_action :set_number_icon_cart
   before_action :set_line_item, only: %i[add_one show edit update]
   skip_before_action :authenticate_user!, except: %i[index]
 
