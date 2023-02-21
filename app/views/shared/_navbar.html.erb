@@ -61,15 +61,13 @@
          data-action="click->search#displayMobileSearchInput"></i>
     </div>
     <%# /////////////////PANIER///////////////// %>
-    <div class="btncart",
-         data-controller="display-cart",
-         data-action="click->display-cart#showCart">
-      <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.3vh;"></i>
-          <div class="circle_items_count">
-            <div style="margin:-7px -3px;">
-              <%= @cartcontent%>
-            </div>
-          </div>
+    <div class="btncart", data-controller="display-cart", data-action="click->display-cart#showCart">
+      <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.9vh;"></i>
+      <% if @cart.line_items.count.positive? %>
+        <p class="circle_items_count">
+            <%= @cartcontent%>
+        </p>
+      <% end %>
     </div>
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
     <div class="profile_div"
@@ -81,9 +79,9 @@
               data-bs-target="#offcanvasNavbarLight"
               aria-controls="offcanvasNavbarLight">
         <%if current_user%>
-          <i class="fa-solid fa-user-check"></i>
+          <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
         <%else%>
-          <i class="fa-regular fa-user"></i>
+          <i class="fa-regular fa-user", style="color:black; font-size: 2.6vh;"></i>
         <%end%>
         <%# <span class="navbar-toggler-icon"></span> %>
       </button>
