@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    console.log("hellooooo")
+    // console.log("hellooooo")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
