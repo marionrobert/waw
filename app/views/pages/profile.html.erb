@@ -1,27 +1,21 @@
 <div style="width:100%;height:100%;margin-top:13vh;display:flex;">
-<<<<<<< HEAD
-  <%= render "shared/dashboard-selectors"%>
-    <div style="width:70%;margin:0 auto;">
-      <%= render "shared/dashboard-synthese"%>
-=======
   <div class="dashboard-div-selectors">
-    <h3 style="text-align:center;margin:5vh;">Gestion</h3>
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto">
-        <button class="dashboardselector nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><p class="dashboard_p">Synthèse</p></button>
-        <button class="dashboardselector nav-link" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><p class="dashboard_p">Coupons & Codes promo</p></button>
-        <button class="dashboardselector nav-link" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><p class="dashboard_p">Horaires et contact</p></button>
-        <button class="dashboardselector nav-link" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><p class="dashboard_p">Ajouter une catégorie</p></button>
-        <button class="dashboardselector nav-link" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><p class="dashboard_p">Ajouter une sous-catégorie</p></button>
-        <button class="dashboardselector nav-link" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><p class="dashboard_p">Ajouter un produit</p></button>
-        <button class="dashboardselector nav-link" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><p class="dashboard_p">Commandes à traiter</p></button>
-        <button class="dashboardselector nav-link" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><p class="dashboard_p">Historique des commandes</p></button>
-        <button class="dashboardselector nav-link" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><p class="dashboard_p">Articles de blog</p></button>
+        <button class="dashboardselector active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa-solid fa-chart-line"></i></button>
+        <button class="dashboardselector" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><i class="fa-solid fa-tags"></i></button>
+        <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
+        <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><i class="fa-regular fa-folder-open"></i></button>
+        <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><i class="fa-solid fa-folder-tree"></i></button>
+        <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
+        <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
+        <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
+        <button class="dashboardselector" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><i class="fa-regular fa-newspaper"></i></button>
       </div>
     </nav>
   </div>
-  <div style="width:70%;margin:0 auto;border:1px solid green">
-    <div class="tab-content" id="nav-tabContent" style="border:1px solid red;height:auto;overflow:auto">
+  <div style="width:70%;margin:0 auto;border:1px solid green;min-height:100vh;padding-top:13vh;">
+    <div class="tab-content" id="nav-tabContent" style="height:auto;overflow:auto">
 
     <%# Synthèse %>
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -35,7 +29,7 @@
 
     <%# Horaires et contact %>
       <div class="tab-pane fade" id="nav-Horaires-contact" role="tabpanel" aria-labelledby="nav-Horaires-contact-tab">
-        <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
+        <%= render "shopdata", shop: @shop %>
       </div>
 
     <%# Ajouter une categorie %>
@@ -61,7 +55,6 @@
           <%= render "my-paid-orders", my_paid_orders: @my_paid_orders %>
         <%end%>
       </div>
-
     <%# Historique des commandes %>
       <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
         <%if current_user.admin == true %>
@@ -76,7 +69,6 @@
         <%= render "admin-blogpost", admin_blogpost: @admin_blogpost %>
       </div>
 
->>>>>>> 9863d7f555baf87165abb6ebe8a1e36ccda3b59e
     </div>
   </div>
 </div>
