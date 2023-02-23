@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart
+  before_action :set_number_icon_cart
   before_action :destroy_pending_orders, only: %i[create]
   before_action :set_stock_delay, only: %i[create]
 
@@ -25,7 +26,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-
     # call private methods: set_stock_delay and destroy_pending_orders
 
     # pour l'achat immédiat d'un seul article sans création de panier (il faudra faire un if /else --> passage par panier ou pas)

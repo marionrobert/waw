@@ -78,10 +78,6 @@
   cursor: pointer;
 }
 
-.btncart:hover {
-
-}
-
 .btnhome {
   transition-delay: 50ms;
   transition-duration: 400ms;
@@ -96,11 +92,12 @@
   font-size: 10px;
   background:rgba(254, 169, 1, 1);
   position: absolute;
+  top: 3px;
   border-radius:50%;
-  padding:8px;
   height: 15px;
   width: 15px;
-  top:0;
+  text-align: center;
+  margin-left: 2px;
 }
 
 .nav {
@@ -108,3 +105,5 @@
   border-style: none;
   text-align: center;
 }
+
+// margin:-6px -6px;

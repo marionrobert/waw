@@ -2,7 +2,8 @@ class CartsController < ApplicationController
   include CurrentCart
   rescue_from ActiveRecord::RecordNotFound, with: :cart_not_found
   # Partie de la video tuto 2 ^
-  before_action :set_cart, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: %i[show edit update destroy]
+  before_action :set_number_icon_cart
   skip_before_action :authenticate_user!, except: %i[index]
 
 
