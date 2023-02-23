@@ -1,0 +1,24 @@
+<nav>
+  <div class="nav nav-tabs" style="display:flex;justify-content:space-evenly" id="nav-tab" role="tablist">
+    <button class="tab-link active" id="nav-shopdata-tab" data-bs-toggle="tab" data-bs-target="#nav-shopdata" type="button" role="tab" aria-controls="nav-shopdata" aria-selected="true">Données entreprise</button>
+    <button class="tab-link" id="nav-personnalisation-pub-tab" data-bs-toggle="tab" data-bs-target="#nav-personnalisation-pub" type="button" role="tab" aria-controls="nav-personnalisation-pub" aria-selected="false">Personnalisation & publicitées</button>
+    <button class="tab-link" id="nav-horaires-tab" data-bs-toggle="tab" data-bs-target="#nav-horaires" type="button" role="tab" aria-controls="nav-horaires" aria-selected="false">Horaires</button>
+  </div>
+</nav>
+
+<div>
+<%# donnees entreprise %>
+  <div class="tab-pane fade show active" id="nav-shopdata" role="tabpanel" aria-labelledby="nav-shopdata-tab">
+    <%= render "form-shop-data", shop: @shop %>
+  </div>
+
+
+<%# Personnalisation et pub %>
+  <div class="tab-pane fade" id="nav-personnalisation-pub" role="tabpanel" aria-labelledby="nav-personnalisation-pub-tab">
+    <%= render "form-shop-personnalisation-pub", shop: @shop %>
+  </div>
+<%# Horaires %>
+  <div class="tab-pane fade" id="nav-horaires" role="tabpanel" aria-labelledby="nav-horaires-tab">
+    <%= render "form-shop-horaires", shop: @shop %>
+  </div>
+</div>

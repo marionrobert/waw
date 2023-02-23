@@ -12,6 +12,46 @@
 @import "pages/index";
 
 
+.dashboardselector {
+  display: flex;
+  height:60px;
+  justify-content: center;
+  width: 100%;
+  overflow:hidden;
+  transition: 1500ms;
+  text-align: left;
+  padding:20px 20px 20px 20px;
+  font-weight: bold;
+  color:white;
+}
+
+.dashboardselector:hover {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+.dashboardselector.active {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+.dashboard-div-selectors {
+  z-index: 99999;
+  overflow-y: scroll;
+  position:fixed;
+  color:white;
+  font-size:20px;
+  overflow: hidden;
+  width:60px;
+  min-height:100vh;
+  background: rgb(0,0,0);
+  overflow-anchor: none;
+}
+
 button {
   background:rgba(0,0,0,0);
   margin:0;
@@ -67,10 +107,10 @@ button {
 }
 
 .tab-link {
-  color: red;
-  font-size: 40px;
-  font-weight:600;
-  background-color: transparent;
+  color: rgb(0,0,0);
+  font-size: 30px;
+  font-weight:bolder;
+  background-color: rgba(0,0,0,0);
   border-style: none;
 }
 

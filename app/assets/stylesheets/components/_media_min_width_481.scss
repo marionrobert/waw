@@ -84,35 +84,6 @@
     margin: 0 auto;
   }
 
-  .dashboardselector {
-    width: 100%;
-    overflow:hidden;
-    transition: 1500ms;
-    text-align: left;
-    padding:20px 300px 20px 20px;
-    font-weight: bold;
-    color:white;
-  }
-
-  .dashboardselector:hover {
-    overflow:hidden;
-    transform: translateX(50px);
-    transition: 200ms;
-    background:rgba(255,255,255,1);
-    color:black;
-  }
-
-  .dashboard-div-selectors {
-    font-size:20px;
-    overflow: hidden;
-    width:20vw;
-    min-height:100vh;
-    background: rgb(147,112,219);
-    background: rgb(147,112,219);
-    background: linear-gradient(90deg, rgba(147,112,219,1) 95%, rgba(194,194,194,1) 98%, rgba(255,255,255,0) 100%);
-    overflow-anchor: none;
-  }
-
   .oddcategory {
     box-shadow: 5px 5px 10px grey;
     border-radius: 10px;

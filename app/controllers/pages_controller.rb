@@ -33,6 +33,11 @@ class PagesController < ApplicationController
     @product = Product.new
     @coupons = Coupon.all
 
+
+
+    #shop
+    @shop = Shop.first
+
     @order = current_user.orders.where(state: "pending").last
     @my_pending_orders = current_user.orders.where(state: "pending").order(updated_at: :desc)
     @my_paid_orders = current_user.orders.where(state: "paid").order(updated_at: :desc)
