@@ -1,5 +1,5 @@
-<div class="container" , style="margin-top:10vh;">
-  <h1 class="mt-5 mb-4 text-center">Gestion des stocks</h1>
+<div class="container">
+  <h1 class="mb-4 text-center">Gestion des stocks</h1>
       <% @products.each_with_index do |product, index| %>
       <table style="width:100%;margin-bottom:5vh;position:relative;">
         <tbody colspan="3" data-controller="preview-price-change" style="border:none;border-bottom:3px solid rgba(200,200,200,0.7)">
@@ -66,13 +66,13 @@
               <%end%>
             </td>
             <td colspan="1" style="width:26%;border:none;vertical-align:baseline">
-              <%#= product.stock_quantity %><br>
-
               <%= simple_form_for(product, html: { style: "" }) do |product| %>
                 <%= product.error_notification %>
                 <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
                 <div class="form-inputs" >
                   <%= product.input :stock_quantity, input_html: { min: '0'}, label: "Quantité en stock", label_html:{ class:"labelstockmobile" } %>
+                  <%# Pas terrible cette ligne <p> %>
+                  <p style="font-size: 12px;color:rgba(0,0,0,0)">.</p>
                 </div>
                   <div class="form-actions" style="text-align:center">
                   <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>

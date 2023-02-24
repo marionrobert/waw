@@ -55,26 +55,33 @@
     <div style="display:flex">
       <div class="catwrapperhomepage">
         <% @categories.each_with_index do |category, index| %>
+          <%=link_to category_path(category) do%>
             <% if index.odd? %>
               <div class="oddcategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
                 <h3 class="catvignettename"><%= category.name %></h3>
               </div>
             <% end%>
           <%end%>
+        <%end%>
       </div>
     </div>
     <div style="display:flex">
       <div class="catwrapperhomepage">
         <% @categories.each_with_index do |category, index| %>
+          <%=link_to category_path(category) do%>
             <% if index.even? %>
               <div class="evencategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
                 <h3 class="catvignettename"><%= category.name %></h3>
               </div>
             <% end%>
           <%end%>
+        <%end%>
       </div>
     </div>
   </div>
+
+
+
 
   <div style="margin-bottom:5vh;">
     <h2 class="carrousselh2">Découvrez les derniers articles publiés !</h1>

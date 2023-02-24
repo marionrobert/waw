@@ -31,10 +31,19 @@ class PagesController < ApplicationController
     @product = Product.new
     @coupons = Coupon.all
 
-
+    #blogpost
+    @blogposts = Blogpost.all
 
     #shop
     @shop = Shop.first
+
+    # stockmanager
+    @products = Product.all
+
+
+    #category formulaire de creation
+    @category = Category.new
+
 
     @order = current_user.orders.where(state: "pending").last
     # orders for each client

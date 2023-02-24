@@ -7,14 +7,15 @@
         <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
         <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><i class="fa-regular fa-folder-open"></i></button>
         <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><i class="fa-solid fa-folder-tree"></i></button>
-        <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
+        <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cube"></i></button>
+        <button class="dashboardselector" id="nav-stock-tab" data-bs-toggle="tab" data-bs-target="#nav-stock" type="button" role="tab" aria-controls="nav-stock" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
         <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
         <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
         <button class="dashboardselector" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><i class="fa-regular fa-newspaper"></i></button>
       </div>
     </nav>
   </div>
-  <div style="width:70%;margin:0 auto;border:1px solid green;min-height:100vh;padding-top:13vh;">
+  <div style="width:70%;margin:0 auto;min-height:100vh;padding-top:13vh;">
     <div class="tab-content" id="nav-tabContent" style="height:auto;overflow:auto">
 
     <%# Synthèse %>
@@ -34,17 +35,22 @@
 
     <%# Ajouter une categorie %>
       <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
-        <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
+        <%= render "admin-categories" %>
       </div>
 
     <%# Ajouter une sous-categorie %>
       <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
-        <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
+        <%= render "admin-subcategories" %>
       </div>
 
     <%# Ajouter un produit %>
       <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
         <%= render "admin-product-new", admin_product_new: @admin_product_new %>
+      </div>
+
+    <%# Gestion des stocks %>
+      <div class="tab-pane fade" id="nav-stock" role="tabpanel" aria-labelledby="nav-stock-tab">
+        <%= render "stockmanagement"%>
       </div>
 
     <%# Commande à traiter %>
