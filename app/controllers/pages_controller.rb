@@ -43,6 +43,7 @@ class PagesController < ApplicationController
 
     #category formulaire de creation
     @category = Category.new
+    @categories = Category.all
 
 
     @order = current_user.orders.where(state: "pending").last

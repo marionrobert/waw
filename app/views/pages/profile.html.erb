@@ -34,12 +34,12 @@
 
   <%# Ajouter une categorie %>
     <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
-      <%= render "admin-categories" %>
+      <%= render "admin-categories", category: @category, categories: @categories %>
     </div>
 
   <%# Ajouter une sous-categorie %>
     <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
-      <%= render "admin-subcategories" %>
+      <%= render "admin-subcategories", category: @category %>
     </div>
 
   <%# Ajouter un produit %>

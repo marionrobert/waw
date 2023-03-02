@@ -2,16 +2,16 @@
 <div class="container", style="background-color:<%=Shop.first.themebgcolor%>;">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-6 col-lg-4", style="padding:20px;background-color:rgba(130,130,130,0.3);border-radius:5px;">
-      <%= simple_form_for(@category) do |category| %>
-        <%= category.error_notification %>
-        <%= category.error_notification message: category.object.errors[:base].to_sentence if category.object.errors[:base].present? %>
+      <%= simple_form_for(category) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <h3 style="text-align:center">Création d'une nouvelle categorie</h3>
         <div class="form-inputs" >
-          <%= category.input :name, placeholder: "Nom de la nouvelle categorie", label_html:{ class:"labelcolor" }%>
-          <%= category.input :photos, as: :file, label: "Photo d'illustration", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
+          <%= f.input :name, placeholder: "Nom de la nouvelle categorie", label_html:{ class:"labelcolor" }%>
+          <%= f.input :photos, as: :file, label: "Photo d'illustration", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
         </div>
         <div class="form-actions d-flex justify-content-center">
-          <%= category.button :submit, class:"btn btn-success", value:"Ajouter une categorie"%>
+          <%= f.button :submit, class:"btn btn-success", value:"Ajouter une categorie"%>
         </div>
         <% end %>
     </div>
@@ -21,11 +21,17 @@
 <div class="container" style="margin-bottom:15vh;">
   <h2 style="padding-top:100px;text-align:center;margin-bottom:30px;">Catégories existantes </h2>
   <div class="wrapperhomepage">
-    <% @categories.each_with_index do |category, index| %>
+    <% categories.each_with_index do |category, index| %>
       <div style="display:grid">
-        <div class="card-category-index my-4 mx-2" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
-          <h3 class="catvignettename"><%= category.name %></h3>
-        </div>
+        <% if category.photos.first %>
+            <div class="card-category-index my-4 mx-2" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
+              <h3 class="catvignettename"><%= category.name %></h3>
+            </div>
+        <% else %>
+            <div class="card-category-index my-4 mx-2" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
+              <h3 class="catvignettename"><%= category.name %></h3>
+            </div>
+        <% end %>
         <div style="display:flex;justify-content:space-evenly">
           <%= link_to category, data: { turbo_method: :delete, turbo_confirm: "!!! Attention !!! - la suppression de cette categorie entrainera la suppression définitive de toute les sous-categories associés ainsi que des produits liés à ces sous-categories"} do %>
             <i class="fa-solid fa-circle-xmark" style="color:red;font-size:30px"></i>

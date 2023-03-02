@@ -4,9 +4,15 @@
   <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
     <% @categories.each_with_index do |category, index| %>
         <%=link_to category_path(category) do%>
-        <div class="card-category-index my-4 mx-2" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
-          <h3 class="catvignettename"><%= category.name %></h3>
-        </div>
+          <% if category.photos.first %>
+            <div class="card-category-index my-4 mx-2" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
+              <h3 class="catvignettename"><%= category.name %></h3>
+            </div>
+          <% else %>
+            <div class="card-category-index my-4 mx-2" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
+              <h3 class="catvignettename"><%= category.name %></h3>
+            </div>
+          <% end %>
         <%end%>
       <%end%>
   </div>
