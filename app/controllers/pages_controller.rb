@@ -45,6 +45,8 @@ class PagesController < ApplicationController
     @category = Category.new
     @categories = Category.all
 
+    @subcategory = Subcategory.new
+
 
     @order = current_user.orders.where(state: "pending").last
     # orders for each client
