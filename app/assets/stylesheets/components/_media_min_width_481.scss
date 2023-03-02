@@ -15,11 +15,41 @@
     margin:0 auto
   }
 
+  .marginfirstbuttondashboard {
+    margin-top:20vh;
+  }
+
+  .dashboardselector {
+    display: flex;
+    height:60px;
+    justify-content: center;
+    width: 100%;
+    overflow:hidden;
+    transition: 1500ms;
+    text-align: left;
+    padding:20px 20px 20px 20px;
+    font-weight: bold;
+    color:white;
+  }
+
   .animationpub {
     margin:0;
     padding:0;
     position:relative;
     animation: 20s linear 0s infinite running slidein;
+  }
+
+  .dashboard-div-selectors {
+    z-index: 10;
+    overflow-y: scroll;
+    position:fixed;
+    color:white;
+    font-size:20px;
+    overflow: hidden;
+    width:60px;
+    min-height:100vh;
+    background: rgb(0,0,0);
+    overflow-anchor: none;
   }
 
   .sign_up_form {

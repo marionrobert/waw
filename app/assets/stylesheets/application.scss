@@ -11,18 +11,12 @@
 @import "components/index";
 @import "pages/index";
 
+tr {
+  border:none;
+}
 
-.dashboardselector {
-  display: flex;
-  height:60px;
-  justify-content: center;
-  width: 100%;
-  overflow:hidden;
-  transition: 1500ms;
-  text-align: left;
-  padding:20px 20px 20px 20px;
-  font-weight: bold;
-  color:white;
+td {
+  border:none;
 }
 
 .dashboardselector:hover {
@@ -37,19 +31,6 @@
   transition: 200ms;
   background:rgba(255,255,255,1);
   color:black;
-}
-
-.dashboard-div-selectors {
-  z-index: 99999;
-  overflow-y: scroll;
-  position:fixed;
-  color:white;
-  font-size:20px;
-  overflow: hidden;
-  width:60px;
-  min-height:100vh;
-  background: rgb(0,0,0);
-  overflow-anchor: none;
 }
 
 button {

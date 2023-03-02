@@ -1,1 +1,54 @@
-<h3>Ici la creation et suppresion des sous categories</h3>
+<div style="overflow:auto;
+            margin-top:15vh;">
+  <div style="display:flex;
+              min-width:400px;
+              gap:50px;
+              height:60vh;">
+    <% Category.all.each do |category|%>
+      <div>
+        <ul style="color:black;
+                   text-align:center">
+          <b><i><%=category.name%></i></b></ul>
+          <div style="overflow:auto;
+                      height:100px;
+                      margin-bottom:5vh;
+                      background:rgb(206, 208, 252)">
+            <% category.subcategories.each do |subcategory| %>
+              <div style="display:flex;">
+                <div style="width:60%">
+                  <%= subcategory.name %>
+                </div>
+                <div style="width:40%;display:flex;justify-content:space-evenly">
+                  <%#= link_to subcategory, data: { turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer définitivement cette sous-categorie et les produits associés?"} do %>
+                  <i class="fa-solid fa-circle-xmark" style="color:red"></i>
+                  <%#end%>
+                  <%#= link_to edit_category_subcategory_path(subcategory) do %>
+                  <i class="fa-solid fa-eraser" style="color:blue"></i>
+                </div>
+                  <%#end%>
+              </div>
+            <% end %>
+          </div>
+          <div>
+            <div style="padding:5px;
+                        background:rgba(206, 208, 252, 0.7);
+                        border-radius:2px;">
+              <%= simple_form_for(@category) do |subcategory| %>
+                <%= subcategory.error_notification %>
+                <%= subcategory.error_notification message: subcategory.object.errors[:base].to_sentence if subcategory.object.errors[:base].present? %>
+                <h5 style="text-align:center">Créer nouvelle sous-categorie</h5>
+                <div class="form-inputs" >
+                  <%= subcategory.input :name, placeholder: "Nom de la nouvelle sous-categorie", label_html:{ class:"labelcolor" }%>
+                  <%= subcategory.input :photos, as: :file, label: "Photo d'illustration", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
+                </div>
+                <div class="form-actions d-flex justify-content-center">
+                <%# PROBLEME ACTUEL, CA CREE UNE CATEGORY ET NON PAS UNE SOUS CATEGORIE %>
+                  <%= subcategory.button :submit, class:"btn btn-success", value:"Ajouter une sous-categorie"%>
+                </div>
+                <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

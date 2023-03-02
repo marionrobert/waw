@@ -74,9 +74,39 @@
     display:none;
   }
 
+  .marginfirstbuttondashboard {
+    margin-top:20vh;
+  }
+
+  .dashboardselector {
+    display: flex;
+    height:40px;
+    justify-content: center;
+    width: 100%;
+    overflow:hidden;
+    transition: 1500ms;
+    text-align: left;
+    padding:15px 15px 15px 15px;
+    font-weight: bold;
+    color:white;
+  }
+
   .producthomecontainer {
     // width:9100;
     // margin: 0 auto;
+  }
+
+  .dashboard-div-selectors {
+    z-index: 10;
+    overflow-y: scroll;
+    position:fixed;
+    color:white;
+    font-size:15px;
+    overflow: hidden;
+    width:40px;
+    min-height:100vh;
+    background: rgb(0,0,0);
+    overflow-anchor: none;
   }
 
   .catwrapperoddevencontent {
