@@ -1,24 +1,86 @@
+
 <nav class="mb-5">
-  <div class="nav nav-tabs" style="display:flex;justify-content:space-evenly" id="nav-tab" role="tablist">
-    <button class="tab-link active" id="nav-shopdata-tab" data-bs-toggle="tab" data-bs-target="#nav-shopdata" type="button" role="tab" aria-controls="nav-shopdata" aria-selected="true">Données entreprise</button>
-    <button class="tab-link" id="nav-personnalisation-pub-tab" data-bs-toggle="tab" data-bs-target="#nav-personnalisation-pub" type="button" role="tab" aria-controls="nav-personnalisation-pub" aria-selected="false">Personnalisation & publicitées</button>
-    <button class="tab-link" id="nav-horaires-tab" data-bs-toggle="tab" data-bs-target="#nav-horaires" type="button" role="tab" aria-controls="nav-horaires" aria-selected="false">Horaires</button>
+  <div style="display:flex;justify-content:space-evenly">
+    <button id="btn_shop_data" class="navtabbtn underline p-2" data-controller="dashboard", data-action="click->dashboard#btnshopdata">Données entreprise</button>
+    <button id="btn_shop_personnalisation" class="navtabbtn p-2" data-controller="dashboard", data-action="click->dashboard#btnshopperso">Personnalisation & publicitées</button>
+    <button id="btn_shop_opening_hours" class="navtabbtn p-2" data-controller="dashboard", data-action="click->dashboard#btnshopopening">Horaires</button>
   </div>
 </nav>
-
-<div class="tab-content" id="nav-tabContent" style="height:auto;overflow:auto;width:50%;margin:0 auto">
-<%# donnees entreprise %>
-  <div class="tab-pane fade show active" id="nav-shopdata" role="tabpanel" aria-labelledby="nav-shopdata-tab">
-    <%= render "form-shop-data", shop: @shop %>
-  </div>
-
-
-<%# Personnalisation et pub %>
-  <div class="tab-pane fade" id="nav-personnalisation-pub" role="tabpanel" aria-labelledby="nav-personnalisation-pub-tab">
-    <%= render "form-shop-personnalisation-pub", shop: @shop %>
-  </div>
-<%# Horaires %>
-  <div class="tab-pane fade" id="nav-horaires" role="tabpanel" aria-labelledby="nav-horaires-tab" style="display: flex;justify-content: center;">
-    <%= render "form-shop-horaires", shop: @shop %>
-  </div>
+<div>
+  <%= simple_form_for(@shop) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <div id="shop_data_form">
+        <%= f.input :name, label: "Nom de l'entreprise", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :description, label: "Description de votre magasin", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :address, label: "Adresse de votre magasin", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :phone, label: "Téléphone", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :siren, label: "Numéro de SIREN", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :juridicform, label: "Forme juridique", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :capitalisation, label: "Capital de (en euros)", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :localregister, label: "Ville d'enregistrement au greffe", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :email, label: "email de contact", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :uetva, label: "N° de TVA intracomunnautaire ", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :president, label: "Nom et prenom du directeur général", label_html:{ class:"labelcolor" }  %>
+      </div>
+      <div id="shop_personnalisation_form" class="hidden">
+        <%= f.input :logo, as: :file, label: "Logo barre de navigation", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :card, collection: Shop::CARD, label:"Format carte produit", label_html:{ class:"labelcolor" } %>
+        <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :leftbodybanner, as: :file, label: "Bannière évènement lateral gauche", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :rightbodybanner, as: :file, label: "Bannière évènement lateral droite", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :footer, as: :file, label: "Pied de page", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :themebgcolor, as: :color, input_html: { style:"width:200px;height:150px" }, label: "Couleur d'arrière-plan", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :themefont, collection: Shop::THEMEFONT,label: "Police d'écriture", label_html:{ class:"labelcolor" }  %>
+        <%= f.input :bannerpub, label: "Bandeau Publicitaire (si champ vide : aucun bandeau)", label_html:{ class:"labelcolor" }  %>
+      </div>
+      <div id="shop_opening_hours" class="hidden">
+        <div class="d-flex justify-content-center">
+          <table class="schedule-editor labelcolor">
+            <thead>
+              <tr>
+                <th class= "text-center">Jour</th>
+                <th class= "text-center">Matin</th>
+                <th class= "text-center">Matin</th>
+                <th class= "text-center">Après-midi</th>
+                <th class= "text-center">Après-midi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% weekdays.each do |day| %>
+                <%= f.simple_fields_for :schedules, f.object.schedules.find_or_initialize_by(weekday: day[:value]) do |sched| %>
+                  <tr>
+                    <td>
+                      <%= sched.hidden_field :weekday %>
+                      <div class="checkbox m-3">
+                        <%#= sched.input :_destroy, ({checked: sched.object.persisted?} ? :false : :true) %>
+                        <%= sched.label :_destroy, day[:label], style:"color:black"%>
+                      </div>
+                    </td>
+                    <td>
+                      <%= sched.input :am_opens_at, class: "visually-hidden", label: "Ouvre à", label_html:{ class:"labelcolor" }  %>
+                    </td>
+                    <td>
+                      <%= sched.input :am_closes_at, class: "visually-hidden", label: "Ferme à", label_html:{ class:"labelcolor" }  %>
+                    </td>
+                    <td>
+                      <%= sched.input :pm_opens_at, class: "visually-hidden", label: "Ouvre à", label_html:{ class:"labelcolor" }  %>
+                    </td>
+                    <td>
+                      <%= sched.input :pm_closes_at, class: "visually-hidden", label: "Ferme à", label_html:{ class:"labelcolor" }  %>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, class:"btn btn-dark m-5", value:"Valider"%>
+    </div>
+  <%end%>
 </div>

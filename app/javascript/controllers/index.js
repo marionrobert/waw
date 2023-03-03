@@ -37,5 +37,8 @@ application.register("search", SearchController)
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
 
+import DashboardController from "./dashboard_controller"
+application.register("dashboard", DashboardController)
+
 import ShareController from "./share_controller"
 application.register("share", ShareController)

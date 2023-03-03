@@ -11,6 +11,22 @@
 @import "components/index";
 @import "pages/index";
 
+.navtabbtn {
+  font-size:x-large;
+  font-weight:bold;
+  &:hover {
+    color:grey;
+  }
+}
+
+.hidden {
+  display:none;
+}
+
+.underline {
+  border-bottom:4px solid black;
+}
+
 tr {
   border:none;
 }
