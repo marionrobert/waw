@@ -1,59 +1,50 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  btnshopdata() {
-    const btnshopdata = document.getElementById("btn_shop_data")
-    const btnshopperso = document.getElementById("btn_shop_personnalisation")
-    const btnshopopening = document.getElementById("btn_shop_opening_hours")
+  static targets = ["dataForm", "customizationForm", "openingHoursForm", "btnDataForm", "btnCustomizationForm", "btnOpeningHoursForm"]
 
-    const datashop = document.getElementById("shop_data_form")
-    const shopperso = document.getElementById("shop_personnalisation_form")
-    const shopopening = document.getElementById("shop_opening_hours")
+  connect() {
+    console.log("test avec targets pour les btns")
+    // console.log(this.dataFormTarget)
+    // console.log(this.customizationFormTarget)
+    // console.log(this.openingHoursFormTarget)
+    console.log(this.btnDataFormTarget)
+    console.log(this.btnCustomizationFormTarget)
+    console.log(this.btnOpeningHoursFormTarget)
+  }
 
-    shopperso.classList.add("hidden")
-    shopopening.classList.add("hidden")
-    datashop.classList.remove("hidden")
+  display_form_shop_data() {
 
-    btnshopopening.classList.remove("underline")
-    btnshopperso.classList.remove("underline")
-    btnshopdata.classList.add("underline")
+    this.customizationFormTarget.classList.add("hidden")
+    this.openingHoursFormTarget.classList.add("hidden")
+    this.dataFormTarget.classList.remove("hidden")
+
+    this.btnOpeningHoursFormTarget.classList.remove("underline")
+    this.btnCustomizationFormTarget.classList.remove("underline")
+    this.btnDataFormTarget.classList.add("underline")
 
   }
 
-  btnshopperso(){
-    const btnshopdata = document.getElementById("btn_shop_data")
-    const btnshopperso = document.getElementById("btn_shop_personnalisation")
-    const btnshopopening = document.getElementById("btn_shop_opening_hours")
+  display_form_customization_and_adv(){
 
-    const datashop = document.getElementById("shop_data_form")
-    const shopperso = document.getElementById("shop_personnalisation_form")
-    const shopopening = document.getElementById("shop_opening_hours")
+    this.dataFormTarget.classList.add("hidden")
+    this.openingHoursFormTarget.classList.add("hidden")
+    this.customizationFormTarget.classList.remove("hidden")
 
-    datashop.classList.add("hidden")
-    shopopening.classList.add("hidden")
-    shopperso.classList.remove("hidden")
-
-    btnshopdata.classList.remove("underline")
-    btnshopopening.classList.remove("underline")
-    btnshopperso.classList.add("underline")
+    this.btnDataFormTarget.classList.remove("underline")
+    this.btnOpeningHoursFormTarget.classList.remove("underline")
+    this.btnCustomizationFormTarget.classList.add("underline")
 
   }
 
-  btnshopopening(){
-    const btnshopdata = document.getElementById("btn_shop_data")
-    const btnshopperso = document.getElementById("btn_shop_personnalisation")
-    const btnshopopening = document.getElementById("btn_shop_opening_hours")
+  display_form_opening_hours(){
 
-    const datashop = document.getElementById("shop_data_form")
-    const shopperso = document.getElementById("shop_personnalisation_form")
-    const shopopening = document.getElementById("shop_opening_hours")
+    this.openingHoursFormTarget.classList.remove("hidden")
+    this.customizationFormTarget.classList.add("hidden")
+    this.dataFormTarget.classList.add("hidden")
 
-    shopopening.classList.remove("hidden")
-    shopperso.classList.add("hidden")
-    datashop.classList.add("hidden")
-
-    btnshopdata.classList.remove("underline")
-    btnshopperso.classList.remove("underline")
-    btnshopopening.classList.add("underline")
+    this.btnDataFormTarget.classList.remove("underline")
+    this.btnCustomizationFormTarget.classList.remove("underline")
+    this.btnOpeningHoursFormTarget.classList.add("underline")
   }
 }

@@ -1,9 +1,8 @@
-
 <nav class="mb-5">
   <div style="display:flex;justify-content:space-evenly">
-    <button id="btn_shop_data" class="navtabbtn underline p-2" data-controller="dashboard", data-action="click->dashboard#btnshopdata">Données entreprise</button>
-    <button id="btn_shop_personnalisation" class="navtabbtn p-2" data-controller="dashboard", data-action="click->dashboard#btnshopperso">Personnalisation & publicitées</button>
-    <button id="btn_shop_opening_hours" class="navtabbtn p-2" data-controller="dashboard", data-action="click->dashboard#btnshopopening">Horaires</button>
+    <button data-dashboard-target="btnDataForm" class="navtabbtn underline p-2" data-action="click->dashboard#display_form_shop_data">Données entreprise</button>
+    <button data-dashboard-target="btnCustomizationForm" class="navtabbtn p-2" data-action="click->dashboard#display_form_customization_and_adv">Personnalisation & publicitées</button>
+    <button data-dashboard-target="btnOpeningHoursForm" class="navtabbtn p-2" data-action="click->dashboard#display_form_opening_hours">Horaires</button>
   </div>
 </nav>
 <div>
@@ -11,7 +10,7 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
-      <div id="shop_data_form">
+      <div data-dashboard-target="dataForm">
         <%= f.input :name, label: "Nom de l'entreprise", label_html:{ class:"labelcolor" }  %>
         <%= f.input :description, label: "Description de votre magasin", label_html:{ class:"labelcolor" }  %>
         <%= f.input :address, label: "Adresse de votre magasin", label_html:{ class:"labelcolor" }  %>
@@ -24,7 +23,7 @@
         <%= f.input :uetva, label: "N° de TVA intracomunnautaire ", label_html:{ class:"labelcolor" }  %>
         <%= f.input :president, label: "Nom et prenom du directeur général", label_html:{ class:"labelcolor" }  %>
       </div>
-      <div id="shop_personnalisation_form" class="hidden">
+      <div data-dashboard-target="customizationForm" class="hidden">
         <%= f.input :logo, as: :file, label: "Logo barre de navigation", label_html:{ class:"labelcolor" }  %>
         <%= f.input :card, collection: Shop::CARD, label:"Format carte produit", label_html:{ class:"labelcolor" } %>
         <%= f.input :banner, as: :file, label: "Bannière", label_html:{ class:"labelcolor" }  %>
@@ -36,7 +35,7 @@
         <%= f.input :themefont, collection: Shop::THEMEFONT,label: "Police d'écriture", label_html:{ class:"labelcolor" }  %>
         <%= f.input :bannerpub, label: "Bandeau Publicitaire (si champ vide : aucun bandeau)", label_html:{ class:"labelcolor" }  %>
       </div>
-      <div id="shop_opening_hours" class="hidden">
+      <div data-dashboard-target="openingHoursForm" class="hidden">
         <div class="d-flex justify-content-center">
           <table class="schedule-editor labelcolor">
             <thead>
