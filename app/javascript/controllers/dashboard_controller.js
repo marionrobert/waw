@@ -4,13 +4,7 @@ export default class extends Controller {
   static targets = ["dataForm", "customizationForm", "openingHoursForm", "btnDataForm", "btnCustomizationForm", "btnOpeningHoursForm"]
 
   connect() {
-    console.log("test avec targets pour les btns")
-    // console.log(this.dataFormTarget)
-    // console.log(this.customizationFormTarget)
-    // console.log(this.openingHoursFormTarget)
-    console.log(this.btnDataFormTarget)
-    console.log(this.btnCustomizationFormTarget)
-    console.log(this.btnOpeningHoursFormTarget)
+    // console.log("test avec targets pour les btns")
   }
 
   display_form_shop_data() {
