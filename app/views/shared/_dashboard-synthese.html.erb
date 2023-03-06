@@ -1,0 +1,94 @@
+<div style="min-height:100vh;">
+  <div style="text-align:left;font-style:italic;">
+    <%if current_user.first_name == nil %>
+      <h3 class="pt-2">Bienvenue <%= current_user.email %></h3>
+    <%elsif current_user.first_name != nil%>
+      <h3 class="pt-2">Bienvenue <%= current_user.first_name %></h3>
+    <%else%>
+      <h3 class="pt-2">Bienvenue</h3>
+    <%end%>
+  </div>
+
+  <div class="global_stat_circles_area">
+    <div class="statcircle">
+    <h3 class="circlestath3"><%= @admin_paid_orders.count %></h3>
+      <p class="circlestatp">
+        <%= @admin_paid_orders.count > 1 ? "Commandes en cours" : "Commande en cours" %>
+      </p>
+    </div>
+    <div class="statcircle">
+      <h3 class="circlestath3"><%= @admin_delivered_orders.count %></h3>
+      <p class="circlestatp">
+        <%= @admin_delivered_orders.count > 1 ? "Commandes terminées" : "Commande terminée" %>
+      </p>
+    </div>
+    <div class="statcircle">
+      <h3 class="circlestath3"><%= @turnover.sum</h3> %>
+      <p class="circlestatp">€ TTC de C.A généré</p>
+    </div>
+  </div>
+
+
+
+  <%# ENSEMBLE DES RENDER %>
+
+
+
+  <div class="tab-content" id="nav-tabContent" style="height:auto;overflow:auto">
+
+  <%# Synthèse %>
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <%= render "synthese", synthese: @synthese %>
+    </div>
+
+  <%# Coupons & Codes promo %>
+    <div class="tab-pane fade" id="nav-coupons-promo" role="tabpanel" aria-labelledby="nav-coupons-promo-tab">
+      <%= render "admin-coupons-promos", admin_coupons_promos: @admin_coupons_promos %>
+    </div>
+
+  <%# Horaires et contact %>
+    <div class="tab-pane fade" id="nav-Horaires-contact" role="tabpanel" aria-labelledby="nav-Horaires-contact-tab">
+      <%= render "shopdata"%>
+    </div>
+
+  <%# Ajouter une categorie %>
+    <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
+      <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
+    </div>
+
+  <%# Ajouter une sous-categorie %>
+    <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
+      <%#= render "XXXXX", XX_XXX_XXXX: @XX_XXX_XXXX %>
+    </div>
+
+  <%# Ajouter un produit %>
+    <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
+      <%= render "admin-product-new", admin_product_new: @admin_product_new %>
+    </div>
+
+  <%# Commande à traiter %>
+    <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+      <%if current_user.admin == true %>
+        <%= render "admin-paid-orders", admin_paid_orders: @admin_paid_orders %>
+      <%else%>
+        <%= render "my-paid-orders", my_paid_orders: @my_paid_orders %>
+      <%end%>
+    </div>
+
+  <%# Historique des commandes %>
+    <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
+      <%if current_user.admin == true %>
+        <%= render "admin-delivered-orders", admin_delivered_orders: @admin_delivered_orders %>
+      <%else%>
+        <%= render "my-delivered-orders", my_delivered_orders: @my_delivered_orders %>
+      <%end%>
+    </div>
+
+  <%#Articles de blog%>
+    <div class="tab-pane fade" id="nav-blogpost" role="tabpanel" aria-labelledby="nav-blogpost-tab">
+      <%= render "admin-blogpost", admin_blogpost: @admin_blogpost %>
+    </div>
+
+  </div>
+</div>
+<%# FIN DES RENDERS %>

@@ -11,8 +11,50 @@
 @import "components/index";
 @import "pages/index";
 
+.navtabbtn {
+  font-size:x-large;
+  font-weight:bold;
+  &:hover {
+    color:grey;
+  }
+}
 
+.hidden {
+  display:none;
+}
 
+.underline {
+  border-bottom:4px solid black;
+}
+
+tr {
+  border:none;
+}
+
+td {
+  border:none;
+}
+
+.dashboardselector:hover {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+.dashboardselector.active {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+button {
+  background:rgba(0,0,0,0);
+  margin:0;
+  padding:0;
+  border:none;
+}
 
 .nobanner {
   background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)
@@ -21,7 +63,8 @@
 .catvignettename {
   font-weight:bolder;
   text-shadow: black 0px 0 5px;
-  color:white
+  color:white;
+  padding-left: 5px;
 }
 
 .carrousselh2 {
@@ -62,10 +105,10 @@
 }
 
 .tab-link {
-  color: red;
-  font-size: 40px;
-  font-weight:600;
-  background-color: transparent;
+  color: rgb(0,0,0);
+  font-size: 30px;
+  font-weight:bolder;
+  background-color: rgba(0,0,0,0);
   border-style: none;
 }
 

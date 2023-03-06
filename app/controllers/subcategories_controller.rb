@@ -13,12 +13,15 @@ class SubcategoriesController < ApplicationController
 
   def new
     @subcategory = Subcategory.new
+    @category = Category.find(params[:category_id])
   end
 
   def create
     @subcategory = Subcategory.new(subcategory_params)
+    @category = Category.find(params[:category_id])
+    @subcategory.category = @category
     if @subcategory.save
-      redirect_to subcategories_path, success: "Catégorie créée."
+      redirect_to profile_path, success: "Sous-catégorie #{@subcategory.name} créée."
     else
       render :new, status: :unprocessable_entity
     end
