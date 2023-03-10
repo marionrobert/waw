@@ -51,22 +51,22 @@ export default class extends Controller {
   bigger_frame() {
     const tableau = document.getElementById('tableau-slider');
     tableau.setAttribute('data-value', '2');
-    let tableaux = document.getElementsByClassName('allframes')
-    console.log(tableaux)
-    // tableaux.forEach(element => {
-    //   element.classList.remove("tableau_60x90_paysage")
-    //   element.classList.add("tableau_90x120_paysage")
-    // });
+    const allFrames = document.querySelectorAll(".allframes")
+
+    allFrames.forEach(frame => {
+      frame.classList.remove("tableau_60x90_paysage")
+      frame.classList.add("tableau_90x120_paysage")
+    })
   }
 
   shrink_frame() {
     const tableau = document.getElementById('tableau-slider');
     tableau.setAttribute('data-value', '1');
-    let tableaux = document.getElementsByClassName('allframes')
-    console.log(tableaux)
-    // tableaux.forEach(element => {
-    //   element.classList.add("tableau_60x90_paysage")
-    //   element.classList.remove("tableau_90x120_paysage")
-    // });
+    const allFrames = document.querySelectorAll(".allframes")
+
+    allFrames.forEach(frame => {
+      frame.classList.add("tableau_60x90_paysage")
+      frame.classList.remove("tableau_90x120_paysage")
+    })
   }
 }
