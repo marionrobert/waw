@@ -1,0 +1,73 @@
+#house_background {
+  height:100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y:0;
+  background-position-x: center;
+}
+
+
+
+#tableau-slider {
+  width:100%;
+  height:40vh;
+  margin-top:10vh;
+  padding-left:40%;
+  padding-right:40%;
+  display: -webkit-inline-box;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  &::-webkit-scrollbar{
+    border-radius: 10px;
+    height: 5px;
+    background-color: rgba(0,0,0,0);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+    background-color: rgba(120,120,120,0.0);
+  }
+  &::-webkit-scrollbar-track {
+    height: 16px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+.h100w100 {
+  max-width: 100%;
+  max-height: 100%;
+}
+.tableau_60x90_paysage {
+  transition: 1000ms;
+  height:300px;
+  width:450px;
+  margin-right:100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.tableau_90x120_paysage {
+  transition: 1000ms;
+  height:450px;
+  width:675px;
+  margin-right:100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.frame-shadow {
+  box-shadow: 2px 2px 5px rgb(100,100,100);
+}
+
+.grow_shrink_button {
+  &:hover {
+    transform: scale(120%);
+    transition: 200ms;
+    color:blue;
+  }
+}

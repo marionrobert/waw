@@ -42,3 +42,6 @@ application.register("dashboard", DashboardController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
+
+import GallerieController from "./gallerie_controller"
+application.register("gallerie", GallerieController)
