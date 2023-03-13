@@ -1,38 +1,30 @@
 <div id="house_background" data-controller="gallerie" style="background-image: url('https://zupimages.net/up/23/10/1tfx.png')">
-  <button style="position:absolute;top:50%;left:5%;" data-action="click->gallerie#scroll_left"><i class="fa-solid fa-arrow-left" style="display:flex;justify-content:center;align-items:center;height:70px;width:70px;font-size:60px;background:rgba(240,240,240,0.7);border-radius:50%"></i></button>
+  <button class="left-scroll-arrow-container" data-action="click->gallerie#scroll_left"><i class="fa-solid fa-arrow-left left-scroll-arrow"></i></button>
   <div id="tableau-slider" data-value="1">
-      <div  class="allframes tableau_60x90_paysage frame-shadow ">
-        <img class="h100w100" src="https://img.freepik.com/photos-gratuite/jetee-au-bord-lac-hallstatt-autriche_181624-44201.jpg" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow " style="background-image: url('https://img.freepik.com/photos-gratuite/jetee-au-bord-lac-hallstatt-autriche_181624-44201.jpg')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow" >
-        <img class="h100w100" src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/24132/images/wrvTNwTSxuWjvfL6hdgy_Composition-photo-paysage.jpg" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow" style="background-image: url('https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/24132/images/wrvTNwTSxuWjvfL6hdgy_Composition-photo-paysage.jpg')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow">
-        <img class="h100w100" src="https://www.cerema.fr/sites/default/files/styles/uas_medium/public/media/images/2019/07/tree-189852_1920.jpg?itok=Ipz2Er5w" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://www.cerema.fr/sites/default/files/styles/uas_medium/public/media/images/2019/07/tree-189852_1920.jpg?itok=Ipz2Er5w')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow">
-        <img class="h100w100" src="https://img-4.linternaute.com/BORGWOduhCqgz_bxlnxXpU2PEL4=/fit-in/x630/smart/filters:fill(1D1D1B)/685fdd5cfcf444e08d3ff22cde5d1581/ccmcms-linternaute/2377659.jpg" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://img-4.linternaute.com/BORGWOduhCqgz_bxlnxXpU2PEL4=/fit-in/x630/smart/filters:fill(1D1D1B)/685fdd5cfcf444e08d3ff22cde5d1581/ccmcms-linternaute/2377659.jpg')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow">
-        <img class="h100w100" src="https://resize.elle.fr/square/var/plain_site/storage/images/loisirs/evasion/paysage-ete/champ-de-lavande/90695767-1-fre-FR/Champ-de-lavande.jpg" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://resize.elle.fr/square/var/plain_site/storage/images/loisirs/evasion/paysage-ete/champ-de-lavande/90695767-1-fre-FR/Champ-de-lavande.jpg')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow">
-        <img class="h100w100" src="https://content.r9cdn.net/rimg/dimg/4c/ac/7e6077e1-city-45618-165ce416a23.jpg?crop=true&width=1020&height=498" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://content.r9cdn.net/rimg/dimg/4c/ac/7e6077e1-city-45618-165ce416a23.jpg?crop=true&width=1020&height=498')">
       </div>
-      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="margin-right:100vw;">
-        <img class="h100w100" src="https://static.nationalgeographic.fr/files/styles/image_3200/public/2k0d1ry.jpg?w=1600" alt="none">
+      <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://static.nationalgeographic.fr/files/styles/image_3200/public/2k0d1ry.jpg?w=1600')">
       </div>
   </div>
-  <button style="position:absolute;top:50%;right:5%;" data-action="click->gallerie#scroll_right"><i class="fa-solid fa-arrow-right" style="display:flex;justify-content:center;align-items:center;height:70px;width:70px;font-size:60px;background:rgba(240,240,240,0.7);border-radius:50%"></i></button>
+  <button class="right-scroll-arrow-container" data-action="click->gallerie#scroll_right"><i class="fa-solid fa-arrow-right right-scroll-arrow"></i></button>
 
-  <div style="position:absolute;left:5%;bottom:5%;width:300px;height:150px;display:flex;justify-content:space-around;background:rgba(240,240,240,0.7);border-radius: 40px;">
+  <div class="size-adjust-container">
     <button class="grow_shrink_button" data-action="click->gallerie#shrink_frame">
-      <i class="fa-solid fa-down-left-and-up-right-to-center" style="height:70px;width:70px;font-size:60px;color:black"></i>
+      <i class="fa-solid fa-down-left-and-up-right-to-center size-adjust"></i>
     </button>
 
     <button class="grow_shrink_button" data-action="click->gallerie#bigger_frame">
-      <i class="fa-solid fa-up-right-and-down-left-from-center" style="height:70px;width:70px;font-size:60px;color:black"></i>
+      <i class="fa-solid fa-up-right-and-down-left-from-center size-adjust"></i>
     </button>
-
   </div>
 </div>

@@ -10,8 +10,8 @@
 
 #tableau-slider {
   width:100%;
-  height:40vh;
-  margin-top:10vh;
+  height:50vh;
+  // margin-top:10vh;
   padding-left:40%;
   padding-right:40%;
   display: -webkit-inline-box;
@@ -35,11 +35,62 @@
   }
 }
 
-.h100w100 {
-  max-width: 100%;
-  max-height: 100%;
+.left-scroll-arrow-container {
+  position:absolute;
+  top:50%;
+  left:5%;
 }
+
+.left-scroll-arrow {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:70px;
+  width:70px;
+  font-size:60px;
+  background:rgba(240,240,240,0.7);
+  border-radius:50%
+}
+
+.right-scroll-arrow-container {
+  position:absolute;
+  top:50%;
+  right:5%;
+}
+
+.right-scroll-arrow {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:70px;
+  width:70px;
+  font-size:60px;
+  background:rgba(240,240,240,0.7);
+  border-radius:50%
+}
+
+.size-adjust-container {
+  position:absolute;
+  left:5%;
+  bottom:5%;
+  width:300px;
+  height:150px;
+  display:flex;
+  justify-content:space-around;
+  background:rgba(240,240,240,0.7);
+  border-radius: 40px;
+}
+
+.size-adjust {
+  height:70px;
+  width:70px;
+  font-size:60px;
+  color:black
+}
+
 .tableau_60x90_paysage {
+  margin-top:15vh;
+  margin-left:0vh;
   transition: 1000ms;
   height:300px;
   width:450px;
@@ -51,9 +102,10 @@
 
 
 .tableau_90x120_paysage {
+  margin-top:5vh;
   transition: 1000ms;
   height:450px;
-  width:675px;
+  width:676px;
   margin-right:100vw;
   background-size: cover;
   background-repeat: no-repeat;

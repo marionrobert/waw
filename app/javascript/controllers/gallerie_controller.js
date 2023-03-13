@@ -62,11 +62,11 @@ export default class extends Controller {
   shrink_frame() {
     const tableau = document.getElementById('tableau-slider');
     tableau.setAttribute('data-value', '1');
-    const allFrames = document.querySelectorAll(".allframes")
+    const allFrames = document.querySelectorAll(".allframes");
 
     allFrames.forEach(frame => {
-      frame.classList.add("tableau_60x90_paysage")
-      frame.classList.remove("tableau_90x120_paysage")
-    })
+      frame.classList.add("tableau_60x90_paysage");
+      frame.classList.remove("tableau_90x120_paysage");
+    });
   }
 }
