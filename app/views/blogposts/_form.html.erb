@@ -4,7 +4,7 @@
     <%= blogpost.error_notification message: blogpost.object.errors[:base].to_sentence if blogpost.object.errors[:base].present? %>
     <div class="form-inputs" >
       <%= blogpost.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
-      <%= blogpost.input :title, label: "Titre de l'article", placeholder: "Titre de l'article", label_html:{ class:"labelcolor" } %>
+      <%#= blogpost.input :title, label: "Titre de l'article", placeholder: "Titre de l'article", label_html:{ class:"labelcolor" } %>
       <%= blogpost.input :content, as: :rich_text_area, label: "contenu", placeholder: "lorem ipsum", label_html:{ class:"labelcolor" } %>
     </div>
     <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
