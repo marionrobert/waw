@@ -76,10 +76,9 @@
 
     <%# //////////// la Poubelle - detruit la line item //////// %>
           <div class="trashzone">
-            <%= link_to line_item_path(item),
-            data: {turbo_method: :delete, turbo_confirm: "Souhaitez-vous supprimer totalement cet article de votre panier?"}  do%>
-            <i class="fa-solid fa-trash-can" style="color:grey"></i>
-            <% end %>
+            <span data-action="click->line-item-quantity#delete" data-line-item-quantity-item-id-param="<%= item.id %>">
+              <i class="fa-solid fa-trash-can" style="color:grey"></i>
+            </span>
           </div>
         </div>
 

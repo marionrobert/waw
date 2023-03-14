@@ -1,0 +1,11 @@
+<%= simple_form_for(@shop) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+  </div>
+  <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, class:"btn btn-dark m-5", value:"Valider"%>
+  </div>
+<% end %>

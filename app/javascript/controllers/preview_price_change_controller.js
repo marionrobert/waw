@@ -1,11 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="preview-price-change"
 export default class extends Controller {
 
   connect() {
     // console.log("Hello from the previous price change controller!")
-
   }
 
   preview(event){

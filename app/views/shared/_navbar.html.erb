@@ -66,22 +66,13 @@
          data-action="click->search#displayMobileSearchInput"></i>
     </div>
     <%# /////////////////PANIER///////////////// %>
-    <div class="btncart",
-         data-controller="panier",
-         data-action="click->panier#updatePanier2">
-      <i class="fa-solid fa-cart-shopping",
-         style="color:black; font-size: 2.3vh;"></i>
-        <%if @cart.line_items.count > 0%>
-          <div class="circle_items_count">
-            <div style="margin:-7px -3px;">
-              <% cartcontent = [] %>
-              <%@cart.line_items.each do |item|%>
-              <%cartcontent << item.quantity %>
-              <%end%>
-              <%=cartcontent.sum%>
-            </div>
-          </div>
-        <%end%>
+    <div class="btncart", data-controller="display-cart", data-action="click->display-cart#showCart">
+      <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.9vh;"></i>
+      <% if @cart.line_items.count.positive? %>
+        <p class="circle_items_count">
+            <%= @cartcontent%>
+        </p>
+      <% end %>
     </div>
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
     <div class="profile_div"
@@ -93,9 +84,9 @@
               data-bs-target="#offcanvasNavbarLight"
               aria-controls="offcanvasNavbarLight">
         <%if current_user%>
-          <i class="fa-solid fa-user-check"></i>
+          <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
         <%else%>
-          <i class="fa-regular fa-user"></i>
+          <i class="fa-regular fa-user", style="color:black; font-size: 2.6vh;"></i>
         <%end%>
         <%# <span class="navbar-toggler-icon"></span> %>
       </button>
@@ -117,14 +108,6 @@
         <div class="offcanvas-body"
              style="display:block;line-height:4rem">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <%if current_user && current_user.admin? %>
-              <li class="nav-link active btn btn-warning" >
-                <%= link_to "AJOUTER UN PRODUIT",
-                    new_product_path,
-                    class:"white_deco_none"%>
-              </li>
-            <%end%>
-
             <%if !current_user %>
               <li class="nav-item">
                 <%= link_to "Connexion",
@@ -132,59 +115,20 @@
                     style:"text-decoration:none;"%>
               </li>
             <%end%>
-            <li class="nav-item active">
-              <%if current_user && current_user.admin? %>
-                <%= link_to "Gestion des stocks",
-                    stockmanagement_path,
-                    style:"text-decoration:none;"%>
-              <%else%>
-                <%= link_to "Tous les produits",
-                    products_path,
-                    style:"text-decoration:none;"%>
-              <%end%>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Horaires et contacts", shop_path(Shop.first) ,
-                  style:"text-decoration:none;"%>
-            </li>
             <%if current_user%>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   style="text-decoration:none; color:blue;"
-                   href="#"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                  Mon compte
-                </a>
-                <ul class="dropdown-menu"
-                    style="border-left:none; border-right:none;">
-                  <li class="pl-3 pr-3 mt-2 dropdown-item">
-                    <%= link_to "Tableau de bord",
-                        profile_path,
-                        style:"text-decoration:none;"
-                    %>
-                  </li>
-                  <li class="pl-3 pr-3 mt-2 dropdown-item">
-                    <%= link_to "Déconnexion",
-                        destroy_user_session_path,
-                        'data-turbo-method': :delete,
-                        style:"text-decoration:none;"
-                    %>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                </ul>
-              </li>
-            <%if current_user && current_user.admin? %>
-              <li class="nav-link active btn btn-warning" >
-                <%= link_to "(BETA) AJOUTER UN PRODUIT CHEMIN COMPLET CAT SUBCAT PRODUCT (TEST)",
-                    categories_path,
-                    style:"text-decoration:none;color:yellow;background:red;"
+              <li class="pl-3 pr-3 mt-2 dropdown-item">
+                <%= link_to "Tableau de bord",
+                    profile_path,
+                    style:"text-decoration:none;"
                 %>
               </li>
-            <%end%>
+              <li class="pl-3 pr-3 mt-2 dropdown-item">
+                <%= link_to "Déconnexion",
+                    destroy_user_session_path,
+                    'data-turbo-method': :delete,
+                    style:"text-decoration:none;"
+                %>
+              </li>
             <%end%>
           </ul>
         </div>

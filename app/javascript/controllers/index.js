@@ -22,8 +22,8 @@ application.register("line-item-quantity", LineItemQuantityController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import PanierController from "./panier_controller"
-application.register("panier", PanierController)
+import DisplayCartController from "./display_cart_controller"
+application.register("display-cart", DisplayCartController)
 
 import PreviewPriceChangeController from "./preview_price_change_controller"
 application.register("preview-price-change", PreviewPriceChangeController)
@@ -36,6 +36,9 @@ application.register("search", SearchController)
 
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
+
+import DashboardController from "./dashboard_controller"
+application.register("dashboard", DashboardController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)

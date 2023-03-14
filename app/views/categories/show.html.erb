@@ -1,4 +1,14 @@
-<div class="container" style="margin-top:35vh">
+<div style="
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height:40vh;
+    margin:0 auto;
+    margin-top: 10vh;
+    width: 100vw;
+    background-image: url('<%= cl_image_path @category.photos.first.key %>')">
+</div>
+<div class="container" style="margin-top:5vh">
   <div style="display:flex;justify-content:center">
     <h2><%=@category.name%></h2>
   </div>

@@ -8,8 +8,8 @@
           class="btn-close"
           aria-label="Close"
           style=" z-index:1001;margin-top:4vh;margin-right:4vw;"
-          data-controller="panier",
-          data-action="click->panier#removePanier">
+          data-controller="display-cart",
+          data-action="click->display-cart#closeCart">
       </button>
     </div>
     <%if @cart && @cart.line_items.any? %>
