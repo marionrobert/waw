@@ -72,4 +72,74 @@ export default class extends Controller {
     tableau.classList.add("tableau-slider-small-pos-abs");
     tableau.classList.remove("tableau-slider-big-pos-abs");
   }
+
+  change_bg1() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+
+    room1.style.display = "";
+    room2.style.display = "none";
+    room3.style.display = "none";
+    room4.style.display = "none";
+    room5.style.display = "none";
+  }
+
+  change_bg2() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+
+    room1.style.display = "none";
+    room2.style.display = "";
+    room3.style.display = "none";
+    room4.style.display = "none";
+    room5.style.display = "none";
+  }
+
+  change_bg3() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+
+    room1.style.display = "none";
+    room2.style.display = "none";
+    room3.style.display = "";
+    room4.style.display = "none";
+    room5.style.display = "none";
+  }
+
+  change_bg4() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+
+    room1.style.display = "none";
+    room2.style.display = "none";
+    room3.style.display = "none";
+    room4.style.display = "";
+    room5.style.display = "none";
+  }
+
+  change_bg5() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+
+    room1.style.display = "none";
+    room2.style.display = "none";
+    room3.style.display = "none";
+    room4.style.display = "none";
+    room5.style.display = "";
+  }
 }

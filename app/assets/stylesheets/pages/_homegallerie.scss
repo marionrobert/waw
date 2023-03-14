@@ -3,14 +3,6 @@
   height:600px;
   width:800px;
   overflow: hidden;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position-y:0;
-  // background-position-x: center;
-  // display: flex;
-  // overflow: hidden;
-  // justify-content: center;
-  // align-items: baseline;
   img{
     position:absolute;
     width:800px;
@@ -19,15 +11,32 @@
   }
 }
 
+.bg_selector {
+  border: 1px solid black;
+  background: rgba(100,100,100,0.3);
+  position: absolute;
+  left: 250px;
+  bottom: 20px;
+  z-index: 6;
+  height: 25px;
+  width: 300px;
+  font-weight: bold;
+  color:white;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  p {
+    cursor:pointer;
+  }
+}
+
 
 
 #tableau-slider {
-  // background: Red;
   position:relative;
   z-index:100;
   width:100%;
   height:50%;
-  // margin-top:10vh;
   padding-left:40%;
   padding-right:1600px;
   display: -webkit-inline-box;
@@ -103,9 +112,9 @@
 .size-adjust-container {
   position:absolute;
   left:5%;
-  bottom:5%;
-  width:300px;
-  height:150px;
+  bottom:12%;
+  width:230px;
+  height:105px;
   display:flex;
   justify-content:space-around;
   background:rgba(240,240,240,0.7);
@@ -144,7 +153,8 @@
 }
 
 .frame-shadow {
-  box-shadow: 2px 2px 5px rgb(100,100,100);
+  box-shadow: 2px 2px 5px rgba(40,40,40,0.7);
+  box-shadow: -10px 0px 7px rgba(40,40,40,0.3);
 }
 
 .grow_shrink_button {
