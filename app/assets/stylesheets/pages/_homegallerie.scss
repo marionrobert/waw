@@ -1,19 +1,35 @@
 #house_background {
-  height:100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y:0;
-  background-position-x: center;
+  z-index:5;
+  height:600px;
+  width:800px;
+  overflow: hidden;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position-y:0;
+  // background-position-x: center;
+  // display: flex;
+  // overflow: hidden;
+  // justify-content: center;
+  // align-items: baseline;
+  img{
+    position:absolute;
+    width:800px;
+    height:600px;
+    object-fit:cover
+  }
 }
 
 
 
 #tableau-slider {
+  // background: Red;
+  position:relative;
+  z-index:100;
   width:100%;
-  height:50vh;
+  height:50%;
   // margin-top:10vh;
   padding-left:40%;
-  padding-right:40%;
+  padding-right:1600px;
   display: -webkit-inline-box;
   scroll-behavior: smooth;
   overflow-x: scroll;
@@ -35,39 +51,54 @@
   }
 }
 
+.tableau-slider-small-pos-abs {
+  transition: 1000ms;
+  left:-30px;
+}
+
+.tableau-slider-big-pos-abs {
+  transition: 1000ms;
+  left:-86px;
+}
+
 .left-scroll-arrow-container {
   position:absolute;
   top:50%;
   left:5%;
 }
 
-.left-scroll-arrow {
+.left-scroll-arrow-container {
+  position:absolute;
+  top:50%;
+  left:5%;
+  border-radius:50%;
+  background:rgba(240,240,240,0.7);
   display:flex;
   justify-content:center;
   align-items:center;
   height:70px;
   width:70px;
-  font-size:60px;
-  background:rgba(240,240,240,0.7);
-  border-radius:50%
+  i {
+    font-size:40px;
+  }
 }
 
 .right-scroll-arrow-container {
   position:absolute;
   top:50%;
   right:5%;
-}
-
-.right-scroll-arrow {
+  border-radius:50%;
+  background:rgba(240,240,240,0.7);
   display:flex;
   justify-content:center;
   align-items:center;
   height:70px;
   width:70px;
-  font-size:60px;
-  background:rgba(240,240,240,0.7);
-  border-radius:50%
+  i {
+    font-size:40px;
+  }
 }
+
 
 .size-adjust-container {
   position:absolute;
@@ -89,12 +120,12 @@
 }
 
 .tableau_60x90_paysage {
-  margin-top:15vh;
-  margin-left:0vh;
+  margin-top:50px;
+  margin-left:0;
   transition: 1000ms;
-  height:300px;
-  width:450px;
-  margin-right:100vw;
+  height:150px;
+  width:225px;
+  margin-right:575px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -102,11 +133,11 @@
 
 
 .tableau_90x120_paysage {
-  margin-top:5vh;
+  margin-top:10px;
   transition: 1000ms;
-  height:450px;
-  width:676px;
-  margin-right:100vw;
+  height:225px;
+  width:337px;
+  margin-right:463px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
