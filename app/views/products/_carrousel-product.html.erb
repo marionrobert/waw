@@ -6,12 +6,12 @@
   </div>
   <div class="carousel-inner" style="width:100%;height:50vh;display:flex;align-items:center">
     <div class="carousel-item active" style="text-align:center">
-      <%= cl_image_tag(product.photos.first.key, :height=>400, :width=>400, :crop=>:fit, :class=>"rounded") %>
+      <%= cl_image_tag(product.photos.first.key, :height=>400, :width=>400, :crop=>:fit, :class=>"") %>
     </div>
     <% product.photos.each_with_index do |photo, index| %>
       <% if index > 0 %>
         <div class="carousel-item" style="text-align:center">
-          <%= cl_image_tag(photo.key, :height=>400, :width=>400, :crop=>:fit, :class=>"rounded") %>
+          <%= cl_image_tag(photo.key, :height=>400, :width=>400, :crop=>:fit, :class=>"") %>
         </div>
       <% end %>
     <% end%>

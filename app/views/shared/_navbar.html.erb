@@ -43,14 +43,11 @@
       <%end%>
 
     <%# BOUTON BLOG %>
-    <div class="blognavbar">
-      <p style="display:flex;align-items:center;margin:0 auto;">
-        <%= link_to "BLOG",
-            blogposts_path,
-            style:'display:flex;align-items:center'
-        %>
-      </p>
-    </div>
+      <%= link_to blogposts_path, class:"blognavbar" do%>
+        <p style="display:flex;align-items:center;margin:0 auto;">
+        BLOG
+        </p>
+      <%end%>
     <%# ////////////barre de recherche/////////////////// %>
     <div id="mobile-input-search"
          class="responsivesearchbar"
