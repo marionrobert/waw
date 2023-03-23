@@ -4,7 +4,7 @@
     <% cart.line_items.each do |item| %>
       <div id="lineItem<%= item.id %>">
         <%# ligne complete %>
-        <div class="row">
+        <div style="display:flex">
           <%# photo - possiblement ajouté max-width:100%; a l'image%>
           <div class="vignette-line-item">
             <%if item.product.photos.attached?%>
