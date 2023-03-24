@@ -3,75 +3,101 @@ import { Alert } from "bootstrap"
 
 export default class extends Controller {
 
-  static targets = [ "allframes" ]
-
+  static targets = [ "allframes" , "preview"]
 
   connect() {
     // Stocke une référence au contrôleur
     this.controller = this
   }
 
-  scroll_left() {
-    const tableau = this.element.querySelector('#tableau-slider');
-    let Y;
-    if (tableau.dataset.value === "1" || tableau.dataset.value === "null") {
-      Y = 150;
-    } else if (tableau.dataset.value === "2") {
-      Y = 225;
-    }
-    let X = 800;
-    let frames = document.getElementById("tableau-slider");
+  zoompreview() {
 
-    console.log(X);
-    console.log(Y);
-    console.log("SCROLL FRAME LEFT");
-
-    frames.scrollBy(-X, 0); // défilement de X pixels vers la gauche
   }
 
+  move_left() {
+    let frame = document.getElementById("mainframe");
+    console.log("MOVE FRAME LEFT");
+    let X = -5;
+    let currentLeft = parseInt(frame.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    frame.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+  }
 
-  scroll_right() {
-    const tableau = this.element.querySelector('#tableau-slider');
-    let Y;
-    if (tableau.dataset.value === "1" || tableau.dataset.value === "null") {
-      Y = 150;
-    } else if (tableau.dataset.value === "2") {
-      Y = 225;
-    }
-    let X = 800;
-    let frames = document.getElementById("tableau-slider");
+  move_right() {
+    let frame = document.getElementById("mainframe");
+    console.log("MOVE FRAME RIGHT");
+    let X = 5;
+    let currentLeft = parseInt(frame.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    frame.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+  }
 
-    console.log(X);
-    console.log(Y);
-    console.log(X+Y);
-    console.log("SCROLL FRAME LEFT");
+  move_up() {
+    let frame = document.getElementById("mainframe");
+    console.log("MOVE FRAME LEFT");
+    let Y = -5;
+    let currentTop = parseInt(frame.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    frame.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+  }
 
-    frames.scrollBy(X, 0); // défilement de X pixels vers la droite
+  move_down() {
+    let frame = document.getElementById("mainframe");
+    console.log("MOVE FRAME RIGHT");
+    let Y = 5;
+    let currentTop = parseInt(frame.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    frame.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+  }
+
+  rotate_frame_more() {
+    let frame = document.getElementById("mainframe");
+    console.log("ROTATE FRAME RIGHT");
+    let W = 5;
+    let currentTransform = frame.style.transform || "perspective(400px) rotateY(0deg)";
+    let currentRotation = currentTransform.match(/rotateY\((\d+)deg\)/);
+    let newRotation = currentRotation ? parseInt(currentRotation[1]) + W : W;
+    frame.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
+  }
+
+  rotate_frame_less() {
+    let frame = document.getElementById("mainframe");
+    console.log("ROTATE FRAME LEFT");
+    let W = -5;
+    let currentTransform = frame.style.transform || "perspective(400px) rotateY(0deg)";
+    let currentRotation = currentTransform.match(/rotateY\(([-]?\d+)deg\)/);
+    let newRotation = currentRotation ? parseInt(currentRotation[1]) + W : W;
+    frame.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
   }
 
   bigger_frame() {
-    const tableau = document.getElementById('tableau-slider');
-    tableau.setAttribute('data-value', '2');
-    const allFrames = document.querySelectorAll(".allframes")
-    allFrames.forEach(frame => {
-      frame.classList.remove("tableau_60x90_paysage")
-      frame.classList.add("tableau_90x120_paysage")
-    })
-    tableau.classList.add("tableau-slider-big-pos-abs");
-    tableau.classList.remove("tableau-slider-small-pos-abs");
+    console.log("TESTBIGGER");
+    let frame = document.getElementById("frameadjusting");
+    if (!frame) {
+      console.error("Element not found.");
+      return;
+    }
+    console.log(frame);
+    let currentTransform = frame.style.transform || "scale(1)";
+    console.log(currentTransform)
+    let currentScale = parseFloat(currentTransform.slice(6));
+    console.log(currentScale)
+    if(currentScale < 1){
+      currentScale = 1;
+    }
+    frame.style.transform = `scale(${currentScale + 0.05})`;
+    console.log(frame.style.transform)
   }
 
   shrink_frame() {
-    const tableau = document.getElementById('tableau-slider');
-    tableau.setAttribute('data-value', '1');
-    const allFrames = document.querySelectorAll(".allframes");
-    allFrames.forEach(frame => {
-      frame.classList.add("tableau_60x90_paysage");
-      frame.classList.remove("tableau_90x120_paysage");
-    });
-    tableau.classList.add("tableau-slider-small-pos-abs");
-    tableau.classList.remove("tableau-slider-big-pos-abs");
+    console.log("size_adjust_less")
+    let frame = document.getElementById("frameadjusting");
+    let currentTransform = getComputedStyle(frame).transform;
+    let currentScale = parseFloat(currentTransform.slice(7));
+    if(currentScale <= 0.05){
+      frame.style.transform = `scale(1)`;
+      return;
+    }
+    frame.style.transform = `scale(${currentScale - 0.05})`;
+    console.log(frame.style.transform)
   }
+
 
   change_bg1() {
     let room1 = document.getElementById("room1")
@@ -141,5 +167,15 @@ export default class extends Controller {
     room3.style.display = "none";
     room4.style.display = "none";
     room5.style.display = "";
+  }
+
+  showPreview() {
+    console.log("zoom_on_preview")
+    console.log("blibli")
+
+    let zoom = document.getElementById("zoomvignette")
+    zoom.classList.toggle("hiddenzoom")
+    zoom.classList.toggle("zoompreview")
+    console.log("blabla")
   }
 }

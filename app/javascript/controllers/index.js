@@ -45,3 +45,5 @@ application.register("share", ShareController)
 
 import GallerieController from "./gallerie_controller"
 application.register("gallerie", GallerieController)
+
+

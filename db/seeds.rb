@@ -111,7 +111,7 @@ puts "category #{category1.name} créée"
 # CATEGORIE 2
 
 category2 = Category.create!(name:"Ameublement")
-            file1 = URI.open("https://www.univers-habitat.eu/img/articles/article-7311-diapo_1-but-inauguration-d-un-nouvel-espace-qui-s-inscrit-dans-l-air-du-temps-20181109_120107.jpg")
+            file1 = URI.open("https://reporterre.net/local/cache-vignettes/L720xH480/arton22112-1365f.jpg?1615314061")
             category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 

@@ -1,16 +1,18 @@
 <div class="dashboard-div-selectors">
   <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto; border:none">
       <button class="marginfirstbuttondashboard dashboardselector active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa-solid fa-chart-line"></i></button>
+      <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
+      <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
+    <%if current_user && current_user.admin%>
       <button class="dashboardselector" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><i class="fa-solid fa-tags"></i></button>
-      <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
       <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><i class="fa-regular fa-folder-open"></i></button>
       <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><i class="fa-solid fa-folder-tree"></i></button>
       <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cube"></i></button>
       <button class="dashboardselector" id="nav-stock-tab" data-bs-toggle="tab" data-bs-target="#nav-stock" type="button" role="tab" aria-controls="nav-stock" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
-      <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
-      <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
       <button class="dashboardselector" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><i class="fa-regular fa-newspaper"></i></button>
+      <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
+    <%end%>
     </div>
   </nav>
 </div>

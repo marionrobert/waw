@@ -106,7 +106,7 @@
       <p style="text-align:center;margin-bottom:15vh;"><i>Vous n'avez aucun produit en favoris</i></p>
     <%else%>
     <div class="container" style="margin-bottom:15vh;height:75vh;">
-      <div class="row" style="height:5vh;">
+      <div style="height:5vh;display:flex;flew-flow:wrap">
           <% current_user.favorite_products.sample(3).each do |product| %>
           <%= render "shared/#{Shop.first.card}", product: product %>
           <% end %>

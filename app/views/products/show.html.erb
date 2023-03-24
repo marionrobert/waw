@@ -42,6 +42,21 @@
               alt: "Pas d'image disponible",
               class: 'd-block mx-auto') %>
         <% end %>
+
+
+
+        <div id="zoom-product-show" data-controller="gallerie" data-action="click->gallerie#showPreview">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+
+
+        <div class="hiddenzoom" id="zoomvignette">
+          <div id="zoom-product-show" style="display:flex;justify-content:center" data-controller="gallerie" data-action="click->gallerie#showPreview">
+            <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+        </div>
+
       </div>
 
 
@@ -96,4 +111,7 @@
       <%end%>
     </div>
   </div>
+  <section>
+    <%= render "pages/homegallerie"%>
+  </section>
 </div>

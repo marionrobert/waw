@@ -14,9 +14,9 @@
   </div>
 </div>
 <%end%>
-<div class="mobileonly">
+<div class="mobileonly d-flex justify-center" style="display: flex;justify-content: center;">
   <%=link_to products_path do%>
-    <button class="btn btn-primary btnbanner">
+    <button class="btn btn-info btnbanner">
     Accédez aux Produits
     </button>
   <%end%>
@@ -44,7 +44,7 @@
 
 
   <h2 class="carrousselh2">Aperçu des produits en stock !</h1>
-  <div class="row d-flex justify-content-center" style="width:100%;margin: 0 auto" data-controller="favorites" >
+  <div class="d-flex justify-content-center" style="flex-flow:wrap;width:100%;margin: 0 auto" data-controller="favorites" >
     <% @products_in_stock.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product%>
     <% end %>

@@ -28,6 +28,23 @@ body {
   }
 }
 
+.hiddenzoom {
+  display:none
+}
+
+.zoompreview {
+  z-index: 1000;
+  // position:absolute;
+  position:fixed;
+  width: 60vw;
+  height: 60vh;
+  top:25vh;
+  left:20vw; /* ramène l'élément au centre */
+  background: white;
+  border:1px solid black;
+}
+
+
 .hidden {
   display:none;
 }
