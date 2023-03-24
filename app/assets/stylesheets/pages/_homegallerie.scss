@@ -37,8 +37,6 @@
   z-index:100;
   width:100%;
   height:50%;
-  padding-left:40%;
-  padding-right:1600px;
   display: -webkit-inline-box;
   scroll-behavior: smooth;
   overflow-x: scroll;
@@ -72,39 +70,103 @@
 
 .left-scroll-arrow-container {
   position:absolute;
-  top:50%;
-  left:5%;
-}
-
-.left-scroll-arrow-container {
-  position:absolute;
-  top:50%;
-  left:5%;
+  z-index: 1000;
+  top:40%;
+  left:2%;
   border-radius:50%;
   background:rgba(240,240,240,0.7);
   display:flex;
   justify-content:center;
   align-items:center;
-  height:70px;
-  width:70px;
+  height:35px;
+  width:35px;
   i {
-    font-size:40px;
+    font-size:20px;
+  }
+}
+
+.up-scroll-arrow-container {
+  position:absolute;
+  z-index: 1000;
+  top:2%;
+  left:50%;
+  border-radius:50%;
+  background:rgba(240,240,240,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:35px;
+  i {
+    font-size:20px;
+  }
+}
+
+.down-scroll-arrow-container {
+  z-index: 1000;
+  position:absolute;
+  bottom:15%;
+  left:50%;
+  border-radius:50%;
+  background:rgba(240,240,240,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:35px;
+  i {
+    font-size:20px;
   }
 }
 
 .right-scroll-arrow-container {
   position:absolute;
-  top:50%;
-  right:5%;
+  z-index: 1000;
+  top:40%;
+  right:2%;
   border-radius:50%;
   background:rgba(240,240,240,0.7);
   display:flex;
   justify-content:center;
   align-items:center;
-  height:70px;
-  width:70px;
+  height:35px;
+  width:35px;
   i {
-    font-size:40px;
+    font-size:20px;
+  }
+}
+
+.rotateYmore-container {
+  position:absolute;
+  top:10%;
+  right:2%;
+  border-radius:50%;
+  background:red;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:35px;
+  z-index: 1000;
+  i {
+    font-size:20px;
+  }
+}
+
+.rotateYless-container {
+  position:absolute;
+  top:10%;
+  left:2%;
+  border-radius:50%;
+  background:red;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:35px;
+  z-index: 1000;
+  i {
+    font-size:20px;
   }
 }
 

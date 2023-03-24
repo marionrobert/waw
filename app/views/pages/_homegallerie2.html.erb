@@ -1,0 +1,46 @@
+<%# <div style="display:flex;justify-content:center;align-items:center;height:100vh;width:100vw;"> %>
+<div style="display:flex;justify-content:center">
+  <div id="house_background" data-controller="gallerie" style="position:relative;">
+    <img id="room1" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon1">
+    <img id="room2" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none">
+    <img id="room3" src="https://i.ibb.co/PWFpcZk/Salon2.png" alt="salon3" style="display:none">
+    <img id="room4" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none">
+    <img id="room5" src="https://i.ibb.co/hXW62Dv/salon5.png" alt="salon5" style="display:none">
+    <button class="left-scroll-arrow-container" data-action="click->gallerie#scroll_left"><i class="fa-solid fa-arrow-left left-scroll-arrow"></i></button>
+      <div id="tableau-slider" class="tableau-slider-small-pos-abs" data-value="1">
+          <div  class="allframes tableau_60x90_paysage frame-shadow " style="background-image: url('https://img.freepik.com/photos-gratuite/jetee-au-bord-lac-hallstatt-autriche_181624-44201.jpg')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow" style="background-image: url('https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/24132/images/wrvTNwTSxuWjvfL6hdgy_Composition-photo-paysage.jpg')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://www.cerema.fr/sites/default/files/styles/uas_medium/public/media/images/2019/07/tree-189852_1920.jpg?itok=Ipz2Er5w')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://img-4.linternaute.com/BORGWOduhCqgz_bxlnxXpU2PEL4=/fit-in/x630/smart/filters:fill(1D1D1B)/685fdd5cfcf444e08d3ff22cde5d1581/ccmcms-linternaute/2377659.jpg')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://resize.elle.fr/square/var/plain_site/storage/images/loisirs/evasion/paysage-ete/champ-de-lavande/90695767-1-fre-FR/Champ-de-lavande.jpg')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://content.r9cdn.net/rimg/dimg/4c/ac/7e6077e1-city-45618-165ce416a23.jpg?crop=true&width=1020&height=498')">
+          </div>
+          <div  class="allframes tableau_60x90_paysage frame-shadow"  style="background-image: url('https://static.nationalgeographic.fr/files/styles/image_3200/public/2k0d1ry.jpg?w=1600')">
+          </div>
+      </div>
+    <button class="right-scroll-arrow-container" data-action="click->gallerie#scroll_right"><i class="fa-solid fa-arrow-right"></i></button>
+
+    <div class="size-adjust-container">
+      <button class="grow_shrink_button" data-action="click->gallerie#shrink_frame">
+        <i class="fa-solid fa-down-left-and-up-right-to-center size-adjust"></i>
+      </button>
+
+      <button class="grow_shrink_button" data-action="click->gallerie#bigger_frame">
+        <i class="fa-solid fa-up-right-and-down-left-from-center size-adjust"></i>
+      </button>
+    </div>
+    <div class="bg_selector">
+      <p id="r1" data-action="click->gallerie#change_bg1">1</p>
+      <p id="r2" data-action="click->gallerie#change_bg2">2</p>
+      <p id="r3" data-action="click->gallerie#change_bg3">3</p>
+      <p id="r4" data-action="click->gallerie#change_bg4">4</p>
+      <p id="r5" data-action="click->gallerie#change_bg5">5</p>
+    </div>
+  </div>
+</div>
+<%# </div> %>

@@ -9,6 +9,8 @@
     transition: 1200ms ease 0s;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 13px 8px -7px;
     transform: scale(140%);
+    position: relative;
+    z-index: 99999999;
   }
 }
 
@@ -93,6 +95,7 @@
   }
 
   .c4-fullcard {
+    // border: 1px solid rgba(0,0,0,0.7);
     position:relative;
     // box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -100,7 +103,7 @@
     max-height:500px;
     min-width:270px;
     max-width:270px;
-    background:rgba(0,0,0,0);
+    background:rgba(150,150,150,0.3);
     margin:10px;
   }
 
@@ -139,6 +142,7 @@
   }
 
   .c4-fullcard {
+    // border: 1px solid rgba(0,0,0,0.7);
     position:relative;
     // box-shadow: 5px 6px 8px 1px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
@@ -146,7 +150,7 @@
     max-height:300px;
     min-width:162px;
     max-width:162px;
-    background: rgba(0,0,0,0);
+    background: rgba(150,150,150,0.2);
     margin:5px;
   }
 }
