@@ -3,11 +3,15 @@ import { Alert } from "bootstrap"
 
 export default class extends Controller {
 
-  static targets = [ "allframes" ]
+  static targets = [ "allframes" , "preview"]
 
   connect() {
     // Stocke une référence au contrôleur
     this.controller = this
+  }
+
+  zoompreview() {
+
   }
 
   move_left() {
@@ -163,5 +167,15 @@ export default class extends Controller {
     room3.style.display = "none";
     room4.style.display = "none";
     room5.style.display = "";
+  }
+
+  showPreview() {
+    console.log("zoom_on_preview")
+    console.log("blibli")
+
+    let zoom = document.getElementById("zoomvignette")
+    zoom.classList.toggle("hiddenzoom")
+    zoom.classList.toggle("zoompreview")
+    console.log("blabla")
   }
 }
