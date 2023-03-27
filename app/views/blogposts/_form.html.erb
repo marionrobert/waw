@@ -1,0 +1,14 @@
+<div class="container" style="margin-top:5vh;width:70vw;text-align:left">
+  <%= simple_form_for @blogpost do |blogpost| %>
+    <%= blogpost.error_notification %>
+    <%= blogpost.error_notification message: blogpost.object.errors[:base].to_sentence if blogpost.object.errors[:base].present? %>
+    <div class="form-inputs" >
+      <%= blogpost.input :photos, as: :file, input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
+      <%#= blogpost.input :title, label: "Titre de l'article", placeholder: "Titre de l'article", label_html:{ class:"labelcolor" } %>
+      <%= blogpost.input :content, as: :rich_text_area, label: "contenu", placeholder: "lorem ipsum", label_html:{ class:"labelcolor" } %>
+    </div>
+    <div class="form-actions d-flex justify-content-center" style="margin-bottom:10vh;">
+      <%= blogpost.button :submit, class:"btn btn-success", value:"Editer l'article"%>
+    </div>
+  <% end %>
+</div>

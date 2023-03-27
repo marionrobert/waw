@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between">
+  <% if params[:action] == "profile" %>
+    <div class="px-1">
+      <h3>Vous avez une commande en attente d'être finalisée</h3>
+    </div>
+    <div class="px-1">
+      <%= link_to order_path(@order), class: "link-order-profile" do %>
+        <p>Détails de la commande <i class="fa-solid fa-eye"></i></p>
+      <% end %>
+    </div>
+  <% elsif params[:action] == "show"  %>
+    <h3>Votre commande est en attente d'être finalisée.</h3>
+  <% end %>
+    <div class="px-1">
+      <input type="submit" id="pay" class="btn btn-primary" value="Finaliser votre commande"/>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+</div>

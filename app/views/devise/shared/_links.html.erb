@@ -1,0 +1,32 @@
+<div style="text-align:center;">
+  <%- if controller_name != 'sessions' %>
+    <%= link_to "Se connecter", new_session_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Créer un compte", new_registration_path(resource_name), class:"mobileonly" %><br />
+  <% end %>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Je n'ai pas reçu les instructions de confirmation?", new_confirmation_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to "Je n'ai pas reçu les instructions de deverouillage?", new_unlock_path(resource_name) %><br />
+  <% end %>
+
+  <%# Si nous choissons d'avoir plusieurs providers (ex, google, twitter, instagram), il faudra intégrer le choix du logo dans la loop avec un if/else %>
+  <%# ex: if OmniAuth::Utils.camelize(provider) == "Google" --> logo google dans le image_tag %>
+  <%#  if ... == "Twitter" --> logo twitter dans le image_tag %>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), method: :post, style:"display:block" do %>
+          <%= image_tag "signin_btns/btn_#{provider.to_s}_signin.png", :style => "width:288px;height:50px", :class => "mt-2" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

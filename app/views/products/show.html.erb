@@ -1,0 +1,117 @@
+<div class="producthomecontainer showmargintop" data-controller="share favorites" data-share-url-value= "<%= product_url(@product) %>">
+  <div class="container" >
+    <div class="mt-5">
+      <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
+        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
+      <% end %>
+    </div>
+
+    <%# ADMIN ZONE %>
+    <div class="adminaction">
+      <% if current_user && current_user.admin %>
+        <%= link_to "Modifier produit",
+            edit_product_path(@product),
+            class: "btn btn-warning m-3 d-flex align-items-center" %>
+        <%= link_to "Supprimer le produit", @product,
+            data: { turbo_method: :delete,
+            turbo_confirm: "Souhaitez-vous supprimer definitivement cet reference produit?"},
+            class: "btn btn-danger m-3 d-flex align-items-center" %>
+      <% end%>
+    </div>
+
+    <div class="product_top_view">
+      <div class="productcarrousselarea">
+        <%# Share button %>
+        <%= link_to products_path, :class => "shareiconbg", :data => {action: "click->share#share"} do%>
+            <i class="fa-solid fa-share-nodes shareicon"></i>
+        <% end %>
+        <%# Promo span %>
+        <%if @product.discount_price_cents != 0%>
+          <span class="promospanshowproduct">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
+        <%end%>
+        <%# favorite %>
+        <i class="fa-solid fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
+            data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>
+            data-favorites-product-id-param="<%= @product.id %>">
+        </i>
+        <% if @product.photos.attached? %>
+          <%= render "carrousel-product", product: @product %>
+        <% else %>
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+              size: "250x250",
+              alt: "Pas d'image disponible",
+              class: 'd-block mx-auto') %>
+        <% end %>
+
+
+
+        <div id="zoom-product-show" data-controller="gallerie" data-action="click->gallerie#showPreview">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+
+
+        <div class="hiddenzoom" id="zoomvignette">
+          <div id="zoom-product-show" style="display:flex;justify-content:center" data-controller="gallerie" data-action="click->gallerie#showPreview">
+            <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="productdataarea">
+        <%= content_tag(:h2, @product.name,
+                        class:"dataproductnameshow",
+                        data: { share_target: "title"}) %>
+
+        <% if @product.discount_price_cents != 0 %>
+          <% prixbarre = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
+          <h4 style="text-decoration:line-through">Prix : <%= prixbarre.slice(1..50) %> TTC</h4>
+          <% prixpromo = humanized_money_with_symbol(@product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(@product.discount_price_cents / 100.00).first%>
+          <h3 style="color:green"><b>Prix promo: <%= prixpromo.slice(1..50) %> TTC</b></h3>
+        <% else %>
+          <% prixclassique = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
+          <h4><b>Prix : <%= prixclassique.slice(1..50) %> TTC</b></h4>
+        <%end%>
+
+        <div style="margin:2vw;">
+          <%if @product.stock_quantity > 0%>
+            <p style="color:green;text-decoration:underline"><strong>En stock</strong></p>
+            <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
+          <%else%>
+            <p><i>disponible sous XXXXXXXXX semaines</i></p>
+            <%# voir :delay_retailer a ajouter a product %>
+          <%end%>
+        </div>
+          <% unless user_signed_in? && current_user.admin %>
+            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
+          <%end%>
+      </div>
+
+    </div>
+
+  </div>
+
+  <%# Product description area %>
+  <div style="margin-top:3vh;border-top:1px solid grey;">
+    <%# Simple description %>
+    <%= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
+    <%# Simple description %>
+    <p>
+      <%= @product.full_description %>
+    </p>
+  </div >
+
+  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
+  <div style="display:flex;">
+    <div class="wrapperhomepage" data-controller="favorites">
+      <% @products.each do |product| %>
+        <%= render "shared/#{Shop.first.card}", product: product%>
+      <%end%>
+    </div>
+  </div>
+  <section>
+    <%= render "pages/homegallerie"%>
+  </section>
+</div>

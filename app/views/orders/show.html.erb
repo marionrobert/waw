@@ -1,0 +1,76 @@
+<div class="container" style="margin-top:10vh">
+  <div class="d-flex justify-content-end">
+      <%= link_to profile_path, :class => "btn btn-dark mt-5" do%>
+          <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour à mon profil</span>
+        <% end %>
+  </div>
+
+  <div class="row py-4 mt-3">
+    <div class="col">
+      <%if @order.state == "paid" || @order.state == "delivered" %>
+        <h2>Numéro de commande: <%= @order.id %> </h2>
+        <% if @order.state = "paid" %>
+          <p>Statut de votre commande: payée, en attente de livraison</p>
+        <% else %>
+          <p>Statut de votre commande: livrée </p>
+        <% end %>
+
+        <p class="list-unstyled"><strong>Commande passée le </strong> <%= @order.created_at.to_date %></p>
+        <p style="color:red">Livraison estimée sous <strong><%= @order.estimated_delivery_time %></strong> jours</p>
+        <span style="color:red">délai estimé à gérer avec wehbook pour différencier livraison expresse/normale</span>
+      <%else%>
+        <%=render "orders/pending"%>
+      <%end%>
+    </div>
+  </div>
+  <hr class="mb-5">
+
+
+  <div class="pb-5">
+    <h4 class="mb-3">Contenu de la commande</h4>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-6", colspan="1", style="background:rgba(255,255,255,0.4);">References</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Quantité</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Prix unitaire en € ttc</th>
+          <th class="col-1", colspan="1", style="background:rgba(255,255,255,0.4);">Sous-total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.items.each do |key, value| %>
+          <div class="row">
+            <tr>
+              <td class="col-6" style="text-align:left"><%= @order.items[key]["name"] %>
+              <br>
+              <p style="margin-left:20px;text-decoration"><i><%= @order.items[key]["sku"] %></i></p></td>
+              <td class="col-1" style="text-align:right"><%= @order.items[key]["quantity"]  %></td>
+              <td class="col-1" style="text-align:right">
+                <span><%= (@order.items[key]["unit_amount"] / 100.00)  %> € ttc </span>
+              </td>
+              <td class="col-1" style="text-align:right">
+                <span><%= @order.items[key]["quantity"] * (@order.items[key]["unit_amount"] / 100.00) %> € ttc </span>
+              </td>
+            </tr>
+          </div>
+        <% end %>
+        <thead>
+          <tr>
+            <td class="col-8", style="text-align:right; background:rgba(255,255,255,0.4);", colspan="3">TOTAL</td>
+            <td class="col-1", style="text-align:right;", colspan="1">
+            <span><%= @sub_total.sum%> € ttc</span>
+        </thead>
+      </tbody>
+    </table>
+    <div style="display:flex;justify-content:space-around;margin:5vh">
+      <%= link_to products_path,
+        data: {turbo_method: :delete, turbo_confirm: "ATTENTION - DEFINITIF - Voulez-vous vraiment rembourser le client et annulé la commande?"}  do%>
+        <button> Annuler & Rembourser la commande </button>
+      <%end%>
+      <%= link_to products_path,
+        data: {turbo_method: :delete, turbo_confirm: "Confirmer vous que la commande est achevée avec succès? (Pensez à facturer le client pour votre comptabilité)"}  do%>
+        <button> Commande livrée avec succès </button>
+      <%end%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.bloglink {
+  cursor:pointer;
+}
+
+.bloglink:hover {
+  background: rgb(151, 151, 255);
+}
+
+.promolink {
+  text-decoration:none;
+  color:red;
+}
+
+.allproducts {
+  text-decoration:none;
+  color:green;
+}
+
+.categories_h3 {
+  writing-mode: vertical-rl;
+  text-align:center;
+  margin-top:3vh;
+}
+
+.card-category-index{
+  background-size: cover;
+  border-radius:3px;
+  height:180px;
+  width:360px;
+}

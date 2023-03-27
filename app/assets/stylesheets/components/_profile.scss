@@ -1,0 +1,56 @@
+a.link-order-profile {
+  text-decoration: none;
+  color: black;
+}
+
+.tab-link {
+  color: black;
+  font-size: 1rem;
+  font-weight:600;
+  background-color: transparent;
+  border-style: none;
+  padding: 5px;
+}
+
+.tab-link.active {
+  border-bottom: solid ;
+}
+
+.margin-right {
+  margin-right: 20px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+
+.global_stat_circles_area {
+  color:black;
+  border-radius:10px;
+  margin-bottom: 3rem;
+}
+
+
+.circlestath3 {
+  text-align:center;
+  font-weight:bold;
+  margin:0;
+}
+
+.circlestatp {
+  font-size:0.90rem;
+  text-align:center;
+}
+
+.statcircle {
+  margin:1vh;
+  background:rgba(243,244,246,1);
+  padding:3vh;
+  border-radius:50%;
+  min-height:175px;
+  min-width:175px;
+  max-height:175px;
+  max-width:175px;
+  display:grid;
+  align-items:center
+}

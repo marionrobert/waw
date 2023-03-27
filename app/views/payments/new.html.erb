@@ -1,0 +1,88 @@
+<div class="container" style="margin-top:10vh;">
+  <div class="row py-4">
+  <%# bug de recuperation de l'image à traiter %>
+
+    <%# <div class="col-md-3"> %>
+    <%#= image_tag @order.product.images.first, width: '100%' %>
+    <%# </div> %>
+
+    <div class="col">
+      <h1 class="m-3", style="text-align:center;">Récapitulatif de la commande</h1>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-6", colspan="1">References</th>
+            <th class="col-1", colspan="1">Quantité</th>
+            <th class="col-1", colspan="1">Prix unitaire en € ttc</th>
+            <th class="col-1", colspan="1">Sous-total</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @order.items.each do |key, value| %>
+          <div class="row">
+            <tr>
+              <td class="col-6" style="text-align:left"><%= @order.items[key]["name"] %><br><p style="margin-left:20px;text-decoration"><i><%= @order.items[key]["sku"] %></i></p></td>
+              <td class="col-1" style="text-align:right"><%= @order.items[key]["quantity"]  %></td>
+              <td class="col-1" style="text-align:right"><%= (@order.items[key]["unit_amount"] / 100) %></td>
+              <td class="col-1" style="text-align:right"><%= (@order.items[key]["quantity"]) * (@order.items[key]["unit_amount"] / 100) %></td>
+            </tr>
+          </div>
+          <% end %>
+        <thead>
+          <tr>
+            <td class="col-8", style="text-align:right; background:white;", colspan="3">SOUS-TOTAL</td>
+            <td class="col-1", style="text-align:right;", colspan="1">
+            <% sub_total = [] %>
+            <%@order.items.each do |key, value| %>
+              <%sub_total << ((@order.items[key]["unit_amount"])*(@order.items[key]["quantity"]))/100%>
+            <%end%>
+              <%=sub_total.sum%>
+              </td>
+          </tr>
+          <tr>
+            <td class="col-8", style="text-align:right; background:white;", colspan="3">FRAIS DE PORT (différents mode de livraisons vous seront proposés avant paiement)</td>
+            <td class="col-1", style="text-align:right;", colspan="1">15</td>
+            <%# LA VALEUR DES FRAIS DE PORT EST A DISCUTER ENSEMBLE, COMMENT ON LA CALCUL...FIXE...AU POID DU PAQUET...OFFERT?...A VOIR %>
+          </tr>
+          <tr>
+            <td class="col-8", style="text-align:right; background:white;", colspan="3">TOTAL</td>
+            <td class="col-1", style="text-align:right;", colspan="1"><%= sub_total.sum + 15 %></td>
+          </tr>
+        </thead>
+        </tbody>
+      </table>
+      <div>
+<%# BOUTON DE VALIDATION DES CGV %>
+        <input type="checkbox" id="checkcgv"/>
+        <label for="checkcgv" style="color:black">En cochant cette case, je reconnais avoir pris connaissance des <%= link_to "mentions legales", shops_legal_path, target: "_blank"%> et accepte les <%= link_to "conditions générales de ventes et de garanties", shops_cgv_path, target:"_blank"%></label>
+      </div>
+      <div class="d-flex justify-content-center m-3">
+        <input type="submit" id="pay" disabled="disabled" class="btn btn-primary" value="Finaliser votre commande"/>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
+          });
+        </script>
+      </div>
+        <p style="font-size:smaller; color:gray;text-align:center;"><i></i>*Vous allez être redirigé vers la page de paiement sécurisé Stripe ou Google Pay</p>
+    </div>
+  </div>
+</div>
+<script>
+// CONDITIONS GENERALES DE PAYMENT ACCEPTATION
+ var checker = document.getElementById('checkcgv');
+ var agree = document.getElementById('pay');
+ // when unchecked or checked, run the function
+ checker.onchange = function(){
+    if(this.checked){
+        agree.disabled = false;
+    } else {
+        agree.disabled = true;
+    }
+  }
+</script>

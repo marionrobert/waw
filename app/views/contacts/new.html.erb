@@ -1,0 +1,21 @@
+<div class="container" style="margin-top:20vh;background-color:<%=Shop.first.themebgcolor%>;">
+  <h3 class="text-center mb-3">Une question ? Contactez-nous!</h3>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= simple_form_for(@contact) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.input :first_name, label: "Prénom", label_html:{ class:"labelcolor" } %>
+          <%= f.input :last_name, label: "Nom", label_html:{ class:"labelcolor" } %>
+          <%= f.input :email, label: "Email", label_html:{ class:"labelcolor" } %>
+          <%= f.input :content, label: "Message", label_html:{ class:"labelcolor" } %>
+        </div>
+        <div class="form-actions d-flex justify-content-center">
+            <%= f.button :submit, class:"btn btn-dark", value:"Envoyer votre message"%>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

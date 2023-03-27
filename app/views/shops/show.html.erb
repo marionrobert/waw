@@ -1,0 +1,75 @@
+<div class="container"
+     style="padding-top:10vh;background-color:<%=Shop.first.themebgcolor%>;">
+  <div class="row mt-3">
+    <div class="col ms-5">
+      <h2><%= @shop.name %></h2>
+      <p><%= @shop.description %></p>
+      <p><%= @shop.address %></p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-around">
+    <div class="col-md-5 my-auto">
+      <% if @shop.photos.attached? %>
+        <%= render "carrousel-shop",
+            shop: @shop
+        %>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+            size: "250x250",
+            alt: "Pas d'image disponible",
+            class: 'd-block mx-auto')
+        %>
+      <% end %>
+    </div>
+    <div class="col-md-5 my-auto">
+      <table class="table table-sm">
+        <h5 class="mt-3 font-weight-bold"
+            style="text-align:center">
+            Nos horaires d'ouverture
+        </h5>
+        <tbody>
+          <% @day_schedules.each_with_index do |day, index| %>
+            <tr>
+              <th scope="row"><%= @weekdays[index] %></th>
+
+              <td>
+                <%= day["am_opens_at"].strftime("%kh%M")%> - <%= day["am_closes_at"].strftime("%kh%M")%>
+              </td>
+              <td><%= day["pm_opens_at"].strftime("%kh%M")%> - <%= day["pm_closes_at"].strftime("%kh%M")%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-around mt-5">
+    <div class="col-md-6 mt-5 map-size"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="col-md-4 mt-5">
+      <h4 style="text-align:center">
+        Une question ? Contactez-nous!
+      </h4>
+      <%= simple_form_for(@contact) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs">
+          <%= f.input :first_name, label: "Prénom", label_html:{ class:"labelcolor" } %>
+          <%= f.input :last_name, label: "Nom", label_html:{ class:"labelcolor" } %>
+          <%= f.input :email, label: "Email", label_html:{ class:"labelcolor" } %>
+          <%= f.input :content, label: "Message", label_html:{ class:"labelcolor" } %>
+        </div>
+        <div class="form-actions d-flex justify-content-center",
+             style="margin-bottom:10vh;">
+            <%= f.button :submit,
+                class:"btn btn-dark",
+                value:"Envoyer votre message"
+            %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+</div>

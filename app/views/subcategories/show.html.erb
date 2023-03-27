@@ -1,0 +1,10 @@
+<div class="container" style="margin-top:35vh;margin-bottom:15vh;">
+  <div style="display:flex;justify-content:center">
+    <h2 class="mb-3">Tous nos produits « <%=@subcategory.name%> »</h2>
+  </div>
+  <div style="flex-wrap:wrap;display:flex;justify-content:center" data-controller="favorites">
+    <% @products.each do |product| %>
+      <%= render "shared/#{Shop.first.card}", product: product%>
+    <%end%>
+  </div>
+</div>

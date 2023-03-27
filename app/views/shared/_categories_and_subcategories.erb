@@ -1,0 +1,116 @@
+
+<%# ///////////////////////@ MEDIA > 480px ////////////////////////// %>
+
+<%#§////////////////// les categories/////////////////////  %>
+<div data-controller="category">
+  <div class="enable_on_desktop">
+    <div style="display:flex;justify-content:space-around">
+      <p class="allproductlink">
+        <%= link_to "TOUS NOS PRODUITS",
+            products_path,
+            style:"color:black"
+        %>
+      </p>
+    </div>
+    <div class="categories-overflow" style="width:88%; display:flex">
+      <p>
+        <%= link_to "PROMO",
+            promo_path,
+            class:"promolink"
+        %>
+      </p>
+      <% @categories.each do |category| %>
+        <%=link_to category_path(category) do%>
+          <div data-action="mouseenter->category#sub_cat_deploy_desktop">
+            <p><%=category.name%></p>
+          </div>
+        <%end%>
+      <% end %>
+    </div>
+  <%#//////////////////////////////// les sous-categories /////////////////////%>
+  </div>
+    <div id="subcatdesktopmenu",
+         class="subcategorydesktopmenu",
+         style="display:none",
+         data-controller="category",
+         data-action="mouseleave->category#sub_cat_hidding_desktop">
+      <% Subcategory.all.each do |subcategory| %>
+        <p class="subcat <%=subcategory.category.name%>"
+            style="color:black">
+          <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+            <%= subcategory.name %>
+          <%end%>
+        </p>
+      <% end %>
+    </div>
+</div>
+
+
+<%# ///////////////////////@ MEDIA < 481px ////////////////////////// %>
+<div class="enable_on_smartphone">
+  <div class="container",
+       style="margin-top:0vh;">
+    <div data-controller="category">
+      <div id="categories_left_barre"
+           data-action="mouseover->category#slidecategorymenu">
+          <h3 class="categories_h3">CATEGORIES</h3>
+      </div>
+      <div id="smalldevicecategories"
+           class="menucategory">
+         <div class="categorymenu">
+            <%= link_to "BLOG",
+                blogposts_path,
+                class:"bloglinkcat"%>
+         </div>
+        <div class="categorymenu">
+          <p><%= link_to "PROMO",
+                 promo_path,
+                 class:"promolink"
+             %>
+          </p>
+        </div>
+        <div class="categorymenu">
+          <p><%= link_to "VOIR TOUS LES PRODUITS",
+                 products_path,
+                 class:"allproducts"
+             %>
+          </p>
+        </div>
+      <% @categories.each do |category| %>
+        <div class="categorymenu",
+             data-action="click->category#displaysubcategory">
+          <p style="color:black"><%=category.name%></p>
+        </div>
+        <% end %>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  style="position: absolute;
+                         top: 4vh;
+                         left: 4vw;
+                         z-index: 101;"
+                  data-action="click->category#hidecategorymenu">
+          </button>
+      <div id="subcatmenu" class="subcategorymenu" style="overflow:auto">
+        <% Subcategory.all.each do |subcategory| %>
+          <p class="subcat <%=subcategory.category.name%>" style="color:black;padding-bottom:4vh;">
+            <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+              <%= subcategory.name %>
+            <%end%>
+          </p>
+        <% end %>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  style="position: absolute;
+                         top: 4vh;
+                         left: 4vw;
+                         z-index: 102;"
+                  data-action="click->category#hidesubcategorymenu">
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

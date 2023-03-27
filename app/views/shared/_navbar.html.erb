@@ -1,0 +1,136 @@
+<%# //////////////// PERMET DE PLACER LA NAVBAR SOUS LA PUB SI IL Y A PUB /////////////// %>
+<%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+<main class="navfixedwithbanner">
+<%else%>
+<main class="navfixed">
+  <%end%>
+  <nav class="navbar d-flex"
+       style="width: 100vw;max-height:10vh;background:white;"
+       aria-label="Light offcanvas navbar">
+    <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
+    <div class="displaybtncategories",
+         data-controller="category",
+         style="margin:0 auto",
+         data-action="click->category#slidecategorymenu">
+         <i class="fa-solid fa-bars"></i>
+    </div>
+    <%# ////////BOUTON HOME ///////////// %>
+        <%if Shop.first.logo.key %>
+          <div class="homelogo",
+              data-controller="category",
+              style="margin:0 auto">
+            <%= link_to "/" do%>
+                <%= cl_image_tag Shop.first.logo.key, style:"max-height:8vh;max-width:100%;margin:0 auto" %>
+            <%end%>
+          </div>
+        <%else%>
+          <div class="homelogo",
+              data-controller="category",
+              style="margin:0 auto",
+              data-action="mouseleave->category#homebuttonrestore">
+            <%= link_to "/" do%>
+            <i class="fa-solid fa-house btnhome",
+              style="color:black;display:flex",
+              data-controller="category",
+              data-action="mouseover->category#homebuttondeploy">
+              <span id="homebutton"
+                    class="deploy_home_icon">
+                    HOME
+              </span>
+            </i>
+          </div>
+        <%end%>
+      <%end%>
+
+    <%# BOUTON BLOG %>
+      <%= link_to blogposts_path, class:"blognavbar" do%>
+        <p style="display:flex;align-items:center;margin:0 auto;">
+        BLOG
+        </p>
+      <%end%>
+    <%# ////////////barre de recherche/////////////////// %>
+    <div id="mobile-input-search"
+         class="responsivesearchbar"
+         style="margin:0 auto">
+      <%= render "search/form" %>
+    </div>
+    <%# Bouton de recherche pour mobile %>
+    <div class="mobileglassdiv">
+      <i id="mobile-magnifying-glass",
+         style="margin:0 auto",
+         class="fa-solid fa-magnifying-glass",
+         data-controller="search",
+         data-action="click->search#displayMobileSearchInput"></i>
+    </div>
+    <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
+    <div class="profile_div"
+         style="margin:0 auto">
+      <button class="profilebutton"
+              type="button"
+
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbarLight"
+              aria-controls="offcanvasNavbarLight">
+        <%if current_user%>
+          <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
+        <%else%>
+          <i class="fa-regular fa-user", style="color:black; font-size: 2.6vh;"></i>
+        <%end%>
+        <%# <span class="navbar-toggler-icon"></span> %>
+      </button>
+      <div id="offcanvasNavbarLight"
+           class="offcanvas offcanvas-end"
+           style="margin:0 auto"
+           tabindex="-1"
+           aria-labelledby="offcanvasNavbarLightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasNavbarLightLabel"
+              class="offcanvas-title">Menu
+          </h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close">
+          </button>
+        </div>
+        <div class="offcanvas-body"
+             style="display:block;line-height:4rem">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <%if !current_user %>
+              <li class="nav-item">
+                <%= link_to "Connexion",
+                    new_user_session_path,
+                    style:"text-decoration:none;"%>
+              </li>
+            <%end%>
+            <%if current_user%>
+              <li class="pl-3 pr-3 mt-2 dropdown-item">
+                <%= link_to "Tableau de bord",
+                    profile_path,
+                    style:"text-decoration:none;"
+                %>
+              </li>
+              <li class="pl-3 pr-3 mt-2 dropdown-item">
+                <%= link_to "Déconnexion",
+                    destroy_user_session_path,
+                    'data-turbo-method': :delete,
+                    style:"text-decoration:none;"
+                %>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%# /////////////////PANIER///////////////// %>
+    <div class="btncart", data-controller="display-cart", data-action="click->display-cart#showCart">
+      <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.9vh;"></i>
+      <% if @cart.line_items.count.positive? %>
+        <p class="circle_items_count">
+            <%= @cartcontent%>
+        </p>
+      <% end %>
+    </div>
+  </nav>
+    <%= render "shared/categories_and_subcategories" %>
+</main>

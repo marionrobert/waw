@@ -1,0 +1,152 @@
+.blogpostbuttons {
+  display:flex;
+  justify-content:center;
+  width:50vw;
+  margin:0 auto
+}
+
+.blogposttitle {
+  margin-left:1vw;
+  font-size:larger;
+}
+
+
+@media screen and (max-width: 481px) {
+
+  .containerbgblogpost {
+    background: rgba(50,50,50,0.1);
+    margin-bottom:4vh;
+  }
+  .blogpostcontent {
+    width: auto;
+    margin: 3vh 3vw;
+    max-height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size:smaller;
+  }
+
+  .postlineodd {
+    height: 17vh;
+    align-items:center;
+  }
+
+  .postlineeven {
+    display:flex;
+    flex-direction: row;
+    height: 17vh;
+    align-items:center;
+  }
+
+  .postimagezone {
+    width: 20vh;
+    height: 20vh;
+    text-align: center;
+  }
+
+  .postcirclelayerright {
+    width: 20vh;
+    height: 20vh;
+    background: rgba(0, 0, 0, 0);
+    border: 5px solid grey;
+    /* left: 0; */
+    /* top: 0; */
+    overflow: hidden;
+    display: flex;
+    border-radius: 20vh;
+  }
+
+  .postcirclelayerleft {
+    width: 20vh;
+    height: 20vh;
+    background: rgba(0, 0, 0, 0);
+    border: 5px solid grey;
+    /* left: 0; */
+    /* top: 0; */
+    overflow: hidden;
+    display: flex;
+    border-radius: 20vh;
+  }
+
+  .blogposttext {
+    font-size: smaller;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-left:1vw;
+  }
+
+}
+
+@media screen and (min-width: 481px) {
+
+  .blogpostcontent {
+    width:auto;
+    overflow: hidden;
+    margin:2vw;
+    max-height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+
+  .postlineodd {
+    height:30vh;
+    background:rgba(50,50,50,0.1);
+    align-items:center;
+    margin-right:18vh;
+  }
+
+  .postlineeven {
+    display:flex;
+    flex-direction: row;
+    height:30vh;
+    background:rgba(50,50,50,0.1);
+    align-items:center;
+    margin-left:18vh;
+  }
+
+  .postimagezone {
+    width:35vh;
+    height:35vh;
+    text-align:center;
+  }
+
+  .postcirclelayerright {
+    width: 35vh;
+    height: 35vh;
+    background:rgba(0,0,0,0);
+    border: 5px solid grey;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    border-radius: 20vh;
+    margin-left: 18vh;
+  }
+
+  .postcirclelayerleft {
+    width:35vh;
+    height:35vh;
+    background:rgba(0,0,0,0);
+    border:5px solid grey;
+    left:0;
+    top:0;
+    overflow:hidden;
+    display:flex;
+    border-radius:20vh;
+    margin-left:-18vh;
+  }
+
+  .blogposttext {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-left:1vw;
+  }
+
+}

@@ -1,0 +1,371 @@
+@media screen and (max-width: 480px) {
+
+  .shortcutbtntopm {
+    margin:7vh 20px 0vh 20px;
+  }
+
+  .shortcut_payement {
+    width:200px;
+    height:200px;
+    border-radius: 10px;
+    background:rgba(170,244,181,0.8);
+    position:fixed;
+    bottom:15vh;
+    right:5vw;
+    z-index:99999;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto;
+  }
+
+  .animationpub {
+    margin:0;
+    padding:0;
+    position:relative;
+    animation: 10s linear 1s infinite running slidein;
+  }
+
+  .sign_up_form {
+    width:400px;
+    height:500px;
+    font-size: smaller;
+    border: 1px solid grey;
+    margin: 10vh 0;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(150,150,150,0.5);
+  }
+
+  .create_account_form {
+    display:none
+  }
+
+  .homelogo {
+    width:40%;
+  }
+
+  .displaybtncategories {
+    display: flex;
+    width: 10%;
+    font-size: 3vh;
+    margin: 0 2vw;
+    justify-content: center;
+  }
+
+  .productdataarea {
+    width:100%;
+  }
+
+  .product_top_view {
+  display:flow-root;
+  justify-content:center
+  }
+
+  .global_stat_circles_area {
+    display:grid;
+    justify-content: center;
+  }
+
+  .leftbodybanner {
+    display:none;
+  }
+
+  .rightbodybanner {
+    display:none;
+  }
+
+  .marginfirstbuttondashboard {
+    margin-top:20vh;
+  }
+
+  .dashboardselector {
+    display: flex;
+    height:40px;
+    justify-content: center;
+    width: 100%;
+    overflow:hidden;
+    transition: 1500ms;
+    text-align: left;
+    padding:15px 15px 15px 15px;
+    font-weight: bold;
+    color:white;
+  }
+
+  .producthomecontainer {
+    // width:9100;
+    // margin: 0 auto;
+  }
+
+  .dashboard-div-selectors {
+    display:grid;
+    align-items: center;
+    z-index: 10;
+    overflow-y: scroll;
+    position:fixed;
+    color:white;
+    font-size:15px;
+    overflow: hidden;
+    width:40px;
+    min-height:100vh;
+    background: rgb(0,0,0);
+    overflow-anchor: none;
+  }
+
+  .catwrapperoddevencontent {
+    width:100%;
+    height:380px;
+    overflow:scroll;
+      &::-webkit-scrollbar{
+        border-radius: 10px;
+        height: 5px;
+        background-color: rgba(0,0,0,0);
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: rgba(100,100,100,0.4);
+      }
+      &::-webkit-scrollbar-track {
+        height: 16px;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+        background-color: rgba(0,0,0,0);
+      }
+    }
+
+    .oddcategory {
+      box-shadow: 5px 5px 10px grey;;
+      border-radius: 10px;
+      padding:15px;
+      margin-right:80px;
+      max-width:210px;
+      min-width:210px;
+      min-height:160px;
+      max-height:160px;
+      background:red;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .evencategory {
+      box-shadow: 5px 5px 10px grey;;
+      border-radius: 10px;
+      padding:15px;
+      margin-left:100px;
+      max-width:210px;
+      min-width:210px;
+      min-height:160px;
+      max-height:160px;
+      background:orange;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .catwrapperhomepage {
+      width: 100%;
+      height:140px;
+      margin:0 auto;
+      display:flex;
+      &::-webkit-scrollbar{
+        border-radius: 10px;
+        // width: 12px;
+        height: 5px;
+        background-color: rgba(0,0,0,0);
+      }
+      // correspond à la bande defilante
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        // height: 30px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: rgba(120,120,120,0.4);
+      }
+      // correspond à la piste sur toute la longueur
+      &::-webkit-scrollbar-track {
+        height: 16px;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+        background-color: rgba(0,0,0,0);
+      }
+    }
+
+  .wrapperhomepage {
+    width:100%;
+    height:330px;
+    margin:0 auto;
+    display:flex;
+    overflow-x:auto;
+    &::-webkit-scrollbar{
+      border-radius: 10px;
+      // width: 12px;
+      height: 5px;
+      background-color: rgba(0,0,0,0);
+    }
+    // correspond à la bande defilante
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      // height: 30px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+      background-color: rgba(120,120,120,0.4);
+    }
+    // correspond à la piste sur toute la longueur
+    &::-webkit-scrollbar-track {
+      height: 16px;
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+      background-color: rgba(0,0,0,0);
+    }
+  }
+
+  .blognavbar {
+    display:none;
+  }
+
+  .banner {
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    // height: 100vh;
+    padding-top: 0vh;
+    margin:0 auto;
+    margin-top: 4vh;
+    min-width: 100vw;
+    // max-width: 100vw;
+    z-index: 10;
+  }
+
+  .bannertextfield {
+    padding-top:5vh;
+    text-align:center;
+  }
+
+  .stockmanage_update {
+    position:absolute;
+    right:2vw;
+    top:8vh;
+  }
+
+  .enable_on_desktop {
+    display:none;
+  }
+
+  .bloglink {
+    display:none;
+  }
+
+  .bloglinkcat {
+
+  }
+
+  .searchinputlength {
+    width:80vw;
+  }
+
+  .menucategory {
+    left:-190vw;
+    padding-left: 2rem;
+    position:fixed;
+    height:110vh;
+    width:95vw;
+  }
+
+  .displaycat {
+    transform:translateX(200%);
+  }
+
+  .subcategorymenu {
+    left:-95vw;
+    height:110vh;
+    width:95vw;
+    z-index:1001;
+    padding-bottom: 4vh;
+  }
+
+  .removeMenuArrow {
+    transform: rotate(50deg);
+    position:absolute;
+    bottom:20vh;
+    left:45vw;
+  }
+
+  .removeMenuArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #removeMenuCatArrow {
+    bottom:20vh;
+    left:45vw;
+  }
+
+  #removeMenuCatArrow:active {
+    transition-duration: 200ms;
+    transform: rotate(-310deg);
+  }
+
+  #categories_left_barre {
+    display:none;
+  }
+
+  .responsivesearchbar {
+    transition-duration: 500ms;
+    position:absolute;
+    top:-200%;
+    left:0;
+    width: 100vw;
+    margin-top:2vh;
+    z-index:0;
+  }
+
+  .responsivesearchbaronclick {
+    transition-duration: 500ms;
+    position:absolute;
+    top:110%;
+    left:0;
+    width: 100vw;
+    margin-top:2vh;
+    z-index:50;
+  }
+
+  .mobileglassdiv {
+    display: flex;
+    justify-content: center;
+    width:10%;
+  }
+
+
+
+  .mobilemaskcrossinput {
+    margin: 0 5vw 0 0;
+  }
+
+  #mobile-magnifying-glass {
+    font-size: 3vh;
+    color: black;
+  }
+
+
+
+  .mobile-magnifying-glass-masked {
+    display:none;
+    transition-duration: 200ms;
+  }
+
+  .searchbar {
+    position: absolute;
+    top: 7vh;
+    left:1vw;
+  }
+
+  .menupanier {
+    left:-97vw;
+    width: 97vw;
+  }
+
+  .displaysubcat {
+    transition-duration: 350ms;
+    transform:translateX(100%);
+  }
+
+}

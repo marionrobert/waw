@@ -1,0 +1,168 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+@import "trix/dist/trix";
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+html {
+  padding:0;
+}
+
+body {
+  padding:0;
+  margin:0;
+}
+
+.navtabbtn {
+  font-size:x-large;
+  font-weight:bold;
+  &:hover {
+    color:grey;
+  }
+}
+
+.hiddenzoom {
+  display:none
+}
+
+.zoompreview {
+  z-index: 1000;
+  // position:absolute;
+  position:fixed;
+  width: 60vw;
+  height: 60vh;
+  top:25vh;
+  left:20vw; /* ramène l'élément au centre */
+  background: white;
+  border:1px solid black;
+}
+
+
+.hidden {
+  display:none;
+}
+
+.underline {
+  border-bottom:4px solid black;
+}
+
+tr {
+  border:none;
+}
+
+td {
+  border:none;
+}
+
+.dashboardselector:hover {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+.dashboardselector.active {
+  overflow:hidden;
+  transition: 200ms;
+  background:rgba(255,255,255,1);
+  color:black;
+}
+
+button {
+  background:rgba(0,0,0,0);
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+.nobanner {
+  background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)
+}
+
+.catvignettename {
+  font-weight:bolder;
+  text-shadow: black 0px 0 5px;
+  color:white;
+  padding-left: 5px;
+}
+
+.carrousselh2 {
+  text-align:left;
+  margin: 10vh 5vw 7vh 4vh;
+}
+
+.btnbanner {
+  background:cornflowerblue;
+  border: none;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  text-align:center;
+  border-radius:3px;
+  font-weight:bolder;
+  font-size:12px;
+  height:6vh;
+  width:50vw;
+  text-decoration:none;
+  color:white;
+}
+
+.labelstockmobile{
+  display:none;
+}
+
+.categorymenu {
+  padding-bottom:4vh;
+}
+
+.categorymenu:hover {
+  transition-duration: 350ms;
+  transform:translateX(1vw);
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.tab-link {
+  color: rgb(0,0,0);
+  font-size: 30px;
+  font-weight:bolder;
+  background-color: rgba(0,0,0,0);
+  border-style: none;
+}
+
+.cookies-modal {
+
+  position: fixed;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 5000;
+  background: rgba(243, 243, 243,0.85);
+  padding: 2vw;
+  word-break: break-word;
+  border-radius: 0.5rem;
+  min-width: 50vw;
+  max-width: 95vw;
+}
+
+.deploy_home_icon {
+  transition: 150ms;
+  color:rgba(0,0,0,0);
+}
+
+.TESTAPPEARHOME {
+  margin-left:25px;
+  transition: 800ms;
+  color:gray;
+}
+
+.offcanvas-header {
+  z-index: 10;
+}

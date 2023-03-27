@@ -1,0 +1,10 @@
+<form id="quantity-form">
+  <button type="button" onclick="decrementQuantity(-100)">-100</button>
+  <button type="button" onclick="decrementQuantity(-10)">-10</button>
+  <button type="button" onclick="decrementQuantity(-1)">-1</button>
+  <input type="number" id="quantity-input" min="0" value="1">
+  <button type="button" onclick="incrementQuantity(1)">+1</button>
+  <button type="button" onclick="incrementQuantity(10)">+10</button>
+  <button type="button" onclick="incrementQuantity(100)">+100</button>
+  <input style="background:green" type="submit" value="Submit" onsubmit="submitQuantity()">
+</form>
