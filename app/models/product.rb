@@ -10,13 +10,13 @@ class Product < ApplicationRecord
   validates :supplier_delay, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 65, message: ": Le délai fournisseur doit être compris entre 0 et 65 jours." }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promotionnel doit être inférieur au prix d'origine." }
   monetize :price_cents
-  # validates :discount_ending_date, presence: true, if: :discount_price_positive?
+  validates :discount_ending_date, presence: true, if: :discount_price_positive?
   delegate :category, to: :subcategory, allow_nil: true
 
+  def discount_price_positive?
+    discount_price_cents.positive?
+  end
 
-
-  # validates :promo_end_timer, if discount_price_cents: { greater_than_or_equal_to: 0 }
-  # validates :promo_end_timer, presence: true, if: -> {discount_price_cents > 0}
 # Fait crasher la seed si implementé dedans
 
   include PgSearch::Model

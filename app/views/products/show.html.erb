@@ -52,7 +52,14 @@
 
         <div class="hiddenzoom" id="zoomvignette">
           <div id="zoom-product-show" style="display:flex;justify-content:center" data-controller="gallerie" data-action="click->gallerie#showPreview">
-            <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+            <% if @product.photos.attached? %>
+              <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+            <% else %>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                style:"max-width:90%;max-height:90%",
+                alt: "Pas d'image disponible",
+                class: 'd-block mx-auto') %>
+            <% end %>
             <i class="fa-regular fa-circle-xmark"></i>
           </div>
         </div>
