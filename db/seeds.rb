@@ -361,7 +361,7 @@ puts "Remplissage des rayons"
 
 product_1 = Product.create!(
   name: "Inertie fluide horizontale",
-  sku: "CF985435",
+  sku: "12345azer",
   description: "Radiateur eau chaude horizontal blanc acier classique basse témperature chauffage central H.60 x L.83 cm",
   price_cents: 29000,
   discount_price_cents: 25900,
@@ -502,7 +502,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_8 = Product.create!(
   name: "Poêle à granulés EXTRAFLAME canalisable Dahiana Plus VSF ivoire 10 kW",
-  sku: "843424797",
+  sku: "12345aze22r",
   description: "Poêle à granulés Extraflame Dahiana canalisable permatant de chauffer plusieurs pièces. Il permet aussi de profiter d’une chauffe silencieuse grâce à la fonction ' CONFORT AIR ». Sa conception est robuste grâce au foyer, porte et brasier en fonte. L'échangeur à faisceau tubulaire garantie une performance optimale. Le bac à cendres amovible simplifie l'entretien. Avec son grand réservoir de 30kg il permet une autonomie importante. Le poêle Extraflame Dahiana offre une vision importante de la flamme grâce à sa vitre imposante pour le plaisir des yeux.
   Poêle à granulés canalisable Extraflame DAHIANA PLUS VSF IVOIR",
   price_cents: 549000,
@@ -521,7 +521,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_9 = Product.create!(
   name: "Air Conditionné LG CT18F/CT18R",
-  sku: "89674657",
+  sku: "12345az534er",
   description: "Cassette de plafond encastré multi-split",
   price_cents: 159000,
   discount_price_cents: 0,
@@ -538,7 +538,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_10 = Product.create!(
   name: "Ensemble de conduits d onduleur RZGD70 NANUK R32 ULTRA DC - BAXI",
-  sku: "87456899",
+  sku: "1234511azer",
   description: "Baxi Nanuk RZGD70 Ducted Air Conditioning avec le nouveau gaz réfrigérant R32. Avec pompe de vidange incluse et seulement 245 mm de haut. Sa puissance est de 6 020 Kcal en froid et de 6 880 Kcal en chaud. Classe énergétique A++/A+.",
   price_cents: 143279,
   discount_price_cents: 0,
@@ -559,7 +559,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_11 = Product.create!(
   name: "Climatiseur monobloc réversible KLIMEA 12hp vertical, 3100 W",
-  sku: "96874411",
+  sku: "12345azezrzeer",
   description: "Contrairement à d'autres climatiseurs monoblocs, il n'est pas nécessaire de faire appel à un professionnel certifié afin d'installer ce produit.",
   price_cents: 219000,
   discount_price_cents: 0,
@@ -580,7 +580,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_12 = Product.create!(
   name: "Climatiseur mobile WHIRLPOOL Pac c0 2800 W",
-  sku: "71228CE",
+  sku: "12345aazer",
   description: "Pièce jusqu’à 25m2 (9K BTU / 2,5KW) • Classe Froid: A / EER : 2,6 • Niveau sonore : 64db • Usages complémentaires : Ventilation, déshumidification • Minuteur 1-12h • Filtre Hepa • Gaz réfrigérant : R290 • Couleur : Blanc • Dimensions : 44,8 x 74, 4 x 40 • Equipements : télécommande, support télécommande intégré, poignées de transport, 4 roulettes, kit fenêtre. Fonctions : 6ème sens : le capteur thermique évalue automatiquement la température de la pièce. Le climatiseur identifie alors la combinaison optimale des fonctions nécessaires (chauffage, refroidissement, ventilation ou déshumidification) pour atteindre les conditions souhaitées le plus rapidement possible. Around U : Un capteur intégré dans la télécommande permet d'obtenir une température ambiante uniforme. Mode Silence : le climatiseur est capable de fonctionner très silencieusement (49db), pour un confort optimal.",
   price_cents: 79000,
   discount_price_cents: 54900,
@@ -605,7 +605,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_13 = Product.create!(
   name: "Ventilateur de Plafond 122cm DC Blanc IP44 Carpe Outdoor M",
-  sku: "75415ZEDC",
+  sku: "12345azezrer",
   description: "attention - description can't be blank",
   price_cents: 19900,
   discount_price_cents: 0,
@@ -626,7 +626,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_14 = Product.create!(
   name: "Colonne d'air à poser, THOMSON, Turbo tactile noir 50 W, D1 cm",
-  sku: "CVSDE548",
+  sku: "12345azzaeer",
   description: "Mode turbo, télécommande, mode sommeil, programmation : 12 heures, oscillant sur angle, hauteur : 116cm, ventilation : 3 vitesses. Ventilateur tour 116cm LED avec télécommande - turbo tactile",
   price_cents: 9900,
   discount_price_cents: 8900,
@@ -645,7 +645,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_15 = Product.create!(
   name: "POWER TOOL - Ventilateur tour oscillant à poser télécommande 75W - 3 vitesses de ventilation - Oscillation à 90° - Minuterie - NoirVoir",
-  sku: "AWDZECC48",
+  sku: "12345az1er",
   description: "Ventilateur tour oscillant à poser puissant et compact. Il est équipé de 3 programmes de ventilation et 3 vitesses de fonctionnement. Il offre le niveau sonore faible grâce à sa vitesse de rotation et sa pression d'air basse. Le ventilateur peut être contrôlé à l'aide d'une télécommande incluse. Il est doté d'une fonction de minuterie, CARACTÉRISTIQUES TECHNIQUES: Alimentation: 230V / 50Hz, Puissance: 75W, 3 vitesses de ventilation, Diamètre: 40cm / 16'', Diamètre socle: 40cm, Oscillation à 90°, Hauteur: 115cm - 135cm, Minuterie: 0,5 - 7,5h, Télécommande",
   price_cents: 12699,
   discount_price_cents: 7924,
@@ -691,7 +691,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_17 = Product.create!(
   name: "Ventilateur à poser, DAEWOO, Dcool chromé 55 W, D30 cm",
-  sku: "PMOIL8",
+  sku: "12345aqeer",
   description: "
   Type de produit	A poser
   Marque du produit	DAEWOO
@@ -728,7 +728,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_18 = Product.create!(
   name: "Ventilateur à poser, DUUX, Globe dxcf07 avec pack batterie noir 2 W, D33 cmVoir",
-  sku: "XCD41",
+  sku: "12345qzer",
   description: "Consommation électrique – 2-27w • Niveau sonore – 13-50 dBa • Circulation d'air– 198m³/hr • 90⁰ oscillation horizontale • 100⁰ oscillation verticale • 3 vitesses • Commande tactile • Indicateurs d’état LED • Moteur DC puissant • Portée du vent de 7m • Minuterie 1 et 3 heures • Comprend une télécommande
   Grâce à son design moderne, Globe s’intègre parfaitement sur toute table, bureau ou plan de travail. Mais sa beauté n’est pas seulement superficielle. Ce ventilateur de table est doté d’un moteur CC puissant d’une portée de 7 mètres, optimisé par l’oscillation horizontale (90⁰) et verticale (80⁰). Cette nouvelle caractéristique unique permet au ventilateur d’atteindre les moindres recoins d’une pièce. Look unique Globe se caractérise par un design discret qui s’intègre parfaitement dans tout intérieur. Grâce à son look minimaliste et son panneau de commande tactile convivial, ce ventilateur saura vous séduire. Globe est disponible en blanc ou noir. Puissant et économe en énergie Globe est doté d’un puissant moteur CC, ce qui lui assure une portée impressionnante de 7 mètres. Ça doit consommer beaucoup non ? Pas du tout ! Le ventilateur de table ne consomme que 2 W à la vitesse la plus faible. Fonctionnement simple Globe possède trois réglages de vitesse manuels, pour une entière liberté de réglage de sa puissance. Son oscillation horizontale (90⁰) et verticale (80⁰) permet une circulation d'air dans toute la pièce et le mode de mise en veille automatique permet à Globe de s’arrêter même si vous dormez déjà. Gardez le contrôle Globe se commande facilement grâce à son panneau de commande tactile convivial. Ses indicateurs d’état LED sont faciles à lire et affichent le réglage exact du ventilateur. Vous voulez rester dans votre sofa ? Vous avez accès à toutes les fonctionnalités de Globe avec la télécommande incluse.",
   price_cents: 9490,
@@ -755,7 +755,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_19 = Product.create!(
   name: "Ventilateur Nébuliseur EDM 80W - 30cm - Blanc et noir 33515",
-  sku: "78OOOOOZ22",
+  sku: "12345azeqr",
   description: "Ventilateur Nébuliseur EDM 80W - 30cm - Blanc et noir 33515, ventilateur réglable avec une télécommande afin de le régler de loins. Il offre une puissance de 80W et se déplace sur roulette.
 
 
@@ -796,7 +796,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_20 = Product.create!(
   name: "Mini ventilateur de table, EQUATION, Yea 2 noir 3 W, D11.4 cm",
-  sku: "801254",
+  sku: "12345azea",
   description: "can't be blank",
   price_cents: 700,
   discount_price_cents: 0,
