@@ -109,6 +109,11 @@ private
   def product_params
     params.require(:product).permit(
       :name,
+      :width,
+      :height,
+      :orientation,
+      :frame_quantity,
+      :support,
       :category_id,
       :subcategory_id,
       :sku,

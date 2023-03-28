@@ -83,10 +83,23 @@
             <p><i>disponible sous XXXXXXXXX semaines</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
+          <%# Section avec produit de la même ref en taille différente %>
+          <div>
+            <%if Product.where("LEFT(sku, 4) = ?", @product.sku[0,4]).count > 0%>
+              <% Product.where("LEFT(sku, 4) = ?", @product.sku[0,4]).each do |product|%>
+                <%= link_to product_path(product) do%>
+                  <button class="btn btn-warning m-2">
+                    <%= product.name %>
+                    <%= product.sku %>
+                  </button>
+                <%end%>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-          <% unless user_signed_in? && current_user.admin %>
-            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
-          <%end%>
+        <% unless user_signed_in? && current_user.admin %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
+        <%end%>
       </div>
 
     </div>

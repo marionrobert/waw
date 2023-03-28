@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-  ORIENTATION = ["paysage", "portrait", "carré ratio 1:1"]
+  ORIENTATION = ["paysage", "portrait", "carre"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
-  SUPPORT = ["Toile seule", "Toile sur chassis", "PVC éxpansé"]
+  SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
 
 
   has_many_attached :photos
