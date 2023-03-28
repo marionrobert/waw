@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     Product.all.each do |product|
       every_supplier_delay << product.supplier_delay
     end
-    @average_supplier_delay = every_supplier_delay.sum / every_supplier_delay.size
+    # @average_supplier_delay = every_supplier_delay.sum / every_supplier_delay.size BUG
 
     # ajouté mais c'est pas la bonne facon de faire, la partial ne prend pas le bon controller
     @product = Product.new
