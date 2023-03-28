@@ -5,6 +5,11 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :sku
       t.text :description
       t.text :full_description
+      t.integer :width
+      t.integer :height
+      t.string :support
+      t.integer :frame_quantity, default: 1
+      t.string :orientation
       t.string :images, array: true, default: []
       t.integer :stock_quantity
       t.date :discount_ending_date
