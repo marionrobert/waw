@@ -87,13 +87,13 @@
               <% @similar_products.each do |product|%>
                 <%= link_to product_path(product) do%>
                   <% if @product.name == product.name %>
-                    <button class="btn btn-warning m-2" style="background:rgba(245, 221, 39, 0.15)">
+                    <button class="btn m-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black">
                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
                       <%= product.name %>
                       <%= product.sku %>
                     </button>
                   <% else %>
-                    <button class="btn btn-warning m-2">
+                    <button class="btn btn-dark m-2">
                       <%= product.name %>
                       <%= product.sku %>
                     </button>
