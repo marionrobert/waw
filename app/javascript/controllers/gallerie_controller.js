@@ -170,12 +170,9 @@ export default class extends Controller {
   }
 
   showPreview() {
-    console.log("zoom_on_preview")
-    console.log("blibli")
-
     let zoom = document.getElementById("zoomvignette")
     zoom.classList.toggle("hiddenzoom")
     zoom.classList.toggle("zoompreview")
-    console.log("blabla")
+    
   }
 }
