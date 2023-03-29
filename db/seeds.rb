@@ -77,32 +77,32 @@ blogpost_3 = Blogpost.create!(title:"Où partir en 2023 ?",
 puts "CREATION DES DIFFERENTES CATEGORIES ET SOUS-CATEGORIES ASSOCIES"
 # CATEGORIE 1
 
-category1 = Category.create!(name:"Chauffage et filtration")
-            file1 = URI.open("https://media.gettyimages.com/id/163520892/fr/photo/homme-brille-lampe-de-poche-sur-un-chauffe-eau.jpg?s=612x612&w=gi&k=20&c=AtacdS9C26mjLAkYSJ350oDAgs-dpBmzzCdUxoEjFZ8=")
+category1 = Category.create!(name:"NATURE")
+            file1 = URI.open("https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
-  subcategory1 = Subcategory.new(name:"Chauffage electrique")
+  subcategory1 = Subcategory.new(name:"Fôret")
   subcategory1.category = category1
   subcategory1.save!
   puts "Sous-catégorie #{subcategory1.name} créée"
 
-  subcategory2 = Subcategory.new(name:"Poêle et insert")
+  subcategory2 = Subcategory.new(name:"Paysage")
   subcategory2.category = category1
   subcategory2.save!
   puts "Sous-catégorie #{subcategory2.name} créée"
 
-  subcategory3 = Subcategory.new(name:"Climatisation")
+  subcategory3 = Subcategory.new(name:"Minimalist")
   subcategory3.category = category1
   subcategory3.save!
   puts "Sous-catégorie #{subcategory3.name} créée"
 
-  subcategory4 = Subcategory.new(name:"Ventilation")
+  subcategory4 = Subcategory.new(name:"Peinture à l'huile")
   subcategory4.category = category1
   subcategory4.save!
   puts "Sous-catégorie #{subcategory4.name} créée"
 
-  subcategory5 = Subcategory.new(name:"Traitement de l'air")
+  subcategory5 = Subcategory.new(name:"Animaux")
   subcategory5.category = category1
   subcategory5.save!
   puts "Sous-catégorie #{subcategory5.name} créée"
@@ -110,59 +110,59 @@ puts "category #{category1.name} créée"
 
 # CATEGORIE 2
 
-category2 = Category.create!(name:"Ameublement")
-            file1 = URI.open("https://reporterre.net/local/cache-vignettes/L720xH480/arton22112-1365f.jpg?1615314061")
+category2 = Category.create!(name:"ENFANT")
+            file1 = URI.open("https://images.unsplash.com/photo-1541043081679-e877f6b15b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 
-  subcategory6 = Subcategory.new(name:"Rangement dressing")
+  subcategory6 = Subcategory.new(name:"Conte de fée")
   subcategory6.category = category2
   subcategory6.save!
   puts "Sous-catégorie #{subcategory6.name} créée"
 
-  subcategory7 = Subcategory.new(name:"Petits rangements")
+  subcategory7 = Subcategory.new(name:"animaux 3D")
   subcategory7.category = category2
   subcategory7.save!
   puts "Sous-catégorie #{subcategory7.name} créée"
 
-  subcategory8 = Subcategory.new(name:"Accessoires de meubles")
+  subcategory8 = Subcategory.new(name:"dessin")
   subcategory8.category = category2
   subcategory8.save!
   puts "Sous-catégorie #{subcategory8.name} créée"
 
-  subcategory9 = Subcategory.new(name:"canapé et sofa")
+  subcategory9 = Subcategory.new(name:"animaux")
   subcategory9.category = category2
   subcategory9.save!
   puts "Sous-catégorie #{subcategory9.name} créée"
 
-  subcategory10 = Subcategory.new(name:"literie")
+  subcategory10 = Subcategory.new(name:"coloré")
   subcategory10.category = category2
   subcategory10.save!
   puts "Sous-catégorie #{subcategory10.name} créée"
 
 # CATEGORIE 3
 
-category3 = Category.create!(name:"Décoration")
-            file1 = URI.open("https://artwall-and-co.com/5910-pdt_540/decoration-murale-metal-tigre.jpg")
+category3 = Category.create!(name:"POSTER")
+            file1 = URI.open("https://images.unsplash.com/photo-1578136021257-09de0a2cf45c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
             category3.photos.attach(io: file1, filename: "category_3_photo.png")
 puts "category #{category3.name} créée"
 
-  subcategory11 = Subcategory.new(name:"Tableau")
+  subcategory11 = Subcategory.new(name:"Pin-up")
   subcategory11.category = category3
   subcategory11.save!
   puts "Sous-catégorie #{subcategory11.name} créée"
 
-  subcategory12 = Subcategory.new(name:"Suspension luminaire")
+  subcategory12 = Subcategory.new(name:"Ville")
   subcategory12.category = category3
   subcategory12.save!
   puts "Sous-catégorie #{subcategory12.name} créée"
 
-  subcategory13 = Subcategory.new(name:"Plantes naturelles et artificielles")
+  subcategory13 = Subcategory.new(name:"Nature")
   subcategory13.category = category3
   subcategory13.save!
   puts "Sous-catégorie #{subcategory13.name} créée"
 
-  subcategory14 = Subcategory.new(name:"Tapis")
+  subcategory14 = Subcategory.new(name:"Auto/Moto")
   subcategory14.category = category3
   subcategory14.save!
   puts "Sous-catégorie #{subcategory14.name} créée"
@@ -170,113 +170,99 @@ puts "category #{category3.name} créée"
 
 # CATEGORIE 4
 
-category4 = Category.create!(name:"Outillage")
-            file1 = URI.open("https://bianucci-materiaux.com/images/Outillage/Outillage%20%C3%A0%20main/outillage-a-main.jpg")
+category4 = Category.create!(name:"ABSTRAIT")
+            file1 = URI.open("https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category4.photos.attach(io: file1, filename: "category_4_photo.png")
 puts "category #{category4.name} créée"
 
-  subcategory15 = Subcategory.new(name:"Percage et forage")
+  subcategory15 = Subcategory.new(name:"Sombre")
   subcategory15.category = category4
   subcategory15.save!
   puts "Sous-catégorie #{subcategory15.name} créée"
 
-  subcategory16 = Subcategory.new(name:"Abrasif")
+  subcategory16 = Subcategory.new(name:"Coloré")
   subcategory16.category = category4
   subcategory16.save!
   puts "Sous-catégorie #{subcategory16.name} créée"
 
-  subcategory17 = Subcategory.new(name:"Meulage")
+  subcategory17 = Subcategory.new(name:"abstrait Minimalist")
   subcategory17.category = category4
   subcategory17.save!
   puts "Sous-catégorie #{subcategory17.name} créée"
 
-  subcategory18 = Subcategory.new(name:"Sciage")
+  subcategory18 = Subcategory.new(name:"Inclassable")
   subcategory18.category = category4
   subcategory18.save!
   puts "Sous-catégorie #{subcategory18.name} créée"
 
-  subcategory18 = Subcategory.new(name:"Défonceuse")
+  subcategory18 = Subcategory.new(name:"Reference")
   subcategory18.category = category4
   subcategory18.save!
   puts "Sous-catégorie #{subcategory18.name} créée"
 
-  subcategory19 = Subcategory.new(name:"Electroportatif")
-  subcategory19.category = category4
-  subcategory19.save!
-  puts "Sous-catégorie #{subcategory19.name} créée"
-
-  subcategory20 = Subcategory.new(name:"Pointage et soudure")
-  subcategory20.category = category4
-  subcategory20.save!
-  puts "Sous-catégorie #{subcategory20.name} créée"
 
 
 # CATEGORIE 5
 
-category5 = Category.create!(name:"Sols et parquet")
-            file1 = URI.open("https://www.renou-carrelage.fr/wp-content/uploads/2019/07/parquet2-768x438.jpg")
+category5 = Category.create!(name:"LIFE STYLE")
+            file1 = URI.open("https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category5.photos.attach(io: file1, filename: "category_5_photo.png")
 puts "category #{category5.name} créée"
 
-  subcategory21 = Subcategory.new(name:"Carrelage")
+  subcategory21 = Subcategory.new(name:"Zen")
   subcategory21.category = category5
   subcategory21.save!
   puts "Sous-catégorie #{subcategory21.name} créée"
 
-  subcategory22 = Subcategory.new(name:"Sols souple")
+  subcategory22 = Subcategory.new(name:"Sport")
   subcategory22.category = category5
   subcategory22.save!
   puts "Sous-catégorie #{subcategory22.name} créée"
 
-  subcategory23 = Subcategory.new(name:"Parquet massif")
+  subcategory23 = Subcategory.new(name:"Cyberpunk/Steampunk")
   subcategory23.category = category5
   subcategory23.save!
   puts "Sous-catégorie #{subcategory23.name} créée"
 
-  subcategory24 = Subcategory.new(name:"Moquette")
+  subcategory24 = Subcategory.new(name:"Comics")
   subcategory24.category = category5
   subcategory24.save!
   puts "Sous-catégorie #{subcategory24.name} créée"
 
-  subcategory25 = Subcategory.new(name:"Exterieur")
-  subcategory25.category = category5
-  subcategory25.save!
-  puts "Sous-catégorie #{subcategory25.name} créée"
-
 
 # CATEGORIE 6
 
-category6 = Category.create!(name:"Peintures et drogueries")
-            file1 = URI.open("https://www.maison-confort.fr/wp-content/uploads/2021/12/pots-de-peinture-murale-550x367.jpg")
+category6 = Category.create!(name:"ART DE LA TABLE")
+            file1 = URI.open("https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80")
             category6.photos.attach(io: file1, filename: "category_6_photo.png")
 puts "category #{category6.name} créée"
 
-  subcategory27 = Subcategory.new(name:"Sous-couche et vernis")
+  subcategory27 = Subcategory.new(name:"Glace")
   subcategory27.category = category6
   subcategory27.save!
   puts "Sous-catégorie #{subcategory27.name} créée"
 
-  subcategory28 = Subcategory.new(name:"Peinture exterieur")
+  subcategory28 = Subcategory.new(name:"Dessert et confiserie")
   subcategory28.category = category6
   subcategory28.save!
   puts "Sous-catégorie #{subcategory28.name} créée"
 
-  subcategory29 = Subcategory.new(name:"Peinture pièce humide")
+  subcategory29 = Subcategory.new(name:"Boulangerie/Patisserie")
   subcategory29.category = category6
   subcategory29.save!
   puts "Sous-catégorie #{subcategory29.name} créée"
 
-  subcategory30 = Subcategory.new(name:"Peinture pièce à vivre")
+  subcategory30 = Subcategory.new(name:"Café-thé")
   subcategory30.category = category6
   subcategory30.save!
   puts "Sous-catégorie #{subcategory30.name} créée"
 
-  subcategory31 = Subcategory.new(name:"Enduit mural")
+  subcategory31 = Subcategory.new(name:"Plat")
   subcategory31.category = category6
   subcategory31.save!
   puts "Sous-catégorie #{subcategory31.name} créée"
 
-  subcategory32 = Subcategory.new(name:"Droguerie")
+  subcategory32 = Subcategory.new(name:"Divers")
   subcategory32.category = category6
   subcategory32.save!
   puts "Sous-catégorie #{subcategory32.name} créée"
@@ -284,68 +270,68 @@ puts "category #{category6.name} créée"
 
 # CATEGORIE 7
 
-category7 = Category.create!(name:"Plomberie et sanitaire")
-            file1 = URI.open("https://www.abctravaux.org/wp-content/uploads/2021/11/tout-savoir-sur-la-plomberie-sanitaire.jpg")
-            category7.photos.attach(io: file1, filename: "category_7_photo.png")
-puts "category #{category7.name} créée"
+# category7 = Category.create!(name:"Plomberie et sanitaire")
+#             file1 = URI.open("https://www.abctravaux.org/wp-content/uploads/2021/11/tout-savoir-sur-la-plomberie-sanitaire.jpg")
+#             category7.photos.attach(io: file1, filename: "category_7_photo.png")
+# puts "category #{category7.name} créée"
 
-  subcategory33 = Subcategory.new(name:"Tube et raccord")
-  subcategory33.category = category7
-  subcategory33.save!
-  puts "Sous-catégorie #{subcategory33.name} créée"
+#   subcategory33 = Subcategory.new(name:"Tube et raccord")
+#   subcategory33.category = category7
+#   subcategory33.save!
+#   puts "Sous-catégorie #{subcategory33.name} créée"
 
-  subcategory34 = Subcategory.new(name:"robinetterie")
-  subcategory34.category = category7
-  subcategory34.save!
-  puts "Sous-catégorie #{subcategory34.name} créée"
+#   subcategory34 = Subcategory.new(name:"robinetterie")
+#   subcategory34.category = category7
+#   subcategory34.save!
+#   puts "Sous-catégorie #{subcategory34.name} créée"
 
-  subcategory35 = Subcategory.new(name:"Wc et chasse d'eau")
-  subcategory35.category = category7
-  subcategory35.save!
-  puts "Sous-catégorie #{subcategory35.name} créée"
+#   subcategory35 = Subcategory.new(name:"Wc et chasse d'eau")
+#   subcategory35.category = category7
+#   subcategory35.save!
+#   puts "Sous-catégorie #{subcategory35.name} créée"
 
-  subcategory36 = Subcategory.new(name:"Evacuation")
-  subcategory36.category = category7
-  subcategory36.save!
-  puts "Sous-catégorie #{subcategory36.name} créée"
+#   subcategory36 = Subcategory.new(name:"Evacuation")
+#   subcategory36.category = category7
+#   subcategory36.save!
+#   puts "Sous-catégorie #{subcategory36.name} créée"
 
-  subcategory37 = Subcategory.new(name:"traitement de l'eau")
-  subcategory37.category = category7
-  subcategory37.save!
-  puts "Sous-catégorie #{subcategory37.name} créée"
+#   subcategory37 = Subcategory.new(name:"traitement de l'eau")
+#   subcategory37.category = category7
+#   subcategory37.save!
+#   puts "Sous-catégorie #{subcategory37.name} créée"
 
 # CATEGORIE 8
 
-category8 = Category.create!(name:"Luminaire")
-            file1 = URI.open("http://www.eminza.com/uploads/media/5cab35adcedcd/luminaire-blog-mea-1960x1228.jpg")
-            category8.photos.attach(io: file1, filename: "category_8_photo.png")
-puts "category #{category8.name} créée"
+# category8 = Category.create!(name:"Luminaire")
+#             file1 = URI.open("http://www.eminza.com/uploads/media/5cab35adcedcd/luminaire-blog-mea-1960x1228.jpg")
+#             category8.photos.attach(io: file1, filename: "category_8_photo.png")
+# puts "category #{category8.name} créée"
 
-  subcategory34 = Subcategory.new(name:"Ampoules")
-  subcategory34.category = category8
-  subcategory34.save!
-  puts "Sous-catégorie #{subcategory34.name} créée"
+#   subcategory34 = Subcategory.new(name:"Ampoules")
+#   subcategory34.category = category8
+#   subcategory34.save!
+#   puts "Sous-catégorie #{subcategory34.name} créée"
 
-  subcategory35 = Subcategory.new(name:"Eclairage portatif")
-  subcategory35.category = category8
-  subcategory35.save!
-  puts "Sous-catégorie #{subcategory35.name} créée"
+#   subcategory35 = Subcategory.new(name:"Eclairage portatif")
+#   subcategory35.category = category8
+#   subcategory35.save!
+#   puts "Sous-catégorie #{subcategory35.name} créée"
 
-  subcategory36 = Subcategory.new(name:"Exterieur solaire")
-  subcategory36.category = category8
-  subcategory36.save!
+#   subcategory36 = Subcategory.new(name:"Exterieur solaire")
+#   subcategory36.category = category8
+#   subcategory36.save!
 
-  puts "Sous-catégorie #{subcategory36.name} créée"
+#   puts "Sous-catégorie #{subcategory36.name} créée"
 
-  subcategory37 = Subcategory.new(name:"Eclairage d'appoint")
-  subcategory37.category = category8
-  subcategory37.save!
-  puts "Sous-catégorie #{subcategory37.name} créée"
+#   subcategory37 = Subcategory.new(name:"Eclairage d'appoint")
+#   subcategory37.category = category8
+#   subcategory37.save!
+#   puts "Sous-catégorie #{subcategory37.name} créée"
 
-  subcategory38 = Subcategory.new(name:"Lustres et plafonnier")
-  subcategory38.category = category8
-  subcategory38.save!
-  puts "Sous-catégorie #{subcategory38.name} créée"
+#   subcategory38 = Subcategory.new(name:"Lustres et plafonnier")
+#   subcategory38.category = category8
+#   subcategory38.save!
+#   puts "Sous-catégorie #{subcategory38.name} créée"
 
 
 
@@ -357,125 +343,234 @@ puts "#{Category.count} Categories créés avec #{Subcategory.count} Sous-catego
 puts "Remplissage des rayons"
 
 
-# //////////////////////
+# ////////////////////
 
-# product_1 = Product.create!(
-#   name: "Inertie fluide horizontale",
-#   sku: "CF985435",
-#   description: "Radiateur eau chaude horizontal blanc acier classique basse témperature chauffage central H.60 x L.83 cm",
-#   price_cents: 29000,
-#   discount_price_cents: 25900,
-#   stock_quantity: 15,
-#   supplier_delay: 21,
-#   subcategory: subcategory1)
-# file1 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/912239.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_1 = Product.create!(
+  name: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1)
+
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# product_1.photos.attach(io: file1, filename: "product_1_photo.png")
+product_1.photos.attach(io: file1, filename: "product_1_photo.png")
 # product_1.photos.attach(io: file2, filename: "product_1_photo.png")
 # product_1.photos.attach(io: file3, filename: "product_1_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
-# product_2 = Product.create!(
-#   name: "Inertie sèche double coeur de chauffe",
-#   sku: "B8974568",
-#   description: "Radiateur électrique double système chauffant 1500W SAUTER Malao horizontal bl.",
-#   price_cents: 55900,
-#   discount_price_cents: 49000,
-#   stock_quantity: 20,
-#   supplier_delay: 14,
-#   subcategory: subcategory1)
-# file1 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/1085145.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/981776.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/70485751/1014968.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# product_2.photos.attach(io: file1, filename: "product_2_photo.png")
+product_2 = Product.create!(
+  name: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_2.photos.attach(io: file1, filename: "product_2_photo.png")
 # product_2.photos.attach(io: file2, filename: "product_2_photo.png")
 # product_2.photos.attach(io: file3, filename: "product_2_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
-
-# product_3 = Product.create!(
-#   name: "Seche-serviettes verticale",
-#   sku: "82582607",
-#   description: "Sèche-serviettes électrique soufflant SAUTER 1750W Asama connecté blanc",
-#   price_cents: 37900,
-#   discount_price_cents: 0,
-#   stock_quantity: 38,
-#   supplier_delay: 21,
-#   subcategory: subcategory1)
-# file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82582607/1286413.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82582607/1461501.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/82582607/1278097.png?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# product_3.photos.attach(io: file1, filename: "product_3_photo.png")
+product_3 = Product.create!(
+  name: "wolfs_90x60_paysage_PVCexpanse5mmforex",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_3.photos.attach(io: file1, filename: "product_3_photo.png")
 # product_3.photos.attach(io: file2, filename: "product_3_photo.png")
 # product_3.photos.attach(io: file3, filename: "product_3_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
 
-# # ////////////////////////////////
+# ////////////////////////////////
 
-
-# product_4 = Product.create!(
-#   name: "Poêle à granulés FREEPOINT Breeze wi-fi blanc 9.1 kW",
-#   sku: "82620388",
-#   description: "Poêle étanche avec sortie des fumées par le haut en concentrique ou normal (nécessite une découpe de la tôle). La technologie étanche améliore le rendement et le confort en général. La sortie des fumées par le haut permet d'installer le poêle plus près du mur. Ce poêle peut également être installé dans un angle.  ",
-#   price_cents: 329000,
-#   discount_price_cents: 299000,
-#   stock_quantity: 60,
-#   supplier_delay: 14,
-#   subcategory: subcategory2)
-# file1 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/00d1f5ce-132f-44a0-ab73-44bfe2d622ec.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# product_4.photos.attach(io: file1, filename: "product_4_photo.png")
+product_4 = Product.create!(
+  name: "wolfs_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support:"Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation:"paysage",
+  subcategory: subcategory1)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_4.photos.attach(io: file1, filename: "product_4_photo.png")
 # product_4.photos.attach(io: file2, filename: "product_4_photo.png")
 # product_4.photos.attach(io: file3, filename: "product_4_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
-
-# product_5 = Product.create!(
-#   name: "Poêle à granulés FREEPOINT Modo airtight wood noir 9.3 kW",
-#   sku: "82620507",
-#   description: "Poêle à granulés de bois muni de la ventilation forcée AIR, permettant de chauffer l’air ambiante rapidement et efficacement.
-#   Modo Airtight s’allume automatiquement et règle la chaleur de façon intelligente et confortable, en fonction de la température de consigne souhaitée.
-#   Une technologie performante qui permet de réaliser des économies de chauffage avec le maximum de respect pour l’écosystème.",
-#   price_cents: 249000,
-#   discount_price_cents: 0,
-#   stock_quantity: 12,
-#   supplier_delay: 21,
-#   subcategory: subcategory2)
-# file1 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/72b6c63a-9f96-4796-8007-ab4d7cbf5758.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/78ae6355-c0ca-4c3b-87ac-77a8838ce9d6.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/82620407/a0f8cfee-e16b-4660-8438-c07a3147854e.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# product_5.photos.attach(io: file1, filename: "product_5_photo.png")
+product_5 = Product.create!(
+  name: "wolfs_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_5.photos.attach(io: file1, filename: "product_5_photo.png")
 # product_5.photos.attach(io: file2, filename: "product_5_photo.png")
 # product_5.photos.attach(io: file3, filename: "product_5_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_6 = Product.create!(
+  name: "wolfs_120x90_paysage_PVCexpanse5mmforex",
+  sku: "wolfs",
+  description: "lutter contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_6.photos.attach(io: file1, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+
+puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
 
-# product_6 = Product.create!(
-#   name: "Poêle à bûche ADURO H1 hybride noir, 7 kW",
-#   sku: "80176332",
-#   description: "Grâce à leur capacité innovante de réduction d'émission de particules, les poêles Aduro Hybrides ont reçu le Prix Européen de l'Environnement pour les entreprises.",
-#   price_cents: 399000,
-#   discount_price_cents: 379000,
-#   stock_quantity: 9,
-#   supplier_delay: 14,
-#   subcategory: subcategory2)
+product_7 = Product.create!(
+  name: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "notfriendlywolf",
+  description: "Il a pas l'air aimable",
+  price_cents: 34900,
+  discount_price_cents: 22900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_7.photos.attach(io: file1, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file2, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file3, filename: "product_7_photo.png")
 
-# puts "Produit #{Product.last.id} créé"
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_8 = Product.create!(
+  name: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "notfriendlywolf",
+  description: "Il a pas l'air aimable",
+  price_cents: 39900,
+  discount_price_cents: 29900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_8.photos.attach(io: file1, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_9 = Product.create!(
+  name: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
+  sku: "notfriendlywolf",
+  description: "Il a pas l'air aimable",
+  price_cents: 42900,
+  discount_price_cents: 35900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_9.photos.attach(io: file1, filename: "product_9_photo.png")
+# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+
+puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
