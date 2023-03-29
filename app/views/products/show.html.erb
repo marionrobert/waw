@@ -86,16 +86,14 @@
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
                 <%= link_to product_path(product) do%>
-                  <% if @product.name == product.name %>
+                  <% if @product.sku== product.sku %>
                     <button class="btn m-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black">
                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
-                      <%= product.name %>
-                      <%= product.sku %>
+                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% else %>
                     <button class="btn btn-dark m-2">
-                      <%= product.name %>
-                      <%= product.sku %>
+                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% end %>
                 <%end%>

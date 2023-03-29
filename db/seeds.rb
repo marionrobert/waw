@@ -346,8 +346,8 @@ puts "Remplissage des rayons"
 # ////////////////////
 
 product_1 = Product.create!(
-  name: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -372,8 +372,8 @@ puts "Produit #{Product.last.id} créé"
 # # ////////////////////////////////
 
 product_2 = Product.create!(
-  name: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -397,8 +397,8 @@ puts "Produit #{Product.last.id} créé"
 # # ////////////////////////////////
 
 product_3 = Product.create!(
-  name: "wolfs_90x60_paysage_PVCexpanse5mmforex",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_90x60_paysage_PVCexpanse5mmforex",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -422,8 +422,8 @@ puts "Produit #{Product.last.id} créé"
 # ////////////////////////////////
 
 product_4 = Product.create!(
-  name: "wolfs_120x90_paysage_Toileseulecanvas100%coton340gm2",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_120x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -447,8 +447,8 @@ puts "Produit #{Product.last.id} créé"
 # # ////////////////////////////////
 
 product_5 = Product.create!(
-  name: "wolfs_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -472,8 +472,8 @@ puts "Produit #{Product.last.id} créé"
 # # ////////////////////////////////
 
 product_6 = Product.create!(
-  name: "wolfs_120x90_paysage_PVCexpanse5mmforex",
-  sku: "wolfs",
+  name: "wolfs",
+  sku: "wolfs_120x90_paysage_PVCexpanse5mmforex",
   description: "lutter contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
@@ -498,8 +498,8 @@ puts "Produit #{Product.last.id} créé"
 
 
 product_7 = Product.create!(
-  name: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
-  sku: "notfriendlywolf",
+  name: "notfriendlywolf",
+  sku: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
   description: "Il a pas l'air aimable",
   price_cents: 34900,
   discount_price_cents: 22900,
@@ -524,8 +524,8 @@ puts "Produit #{Product.last.id} créé"
 
 
 product_8 = Product.create!(
-  name: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
-  sku: "notfriendlywolf",
+  name: "notfriendlywolf",
+  sku: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
   description: "Il a pas l'air aimable",
   price_cents: 39900,
   discount_price_cents: 29900,
@@ -550,8 +550,8 @@ puts "Produit #{Product.last.id} créé"
 
 
 product_9 = Product.create!(
-  name: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
-  sku: "notfriendlywolf",
+  name: "notfriendlywolf",
+  sku: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
   description: "Il a pas l'air aimable",
   price_cents: 42900,
   discount_price_cents: 35900,

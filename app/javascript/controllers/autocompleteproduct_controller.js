@@ -4,9 +4,10 @@ export default class extends Controller {
   static targets = ["sku", "width", "height", "orientation", "support", "name"]
 
   connect(){
+    console.log("hello")
   }
 
   nameautocomplete() {
-    this.nameTarget.value = `${this.skuTarget.value}_${this.widthTarget.value}x${this.heightTarget.value}_${this.orientationTarget.value}_${this.supportTarget.value}`
+    this.skuTarget.value = `${this.nameTarget.value}_${this.widthTarget.value}x${this.heightTarget.value}_${this.orientationTarget.value}_${this.supportTarget.value}`
   }
 }
