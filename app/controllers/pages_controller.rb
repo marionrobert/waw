@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   include CurrentCart
 
-  skip_before_action :authenticate_user!, only: %i[home]
+  skip_before_action :authenticate_user!, only: %i[home legal cgv]
 
   def home
     @shop = Shop.last
@@ -18,6 +18,12 @@ class PagesController < ApplicationController
       all_promo << (100-((product.discount_price_cents).to_f / (product.price_cents).to_f)*100).round(0)
     end
     @promo_max = all_promo.max
+  end
+
+  def legal
+  end
+
+  def cgv
   end
 
   def profile

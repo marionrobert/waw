@@ -51,6 +51,6 @@ Rails.application.routes.draw do
   get 'cookies', to: "cookies#index"
   get 'search', to: 'search#index'
   get 'payments/new'
-  get 'shops/legal'
-  get 'shops/cgv'
+  get 'legal', to: 'pages#legal'
+  get 'cgv', to: 'pages#cgv'
 end
