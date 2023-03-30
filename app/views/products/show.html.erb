@@ -54,7 +54,9 @@
           <%= cl_image_tag @product.photos.first.key, style:"width: 100%;margin: 20px;"%>
           <%# <i class="fa-regular fa-circle-xmark"></i> %>
         </div>
-
+        <div class="simulateurbutton">
+          <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
+        </div>
       </div>
 
 
@@ -132,7 +134,7 @@
       <%end%>
     </div>
   </div>
-  <section>
+  <section data-controller="gallerie">
     <%= render "pages/homegallerie"%>
   </section>
 </div>
