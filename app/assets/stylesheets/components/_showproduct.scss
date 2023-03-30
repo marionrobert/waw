@@ -12,10 +12,35 @@
   display: flex;
 }
 
+.productcaract{
+  background:rgb(211, 211, 211);
+  margin:2rem 0;
+  .boldcaract{
+    font-weight:bold;
+    text-align:left;
+    margin-left:1rem;
+    background:rgb(141, 141, 141);
+  }
+  @media screen and (max-width: 481px) {
+    .boldcaract {
+      max-width:35vw;
+    }
+    p {
+      max-width: 55vw;
+      overflow-x: scroll;
+    }
+  }
+}
+
+
 .dataproductnameshow {
+  text-align: center;
   border-bottom:1px solid grey;
   padding-bottom:3vh;
   margin-bottom:3vh;
+  @media screen and (max-width: 481px) {
+    margin-top:1rem;
+  }
 }
 
 .promospanshowproduct {
@@ -48,6 +73,7 @@
 @media screen and (max-width: 480px) {
 
   .productcarrousselarea {
+    margin-top:1rem;
     width:100%;
     height: fit-content;
     position:relative;
