@@ -4,14 +4,29 @@
 
 import { application } from "./application"
 
+import AutocompleteproductController from "./autocompleteproduct_controller"
+application.register("autocompleteproduct", AutocompleteproductController)
+
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
+
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
+
+import DashboardController from "./dashboard_controller"
+application.register("dashboard", DashboardController)
 
 import DebounceController from "./debounce_controller"
 application.register("debounce", DebounceController)
 
+import DisplayCartController from "./display_cart_controller"
+application.register("display-cart", DisplayCartController)
+
 import FavoritesController from "./favorites_controller"
 application.register("favorites", FavoritesController)
+
+import GallerieController from "./gallerie_controller"
+application.register("gallerie", GallerieController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
@@ -19,11 +34,11 @@ application.register("hello", HelloController)
 import LineItemQuantityController from "./line_item_quantity_controller"
 application.register("line-item-quantity", LineItemQuantityController)
 
+import LoadvariantsController from "./loadvariants_controller"
+application.register("loadvariants", LoadvariantsController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
-
-import DisplayCartController from "./display_cart_controller"
-application.register("display-cart", DisplayCartController)
 
 import PreviewPriceChangeController from "./preview_price_change_controller"
 application.register("preview-price-change", PreviewPriceChangeController)
@@ -37,14 +52,5 @@ application.register("search", SearchController)
 import SearchareaController from "./searcharea_controller"
 application.register("searcharea", SearchareaController)
 
-import DashboardController from "./dashboard_controller"
-application.register("dashboard", DashboardController)
-
 import ShareController from "./share_controller"
 application.register("share", ShareController)
-
-import GallerieController from "./gallerie_controller"
-application.register("gallerie", GallerieController)
-
-import AutocompleteproductController from "./autocompleteproduct_controller"
-application.register("autocompleteproduct", AutocompleteproductController)
