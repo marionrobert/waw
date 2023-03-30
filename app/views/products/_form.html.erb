@@ -6,6 +6,9 @@
         <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
         <div class="form-inputs" >
           <%= product.input :subcategory_id, label: "Sous-catégorie", collection: Subcategory.all.order('name'), label_html:{ class:"labelcolor" }%>
+          <%= product.input :name, label: "Nom du produit", placeholder: "Poêle à granulés", label_html:{ class:"labelcolor" }%>
+          <%= product.input :sku, placeholder: "Référence interne", label_html:{ class:"labelcolor" }%>
+          <%= product.input :name, label: "Nom", placeholder: "paysagesauvage", label_html:{ class:"labelcolor" }, input_html:{ :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "name" } }%>
           <%= product.input :name, label: "Nom", placeholder: "12345_60x90_V_TSC auto-remplissage", label_html:{ class:"labelcolor" }, input_html:{ :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "name" } }%>
           <%= product.input :width, placeholder: "90", label_html:{ class:"labelcolor" }, input_html: { :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "width" } }%>
           <%= product.input :height, placeholder: "60", label_html:{ class:"labelcolor" }, input_html: { :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "height" } }%>

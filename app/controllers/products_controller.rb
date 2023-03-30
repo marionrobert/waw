@@ -44,6 +44,8 @@ class ProductsController < ApplicationController
   def show
     @current_user = current_user
     @product = Product.find(params[:id])
+    visit = @product.visit || @product.create_visit(count: 0)
+    visit.increment!(:count)
     products = Product.where(subcategory: @product.subcategory)
     if (products.reject { |element| element.id == @product.id }).length.positive?
       @suggested_products = (products.reject { |element| element.id == @product.id }).sample(15)

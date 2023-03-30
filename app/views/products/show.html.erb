@@ -100,6 +100,10 @@
               <% end %>
             <% end %>
           </div>
+          <div style="border:1px dotted black">
+            <h1>Compteur de visite</h1>
+            <p>Nombre de vues : <%=  @product.visit.count %> </p>
+          </div>
         </div>
         <% unless user_signed_in? && current_user.admin %>
           <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
