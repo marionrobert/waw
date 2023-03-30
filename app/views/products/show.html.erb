@@ -14,7 +14,7 @@
             class: "btn btn-warning m-3 d-flex align-items-center" %>
         <%= link_to "Supprimer le produit", @product,
             data: { turbo_method: :delete,
-            turbo_confirm: "Souhaitez-vous supprimer definitivement cet reference produit?"},
+            turbo_confirm: "Souhaitez-vous supprimer définitivement cette référence produit?"},
             class: "btn btn-danger m-3 d-flex align-items-center" %>
       <% end%>
     </div>
@@ -112,12 +112,15 @@
               <% @similar_products.each do |product|%>
                 <%= link_to product_path(product) do%>
                   <% if @product.sku== product.sku %>
-                    <button class="btn mb-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black">
+                    <button class="btn mb-2"
+                            style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
+                            data-action="click->loadvariants#loadNewVariant"
+                            data-loadvariants-product-id-param="<%= product.id %>">
                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% else %>
-                    <button class="btn btn-dark mb-2">
+                    <button class="btn btn-dark mb-2" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% end %>

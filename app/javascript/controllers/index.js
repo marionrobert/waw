@@ -8,8 +8,8 @@ import AutocompleteproductController from "./autocompleteproduct_controller"
 application.register("autocompleteproduct", AutocompleteproductController)
 
 // commenté car il empêchait la connexion des autres controllers
-// import CarouselController from "./carousel_controller"
-// application.register("carousel", CarouselController)
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
 
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
