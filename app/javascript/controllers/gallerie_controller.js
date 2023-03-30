@@ -105,12 +105,15 @@ export default class extends Controller {
     let room3 = document.getElementById("room3")
     let room4 = document.getElementById("room4")
     let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
 
     room1.style.display = "";
     room2.style.display = "none";
     room3.style.display = "none";
     room4.style.display = "none";
     room5.style.display = "none";
+    myhome.style.display = "none";
+
   }
 
   change_bg2() {
@@ -119,12 +122,16 @@ export default class extends Controller {
     let room3 = document.getElementById("room3")
     let room4 = document.getElementById("room4")
     let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
+
 
     room1.style.display = "none";
     room2.style.display = "";
     room3.style.display = "none";
     room4.style.display = "none";
     room5.style.display = "none";
+    myhome.style.display = "none";
+
   }
 
   change_bg3() {
@@ -133,12 +140,15 @@ export default class extends Controller {
     let room3 = document.getElementById("room3")
     let room4 = document.getElementById("room4")
     let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
+
 
     room1.style.display = "none";
     room2.style.display = "none";
     room3.style.display = "";
     room4.style.display = "none";
     room5.style.display = "none";
+    myhome.style.display = "none";
   }
 
   change_bg4() {
@@ -147,12 +157,15 @@ export default class extends Controller {
     let room3 = document.getElementById("room3")
     let room4 = document.getElementById("room4")
     let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
+
 
     room1.style.display = "none";
     room2.style.display = "none";
     room3.style.display = "none";
     room4.style.display = "";
     room5.style.display = "none";
+    myhome.style.display = "none";
   }
 
   change_bg5() {
@@ -161,18 +174,38 @@ export default class extends Controller {
     let room3 = document.getElementById("room3")
     let room4 = document.getElementById("room4")
     let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
+
 
     room1.style.display = "none";
     room2.style.display = "none";
     room3.style.display = "none";
     room4.style.display = "none";
     room5.style.display = "";
+    myhome.style.display = "none";
+  }
+
+  change_bg6() {
+    let room1 = document.getElementById("room1")
+    let room2 = document.getElementById("room2")
+    let room3 = document.getElementById("room3")
+    let room4 = document.getElementById("room4")
+    let room5 = document.getElementById("room5")
+    let myhome = document.getElementById("myhome")
+
+
+    room1.style.display = "none";
+    room2.style.display = "none";
+    room3.style.display = "none";
+    room4.style.display = "none";
+    room5.style.display = "none";
+    myhome.style.display = "";
   }
 
   showPreview() {
     let zoom = document.getElementById("zoomvignette")
     zoom.classList.toggle("hiddenzoom")
     zoom.classList.toggle("zoompreview")
-    
+
   }
 }

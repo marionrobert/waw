@@ -1,12 +1,13 @@
 <%# MISE EN PAGE CENTRE %>
 <div style="display:flex;justify-content:center">
 <%# ENSEMBLE GLOBAL %>
-  <div id="house_background" style="position:relative;display:flex;justify-content:center">
+  <div id="house_background">
     <img id="room1" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon1">
     <img id="room2" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none">
     <img id="room3" src="https://i.ibb.co/PWFpcZk/Salon2.png" alt="salon3" style="display:none">
     <img id="room4" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none">
     <img id="room5" src="https://i.ibb.co/hXW62Dv/salon5.png" alt="salon5" style="display:none">
+    <img id="myhome" src="" alt="chezmoi"  style="display:none;">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product.photos.first %>
@@ -34,7 +35,7 @@
     </div>
   </div>
 </div>
-<div class="bg_selector">
+<div id="bg_selector">
   <p id="r1" data-action="click->gallerie#change_bg1">1</p>
   <p id="r2" data-action="click->gallerie#change_bg2">2</p>
   <p id="r3" data-action="click->gallerie#change_bg3">3</p>
@@ -43,26 +44,27 @@
 </div>
 
 
-<input type="file" id="imageUpload" accept="image/*" onchange="previewImage()">
+<input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()">
 <br>
-<img src="" id="preview" style="display:none;">
 
 
 <script>
-function previewImage() {
-  let preview = document.querySelector('#preview');
-  let file    = document.querySelector('#imageUpload').files[0];
-  let reader  = new FileReader();
+  function myhomeImage() {
+    const bgselector = document.getElementById('bg_selector');
+    let myhome = document.querySelector('#myhome');
+    let file    = document.querySelector('#imageUpload').files[0];
+    let reader  = new FileReader();
 
-  reader.onloadend = function () {
-    preview.src = reader.result;
-    preview.style.display = "block";
-  }
+    reader.onloadend = function () {
+      myhome.src = reader.result;
+      myhome.style.display = "block";
+    }
 
-  if (file) {
-    reader.readAsDataURL(file);
-  } else {
-    preview.src = "";
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      myhome.src = "";
+    }
+    bgselector.insertAdjacentHTML('beforeend', '<p id="r6" data-action="click->gallerie#change_bg6">My home</p>');
   }
-}
 </script>
