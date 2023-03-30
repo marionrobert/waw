@@ -83,6 +83,32 @@
             <p><i>disponible sous XXXXXXXXX semaines</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
+<<<<<<< Updated upstream
+=======
+          <%# Section avec produit de la même ref en taille différente %>
+          <div>
+            <%if @similar_products.count.positive?%>
+              <% @similar_products.each do |product|%>
+                <%= link_to product_path(product) do%>
+                  <% if @product.sku== product.sku %>
+                    <button class="btn m-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black">
+                      <i class="fa-solid fa-arrow-right" style="color:red"></i>
+                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                    </button>
+                  <% else %>
+                    <button class="btn btn-dark m-2">
+                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                    </button>
+                  <% end %>
+                <%end%>
+              <% end %>
+            <% end %>
+          </div>
+          <div style="border:1px dotted black">
+            <h1>Compteur de visite</h1>
+            <p>Nombre de vues : <%= Visit.first.count %></p>
+          </div>
+>>>>>>> Stashed changes
         </div>
           <% unless user_signed_in? && current_user.admin %>
             <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
