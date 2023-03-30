@@ -229,8 +229,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_103043) do
 
   create_table "visits", force: :cascade do |t|
     t.integer "count", default: 0
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_visits_on_product_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -244,4 +246,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_103043) do
   add_foreign_key "schedules", "shops"
   add_foreign_key "shops", "users"
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "visits", "products"
 end

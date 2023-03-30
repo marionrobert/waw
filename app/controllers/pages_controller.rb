@@ -33,6 +33,7 @@ class PagesController < ApplicationController
     end
     # @average_supplier_delay = every_supplier_delay.sum / every_supplier_delay.size BUG
 
+
     # ajouté mais c'est pas la bonne facon de faire, la partial ne prend pas le bon controller
     @product = Product.new
     @coupons = Coupon.all

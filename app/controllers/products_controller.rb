@@ -42,17 +42,10 @@ class ProductsController < ApplicationController
   end
 
   def show
-# TEST DE COMPTEUR DE VISITE
-        visit = Visit.first
-        if visit.nil?
-          Visit.create(count: 1)
-        else
-          visit.increment!(:count)
-        end
-# FIN DU TEST
-
     @current_user = current_user
     @product = Product.find(params[:id])
+    visit = @product.visit || @product.create_visit(count: 0)
+    visit.increment!(:count)
     products = Product.where(subcategory: @product.subcategory)
     if (products.reject { |element| element.id == @product.id }).length.positive?
       @suggested_products = (products.reject { |element| element.id == @product.id }).sample(15)
