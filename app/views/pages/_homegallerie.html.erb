@@ -2,17 +2,21 @@
 <div style="display:flex;justify-content:center">
 <%# ENSEMBLE GLOBAL %>
   <div id="house_background">
-    <img id="room1" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon1">
-    <img id="room2" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none">
-    <img id="room3" src="https://i.ibb.co/PWFpcZk/Salon2.png" alt="salon3" style="display:none">
-    <img id="room4" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none">
-    <img id="room5" src="https://i.ibb.co/hXW62Dv/salon5.png" alt="salon5" style="display:none">
-    <img id="myhome" src="" alt="chezmoi"  style="display:none;">
+    <img id="room1" class="roombg" src="https://i.ibb.co/PWFpcZk/Salon2.png" alt="salon1">
+    <img id="room2" class="roombg" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none">
+    <img id="room3" class="roombg" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon3" style="display:none">
+    <img id="room4" class="roombg" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none">
+    <img id="room5" class="roombg" src="https://i.ibb.co/hXW62Dv/salon5.png" alt="salon5" style="display:none">
+    <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product.photos.first %>
           <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10%;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe"%>
         <% end %>
+
+
+
+
       </div>
     </div>
     <div class="simulateurgridmobile">
@@ -36,6 +40,8 @@
   </div>
 </div>
 <div id="bg_selector">
+  <input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()">
+  <p style="color:blue;cursor:context-menu">ou</p>
   <p id="r1" data-action="click->gallerie#change_bg1">1</p>
   <p id="r2" data-action="click->gallerie#change_bg2">2</p>
   <p id="r3" data-action="click->gallerie#change_bg3">3</p>
@@ -44,8 +50,6 @@
 </div>
 
 
-<input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()">
-<br>
 
 
 <script>
@@ -54,6 +58,7 @@
     let myhome = document.querySelector('#myhome');
     let file    = document.querySelector('#imageUpload').files[0];
     let reader  = new FileReader();
+    let r6 = document.getElementById('r6');
 
     reader.onloadend = function () {
       myhome.src = reader.result;
@@ -65,6 +70,11 @@
     } else {
       myhome.src = "";
     }
-    bgselector.insertAdjacentHTML('beforeend', '<p id="r6" data-action="click->gallerie#change_bg6">My home</p>');
+
+
+    if (r6 === null) {
+      console.log("OKAY")
+      bgselector.insertAdjacentHTML('beforeend', '<p id="r6" class="roombg" data-action="click->gallerie#change_bg6" style="color:red;font-weight:bold">Chez moi</p>');
+    }
   }
 </script>
