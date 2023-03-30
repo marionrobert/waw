@@ -8,8 +8,10 @@
   .roombg{
     position:absolute;
     min-width:100%;
+    max-width:130%;
     min-height:100%;
-    object-fit:cover
+    max-width:130%;
+    object-fit:cover;
   }
 
   @media screen and (max-width: 480px) {
@@ -286,6 +288,9 @@
 }
 
 .simulateurgridmobile {
+  button {
+    -webkit-text-stroke: 2px red;
+  }
   @media screen and (max-width: 481px) {
     position: absolute;
     bottom: 0px;
@@ -296,6 +301,9 @@
 }
 
 .simulateurmobilebutton {
+  button {
+    -webkit-text-stroke: 1px white;
+  }
   @media screen and (max-width: 481px) {
     display:flex;
     justify-content: space-around;

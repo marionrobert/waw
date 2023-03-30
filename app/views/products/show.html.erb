@@ -84,17 +84,17 @@
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
           <%# Section avec produit de la même ref en taille différente %>
-          <div>
+          <div style="display:grid;justify-content:center">
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
                 <%= link_to product_path(product) do%>
                   <% if @product.sku== product.sku %>
-                    <button class="btn m-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black">
+                    <button class="btn m-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black;max-width:80vw;overflow-x:auto">
                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% else %>
-                    <button class="btn btn-dark m-2">
+                    <button class="btn btn-dark m-2" style="max-width:80vw;overflow-x:auto">
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% end %>
