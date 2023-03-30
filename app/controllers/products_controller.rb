@@ -54,11 +54,12 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     products = Product.where(subcategory: @product.subcategory)
-    if (products.reject { |element| element.id == @product.id }).length > 0
-      @products = (products.reject { |element| element.id == @product.id }).sample(15)
+    if (products.reject { |element| element.id == @product.id }).length.positive?
+      @suggested_products = (products.reject { |element| element.id == @product.id }).sample(15)
     else
-      @products = Product.all.sample(15)
+      @suggested_products = Product.all.sample(15)
     end
+    @similar_products = Product.where("LEFT(sku, 4) = ?", @product.sku[0, 4])
   end
 
   def new
@@ -76,11 +77,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-      if params[:product][:photos] == [""]
-        @product.update(product_params.except(:photos))
-      else
-        @product.update(product_params)
-      end
+    if params[:product][:photos] == [""]
+      @product.update(product_params.except(:photos))
+    else
+      @product.update(product_params)
+    end
     if @product.save
       # Ici il faudra changer par le vrai chemin du site web
       if request.referrer.include?(products_path)
@@ -103,7 +104,7 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
-private
+  private
 
   def rebuild_pg_document
     PgSearch::Multisearch.rebuild(Product)
@@ -118,6 +119,11 @@ private
   def product_params
     params.require(:product).permit(
       :name,
+      :width,
+      :height,
+      :orientation,
+      :frame_quantity,
+      :support,
       :category_id,
       :subcategory_id,
       :sku,

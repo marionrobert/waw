@@ -50,11 +50,9 @@
         </div>
 
 
-        <div class="hiddenzoom" id="zoomvignette">
-          <div id="zoom-product-show" style="display:flex;justify-content:center" data-controller="gallerie" data-action="click->gallerie#showPreview">
-            <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
-            <i class="fa-regular fa-circle-xmark"></i>
-          </div>
+        <div class="hiddenzoom" id="zoomvignette" data-controller="gallerie" data-action="click->gallerie#showPreview">
+          <%= cl_image_tag @product.photos.first.key, style:"width: 100%;margin: 20px;"%>
+          <%# <i class="fa-regular fa-circle-xmark"></i> %>
         </div>
 
       </div>
@@ -80,11 +78,14 @@
             <p style="color:green;text-decoration:underline"><strong>En stock</strong></p>
             <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
           <%else%>
-            <p><i>disponible sous XXXXXXXXX semaines</i></p>
+            <p><i style="color:red">disponible sous XXXXXXXXX semaines</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> ba9541fbe0aabdda506abb22125c17b9dab596b2
           <%# Section avec produit de la même ref en taille différente %>
           <div>
             <%if @similar_products.count.positive?%>
@@ -104,15 +105,18 @@
               <% end %>
             <% end %>
           </div>
+<<<<<<< HEAD
           <div style="border:1px dotted black">
             <h1>Compteur de visite</h1>
             <p>Nombre de vues : <%= Visit.first.count %></p>
           </div>
 >>>>>>> Stashed changes
+=======
+>>>>>>> ba9541fbe0aabdda506abb22125c17b9dab596b2
         </div>
-          <% unless user_signed_in? && current_user.admin %>
-            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
-          <%end%>
+        <% unless user_signed_in? && current_user.admin %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart" %>
+        <%end%>
       </div>
 
     </div>
@@ -132,7 +136,7 @@
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
     <div class="wrapperhomepage" data-controller="favorites">
-      <% @products.each do |product| %>
+      <% @suggested_products.each do |product| %>
         <%= render "shared/#{Shop.first.card}", product: product%>
       <%end%>
     </div>

@@ -32,16 +32,28 @@ body {
   display:none
 }
 
+
+
 .zoompreview {
-  z-index: 1000;
+  display:flex;
+  justify-content: center;
+  min-height:65vh;
+  max-height:65vh;
+  min-width:80vw;
+  max-width:80vw;
+  z-index: 99999999999;
   // position:absolute;
   position:fixed;
-  width: 60vw;
-  height: 60vh;
-  top:25vh;
-  left:20vw; /* ramène l'élément au centre */
+  top:20vh;
+  left:10vw; /* ramène l'élément au centre */
   background: white;
   border:1px solid black;
+}
+
+.zoompreview img {
+  object-fit: contain;
+  width: 100%;
+  margin: 20px;
 }
 
 

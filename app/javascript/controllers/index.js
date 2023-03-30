@@ -45,3 +45,6 @@ application.register("share", ShareController)
 
 import GallerieController from "./gallerie_controller"
 application.register("gallerie", GallerieController)
+
+import AutocompleteproductController from "./autocompleteproduct_controller"
+application.register("autocompleteproduct", AutocompleteproductController)

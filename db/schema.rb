@@ -142,6 +142,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_103043) do
     t.string "sku"
     t.text "description"
     t.text "full_description"
+    t.integer "width"
+    t.integer "height"
+    t.string "support"
+    t.integer "frame_quantity", default: 1
+    t.string "orientation"
     t.string "images", default: [], array: true
     t.integer "stock_quantity"
     t.date "discount_ending_date"
