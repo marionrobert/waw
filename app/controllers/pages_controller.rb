@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   include CurrentCart
 
-  skip_before_action :authenticate_user!, only: %i[home]
+  skip_before_action :authenticate_user!, only: %i[home legal cgv]
 
   def home
     @shop = Shop.last
@@ -20,12 +20,18 @@ class PagesController < ApplicationController
     @promo_max = all_promo.max
   end
 
+  def legal
+  end
+
+  def cgv
+  end
+
   def profile
     every_supplier_delay = []
     Product.all.each do |product|
       every_supplier_delay << product.supplier_delay
     end
-    @average_supplier_delay = every_supplier_delay.sum / every_supplier_delay.size
+    # @average_supplier_delay = every_supplier_delay.sum / every_supplier_delay.size BUG
 
     # ajouté mais c'est pas la bonne facon de faire, la partial ne prend pas le bon controller
     @product = Product.new

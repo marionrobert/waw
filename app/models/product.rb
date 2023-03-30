@@ -1,7 +1,17 @@
 class Product < ApplicationRecord
+  ORIENTATION = ["paysage", "portrait", "carre"]
+  FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
+  SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
+
+
   has_many_attached :photos
+  validates :width, presence: true
+  validates :height, presence: true
+  validates :support, presence: true
+  validates :frame_quantity, presence: true
   has_many :line_items, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  validates :orientation, inclusion: { in: ORIENTATION }
   belongs_to :subcategory
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :description, :name, :price_cents, :subcategory_id, :sku, :supplier_delay, presence: true
