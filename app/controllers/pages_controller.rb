@@ -48,6 +48,7 @@ class PagesController < ApplicationController
     @products = Product.all
 
 
+
     #category formulaire de creation
     @category = Category.new
     @categories = Category.all

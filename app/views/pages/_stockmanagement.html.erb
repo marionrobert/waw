@@ -36,12 +36,11 @@
               <%end%>
             </div>
               <p>
-              <% if @product.visit %>
-                <p><%= @product.visit.count %><i class="fa-solid fa-stopwatch" style="margin-left:2rem"></i></p>
-              <% else %>
-                <p>Aucune visite pour le moment.</p>
-              <% end %>
-              <i class="fa-solid fa-stopwatch" style="margin-left:2rem"></i></p>
+                <% if product.visit %>
+                  <p><%= product.visit.count %><i class="fa-solid fa-stopwatch" style="margin-left:2rem"></i></p>
+                <% else %>
+                  <p>Aucune visite pour le moment.</p>
+                <% end %>
               <p style="font-size:smaller"><i><%= product.sku %></i><i class="fa-solid fa-barcode" style="margin-left:2vw"></i></p></td>
             </td>
           </tr>
