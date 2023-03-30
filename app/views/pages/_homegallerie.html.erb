@@ -34,10 +34,33 @@
     </div>
   </div>
 </div>
-    <div class="bg_selector">
-      <p id="r1" data-action="click->gallerie#change_bg1">1</p>
-      <p id="r2" data-action="click->gallerie#change_bg2">2</p>
-      <p id="r3" data-action="click->gallerie#change_bg3">3</p>
-      <p id="r4" data-action="click->gallerie#change_bg4">4</p>
-      <p id="r5" data-action="click->gallerie#change_bg5">5</p>
-    </div>
+<div class="bg_selector">
+  <p id="r1" data-action="click->gallerie#change_bg1">1</p>
+  <p id="r2" data-action="click->gallerie#change_bg2">2</p>
+  <p id="r3" data-action="click->gallerie#change_bg3">3</p>
+  <p id="r4" data-action="click->gallerie#change_bg4">4</p>
+  <p id="r5" data-action="click->gallerie#change_bg5">5</p>
+</div>
+<input type="file" id="imageUpload" accept="image/*">
+<button onclick="previewImage()">Aperçu</button>
+<br>
+<img src="" id="preview" style="display:none;">
+<script>
+  function previewImage() {
+    console.log("kikou")
+    let preview = document.querySelector('#preview');
+    let file    = document.querySelector('#imageUpload').files[0];
+    let reader  = new FileReader();
+
+    reader.onloadend = function () {
+      preview.src = reader.result;
+      preview.style.display = "block";
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  }
+</script>
