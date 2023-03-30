@@ -386,6 +386,12 @@
   }
 
   .categories-overflow {
+    p {
+      color:black;
+    }
+    width:88%;
+    display:flex;
+    justify-content:space-around;
     overflow-x: scroll;
     &::-webkit-scrollbar{
       border-radius: 10px;
@@ -442,6 +448,12 @@
     justify-content:space-around;
     background:rgb(255, 255, 255);
     border-bottom: 1px solid grey;
+    a {
+      color:black;
+      &:hover {
+        color:grey;
+      }
+    }
   }
 
   .desktop_subcat_hide_or_not {
