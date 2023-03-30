@@ -41,26 +41,28 @@
   <p id="r4" data-action="click->gallerie#change_bg4">4</p>
   <p id="r5" data-action="click->gallerie#change_bg5">5</p>
 </div>
-<input type="file" id="imageUpload" accept="image/*">
-<button onclick="previewImage()">Aperçu</button>
+
+
+<input type="file" id="imageUpload" accept="image/*" onchange="previewImage()">
 <br>
 <img src="" id="preview" style="display:none;">
+
+
 <script>
-  function previewImage() {
-    console.log("kikou")
-    let preview = document.querySelector('#preview');
-    let file    = document.querySelector('#imageUpload').files[0];
-    let reader  = new FileReader();
+function previewImage() {
+  let preview = document.querySelector('#preview');
+  let file    = document.querySelector('#imageUpload').files[0];
+  let reader  = new FileReader();
 
-    reader.onloadend = function () {
-      preview.src = reader.result;
-      preview.style.display = "block";
-    }
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = "";
-    }
+  reader.onloadend = function () {
+    preview.src = reader.result;
+    preview.style.display = "block";
   }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
 </script>
