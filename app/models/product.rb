@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   ORIENTATION = ["paysage", "portrait", "carre"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
+  MAIN = ["true", "false"]
 
   has_one :visit
   has_many_attached :photos
@@ -11,6 +12,7 @@ class Product < ApplicationRecord
   validates :frame_quantity, presence: true
   has_many :line_items, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  validates :main, presence: true
   validates :orientation, inclusion: { in: ORIENTATION }
   belongs_to :subcategory
   validates :subcategory, presence: true

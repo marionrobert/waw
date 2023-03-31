@@ -238,6 +238,7 @@
   }
 
   .banner {
+    filter:opacity(0.85);
     position:sticky;
     background-size:cover;
     background-position: center;
@@ -250,7 +251,7 @@
   }
 
   .bannertextfield {
-    padding-top:18vh;
+    padding-top: 12rem;
     text-align:center;
   }
 

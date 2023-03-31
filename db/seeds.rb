@@ -347,7 +347,7 @@ puts "Remplissage des rayons"
 
 product_1 = Product.create!(
   name: "wolfs",
-  main: true,
+  main: "true",
   sku: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -374,7 +374,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_2 = Product.create!(
   name: "wolfs",
-  main: false,
+  main: "false",
   sku: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -401,7 +401,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_3 = Product.create!(
   name: "wolfs",
-  main: false,
+  main: "false",
   sku: "wolfs_90x60_paysage_PVCexpanse5mmforex",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -440,7 +440,7 @@ product_4 = Product.create!(
   frame_quantity: 1,
   orientation:"paysage",
   subcategory: subcategory1,
-  main: false)
+  main: "false")
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -466,7 +466,7 @@ product_5 = Product.create!(
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1,
-  main: false)
+  main: "false")
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -492,7 +492,7 @@ product_6 = Product.create!(
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1,
-  main: false)
+  main: "false")
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -519,7 +519,7 @@ product_7 = Product.create!(
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
-  main: true)
+  main: "true")
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -546,7 +546,7 @@ product_8 = Product.create!(
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
-  main: false)
+  main: "false")
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -573,7 +573,7 @@ product_9 = Product.create!(
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
-  main: false)
+  main: "false")
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -582,6 +582,89 @@ product_9.photos.attach(io: file1, filename: "product_9_photo.png")
 # product_9.photos.attach(io: file3, filename: "product_9_photo.png")
 
 puts "Produit #{Product.last.id} créé"
+
+# ////////////////////
+
+product_10 = Product.create!(
+  name: "castle",
+  main: "true",
+  sku: "castle_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "un chateau",
+  price_cents: 12900,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1514539079130-25950c84af65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_10.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+# ////////////////////
+
+product_11 = Product.create!(
+  name: "castle",
+  main: "false",
+  sku: "castle_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  description: "lutter contre le vent",
+  price_cents: 17900,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1514539079130-25950c84af65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_11.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+# ////////////////////
+
+product_12 = Product.create!(
+  name: "castle",
+  main: "false",
+  sku: "castle_90x60_paysage_PVCexpanse5mmforex",
+  description: "lutter contre le vent",
+  price_cents: 18900,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1514539079130-25950c84af65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_12.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
 
 # # ////////////////////////////////
 

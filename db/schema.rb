@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_31_120707) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_30_103043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -145,6 +145,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_120707) do
     t.integer "width"
     t.integer "height"
     t.string "support"
+    t.string "main", default: "false"
     t.integer "frame_quantity", default: 1
     t.string "orientation"
     t.string "images", default: [], array: true
@@ -156,7 +157,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_120707) do
     t.bigint "subcategory_id", null: false
     t.integer "price_cents", default: 0, null: false
     t.integer "discount_price_cents", default: 0, null: false
-    t.boolean "main", default: false, null: false
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
   end
 

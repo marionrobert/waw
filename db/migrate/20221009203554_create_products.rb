@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :width
       t.integer :height
       t.string :support
+      t.string :main, default: "false"
       t.integer :frame_quantity, default: 1
       t.string :orientation
       t.string :images, array: true, default: []

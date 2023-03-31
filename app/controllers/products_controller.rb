@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def index
     # @query = Product.ransack(params[:q])
     # @products = @query.result.joins(:subcategory).order(:name)
-    @products = Product.where(main: true).order(:name)
+    @products = Product.where(main: "true").order(:name)
     if params[:query].present?
       @results = PgSearch.multisearch("%#{params[:query]}%")
       result_category_name = @results.select { |element| element.searchable_type == "Category" }
@@ -17,17 +17,17 @@ class ProductsController < ApplicationController
       result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
       if !result_category_name.empty?
         category = Category.where(name: result_category_name[0].content)
-        @products = Category.find_by(name: category[0].name).products.where(main: true)
+        @products = Category.find_by(name: category[0].name).products.where(main: "true")
       elsif !result_subcategory_name.empty?
         subcategory = Subcategory.where(name: result_subcategory_name[0].content)
-        @products = Subcategory.find_by(name: subcategory[0].name).products.where(main: true)
+        @products = Subcategory.find_by(name: subcategory[0].name).products.where(main: "true")
       elsif !result_product_name_or_description.empty?
         @products = Product.name_and_description_search("%#{params[:query]}%")
       else
         @products = []
       end
     else
-      @products = Product.where(main: true).order(:name)
+      @products = Product.where(main: "true").order(:name)
     end
 
     respond_to do |format|
@@ -46,11 +46,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     visit = @product.visit || @product.create_visit(count: 0)
     visit.increment!(:count)
-    products = Product.where(subcategory: @product.subcategory).where(main: true)
+    products = Product.where(subcategory: @product.subcategory).where(main: "true")
     if (products.reject { |element| element.id == @product.id }).length.positive?
       @suggested_products = (products.reject { |element| element.id == @product.id }).sample(15)
     else
-      @suggested_products = Product.where(main: true).sample(15)
+      @suggested_products = Product.where(main: "true").sample(15)
     end
     @similar_products = Product.where("LEFT(sku, 4) = ?", @product.sku[0, 4])
   end

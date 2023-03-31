@@ -7,7 +7,7 @@
         <div class="form-inputs" >
           <%= product.input :subcategory_id, label: "Sous-catégorie", collection: Subcategory.all.order('name'), label_html:{ class:"labelcolor" }%>
           <%= product.input :name, label: "Nom", placeholder: "paysagesauvage", label_html:{ class:"labelcolor" }, input_html:{ :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "name" } }%>
-          <%= product.input :main, label: "Produit de référence", label_html:{ class:"labelcolor" }%>
+          <%= product.input :main, collection: Product::MAIN, label_html:{ class:"labelcolor" }%>
           <%= product.input :width, placeholder: "90", label_html:{ class:"labelcolor" }, input_html: { :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "width" } }%>
           <%= product.input :height, placeholder: "60", label_html:{ class:"labelcolor" }, input_html: { :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "height" } }%>
           <%= product.input :orientation, collection: Product::ORIENTATION, label:"Orientation", label_html:{ class:"labelcolor" }, input_html: { :data => { action: "input->autocompleteproduct#nameautocomplete", autocompleteproduct_target: "orientation" } } %>

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { Alert } from "bootstrap"
 
 export default class extends Controller {
-  static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame"]
+  static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame", "framewidth"]
 
   connect() {
   }
@@ -15,28 +15,40 @@ export default class extends Controller {
     // console.log("MOVE FRAME LEFT");
     let X = -5;
     let currentLeft = parseInt(this.frameTarget.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    let currentLeftwidth = parseInt(this.framewidthTarget.style.left) || 0;
+
     this.frameTarget.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    this.framewidthTarget.style.left = `${currentLeftwidth + X}px`;
   }
 
   move_right() {
     // console.log("MOVE FRAME RIGHT");
     let X = 5;
     let currentLeft = parseInt(this.frameTarget.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    let currentLeftwidth = parseInt(this.framewidthTarget.style.left) || 0;
+
     this.frameTarget.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    this.framewidthTarget.style.left = `${currentLeftwidth + X}px`;
   }
 
   move_up() {
     // console.log("MOVE FRAME LEFT");
     let Y = -5;
     let currentTop = parseInt(this.frameTarget.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    let currentTopwidth = parseInt(this.framewidthTarget.style.top) || 0;
+
     this.frameTarget.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    this.framewidthTarget.style.top = `${currentTopwidth + Y}px`;
   }
 
   move_down() {
     // console.log("MOVE FRAME RIGHT");
     let Y = 5;
-    let currentTop = parseInt(this.frameTarget.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    let currentTop = parseInt(this.frameTarget.style.top) || 0;    // obtenir la valeur actuelle de "left" et la convertir en nombre
+    let currentTopwidth = parseInt(this.framewidthTarget.style.top) || 0;
+
     this.frameTarget.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    this.framewidthTarget.style.top = `${currentTopwidth + Y}px`;
   }
 
   rotate_frame_more() {
@@ -59,6 +71,7 @@ export default class extends Controller {
 
   bigger_frame() {
     // console.log("TESTBIGGER");
+
     let frame = document.getElementById("frameadjusting");
     if (!frame) {
       console.error("Element not found.");
@@ -77,6 +90,7 @@ export default class extends Controller {
 
   shrink_frame() {
     // console.log("size_adjust_less")
+
     let frame = document.getElementById("frameadjusting");
     let currentTransform = getComputedStyle(frame).transform;
     let currentScale = parseFloat(currentTransform.slice(7));
@@ -146,9 +160,21 @@ export default class extends Controller {
   }
 
   showPreview() {
-    let zoom = document.getElementById("zoomvignette")
-    zoom.classList.toggle("hiddenzoom")
-    zoom.classList.toggle("zoompreview")
+    let zoom = document.getElementById("zoomvignette");
+    zoom.classList.toggle("hiddenzoom");
+    zoom.classList.toggle("zoompreview");
 
+  }
+
+  hidebutton() {
+    let boutton = document.getElementById("simulateurgridmobile");
+    let bgselector = document.getElementById("bg_selector");
+    let framewidth = document.getElementById("framewidth");
+
+    boutton.classList.toggle("hidden");
+    boutton.classList.toggle("simulateurgridmobile");
+    framewidth.classList.toggle("hidden");
+    framewidth.classList.toggle("d-flex");
+    bgselector.classList.toggle("hidden");
   }
 }
