@@ -2,12 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 import { Alert } from "bootstrap"
 
 export default class extends Controller {
-
-  static targets = [ "allframes" , "preview"]
+  static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame"]
 
   connect() {
-    // Stocke une référence au contrôleur
-    this.controller = this
   }
 
   zoompreview() {
@@ -15,78 +12,71 @@ export default class extends Controller {
   }
 
   move_left() {
-    let frame = document.getElementById("mainframe");
-    console.log("MOVE FRAME LEFT");
+    // console.log("MOVE FRAME LEFT");
     let X = -5;
-    let currentLeft = parseInt(frame.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
-    frame.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    let currentLeft = parseInt(this.frameTarget.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    this.frameTarget.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
   }
 
   move_right() {
-    let frame = document.getElementById("mainframe");
-    console.log("MOVE FRAME RIGHT");
+    // console.log("MOVE FRAME RIGHT");
     let X = 5;
-    let currentLeft = parseInt(frame.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
-    frame.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    let currentLeft = parseInt(this.frameTarget.style.left) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    this.frameTarget.style.left = `${currentLeft + X}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
   }
 
   move_up() {
-    let frame = document.getElementById("mainframe");
-    console.log("MOVE FRAME LEFT");
+    // console.log("MOVE FRAME LEFT");
     let Y = -5;
-    let currentTop = parseInt(frame.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
-    frame.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    let currentTop = parseInt(this.frameTarget.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    this.frameTarget.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
   }
 
   move_down() {
-    let frame = document.getElementById("mainframe");
-    console.log("MOVE FRAME RIGHT");
+    // console.log("MOVE FRAME RIGHT");
     let Y = 5;
-    let currentTop = parseInt(frame.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
-    frame.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
+    let currentTop = parseInt(this.frameTarget.style.top) || 0; // obtenir la valeur actuelle de "left" et la convertir en nombre
+    this.frameTarget.style.top = `${currentTop + Y}px`; // ajouter X à la valeur actuelle de "left" et réassigner à "left"
   }
 
   rotate_frame_more() {
-    let frame = document.getElementById("mainframe");
-    console.log("ROTATE FRAME RIGHT");
+    // console.log("ROTATE FRAME RIGHT");
     let W = 5;
-    let currentTransform = frame.style.transform || "perspective(400px) rotateY(0deg)";
+    let currentTransform = this.frameTarget.style.transform || "perspective(400px) rotateY(0deg)";
     let currentRotation = currentTransform.match(/rotateY\((\d+)deg\)/);
     let newRotation = currentRotation ? parseInt(currentRotation[1]) + W : W;
-    frame.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
+    this.frameTarget.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
   }
 
   rotate_frame_less() {
-    let frame = document.getElementById("mainframe");
-    console.log("ROTATE FRAME LEFT");
+    // console.log("ROTATE FRAME LEFT");
     let W = -5;
-    let currentTransform = frame.style.transform || "perspective(400px) rotateY(0deg)";
+    let currentTransform = this.frameTarget.style.transform || "perspective(400px) rotateY(0deg)";
     let currentRotation = currentTransform.match(/rotateY\(([-]?\d+)deg\)/);
     let newRotation = currentRotation ? parseInt(currentRotation[1]) + W : W;
-    frame.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
+    this.frameTarget.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
   }
 
   bigger_frame() {
-    console.log("TESTBIGGER");
+    // console.log("TESTBIGGER");
     let frame = document.getElementById("frameadjusting");
     if (!frame) {
       console.error("Element not found.");
       return;
     }
-    console.log(frame);
     let currentTransform = frame.style.transform || "scale(1)";
-    console.log(currentTransform)
+    // console.log(currentTransform)
     let currentScale = parseFloat(currentTransform.slice(6));
-    console.log(currentScale)
+    // console.log(currentScale)
     if(currentScale < 1){
       currentScale = 1;
     }
     frame.style.transform = `scale(${currentScale + 0.05})`;
-    console.log(frame.style.transform)
+    // console.log(frame.style.transform)
   }
 
   shrink_frame() {
-    console.log("size_adjust_less")
+    // console.log("size_adjust_less")
     let frame = document.getElementById("frameadjusting");
     let currentTransform = getComputedStyle(frame).transform;
     let currentScale = parseFloat(currentTransform.slice(7));
@@ -95,84 +85,70 @@ export default class extends Controller {
       return;
     }
     frame.style.transform = `scale(${currentScale - 0.05})`;
-    console.log(frame.style.transform)
+    // console.log(frame.style.transform)
   }
 
 
   change_bg1() {
-    let room1 = document.getElementById("room1")
-    let room2 = document.getElementById("room2")
-    let room3 = document.getElementById("room3")
-    let room4 = document.getElementById("room4")
-    let room5 = document.getElementById("room5")
+    this.room1Target.style.display = "";
+    this.room2Target.style.display = "none";
+    this.room3Target.style.display = "none";
+    this.room4Target.style.display = "none";
+    this.room5Target.style.display = "none";
+    this.room6Target.style.display = "none";
 
-    room1.style.display = "";
-    room2.style.display = "none";
-    room3.style.display = "none";
-    room4.style.display = "none";
-    room5.style.display = "none";
   }
 
   change_bg2() {
-    let room1 = document.getElementById("room1")
-    let room2 = document.getElementById("room2")
-    let room3 = document.getElementById("room3")
-    let room4 = document.getElementById("room4")
-    let room5 = document.getElementById("room5")
+    this.room1Target.style.display = "none";
+    this.room2Target.style.display = "";
+    this.room3Target.style.display = "none";
+    this.room4Target.style.display = "none";
+    this.room5Target.style.display = "none";
+    this.room6Target.style.display = "none";
 
-    room1.style.display = "none";
-    room2.style.display = "";
-    room3.style.display = "none";
-    room4.style.display = "none";
-    room5.style.display = "none";
   }
 
   change_bg3() {
-    let room1 = document.getElementById("room1")
-    let room2 = document.getElementById("room2")
-    let room3 = document.getElementById("room3")
-    let room4 = document.getElementById("room4")
-    let room5 = document.getElementById("room5")
-
-    room1.style.display = "none";
-    room2.style.display = "none";
-    room3.style.display = "";
-    room4.style.display = "none";
-    room5.style.display = "none";
+    this.room1Target.style.display = "none";
+    this.room2Target.style.display = "none";
+    this.room3Target.style.display = "";
+    this.room4Target.style.display = "none";
+    this.room5Target.style.display = "none";
+    this.room6Target.style.display = "none";
   }
 
   change_bg4() {
-    let room1 = document.getElementById("room1")
-    let room2 = document.getElementById("room2")
-    let room3 = document.getElementById("room3")
-    let room4 = document.getElementById("room4")
-    let room5 = document.getElementById("room5")
-
-    room1.style.display = "none";
-    room2.style.display = "none";
-    room3.style.display = "none";
-    room4.style.display = "";
-    room5.style.display = "none";
+    this.room1Target.style.display = "none";
+    this.room2Target.style.display = "none";
+    this.room3Target.style.display = "none";
+    this.room4Target.style.display = "";
+    this.room5Target.style.display = "none";
+    this.room6Target.style.display = "none";
   }
 
   change_bg5() {
-    let room1 = document.getElementById("room1")
-    let room2 = document.getElementById("room2")
-    let room3 = document.getElementById("room3")
-    let room4 = document.getElementById("room4")
-    let room5 = document.getElementById("room5")
+    this.room1Target.style.display = "none";
+    this.room2Target.style.display = "none";
+    this.room3Target.style.display = "none";
+    this.room4Target.style.display = "none";
+    this.room5Target.style.display = "";
+    this.room6Target.style.display = "none";
+  }
 
-    room1.style.display = "none";
-    room2.style.display = "none";
-    room3.style.display = "none";
-    room4.style.display = "none";
-    room5.style.display = "";
+  change_bg6() {
+    this.room1Target.style.display = "none";
+    this.room2Target.style.display = "none";
+    this.room3Target.style.display = "none";
+    this.room4Target.style.display = "none";
+    this.room5Target.style.display = "none";
+    this.room6Target.style.display = "";
   }
 
   showPreview() {
     let zoom = document.getElementById("zoomvignette")
     zoom.classList.toggle("hiddenzoom")
     zoom.classList.toggle("zoompreview")
-    
+
   }
 }

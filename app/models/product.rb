@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :orientation, inclusion: { in: ORIENTATION }
   belongs_to :subcategory
+  validates :subcategory, presence: true
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :description, :name, :price_cents, :subcategory_id, :sku, :supplier_delay, presence: true
   has_rich_text :full_description
@@ -66,8 +67,8 @@ class Product < ApplicationRecord
     end
   end
 
-  def discount_price_positive?
-    discount_price_cents > 0
-  end
+  # def discount_price_positive?
+  #   discount_price_cents.positive?
+  # end
 
 end
