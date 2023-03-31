@@ -13,13 +13,14 @@
 }
 
 .productcaract{
-  background:rgb(211, 211, 211);
+  background:rgb(241, 237, 237);
   margin:2rem 0;
   .boldcaract{
+    border-right:1px solid black;
     font-weight:bold;
     text-align:left;
     margin-left:1rem;
-    background:rgb(141, 141, 141);
+    background:rgb(201, 201, 201);
   }
   @media screen and (max-width: 481px) {
     .boldcaract {
@@ -32,6 +33,24 @@
   }
 }
 
+.tags_description {
+  padding-top:2vh
+}
+
+.span_wordtag {
+  margin:0.4rem;
+  padding:0.5rem;
+  background: rgb(245,22,247);
+  background: linear-gradient(180deg, rgb(245,22,247) 0%, rgb(148,37,222) 87%);
+  border-radius:3px;
+  color:white;
+  text-transform: uppercase;
+  font-style: oblique;
+  font-size:larger;
+  font-weight:bolder;
+  // -webkit-text-stroke: 1px grey;
+  text-decoration: wavy;
+}
 
 .dataproductnameshow {
   text-align: center;

@@ -86,7 +86,15 @@
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
 
+          <div class="tags_description">
+          <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
+            <%@words.each do |word|%>
+              <span class="span_wordtag">#<%=word%></span>
+            <%end%>
+          </div>
+
           <table class="productcaract">
+          <h2 style="margin:2rem 0">Caractéristiques:</h2>
             <tr>
               <td class="boldcaract"><p>Orientation</p></td>
               <td><p><i><%=@product.orientation%></i></p></td>
@@ -112,8 +120,8 @@
 
         <div style="margin:2vw 0;">
           <%# Section avec produit de la même ref en taille différente %>
+          <h2 style="text-align:left;margin-bottom:1rem;">Autres formats disponible:</h2>
           <div style="display:grid;justify-content:center">
-          <h5 style="text-align:left;margin-bottom:1rem;">Autres formats disponible:</h5>
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
                 <%= link_to product_path(product) do%>
@@ -144,12 +152,16 @@
   <%# Product description area %>
   <div style="margin-top:3vh;border-top:1px solid grey;">
     <%# Simple description %>
-    <%= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
+    <%#= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
     <%# Simple description %>
     <p>
       <%= @product.full_description %>
     </p>
   </div >
+
+  <section data-controller="gallerie">
+    <%= render "pages/homegallerie"%>
+  </section>
 
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
@@ -159,7 +171,4 @@
       <%end%>
     </div>
   </div>
-  <section data-controller="gallerie">
-    <%= render "pages/homegallerie"%>
-  </section>
 </div>

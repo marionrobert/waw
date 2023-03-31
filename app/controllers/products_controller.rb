@@ -42,8 +42,14 @@ class ProductsController < ApplicationController
   end
 
   def show
+
+    # Récupérer la description du produit dans une variable
+    # Transformer la chaîne de caractères en un tableau de mots
+
     @current_user = current_user
     @product = Product.find(params[:id])
+    description = @product.description
+    @words = description.split(" ")
     visit = @product.visit || @product.create_visit(count: 0)
     visit.increment!(:count)
     products = Product.where(subcategory: @product.subcategory).where(main: "true")

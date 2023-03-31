@@ -349,7 +349,12 @@ product_1 = Product.create!(
   name: "wolfs",
   main: "true",
   sku: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+  full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -376,7 +381,12 @@ product_2 = Product.create!(
   name: "wolfs",
   main: "false",
   sku: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -403,7 +413,12 @@ product_3 = Product.create!(
   name: "wolfs",
   main: "false",
   sku: "wolfs_90x60_paysage_PVCexpanse5mmforex",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -429,7 +444,12 @@ puts "Produit #{Product.last.id} créé"
 product_4 = Product.create!(
   name: "wolfs",
   sku: "wolfs_120x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+  full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -455,7 +475,12 @@ puts "Produit #{Product.last.id} créé"
 product_5 = Product.create!(
   name: "wolfs",
   sku: "wolfs_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -481,7 +506,12 @@ puts "Produit #{Product.last.id} créé"
 product_6 = Product.create!(
   name: "wolfs",
   sku: "wolfs_120x90_paysage_PVCexpanse5mmforex",
-  description: "lutter contre le vent",
+  description: "loup vent exterieur nature sauvage animaux blanc froid",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -508,7 +538,12 @@ puts "Produit #{Product.last.id} créé"
 product_7 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
-  description: "Il a pas l'air aimable",
+  description: "loup agressif dangereux sauvage sombre nature animal",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 34900,
   discount_price_cents: 22900,
   stock_quantity: 5,
@@ -535,7 +570,12 @@ puts "Produit #{Product.last.id} créé"
 product_8 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
-  description: "Il a pas l'air aimable",
+  description: "loup agressif dangereux sauvage sombre nature animal",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 39900,
   discount_price_cents: 29900,
   stock_quantity: 5,
@@ -562,7 +602,12 @@ puts "Produit #{Product.last.id} créé"
 product_9 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
-  description: "Il a pas l'air aimable",
+  description: "loup agressif dangereux sauvage sombre nature animal",
+   full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 42900,
   discount_price_cents: 35900,
   stock_quantity: 5,
@@ -589,7 +634,12 @@ product_10 = Product.create!(
   name: "castle",
   main: "true",
   sku: "castle_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "un chateau",
+  description: "château inquietant brouillard sombre chemin",
+  full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 12900,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -615,7 +665,12 @@ product_11 = Product.create!(
   name: "castle",
   main: "false",
   sku: "castle_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
-  description: "lutter contre le vent",
+  description: "château inquietant brouillard sombre chemin",
+  full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 17900,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -643,7 +698,12 @@ product_12 = Product.create!(
   name: "castle",
   main: "false",
   sku: "castle_90x60_paysage_PVCexpanse5mmforex",
-  description: "lutter contre le vent",
+  description: "château inquietant brouillard sombre chemin",
+  full_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper erat vel volutpat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas eget augue ac sapien pharetra ullamcorper. Quisque ut nisl vitae lorem pulvinar elementum ut ac tortor. Maecenas nec erat aliquam, fringilla nisl at, accumsan nulla. Maecenas egestas nunc est, non euismod ligula varius quis. Donec a lacus elit. Aliquam quis risus ut lectus pellentesque gravida eget ac sem. Praesent eget urna eget orci tincidunt cursus id eget nibh.
+
+  Nulla molestie suscipit ante eu laoreet. Fusce viverra, nibh ac convallis auctor, mi felis rhoncus felis, vel tempus lorem enim ac magna. Cras ac ipsum blandit purus euismod tincidunt mattis eu nulla. Donec condimentum, orci ut egestas consequat, mi neque egestas diam, ut sagittis erat felis in nisl. Vivamus sit amet pretium nisl, ut lacinia nibh. Suspendisse venenatis iaculis suscipit. Mauris faucibus nulla dapibus leo pharetra aliquet. Mauris tincidunt dolor ligula, eleifend ornare metus auctor et. Suspendisse semper justo ac metus euismod, eu vulputate odio vestibulum. Suspendisse potenti. Suspendisse blandit lacus tempor sollicitudin feugiat. Pellentesque facilisis sollicitudin orci, gravida condimentum lorem rutrum nec. Mauris at ipsum tristique, malesuada eros ut, egestas massa.
+
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas sit amet imperdiet urna, et efficitur orci. Curabitur ultrices leo a lacus semper lacinia. Phasellus ipsum lorem, vehicula quis facilisis maximus, maximus quis turpis. Vivamus condimentum mauris metus. Suspendisse elit mi, rutrum nec purus ut, elementum maximus dolor. Sed sollicitudin efficitur vulputate. Vivamus augue nisl, ullamcorper id magna vitae, rhoncus rutrum lectus. Etiam et magna at nibh molestie ornare et ut lacus. Nulla interdum nulla sit amet massa ultrices, sit amet efficitur dolor bibendum. Morbi vehicula id leo malesuada sagittis. Integer volutpat tortor aliquam nibh sagittis, vitae sodales metus fringilla. Phasellus lobortis gravida lorem non sodales. Pellentesque fermentum, nisi vel varius malesuada, neque nisl fermentum purus, vel pretium metus elit in purus.",
   price_cents: 18900,
   discount_price_cents: 0,
   stock_quantity: 0,
