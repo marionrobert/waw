@@ -2,7 +2,6 @@ class Product < ApplicationRecord
   ORIENTATION = ["paysage", "portrait", "carre"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
-  # MAIN = ["true", "false"]
 
   has_one :visit
   has_many_attached :photos
@@ -68,12 +67,8 @@ class Product < ApplicationRecord
     end
   end
 
-  def discount_price_positive?
-    discount_price_cents > 0
-  end
-
-  def display_main_products
-    return Product.where(main: true)
-  end
+  # def discount_price_positive?
+  #   discount_price_cents.positive?
+  # end
 
 end
