@@ -72,4 +72,8 @@ class Product < ApplicationRecord
     discount_price_cents > 0
   end
 
+  def display_main_products
+    return Product.where(main: true)
+  end
+
 end
