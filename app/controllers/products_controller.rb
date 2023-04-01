@@ -44,6 +44,17 @@ class ProductsController < ApplicationController
   def show
     @current_user = current_user
     @product = Product.find(params[:id])
+    @product = Product.find(params[:format]) if !@product
+
+    @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
+    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
+    @price += "0" if @price[-2] == ","
+
+    @promotionnal_price = (@product.discount_price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
+    @promotionnal_price += "0" if @promotionnal_price[-2] == ","
+
+    @discount_percent = (((@product.discount_price_cents.to_f - @product.price_cents.to_f) / @product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
+
     visit = @product.visit || @product.create_visit(count: 0)
     visit.increment!(:count)
     products = Product.where(subcategory: @product.subcategory)
@@ -53,6 +64,29 @@ class ProductsController < ApplicationController
       @suggested_products = Product.all.sample(15)
     end
     @similar_products = Product.where("LEFT(sku, 4) = ?", @product.sku[0, 4])
+
+    respond_to do |format|
+      format.html
+      format.json { render json:
+        {
+          discount_percent: @discount_percent,
+          discount_price_cents: @product.discount_price_cents,
+          price: @price,
+          promotionnal_price: @promotionnal_price,
+          orientation: @product.orientation,
+          height: @product.height,
+          width: @product.width,
+          support: @product.support,
+          frame_quantity: @product.frame_quantity,
+          description: @product.description,
+          full_description: @product.full_description,
+          discount_ending_date: @product.discount_ending_date,
+          stock_quantity: @product.stock_quantity,
+          supplier_delay: @product.supplier_delay,
+          id: @product.id
+        }
+      }
+    end
   end
 
   def new

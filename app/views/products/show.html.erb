@@ -26,9 +26,11 @@
             <i class="fa-solid fa-share-nodes shareicon"></i>
         <% end %>
         <%# Promo span %>
-        <%if @product.discount_price_cents != 0%>
-          <span class="promospanshowproduct">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
-        <%end%>
+        <span data-loadvariants-target= "discountpercentzone">
+          <%if @product.discount_price_cents != 0%>
+            <span class="promospanshowproduct"> <%= @discount_percent %> %</span>
+          <%end%>
+        </span>
         <%# favorite %>
         <i class="fa-solid fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
             data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>
@@ -51,9 +53,16 @@
 
 
         <div class="hiddenzoom" id="zoomvignette" data-controller="gallerie" data-action="click->gallerie#showPreview">
-          <%= cl_image_tag @product.photos.first.key, style:"width: 100%;margin: 20px;"%>
-          <%# <i class="fa-regular fa-circle-xmark"></i> %>
+           <% if @product.photos.attached? %>
+              <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+            <% else %>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                style:"max-width:90%;max-height:90%",
+                alt: "Pas d'image disponible",
+                class: 'd-block mx-auto') %>
+            <% end %>
         </div>
+
         <div class="simulateurbutton">
           <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
         </div>
@@ -63,43 +72,44 @@
         <%= content_tag(:h2, @product.name,
                         class:"dataproductnameshow",
                         data: { share_target: "title"}) %>
-        <% if @product.discount_price_cents != 0 %>
-          <% prixbarre = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
-          <h4 style="text-decoration:line-through">Prix : <%= prixbarre.slice(1..50) %> TTC</h4>
-          <% prixpromo = humanized_money_with_symbol(@product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(@product.discount_price_cents / 100.00).first%>
-          <h3 style="color:green;text-align:right"><b>Prix promo: <%= prixpromo.slice(1..50) %> TTC</b></h3>
-        <% else %>
-          <% prixclassique = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
-          <h4><b>Prix : <%= prixclassique.slice(1..50) %> TTC</b></h4>
-        <%end%>
+        <span data-loadvariants-target="pricezone">
+          <% if @product.discount_price_cents != 0 %>
+            <h4 style="text-decoration:line-through">Prix : <%= @price %> € TTC</h4>
+            <h3 style="color:green;text-align:right"><b>Prix promo: <%= @promotionnal_price %> € TTC</b></h3>
+          <% else %>
+            <h4><b>Prix : <%= @price %> € TTC</b></h4>
+          <%end%>
+        </span>
+        <span data-loadvariants-target="stockzone">
           <%if @product.stock_quantity > 0%>
             <p style="color:green;text-align:right"><strong>En stock</strong></p>
             <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
           <%else%>
-            <p style="color:green;text-align:right"><i>disponible sous <%=@product.supplier_delay%> jours</i></p>
+            <p style="color:green;text-align:right"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
+        </span>
 
           <table class="productcaract">
             <tr>
               <td class="boldcaract"><p>Orientation</p></td>
-              <td><p><i><%=@product.orientation%></i></p></td>
+              <td><p><i data-loadvariants-target="orientation"><%=@product.orientation%></i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Hauteur</p></td>
-              <td><p><i><%=@product.height%>cm</i></p></td>
+              <td><p><i data-loadvariants-target="height"><%=@product.height%>cm</i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Largeur</p></td>
-              <td><p><i><%=@product.width%>cm</i></p></td>
+              <td><p><i data-loadvariants-target="width"><%=@product.width%>cm</i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Support</p></td>
-              <td><p><i><%=@product.support%></i></p></td>
+              <td><p><i data-loadvariants-target="support"><%=@product.support%></i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Nombre de tableaux</p></td>
-              <td><p><i><%=@product.frame_quantity%></i></p></td>
+              <td><p><i data-loadvariants-target="framequantity"><%=@product.frame_quantity%></i></p></td>
             </tr>
           </table>
 
@@ -129,9 +139,11 @@
             <% end %>
           </div>
         </div>
-        <% unless user_signed_in? && current_user.admin %>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
-        <%end%>
+        <span data-loadvariants-target="addtocart">
+          <% unless user_signed_in? && current_user.admin %>
+            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
+          <%end%>
+        </span>
       </div>
 
     </div>
