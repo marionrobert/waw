@@ -116,28 +116,25 @@
 
         <div style="margin:2vw 0;">
           <%# Section avec produit de la même ref en taille différente %>
-          <div>
-          <h5 style="text-align:left">Autres formats disponible:</h5>
-            <%if @similar_products.count.positive?%>
-              <% @similar_products.each do |product|%>
-                <%= link_to product_path(product) do%>
-                  <% if @product.sku== product.sku %>
-                    <button class="btn mb-2"
-                            style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
-                            data-action="click->loadvariants#loadNewVariant"
-                            data-loadvariants-product-id-param="<%= product.id %>">
-                      <i class="fa-solid fa-arrow-right" style="color:red"></i>
-                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
-                    </button>
-                  <% else %>
-                    <button class="btn btn-dark mb-2" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
-                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
-                    </button>
-                  <% end %>
-                <%end%>
+            <h5 style="text-align:left">Autres formats disponible:</h5>
+              <%if @similar_products.count.positive?%>
+                <% @similar_products.each do |product|%>
+                    <% if @product.sku== product.sku %>
+                      <button class= "btn btn-dark mb-2 variant"
+                              style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
+                              id="<%=product.id%>"
+                              data-action="click->loadvariants#loadNewVariant"
+                              data-loadvariants-product-id-param="<%= product.id %>">
+                        <i class="fa-solid fa-arrow-right" style="color:red"></i>
+                        <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                      </button>
+                    <% else %>
+                      <button id="<%=product.id%>" class="btn btn-dark mb-2 variant" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
+                        <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                      </button>
+                    <% end %>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
         </div>
         <span data-loadvariants-target="addtocart">
           <% unless user_signed_in? && current_user.admin %>

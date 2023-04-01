@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone"]
 
   connect() {
-
+    console.log("hello")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -22,6 +22,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
+        // console.log(data)
+
         // update price and discount_percent zones
         if (data.discount_price_cents != 0) {
           this.discountpercentzoneTarget.innerHTML = `<span class="promospanshowproduct"> ${data.discount_percent}  %</span`
@@ -48,6 +50,47 @@ export default class extends Controller {
 
         // update button add to cart
         this.addtocartTarget.innerHTML = `<form class="button_to" method="post" action="/line_items?product_id=${data.id}"><button class="btn btn-success addtocart p-4" type="submit">Ajouter au panier</button><input type="hidden" name="authenticity_token" value="TqR7J7iQcO8bM-9Phoc75WLMmNhlcC5eh3tr-kkGA3-PdGzGkrtA6rTepL9nqRG8hL03fhGdvdHqnIkb_ipm1g" autocomplete="off"></form>`
+
+
+        // update buttons color
+        let all_variants = document.getElementsByClassName("variant")
+        const array_all_variants = Object.values(all_variants)
+        array_all_variants.forEach((element) => {
+          if (element.id == event.params.productId ) {
+            element.style.color = "black"
+            element.style.background = "rgba(236, 240, 241, 0.2)"
+            element.style.border = "1px solid black"
+            element.innerHTML = `<i class="fa-solid fa-arrow-right" style="color:red"></i> ${data.height}x${data.width} - ${data.orientation} - ${data.support}`
+          } else {
+            element.style.color = ""
+            element.style.background = ""
+            element.style.border = ""
+            element.innerHTML = `${data.height}x${data.width} - ${data.orientation} - ${data.support}`
+          }
+        });
+
       })
   }
 }
+
+
+
+// othervariants zone
+// {
+//             <%if @similar_products.count.positive?%>
+//               <% @similar_products.each do |product|%>
+//                   <% if @product.sku== product.sku %>
+//                     <button class="btn mb-2"
+//                             style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
+//                             data-action="click->loadvariants#loadNewVariant"
+//                             data-loadvariants-product-id-param="<%= product.id %>">
+//                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
+//                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+//                     </button>
+//                   <% else %>
+//                     <button class="btn btn-dark mb-2" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
+//                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+//                     </button>
+//                   <% end %>
+//               <% end %>
+//             <% end %> */}

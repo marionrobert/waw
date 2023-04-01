@@ -83,7 +83,8 @@ class ProductsController < ApplicationController
           discount_ending_date: @product.discount_ending_date,
           stock_quantity: @product.stock_quantity,
           supplier_delay: @product.supplier_delay,
-          id: @product.id
+          id: @product.id,
+          similar_products: @similar_products
         }
       }
     end
