@@ -14,6 +14,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :stock_quantity
       t.date :discount_ending_date
       t.integer :supplier_delay
+      # t.string :main_product, default: "false", null: false
       t.timestamps
       t.references :subcategory, null: false, foreign_key: true
     end

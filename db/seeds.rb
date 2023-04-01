@@ -347,6 +347,7 @@ puts "Remplissage des rayons"
 
 product_1 = Product.create!(
   name: "wolfs",
+  main: true,
   sku: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -358,8 +359,8 @@ product_1 = Product.create!(
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
-  subcategory: subcategory1)
-
+  subcategory: subcategory1
+)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -373,6 +374,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_2 = Product.create!(
   name: "wolfs",
+  main: false,
   sku: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -384,7 +386,8 @@ product_2 = Product.create!(
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
-  subcategory: subcategory1)
+  subcategory: subcategory1
+)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -398,6 +401,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_3 = Product.create!(
   name: "wolfs",
+  main: false,
   sku: "wolfs_90x60_paysage_PVCexpanse5mmforex",
   description: "lutter contre le vent",
   price_cents: 29400,
@@ -409,7 +413,8 @@ product_3 = Product.create!(
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
   orientation: "paysage",
-  subcategory: subcategory1)
+  subcategory: subcategory1
+)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -434,7 +439,8 @@ product_4 = Product.create!(
   support:"Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation:"paysage",
-  subcategory: subcategory1)
+  subcategory: subcategory1,
+  main: false)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -459,7 +465,8 @@ product_5 = Product.create!(
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
-  subcategory: subcategory1)
+  subcategory: subcategory1,
+  main: false)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -484,7 +491,8 @@ product_6 = Product.create!(
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
   orientation: "paysage",
-  subcategory: subcategory1)
+  subcategory: subcategory1,
+  main: false)
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -510,7 +518,8 @@ product_7 = Product.create!(
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
-  subcategory: subcategory2)
+  subcategory: subcategory2,
+  main: true)
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -536,7 +545,8 @@ product_8 = Product.create!(
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
-  subcategory: subcategory2)
+  subcategory: subcategory2,
+  main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -562,7 +572,8 @@ product_9 = Product.create!(
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
   orientation: "portrait",
-  subcategory: subcategory2)
+  subcategory: subcategory2,
+  main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
