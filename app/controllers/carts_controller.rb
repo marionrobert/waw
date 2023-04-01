@@ -31,7 +31,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to cart_url(@cart), notice: "Cart was successfully created." }
+        format.html { redirect_to cart_url(@cart), notice: "Le panier a été mis à jour." }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to cart_url(@cart), notice: "Cart was successfully updated." }
+        format.html { redirect_to cart_url(@cart), notice: "Le panier a été mis à jour." }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,16 +66,16 @@ class CartsController < ApplicationController
 
   private
 
-    def cart_not_found
-      redirect_to root_url, alert: t(".cart_not_found")
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
+  def cart_not_found
+    redirect_to root_url, alert: t(".cart_not_found")
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
+  # Only allow a list of trusted parameters through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
 end

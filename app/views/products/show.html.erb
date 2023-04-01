@@ -1,4 +1,4 @@
-<div class="producthomecontainer showmargintop" data-controller="share favorites" data-share-url-value= "<%= product_url(@product) %>">
+<div class="producthomecontainer showmargintop" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
   <div class="container" >
     <div class="mt-5">
       <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
@@ -14,7 +14,7 @@
             class: "btn btn-warning m-3 d-flex align-items-center" %>
         <%= link_to "Supprimer le produit", @product,
             data: { turbo_method: :delete,
-            turbo_confirm: "Souhaitez-vous supprimer definitivement cet reference produit?"},
+            turbo_confirm: "Souhaitez-vous supprimer définitivement cette référence produit?"},
             class: "btn btn-danger m-3 d-flex align-items-center" %>
       <% end%>
     </div>
@@ -26,9 +26,11 @@
             <i class="fa-solid fa-share-nodes shareicon"></i>
         <% end %>
         <%# Promo span %>
-        <%if @product.discount_price_cents != 0%>
-          <span class="promospanshowproduct">- <%=(100-((@product.discount_price_cents).to_f / (@product.price_cents).to_f)*100).round(0)%>%</span>
-        <%end%>
+        <span data-loadvariants-target= "discountpercentzone">
+          <%if @product.discount_price_cents != 0%>
+            <span class="promospanshowproduct"> <%= @discount_percent %> %</span>
+          <%end%>
+        </span>
         <%# favorite %>
         <i class="fa-solid fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
             data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>
@@ -60,6 +62,7 @@
                 class: 'd-block mx-auto') %>
             <% end %>
         </div>
+
         <div class="simulateurbutton">
           <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
         </div>
@@ -69,72 +72,74 @@
         <%= content_tag(:h2, @product.name,
                         class:"dataproductnameshow",
                         data: { share_target: "title"}) %>
-        <% if @product.discount_price_cents != 0 %>
-          <% prixbarre = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
-          <h4 style="text-decoration:line-through">Prix : <%= prixbarre.slice(1..50) %> TTC</h4>
-          <% prixpromo = humanized_money_with_symbol(@product.discount_price_cents / 100.00) + " " + humanized_money_with_symbol(@product.discount_price_cents / 100.00).first%>
-          <h3 style="color:green;text-align:right"><b>Prix promo: <%= prixpromo.slice(1..50) %> TTC</b></h3>
-        <% else %>
-          <% prixclassique = humanized_money_with_symbol(@product.price_cents / 100.00) + " " + humanized_money_with_symbol(@product.price_cents / 100.00).first%>
-          <h4><b>Prix : <%= prixclassique.slice(1..50) %> TTC</b></h4>
-        <%end%>
+        <span data-loadvariants-target="pricezone">
+          <% if @product.discount_price_cents != 0 %>
+            <h4 style="text-decoration:line-through">Prix : <%= @price %> € TTC</h4>
+            <h3 style="color:green;text-align:right"><b>Prix promo: <%= @promotionnal_price %> € TTC</b></h3>
+          <% else %>
+            <h4><b>Prix : <%= @price %> € TTC</b></h4>
+          <%end%>
+        </span>
+        <span data-loadvariants-target="stockzone">
           <%if @product.stock_quantity > 0%>
             <p style="color:green;text-align:right"><strong>En stock</strong></p>
             <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
           <%else%>
-            <p style="color:green;text-align:right"><i>disponible sous <%=@product.supplier_delay%> jours</i></p>
+            <p style="color:green;text-align:right"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
+        </span>
 
           <table class="productcaract">
             <tr>
               <td class="boldcaract"><p>Orientation</p></td>
-              <td><p><i><%=@product.orientation%></i></p></td>
+              <td><p><i data-loadvariants-target="orientation"><%=@product.orientation%></i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Hauteur</p></td>
-              <td><p><i><%=@product.height%>cm</i></p></td>
+              <td><p><i data-loadvariants-target="height"><%=@product.height%>cm</i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Largeur</p></td>
-              <td><p><i><%=@product.width%>cm</i></p></td>
+              <td><p><i data-loadvariants-target="width"><%=@product.width%>cm</i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Support</p></td>
-              <td><p><i><%=@product.support%></i></p></td>
+              <td><p><i data-loadvariants-target="support"><%=@product.support%></i></p></td>
             </tr>
             <tr>
               <td class="boldcaract"><p>Nombre de tableaux</p></td>
-              <td><p><i><%=@product.frame_quantity%></i></p></td>
+              <td><p><i data-loadvariants-target="framequantity"><%=@product.frame_quantity%></i></p></td>
             </tr>
           </table>
 
 
-        <div style="margin:2vw 0;">
-          <%# Section avec produit de la même ref en taille différente %>
-          <div style="display:grid;justify-content:center">
+        <div style="display:grid;justify-content:center">
           <h5 style="text-align:left;margin-bottom:1rem;">Autres formats disponible:</h5>
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
-                <%= link_to product_path(product) do%>
                   <% if @product.sku== product.sku %>
-                    <button class="btn mb-2" style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black;max-width:90vw;overflow-x:auto">
+                    <button class= "btn btn-dark mb-2 variant"
+                            style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
+                            id="<%=product.id%>"
+                            data-action="click->loadvariants#loadNewVariant"
+                            data-loadvariants-product-id-param="<%= product.id %>">
                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% else %>
-                    <button class="btn btn-dark mb-2" style="max-width:90vw;overflow-x:auto">
+                    <button id="<%=product.id%>" class="btn btn-dark mb-2 variant" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
                     </button>
                   <% end %>
-                <%end%>
               <% end %>
             <% end %>
-          </div>
         </div>
-        <% unless user_signed_in? && current_user.admin %>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
-        <%end%>
+        <span data-loadvariants-target="addtocart">
+          <% unless user_signed_in? && current_user.admin %>
+            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
+          <%end%>
+        </span>
       </div>
 
     </div>

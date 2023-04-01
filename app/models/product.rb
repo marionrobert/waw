@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
 
-  has_one :visit
+  has_one :visit, dependent: :destroy
   has_many_attached :photos
   validates :width, presence: true
   validates :height, presence: true
