@@ -18,7 +18,7 @@
     <%end%>
     <div style="display:flex;">
       <div class="wrapperhomepage" data-controller="favorites">
-        <% subcategory.products.where(main: "true").each do |product| %>
+        <% subcategory.products.where(main: true).each do |product| %>
           <%= render "shared/#{Shop.first.card}", product: product%>
         <%end%>
       </div>
