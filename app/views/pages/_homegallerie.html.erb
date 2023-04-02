@@ -11,7 +11,7 @@
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product.photos.first %>
-          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10%;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
           <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
           </div>
