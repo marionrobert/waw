@@ -300,7 +300,26 @@
   }
 }
 
-.simulateurmobilebutton {
+.eye {
+  position:absolute;
+  z-index: 1000;
+  top:5%;
+  right:5%;
+  border-radius:50%;
+  background:rgba(240,240,240,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:35px;
+  color:rgb(93, 93, 228);
+  i {
+    font-size:20px;
+  }
+}
+
+
+#simulateurmobilebutton {
   button {
     -webkit-text-stroke: 1px white;
   }

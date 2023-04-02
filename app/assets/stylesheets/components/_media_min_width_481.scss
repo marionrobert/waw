@@ -238,6 +238,7 @@
   }
 
   .banner {
+    filter:opacity(0.85);
     position:sticky;
     background-size:cover;
     background-position: center;
@@ -250,7 +251,7 @@
   }
 
   .bannertextfield {
-    padding-top:18vh;
+    padding-top: 12rem;
     text-align:center;
   }
 
@@ -443,13 +444,13 @@
   }
 
   .subcategorydesktopmenu {
+    background-color:#FCF3CF;
     margin:0;
     width:100vw;
-    height:20vh;
+    height:7vh;
     padding: 10px;
     display: flex;
     justify-content:space-around;
-    background:rgb(255, 255, 255);
     border-bottom: 1px solid grey;
     a {
       color:black;

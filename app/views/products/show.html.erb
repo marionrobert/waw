@@ -90,6 +90,14 @@
           <%end%>
         </span>
 
+        <div class="tags_description">
+          <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
+          <%@words.each do |word|%>
+            <span class="span_wordtag">#<%=word%></span>
+          <%end%>
+        </div>
+
+        <h2 style="margin:2rem 0">Caractéristiques:</h2>
           <table class="productcaract">
             <tr>
               <td class="boldcaract"><p>Orientation</p></td>
@@ -115,7 +123,7 @@
 
 
         <div style="display:grid;justify-content:center">
-          <h5 style="text-align:left;margin-bottom:1rem;">Autres formats disponible:</h5>
+          <h2 style="text-align:left;margin-bottom:1rem;">Autres formats disponible:</h2>
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
                   <% if @product.sku== product.sku %>
@@ -156,6 +164,10 @@
     </p>
   </div >
 
+  <section data-controller="gallerie">
+    <%= render "pages/homegallerie"%>
+  </section>
+
   <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
   <div style="display:flex;">
     <div class="wrapperhomepage" data-controller="favorites">
@@ -164,7 +176,4 @@
       <%end%>
     </div>
   </div>
-  <section data-controller="gallerie">
-    <%= render "pages/homegallerie"%>
-  </section>
 </div>
