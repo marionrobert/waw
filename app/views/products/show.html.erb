@@ -152,7 +152,7 @@
   <%# Product description area %>
   <div style="margin-top:3vh;border-top:1px solid grey;">
     <%# Simple description %>
-    <%#= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
+    <%= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
     <%# Simple description %>
     <p>
       <%= @product.full_description %>
