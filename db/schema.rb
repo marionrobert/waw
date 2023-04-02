@@ -149,9 +149,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_120707) do
     t.integer "frame_quantity", default: 1
     t.string "orientation"
     t.string "images", default: [], array: true
-    t.integer "stock_quantity"
+    t.integer "stock_quantity", default: 0
     t.date "discount_ending_date"
-    t.integer "supplier_delay"
+    t.integer "supplier_delay", default: 14
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "subcategory_id", null: false
