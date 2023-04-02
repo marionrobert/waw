@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     else
       @suggested_products = Product.where(main: true).sample(15)
     end
-    @similar_products = Product.where("LEFT(sku, 4) = ?", @product.sku[0, 4])
+    @similar_products = Product.where(name: @product.name)
 
     respond_to do |format|
       format.html
