@@ -144,9 +144,7 @@
             <% end %>
         </div>
         <span data-loadvariants-target="addtocart">
-          <% unless user_signed_in? && current_user.admin %>
-            <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
-          <%end%>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
         </span>
       </div>
 

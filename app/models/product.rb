@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   validates :height, presence: true
   validates :support, presence: true
   validates :frame_quantity, presence: true
+  validates :meta_description, presence: true
   has_many :line_items, dependent: :destroy
   has_many :favorites, dependent: :destroy
   validates :orientation, inclusion: { in: ORIENTATION }

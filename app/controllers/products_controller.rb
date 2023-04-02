@@ -45,7 +45,8 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     @product = Product.find(params[:format]) if !@product
-
+    description = @product.description
+    @words = description.split(" ")
     @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
     # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
     @price += "0" if @price[-2] == ","
@@ -158,6 +159,7 @@ class ProductsController < ApplicationController
       :description,
       :full_description,
       :images,
+      :meta_description,
       :discount_ending_date,
       :price_cents,
       :discount_price_cents,

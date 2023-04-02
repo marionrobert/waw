@@ -24,9 +24,11 @@
   }
   @media screen and (max-width: 481px) {
     .boldcaract {
+      min-width:35vw;
       max-width:35vw;
     }
     p {
+      min-width: 55vw;
       max-width: 55vw;
       overflow-x: scroll;
     }

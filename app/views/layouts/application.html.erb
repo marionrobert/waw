@@ -8,6 +8,9 @@
     <%# <!-- Avoid zoom on mobile other way to do--> %>
     <meta name="viewport" content= "width=device-width, user-scalable=no">
     <meta name="description" content="<%=Shop.first.description%>">
+    <% if params[:controller] == 'products' && params[:action] == 'show' && @product.present? && @product.meta_description.present? %>
+      <meta name="description" content="<%= @product.meta_description %>">
+    <% end %>
     <%# <!--about security : https://gohugo.io/about/ --> %>
     <meta name="generator" content="Hugo 0.104.2">
     <%# <!-- https://api.rubyonrails.org/classes/ActionView/Helpers/CsrfHelper.html --> %>

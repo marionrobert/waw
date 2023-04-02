@@ -141,6 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_120707) do
     t.string "name"
     t.string "sku"
     t.text "description"
+    t.string "meta_description"
     t.text "full_description"
     t.integer "width"
     t.integer "height"

@@ -15,6 +15,7 @@
           <%= product.input :sku, placeholder: "Référence interne auto-complétée", placeholder: "12345_60x90_V_TSC auto-remplissage", label_html:{ class:"labelcolor" }, input_html: { style:"background:yellow", :data => { autocompleteproduct_target: "sku" } }%>
           <%= product.input :frame_quantity, collection: Product::FRAME_QUANTITY, label:"Nombre de tableau (unique, triptique...etc)", label_html:{ class:"labelcolor" } %>
           <%= product.input :description, placeholder:"Le produit en quelques mots", label_html:{ class:"labelcolor" } %>
+          <%= product.input :meta_description, placeholder:"Le produit en quelques mots", label_html:{ class:"labelcolor" } %>
           <%= product.input :full_description, as: :rich_text_area, label:"Description complète du produit", placeholder:"Personnaliez la description de votre produit", label_html:{ class:"labelcolor" } %>
           <%= product.input :price_cents, label: "Prix (en centimes)", placeholder: "2990", label_html:{ class:"labelcolor" }, input_html: { min: '1', :class => "input_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
           <p id=<%= "input_price" %> style="font-size: 12px;">Renseignez un prix pour le convertir en euros</p>
