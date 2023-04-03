@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
         subcategory = Subcategory.where(name: result_subcategory_name[0].content)
         @products = Subcategory.find_by(name: subcategory[0].name).products.where(main: true)
       elsif !result_product_name_or_description.empty?
-        @products = Product.name_and_description_search("%#{params[:query]}%")
+        @products = Product.where(main: true).name_and_description_search("%#{params[:query]}%")
       else
         @products = []
       end
