@@ -61,8 +61,8 @@
 
 <h2 class="carrousselh2">Découvrez les derniers tendances</h3>
   <div class="carouselgroup-container">
-    <div class="carouselgroup" id="carousel">
-      <div class="carouselgroup-content">
+    <div class="carouselgroup" id="carousel" data-controller="carousel" data-carousel-target="content">
+      <div class="carouselgroup-content" data-target="carousel.content">
         <div class="carouselgroup-item">
           <% if @last_products.present? && @last_products.first(5).present? %>
             <% @last_products.first(5).each do |product| %>
@@ -92,8 +92,8 @@
         </div>
       </div>
     </div>
-    <button class="carouselgroup-button prev"><i class="fa-solid fa-angles-left"></i></button>
-    <button class="carouselgroup-button next"><i class="fa-solid fa-angles-right"></i></button>
+    <button class="carouselgroup-button prev" data-action="click->carousel#prev"><i class="fa-solid fa-angles-left"></i></button>
+    <button class="carouselgroup-button next" data-action="click->carousel#next"><i class="fa-solid fa-angles-right"></i></button>
   </div>
 
 
