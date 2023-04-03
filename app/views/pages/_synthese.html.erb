@@ -36,7 +36,7 @@
   </div>
 
   <div class="pt-5">
-    <p><b> Veuillez trouver les indicateurs de votre magasin:</b></p>
+    <h4><b> Veuillez trouver les indicateurs de votre magasin:</b></h4>
 
     <ul>Nombre de références à vendre: <%=Product.all.count%></ul>
     <ul>Nombre de références en stock: <%=Product.where("stock_quantity > 0 ").count%></ul>
@@ -44,10 +44,11 @@
     <ul>Délai moyen d'approvisionnement fournisseur: <%#=@average_supplier_delay%> jours BUG</ul>
     <ul>Nombre d'inscrit à la newsletter : <%=EmailContact.all.count%></ul>
 
-    <ol>
+    <h4>Liste des contacts inscrit à la newsletter:</h4>
+    <div style="border:1px solid black;min-height:8vh;max-height:8vh;overscroll-y:auto;width:100%">
     <%EmailContact.all.each do |contact|%>
-      <li><%=contact.email%></li>
+      <span><%=contact.email%>; </span>
     <% end %>
-    </ol>
+    </div>
   </div>
 <%end%>
