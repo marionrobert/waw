@@ -1,5 +1,8 @@
-<%# <div class="container mt-5"> %>
-  <%# <h1 style="text-align:center;color:grey;margin-top:12vh;margin-bottom:3vh;">Créer un nouveau produit</h1> %>
-  <%#= render "form", product: @product %>
-<%# </div> %>
-<p>disable since dashboard</p>
+<%if current_user && current_user.admin%>
+  <div class="container mt-5" style="margin-top:15vh">
+    <h1 style="text-align:center;color:grey;margin-top:12vh;margin-bottom:3vh;">Créer un nouveau produit</h1>
+    <%= render "form", product: @product %>
+  </div>
+<%else%>
+  <p style="margin-top:20vh">Veuillez vous connecter avec votre compte admin</p>
+<%end%>
