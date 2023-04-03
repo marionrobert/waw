@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'email_contacts/new'
+  get 'email_contacts/create'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
@@ -36,6 +38,10 @@ Rails.application.routes.draw do
       get :thanks
     end
   end
+
+  resources :email_contacts, only: [:new, :create]
+  post 'newsletter/subscribe', to: 'email_contacts#create'
+
 
 
   resources :products do
