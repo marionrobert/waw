@@ -52,7 +52,20 @@ class ShopsController < ApplicationController
     @shop = Shop.destroy_all!
   end
 
+  def newsletter_subscribe
+    EmailContact.create(email: params[:email])
+  end
+
   private
+
+
+  def email_contacts
+    @contacts = EmailContact.all
+  end
+
+  def routes
+    Rails.application.routes.url_helpers
+  end
 
   def shop_params
     params.require(:shop).permit(

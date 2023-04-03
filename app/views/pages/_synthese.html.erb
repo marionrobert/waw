@@ -42,5 +42,12 @@
     <ul>Nombre de références en stock: <%=Product.where("stock_quantity > 0 ").count%></ul>
     <ul>Nombre de références en promotion: <%=Product.where("discount_price_cents > 0 ").count%></ul>
     <ul>Délai moyen d'approvisionnement fournisseur: <%#=@average_supplier_delay%> jours BUG</ul>
+    <ul>Nombre d'inscrit à la newsletter : <%=EmailContact.all.count%></ul>
+
+    <ol>
+    <%EmailContact.all.each do |contact|%>
+      <li><%=contact.email%></li>
+    <% end %>
+    </ol>
   </div>
 <%end%>
