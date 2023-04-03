@@ -362,7 +362,7 @@ product_1 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_1.photos.attach(io: file1, filename: "product_1_photo.png")
@@ -390,7 +390,7 @@ product_2 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_2.photos.attach(io: file1, filename: "product_2_photo.png")
@@ -418,7 +418,7 @@ product_3 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_3.photos.attach(io: file1, filename: "product_3_photo.png")
@@ -445,7 +445,7 @@ product_4 = Product.create!(
   orientation:"paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_4.photos.attach(io: file1, filename: "product_4_photo.png")
@@ -472,7 +472,7 @@ product_5 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_5.photos.attach(io: file1, filename: "product_5_photo.png")
@@ -499,7 +499,7 @@ product_6 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
 product_6.photos.attach(io: file1, filename: "product_6_photo.png")
@@ -515,7 +515,7 @@ product_7 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
   description: "loup agressif sombre nature animaux sauvage",
-  meta_description: "tableau d'un loup sombre agressif ",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 34900,
   discount_price_cents: 22900,
   stock_quantity: 5,
@@ -543,7 +543,7 @@ product_8 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
   description: "loup agressif sombre nature animaux sauvage",
-  meta_description: "tableau d'un loup sombre agressif ",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 39900,
   discount_price_cents: 29900,
   stock_quantity: 5,
@@ -571,7 +571,7 @@ product_9 = Product.create!(
   name: "notfriendlywolf",
   sku: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
   description: "loup agressif sombre nature animaux sauvage",
-  meta_description: "tableau d'un loup sombre agressif ",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 42900,
   discount_price_cents: 35900,
   stock_quantity: 5,
@@ -594,7 +594,507 @@ puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
 
+# ////////////////////
 
+product_10 = Product.create!(
+  name: "departure",
+  main: true,
+  sku: "departure_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_10.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_11 = Product.create!(
+  name: "departure",
+  main: false,
+  sku: "departure_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_11.photos.attach(io: file1, filename: "product_2_photo.png")
+# product_2.photos.attach(io: file2, filename: "product_2_photo.png")
+# product_2.photos.attach(io: file3, filename: "product_2_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_12 = Product.create!(
+  name: "departure",
+  main: false,
+  sku: "departure_90x60_paysage_PVCexpanse5mmforex",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_12.photos.attach(io: file1, filename: "product_3_photo.png")
+# product_3.photos.attach(io: file2, filename: "product_3_photo.png")
+# product_3.photos.attach(io: file3, filename: "product_3_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# ////////////////////////////////
+
+product_13 = Product.create!(
+  name: "departure",
+  sku: "departure_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support:"Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation:"paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_13.photos.attach(io: file1, filename: "product_4_photo.png")
+# product_4.photos.attach(io: file2, filename: "product_4_photo.png")
+# product_4.photos.attach(io: file3, filename: "product_4_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_14 = Product.create!(
+  name: "departure",
+  sku: "departure_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_14.photos.attach(io: file1, filename: "product_5_photo.png")
+# product_5.photos.attach(io: file2, filename: "product_5_photo.png")
+# product_5.photos.attach(io: file3, filename: "product_5_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_15 = Product.create!(
+  name: "departure",
+  sku: "departure_120x90_paysage_PVCexpanse5mmforex",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_15.photos.attach(io: file1, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_16 = Product.create!(
+  name: "departure",
+  sku: "departure_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 34900,
+  discount_price_cents: 22900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: true)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_16.photos.attach(io: file1, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file2, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file3, filename: "product_7_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_17 = Product.create!(
+  name: "departure",
+  sku: "departure_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 39900,
+  discount_price_cents: 29900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_17.photos.attach(io: file1, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_18 = Product.create!(
+  name: "departure",
+  sku: "departure_60x120_portrait_PVCexpanse5mmforex",
+  description: "bateau depart port spectacle",
+  meta_description: "un bateau quitte le port pour voguer vers le large",
+  price_cents: 42900,
+  discount_price_cents: 35900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_18.photos.attach(io: file1, filename: "product_9_photo.png")
+# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+# ////////////////////
+
+product_19 = Product.create!(
+  name: "line",
+  main: true,
+  sku: "line_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "line mountain",
+  meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_19.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_20 = Product.create!(
+  name: "line",
+  main: false,
+  sku: "line_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  meta_description: "line mountain",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_20.photos.attach(io: file1, filename: "product_2_photo.png")
+# product_2.photos.attach(io: file2, filename: "product_2_photo.png")
+# product_2.photos.attach(io: file3, filename: "product_2_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_21 = Product.create!(
+  name: "line",
+  main: false,
+  sku: "line_90x60_paysage_PVCexpanse5mmforex",
+  description: "line mountain",
+  meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_21.photos.attach(io: file1, filename: "product_3_photo.png")
+# product_3.photos.attach(io: file2, filename: "product_3_photo.png")
+# product_3.photos.attach(io: file3, filename: "product_3_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# ////////////////////////////////
+
+product_22 = Product.create!(
+  name: "line",
+  sku: "line_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  description: "line mountain",
+  meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support:"Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation:"paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_22.photos.attach(io: file1, filename: "product_4_photo.png")
+# product_4.photos.attach(io: file2, filename: "product_4_photo.png")
+# product_4.photos.attach(io: file3, filename: "product_4_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_23 = Product.create!(
+  name: "line",
+  sku: "line_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  description: "line mountain",
+  meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_23.photos.attach(io: file1, filename: "product_5_photo.png")
+# product_5.photos.attach(io: file2, filename: "product_5_photo.png")
+# product_5.photos.attach(io: file3, filename: "product_5_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_24 = Product.create!(
+  name: "line",
+  sku: "line_120x90_paysage_PVCexpanse5mmforex",
+  description: "line mountain",
+  meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_24.photos.attach(io: file1, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_25 = Product.create!(
+  name: "coquelicot",
+  sku: "coquelicot_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  description: "focus coquelicot",
+  meta_description: "un coquelicot seul dans un champ ",
+  price_cents: 34900,
+  discount_price_cents: 22900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: true)
+file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_25.photos.attach(io: file1, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file2, filename: "product_7_photo.png")
+# product_7.photos.attach(io: file3, filename: "product_7_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_26 = Product.create!(
+  name: "coquelicot",
+  sku: "coquelicot_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  description: "focus coquelicot",
+  meta_description: "un coquelicot seul dans un champ ",
+  price_cents: 39900,
+  discount_price_cents: 29900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "Toilesurchassiscanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_26.photos.attach(io: file1, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+
+product_27 = Product.create!(
+  name: "coquelicot",
+  sku: "coquelicot_60x120_portrait_PVCexpanse5mmforex",
+  description: "focus coquelicot",
+  meta_description: "un coquelicot seul dans un champ ",
+  price_cents: 42900,
+  discount_price_cents: 35900,
+  stock_quantity: 5,
+  supplier_delay: 14,
+  width: 120,
+  height: 60,
+  support: "PVCexpanse5mmforex",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory2,
+  main: false)
+file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_27.photos.attach(io: file1, filename: "product_27_photo.png")
+# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
 # product_7 = Product.create!(
 #   name: "Poêle à granulés FREEPOINT Duke airtight noir 12 kW",
 #   sku: "849055721",
