@@ -62,15 +62,17 @@
         </thead>
       </tbody>
     </table>
-    <div style="display:flex;justify-content:space-around;margin:5vh">
-      <%= link_to products_path,
-        data: {turbo_method: :delete, turbo_confirm: "ATTENTION - DEFINITIF - Voulez-vous vraiment rembourser le client et annulé la commande?"}  do%>
-        <button> Annuler & Rembourser la commande </button>
-      <%end%>
-      <%= link_to products_path,
-        data: {turbo_method: :delete, turbo_confirm: "Confirmer vous que la commande est achevée avec succès? (Pensez à facturer le client pour votre comptabilité)"}  do%>
-        <button> Commande livrée avec succès </button>
-      <%end%>
-    </div>
+    <% if current_user && current_user.admin%>
+      <div style="display:flex;justify-content:space-around;margin:5vh">
+        <%= link_to products_path,
+          data: {turbo_method: :delete, turbo_confirm: "ATTENTION - DEFINITIF - Voulez-vous vraiment rembourser le client et annulé la commande?"}  do%>
+          <button> Annuler & Rembourser la commande </button>
+        <%end%>
+        <%= link_to products_path,
+          data: {turbo_method: :delete, turbo_confirm: "Confirmer vous que la commande est achevée avec succès? (Pensez à facturer le client pour votre comptabilité)"}  do%>
+          <button> Commande livrée avec succès </button>
+        <%end%>
+      </div>
+    <% end %>
   </div>
 </div>
