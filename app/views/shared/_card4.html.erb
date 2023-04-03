@@ -13,16 +13,21 @@
       </div>
 
       <div class="c4-descriptiondiv">
-        <h3 class="c4-fontsize c4-productname" ><%= product.name[0..35] %>...</h3>
+        <%if product.name.length > 20%>
+          <h3 class="c4-fontsize c4-productname" ><%= product.name[0..20] %>...</h3>
+        <%else%>
+          <h3 class="c4-fontsize c4-productname" ><%= product.name %></h3>
+        <%end%>
       </div>
     <%end%>
 
     <div class="c4-actionandpricearea">
     <%# NE RIEN METTRE ICI %>
       <div class="c4-buttonarea c4-fontsize">
-        <%= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
-          <i class="fa-solid fa-cart-plus" style="color:blue"></i>
-        <% end %>
+      <%# Je supprime le panier car il faut que le client choisisse un format dans la show obligatoirement %>
+        <%#= button_to line_items_path(product_id: product.id), class: "addToCartIcon" do %>
+          <%# <i class="fa-solid fa-cart-plus" style="color:blue"></i> %>
+        <%# end %>
         <i class="fa-solid fa-heart c4-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
       </div>
       <div class="c4-pricearea">

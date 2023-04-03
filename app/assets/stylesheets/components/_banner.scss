@@ -5,7 +5,8 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
 .bannerh1 {
-  margin: 0;
+  -webkit-text-stroke: 1px grey;
+  padding-top:10vh;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 2rem;
@@ -14,8 +15,9 @@ a:active { text-decoration: none; }
 }
 
 .bannerh3 {
+  -webkit-text-stroke: 1px grey;
   color:white;
-  padding-bottom:10vh;
+  padding:5vh 0;
   text-decoration:none
 }
 

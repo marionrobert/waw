@@ -5,7 +5,7 @@
 <main class="navfixed">
   <%end%>
   <nav class="navbar d-flex"
-       style="width: 100vw;max-height:10vh;background:white;"
+       style="width: 100vw;max-height:10vh;background:#FFD360;"
        aria-label="Light offcanvas navbar">
     <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
     <div class="displaybtncategories",
@@ -20,7 +20,7 @@
               data-controller="category",
               style="margin:0 auto">
             <%= link_to "/" do%>
-                <%= cl_image_tag Shop.first.logo.key, style:"max-height:8vh;max-width:100%;margin:0 auto" %>
+                <%= cl_image_tag Shop.first.logo.key, style:"max-height:6vh;max-width:100%;margin:0 auto" %>
             <%end%>
           </div>
         <%else%>

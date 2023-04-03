@@ -45,7 +45,8 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     @product = Product.find(params[:format]) if !@product
-
+    description = @product.description
+    @words = description.split(" ")
     @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
     # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
     @price += "0" if @price[-2] == ","
@@ -63,7 +64,7 @@ class ProductsController < ApplicationController
     else
       @suggested_products = Product.where(main: true).sample(15)
     end
-    @similar_products = Product.where("LEFT(sku, 4) = ?", @product.sku[0, 4])
+    @similar_products = Product.where(name: @product.name)
 
     respond_to do |format|
       format.html
@@ -97,8 +98,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:success] = "Product created successfully!"
       redirect_to product_path(@product), success: "Le produit \"#{@product.name}\" est généré et disponible à la vente"
     else
+      flash.now[:error] = "Product creation failed. Please fix the errors below."
       render :new, status: :unprocessable_entity
     end
   end
@@ -158,6 +161,7 @@ class ProductsController < ApplicationController
       :description,
       :full_description,
       :images,
+      :meta_description,
       :discount_ending_date,
       :price_cents,
       :discount_price_cents,

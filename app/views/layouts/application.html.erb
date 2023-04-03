@@ -8,6 +8,9 @@
     <%# <!-- Avoid zoom on mobile other way to do--> %>
     <meta name="viewport" content= "width=device-width, user-scalable=no">
     <meta name="description" content="<%=Shop.first.description%>">
+    <% if params[:controller] == 'products' && params[:action] == 'show' && @product.present? && @product.meta_description.present? %>
+      <meta name="description" content="<%= @product.meta_description %>">
+    <% end %>
     <%# <!--about security : https://gohugo.io/about/ --> %>
     <meta name="generator" content="Hugo 0.104.2">
     <%# <!-- https://api.rubyonrails.org/classes/ActionView/Helpers/CsrfHelper.html --> %>
@@ -51,40 +54,40 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
       <%#  A mettre dans un controller JS %>
       <script>
-      const initCarouselgroup = (carouselgroup) => {
-  const carouselgroupContent = carouselgroup.querySelector(".carouselgroup-content");
-  const prevButton = carouselgroup.nextElementSibling;
-  const nextButton = prevButton.nextElementSibling;
-  const carouselgroupItemWidth = carouselgroup.querySelector(".carouselgroup-item").clientWidth;
+          let initCarouselgroup = (carouselgroup) => {
+          let carouselgroupContent = carouselgroup.querySelector(".carouselgroup-content");
+          let prevButton = carouselgroup.nextElementSibling;
+          let nextButton = prevButton.nextElementSibling;
+          let carouselgroupItemWidth = carouselgroup.querySelector(".carouselgroup-item").clientWidth;
 
-  let index = 0;
+          let index = 0;
 
-  prevButton.addEventListener("click", () => {
-    index = index > 0 ? index - 1 : 0;
-    carouselgroupContent.style.transform = `translateX(-${index * carouselgroupItemWidth}px)`;
-  });
+          prevButton.addEventListener("click", () => {
+            index = index > 0 ? index - 1 : 0;
+            carouselgroupContent.style.transform = `translateX(-${index * carouselgroupItemWidth * 0.4}px)`;
+          });
 
-  nextButton.addEventListener("click", () => {
-    index = index < carouselgroupContent.children.length - 1 ? index + 1 : index;
-    carouselgroupContent.style.transform = `translateX(-${index * carouselgroupItemWidth}px)`;
-  });
+          nextButton.addEventListener("click", () => {
+            index = index < carouselgroupContent.children.length - 1 ? index + 1 : index;
+            carouselgroupContent.style.transform = `translateX(-${index * carouselgroupItemWidth * 0.4}px)`;
+          });
 
-  carouselgroup.classList.add('initialized');
-}
+          carouselgroup.classList.add('initialized');
+        }
 
-const carouselgroups = document.querySelectorAll('.carouselgroup');
-carouselgroups.forEach(carouselgroup => {
-  initCarouselgroup(carouselgroup);
+        let carouselgroups = document.querySelectorAll('.carouselgroup');
+        carouselgroups.forEach(carouselgroup => {
+          initCarouselgroup(carouselgroup);
 
-  window.addEventListener('resize', function () {
-    if (carouselgroup.classList.contains('initialized')) {
-      // réinitialiser le carousel avec les nouvelles dimensions
-      carouselgroup.scrollLeft = 0;
-      carouselgroup.classList.remove('initialized');
-      initCarouselgroup(carouselgroup);
-    }
-  });
-});
+          window.addEventListener('resize', function () {
+            if (carouselgroup.classList.contains('initialized')) {
+              // réinitialiser le carousel avec les nouvelles dimensions
+              carouselgroup.scrollLeft = 0;
+              carouselgroup.classList.remove('initialized');
+              initCarouselgroup(carouselgroup);
+            }
+          });
+        });
       </script>
     </body>
   <footer class="footer">

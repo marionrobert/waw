@@ -11,12 +11,17 @@
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product.photos.first %>
-          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10%;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+          <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
+            <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
+          </div>
+
         <% end %>
       </div>
     </div>
-    <div class="simulateurgridmobile">
-      <div class="simulateurmobilebutton" >
+        <button class="eye" data-action="click->gallerie#hidebutton"><i class="fa-solid fa-eye"></i></button>
+    <div id="simulateurgridmobile" class="simulateurgridmobile">
+      <div id="simulateurmobilebutton" >
         <button class="left-scroll-arrow-container" data-action="click->gallerie#move_left"><i class="fa-solid fa-arrow-left left-scroll-arrow"></i></button>
         <button class="up-scroll-arrow-container" data-action="click->gallerie#move_up"><i class="fa-solid fa-arrow-up"></i></button>
         <button class="down-scroll-arrow-container" data-action="click->gallerie#move_down"><i class="fa-solid fa-arrow-down"></i></button>
@@ -37,8 +42,13 @@
 </div>
 <div>
   <div style="display:grid;justify-content:center;margin:1rem">
-    <input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()" >
+    <p style="text-align:center;font-weight:bold"><i class="fa-sharp fa-solid fa-angles-down fa-bounce" style=";font-weight:bold;margin-right:0.2rem"></i></i>Téléchargez une photo de chez moi<i class="fa-sharp fa-solid fa-angles-down fa-bounce" style="font-weight:bold;margin-left:0.2rem"></i></p>
+    <div style="display-flex">
+      <i class="fa-sharp fa-solid fa-angles-right fa-fade fa-xl"></i>
+      <input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()" >
+    </div>
   </div>
+  <p style="text-align:center;color:blue;display:grid">Ou selectionnez un intérieur:</p>
   <div id="bg_selector">
     <p id="r1" data-action="click->gallerie#change_bg1">1</p>
     <p id="r2" data-action="click->gallerie#change_bg2">2</p>
