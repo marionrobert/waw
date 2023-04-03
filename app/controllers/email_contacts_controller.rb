@@ -7,7 +7,7 @@ class EmailContactsController < ApplicationController
     if @contact.save
       flash[:success] = "Vous avez été ajouté à notre liste de diffusion !"
     else
-      flash[:error] = "Une erreur est survenue. Veuillez réessayer."
+      flash[:error] = "Une erreur est survenue. Entrez une adresse email valide"
     end
     redirect_to root_path
   end
