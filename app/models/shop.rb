@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
 
-  CARD = ["card1","card2","card3","card4", "card5"]
+  CARD = ["card1","card2","card3","card4", "card5", "card6"]
 
   THEMEFONT = [
               "'Courier New', Courier, monospace",
