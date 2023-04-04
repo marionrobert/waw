@@ -3,9 +3,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="loadvariants"
 export default class extends Controller {
-  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone"]
+  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone", "time", "promotionnalprice", "price"]
 
   connect() {
+    console.log("ev")
+    this.get_remaining_time()
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -27,9 +29,12 @@ export default class extends Controller {
         if (data.discount_price_cents != 0) {
           this.discountpercentzoneTarget.innerHTML = `<span class="promospanshowproduct"> ${data.discount_percent}  %</span`
           this.pricezoneTarget.innerHTML = `<h4 style="text-decoration:line-through">Prix : ${data.price} € TTC</h4>
-          <h3 style="color:green;text-align:right"><b>Prix promo: ${data.promotionnal_price} € TTC</b></h3>`
+          <h3 style="color:green;text-align:right"><b>Prix promo: ${data.promotionnal_price} € TTC</b></h3>
+          <p style="color:red;font-weight:bolder;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time">${data.discount_ending_date}</span></p>`
+          this.get_remaining_time()
         } else {
-          this.pricezoneTarget.innerHTML = `<h4><b>Prix : ${data.price} € TTC</b></h4>`
+          this.pricezoneTarget.innerHTML = `<h4><b>Prix : ${data.price} € TTC</b></h4>
+          <span data-loadvariants-target="time" style="display:none"></span>`
         }
 
         // update table zone
@@ -68,5 +73,26 @@ export default class extends Controller {
         });
 
       })
+  }
+
+  get_remaining_time(){
+    console.log(this.timeTarget)
+    if (this.timeTarget.innerText.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      console.log("il y a une promo")
+      const today = new Date()
+      const ending_date = new Date(this.timeTarget.innerText)
+      const diffTime = Math.abs(ending_date - today);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      console.log(diffTime + " milliseconds");
+      let remaining_time = 0
+          if (diffTime < (86400000*2)) {
+            console.log("il reste moins de 48h de promo")
+            this.timeTarget.innerText = "moins de 48h"
+          } else {
+            this.timeTarget.innerText =`${diffDays} jours`
+          }
+    } else {
+      console.log("il n'y a pas de promo")
+    }
   }
 }

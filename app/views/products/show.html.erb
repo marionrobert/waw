@@ -74,21 +74,23 @@
                         data: { share_target: "title"}) %>
         <span data-loadvariants-target="pricezone">
           <% if @product.discount_price_cents != 0 %>
-            <h4 style="text-decoration:line-through">Prix : <%= @price %> € TTC</h4>
-            <h3 style="color:green;text-align:right"><b>Prix promo: <%= @promotionnal_price %> € TTC</b></h3>
+            <h4 style="text-decoration:line-through">Prix : <span data-loadvariants-target="price"><%= @price %></span> € TTC</h4>
+            <h3 style="color:green;text-align:right"><b>Prix promo: <span data-loadvariants-target="promotionnalprice"><%= @promotionnal_price %></span> € TTC</b></h3>
+            <p style="color:red;font-weight:bolder;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time"><%= @product.discount_ending_date %></span></p>
           <% else %>
             <h4><b>Prix : <%= @price %> € TTC</b></h4>
+            <span data-loadvariants-target="time" style="display:none"></span>
           <%end%>
         </span>
-        <span data-loadvariants-target="stockzone">
+
+        <div data-loadvariants-target="stockzone">
           <%if @product.stock_quantity > 0%>
-            <p style="color:green;text-align:right"><strong>En stock</strong></p>
-            <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
+            <p style="color:green;text-align:right"><strong>En stock :</strong> <%=@product.stock_quantity%> exemplaires disponibles</p>
           <%else%>
             <p style="color:green;text-align:right"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
-        </span>
+        </div>
 
         <div class="tags_description">
           <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
