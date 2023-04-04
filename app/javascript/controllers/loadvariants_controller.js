@@ -1,12 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
-import { Button } from "bootstrap"
+
 
 // Connects to data-controller="loadvariants"
 export default class extends Controller {
   static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone"]
 
   connect() {
-    console.log("hello")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
@@ -65,32 +64,9 @@ export default class extends Controller {
             element.style.color = ""
             element.style.background = ""
             element.style.border = ""
-            element.innerHTML = `${data.height}x${data.width} - ${data.orientation} - ${data.support}`
           }
         });
 
       })
   }
 }
-
-
-
-// othervariants zone
-// {
-//             <%if @similar_products.count.positive?%>
-//               <% @similar_products.each do |product|%>
-//                   <% if @product.sku== product.sku %>
-//                     <button class="btn mb-2"
-//                             style="background:rgba(236, 240, 241, 0.2); color:black; border:1px solid black"
-//                             data-action="click->loadvariants#loadNewVariant"
-//                             data-loadvariants-product-id-param="<%= product.id %>">
-//                       <i class="fa-solid fa-arrow-right" style="color:red"></i>
-//                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
-//                     </button>
-//                   <% else %>
-//                     <button class="btn btn-dark mb-2" data-action="click->loadvariants#loadNewVariant" data-loadvariants-product-id-param="<%= product.id %>">
-//                       <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
-//                     </button>
-//                   <% end %>
-//               <% end %>
-//             <% end %> */}
