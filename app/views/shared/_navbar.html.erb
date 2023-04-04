@@ -33,20 +33,11 @@
                 data-action="click->search#displayMobileSearchInput"></i>
             </div>
     </div>
-    <%if Shop.first.logo.key %>
-      <div class="divlogowallartworks">
-        <%= link_to "/" do%>
-            <%= cl_image_tag Shop.first.logo.key, class:"logowallartworks", style:"" %>
-        <%end%>
-      </div>
-    <%else%>
-      <div class="homelogo">
-        <span id="homebutton"
-              class="deploy_home_icon">
-              HOME
-        </span>
-      </div>
-    <%end%>
+    <div class="divlogowallartworks">
+      <%= link_to root_path do %>
+        <%= image_tag("icons/WAW2.svg", class: "logowallartworks") %>
+      <% end %>
+    </div>
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
     <div class="navbarrightside">
           <div class="profile_div" style="margin:0 auto">
