@@ -21,23 +21,23 @@
 .navfixedwithbanner {
   position:absolute;
   position:fixed;
-  top:5vh;
+  top:3vh;
   left:0;
   width:100%;
   z-index: 102;
 }
 
 .bannerpub {
+  height:3vh;
   position: fixed;
   top:0;
   left:0;
-  padding:1vh;
   width:100%;
   background:black;
   color:white;
   text-align:center;
-  font-size:2vh;
   z-index: 102;
+  vertical-align: middle;
 
 }
 
@@ -54,9 +54,15 @@
   }
 
 .profile_div {
-  width:4%;
-  display:flex;
-  justify-content: center;
+  @media screen and (min-width: 481px) {
+    margin: 0 0 0 10%;
+    width:20%;
+    display:flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: 480px) {
+    display:none
+  }
 }
 
 .profilebutton {
@@ -69,19 +75,31 @@
 
 .btncart {
   height: 4vh;
-  width: 5%;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0 auto;
   position:relative;
   cursor: pointer;
+  @media screen and (min-width: 481px) {
+  margin: 0 auto;
+  }
+  @media screen and (max-width: 480px) {
+    margin: 0 10vw;
+  }
+}
+
+.navbarrightside {
+  display:flex;
+  justify-content:flex-end;
+  width:15vw;
+  margin-right:5vw;
 }
 
 .btnhome {
   transition-delay: 50ms;
   transition-duration: 400ms;
-  padding: 10px 10px 10px 10px;
+  // padding: 10px 10px 10px 10px;
   border-radius: 20px;
   width: 40px;
   border: 1px solid grey;

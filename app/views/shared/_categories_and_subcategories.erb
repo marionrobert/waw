@@ -3,15 +3,13 @@
 
 <%#§////////////////// les categories/////////////////////  %>
 <div data-controller="category">
-  <div class="enable_on_desktop">
-    <div style="display:flex;justify-content:space-around">
+  <div id="bandeau_categories" class="hidden">
       <p class="allproductlink">
         <%= link_to "TOUS NOS PRODUITS",
             products_path,
             style:"color:black"
         %>
       </p>
-    </div>
     <div class="categories-overflow">
       <p>
         <%= link_to "PROMO",
@@ -76,6 +74,17 @@
              %>
           </p>
         </div>
+        <%= link_to "MON COMPTE", profile_path, style:"margin: 0 auto;display:flex;
+                                                       align-items:center;
+                                                       position: absolute;
+                                                       bottom: 0;
+                                                       left: 0;
+                                                       right: 0;
+                                                       width: auto;
+                                                       justify-content: center;
+                                                       height: 5vh;
+                                                       background:black;
+                                                       color:white;" %>
       <% @categories.each do |category| %>
         <div class="categorymenu",
              data-action="click->category#displaysubcategory">
