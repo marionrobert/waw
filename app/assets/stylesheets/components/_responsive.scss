@@ -8,9 +8,13 @@
 
 
 .navbar {
+  overflow:auto;
+  width: 100vw;
+  max-height:10vh;
+  background:#FFD360;
   padding-right: 1vw;
   padding-left: 1vw;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 .open {

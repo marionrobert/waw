@@ -2,23 +2,17 @@
 <%# ///////////////////////@ MEDIA > 480px ////////////////////////// %>
 
 <%#§////////////////// les categories/////////////////////  %>
-<div data-controller="category">
-  <div class="enable_on_desktop">
-    <div style="display:flex;justify-content:space-around">
+
+  <div class="enable_on_desktop" data-controller="category">
+    <div>
       <p class="allproductlink">
         <%= link_to "TOUS NOS PRODUITS",
             products_path,
-            style:"color:black"
+            style:"width:100%;color:black"
         %>
       </p>
     </div>
     <div class="categories-overflow">
-      <p>
-        <%= link_to "PROMO",
-            promo_path,
-            class:"promolink"
-        %>
-      </p>
       <% @categories.each do |category| %>
         <%=link_to category_path(category) do%>
           <div data-action="mouseenter->category#sub_cat_deploy_desktop">
@@ -26,9 +20,15 @@
           </div>
         <%end%>
       <% end %>
+      <p>
+        <%= link_to "PROMO",
+            promo_path,
+            class:"promolink"
+        %>
+      </p>
     </div>
-  <%#//////////////////////////////// les sous-categories /////////////////////%>
   </div>
+  <%#//////////////////////////////// les sous-categories /////////////////////%>
     <div id="subcatdesktopmenu",
          class="subcategorydesktopmenu",
          style="display:none",
@@ -43,7 +43,7 @@
         </p>
       <% end %>
     </div>
-</div>
+
 
 
 <%# ///////////////////////@ MEDIA < 481px ////////////////////////// %>

@@ -6,12 +6,6 @@ export default class extends Controller {
   connect() {
   }
 
-  homebuttondeploy() {
-    const homebtn= document.getElementById("homebutton");
-    homebtn.classList.remove("deploy_home_icon");
-    homebtn.classList.add("TESTAPPEARHOME");
-  }
-
   homebuttonrestore() {
     const homebtn2= document.getElementById("homebutton");
     homebtn2.classList.remove("TESTAPPEARHOME");

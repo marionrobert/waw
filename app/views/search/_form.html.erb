@@ -1,4 +1,4 @@
-<div style="display:flex; justify-content: center;">
+<%# <div style="display:flex; justify-content: center;"> %>
   <div style="font-size:x-large">
     <i class="mobilemaskcrossinput fa-solid fa-xmark", style="background:rgba(255,255,255,0.6);padding:5px;border-radius:5px" , id="close-search-input", data-controller="search", data-action="click->search#hideMobileSearchInput"></i>
   </div>
@@ -24,7 +24,7 @@
                   style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
     <% end %>
   </div>
-</div>
+<%# </div> %>
 
 <%#= search_form_for @query, url: products_path,
               method: :get,

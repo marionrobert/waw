@@ -3,67 +3,65 @@
 <main class="navfixedwithbanner">
 <%else%>
 <main class="navfixed">
-  <%end%>
-  <nav class="navbar d-flex"
-       style="width: 100vw;max-height:10vh;background:#FFD360;"
-       aria-label="Light offcanvas navbar">
+<%end%>
+  <nav style=" padding-right: 1vw;padding-left: 1vw;width:100vw;height:50px;background:white;display:flex;">
+    <%# HOME BUTTON %>
+    <div style="display:flex;align-items: center;" class="homelogo">
     <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
+
     <div class="displaybtncategories",
          data-controller="category",
-         style="margin:0 auto",
+         <%# style="margin:0 auto", %>
          data-action="click->category#slidecategorymenu">
-         <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars"></i>
     </div>
-    <%# ////////BOUTON HOME ///////////// %>
-        <%if Shop.first.logo.key %>
-          <div class="homelogo",
-              data-controller="category",
-              style="margin:0 auto">
-            <%= link_to "/" do%>
-                <%= cl_image_tag Shop.first.logo.key, style:"max-height:6vh;max-width:100%;margin:0 auto" %>
-            <%end%>
-          </div>
-        <%else%>
-          <div class="homelogo",
-              data-controller="category",
-              style="margin:0 auto",
-              data-action="mouseleave->category#homebuttonrestore">
-            <%= link_to "/" do%>
-            <i class="fa-solid fa-house btnhome",
-              style="color:black;display:flex",
-              data-controller="category",
-              data-action="mouseover->category#homebuttondeploy">
-              <span id="homebutton"
-                    class="deploy_home_icon">
-                    HOME
-              </span>
-            </i>
-          </div>
-        <%end%>
+      <%if Shop.first.logo.key %>
+    <div style="width:15%;overflow;hidden;">
+        <div data-controller="category">
+          <%= link_to "/" do%>
+              <%= cl_image_tag Shop.first.logo.key, style:"max-height:50px;", class:"logomobile"%>
+          <%end%>
+        </div>
+    </div>
+      <%else%>
+        <div data-controller="category", style="",data-action="mouseleave->category#homebuttonrestore">
+          <%= link_to "/" do%>
+            <span id="homebutton" style="background:red">HOME</span>
+        </div>
+          <%end%>
       <%end%>
-
-    <%# BOUTON BLOG %>
+    </div>
+    <%# ARTICLE %>
+    <div style="width:6%;display:flex;align-items: center;justify-content: center;">
       <%= link_to blogposts_path, class:"blognavbar" do%>
         <p style="display:flex;align-items:center;margin:0 auto;color:black">
         ARTICLES
         </p>
       <%end%>
-    <%# ////////////barre de recherche/////////////////// %>
-    <div id="mobile-input-search"
+    </div>
+
+    <%# CATEGORIES %>
+    <div class="widthzeroonmobile">
+      <%= render "shared/categories_and_subcategories" %>
+      </div>
+    </div>
+    <%# SEARCH BAR PANIER ET ACCOUNT %>
+    <div class="searchandaction">
+        <div id="mobile-input-search"
          class="responsivesearchbar"
-         style="margin:0 auto">
+         style="display:flex;align-items: center;">
       <%= render "search/form" %>
     </div>
     <%# Bouton de recherche pour mobile %>
     <div class="mobileglassdiv">
       <i id="mobile-magnifying-glass",
-         style="margin:0 auto",
+         style="",
          class="fa-solid fa-magnifying-glass",
          data-controller="search",
          data-action="click->search#displayMobileSearchInput"></i>
     </div>
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
-    <div class="profile_div" style="margin:0 auto">
+    <div class="profile_div" style="">
       <%= button_to profile_path, method: :get, class: "profilebutton", type: "submit" do %>
         <% if current_user %>
           <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
@@ -81,6 +79,6 @@
         </p>
       <% end %>
     </div>
+    </div>
   </nav>
-    <%= render "shared/categories_and_subcategories" %>
 </main>

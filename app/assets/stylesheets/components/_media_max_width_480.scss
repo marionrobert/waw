@@ -40,8 +40,16 @@
     display:none
   }
 
+  .logomobile {
+    max-width: 165px;
+  }
+
   .homelogo {
-    width:40%;
+    // width:40%;
+  }
+
+  .widthzeroonmobile {
+    width:0%;
   }
 
   .displaybtncategories {
@@ -314,20 +322,23 @@
   }
 
   .responsivesearchbar {
+    margin:0 auto;
     transition-duration: 500ms;
     position:absolute;
-    top:-200%;
-    left:0;
+    top:-300%;
+    left: 3%;
     width: 100vw;
     margin-top:2vh;
     z-index:0;
   }
 
+
+
   .responsivesearchbaronclick {
     transition-duration: 500ms;
     position:absolute;
     top:110%;
-    left:0;
+    left: 3%;
     width: 100vw;
     margin-top:2vh;
     z-index:50;
