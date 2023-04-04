@@ -30,7 +30,7 @@ export default class extends Controller {
           this.discountpercentzoneTarget.innerHTML = `<span class="promospanshowproduct"> ${data.discount_percent}  %</span`
           this.pricezoneTarget.innerHTML = `<h4 style="text-decoration:line-through">Prix : ${data.price} € TTC</h4>
           <h3 style="color:green;text-align:right"><b>Prix promo: ${data.promotionnal_price} € TTC</b></h3>
-          <p style="color:red;font-weight:bolder;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time">${data.discount_ending_date}</span></p>`
+          <p style="color:red;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time">${data.discount_ending_date}</span></p>`
           this.get_remaining_time()
         } else {
           this.pricezoneTarget.innerHTML = `<h4><b>Prix : ${data.price} € TTC</b></h4>
@@ -46,10 +46,9 @@ export default class extends Controller {
 
         // update stock zone
         if ( data.stock_quantity > 0) {
-          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:right"><strong>En stock</strong></p>
-          <p><i>Quantité disponible: ${data.stock_quantity}</i></p>`
+          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><strong>En stock :</strong>  ${data.stock_quantity} exemplaires disponibles</p>`
         } else {
-          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:right"><i>Disponible sous ${data.supplier_delay} jours</i></p>`
+          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><i>Disponible sous ${data.supplier_delay} jours</i></p>`
         }
 
         // update button add to cart
