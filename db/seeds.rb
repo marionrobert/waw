@@ -25,7 +25,7 @@ puts "1 profil administrateur créé(aurelien), 3 non admins créés"
 
 puts "La société est liquidée"
 Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
-address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card6", themebgcolor: "white", themefont: "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif", bannerpub: "Livraison offerte pour Noël!",
+address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card6", themebgcolor: "white", themefont: "'Montserrat', sans-serif ", bannerpub: "Livraison offerte pour Noël!",
  juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
