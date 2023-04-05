@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone", "time", "promotionnalprice", "price"]
 
   connect() {
-    console.log("ev")
+    console.log("iblabla")
     this.get_remaining_time()
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
@@ -55,8 +55,15 @@ export default class extends Controller {
         this.addtocartTarget.innerHTML = `<form class="button_to" method="post" action="/line_items?product_id=${data.id}"><button class="btn btn-success addtocart p-4" type="submit">Ajouter au panier</button><input type="hidden" name="authenticity_token" value="TqR7J7iQcO8bM-9Phoc75WLMmNhlcC5eh3tr-kkGA3-PdGzGkrtA6rTepL9nqRG8hL03fhGdvdHqnIkb_ipm1g" autocomplete="off"></form>`
 
 
-        // update buttons color
-        let all_variants = document.getElementsByClassName("variant")
+        // no display all the red arrows
+        const all_arrows = document.getElementsByClassName("fa-arrow-right")
+        const array_all_arrows = Object.values(all_arrows)
+        array_all_arrows.forEach((element) => {
+          element.style.display = "none"
+        })
+
+        // update variants' buttons style
+        const all_variants = document.getElementsByClassName("variant")
         const array_all_variants = Object.values(all_variants)
         array_all_variants.forEach((element) => {
           if (element.id == event.params.productId ) {
@@ -75,7 +82,7 @@ export default class extends Controller {
   }
 
   get_remaining_time(){
-    console.log(this.timeTarget)
+    // console.log(this.timeTarget)
     if (this.timeTarget.innerText.match(/^\d{4}-\d{2}-\d{2}$/)) {
       console.log("il y a une promo")
       const today = new Date()
@@ -83,7 +90,7 @@ export default class extends Controller {
       const diffTime = Math.abs(ending_date - today);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       console.log(diffTime + " milliseconds");
-      let remaining_time = 0
+      // let remaining_time = 0
           if (diffTime < (86400000*2)) {
             console.log("il reste moins de 48h de promo")
             this.timeTarget.innerText = "moins de 48h"
