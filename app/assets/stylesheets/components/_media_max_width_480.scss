@@ -44,11 +44,32 @@
     width:40%;
   }
 
+  #categoriesdesktopbutton {
+    display:none;
+  }
+
+  .divlogowallartworks {
+    margin:0 auto;
+  }
+
+  .navbarleftside {
+    display:flex;
+    justify-content:space-between;
+    width:20%
+  }
+
+
+  .logowallartworks {
+    max-height:3vh;
+    max-width:100%;
+    margin:0 auto
+  }
+
   .displaybtncategories {
+    width: 8%;
     display: flex;
-    width: 10%;
     font-size: 3vh;
-    margin: 0 2vw;
+    margin: 0 5vw;
     justify-content: center;
   }
 
@@ -94,10 +115,10 @@
     color:white;
   }
 
-  .producthomecontainer {
-    // width:9100;
-    // margin: 0 auto;
-  }
+  // .producthomecontainer {
+  //   // width:9100;
+  //   // margin: 0 auto;
+  // }
 
   .dashboard-div-selectors {
     display:grid;
@@ -241,7 +262,7 @@
   }
 
   .bannertextfield {
-    padding-top:5vh;
+    // padding-top:5vh;
     text-align:center;
   }
 
@@ -271,7 +292,7 @@
     left:-190vw;
     padding-left: 2rem;
     position:fixed;
-    height:110vh;
+    height:100vh;
     width:95vw;
   }
 

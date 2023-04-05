@@ -9,6 +9,9 @@
 .promolink {
   text-decoration:none;
   color:red;
+  &:hover {
+    color:black;
+  }
 }
 
 .allproducts {

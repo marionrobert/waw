@@ -18,4 +18,12 @@ export default class extends Controller {
     panierflottant.classList.remove("open")
     dark.classList.remove("darkenmenuopen")
   }
+
+  categoriesdisplay() {
+    // const categoriesbutton = document.getElementById("categoriesdesktopbutton")
+    const bandeaucat = document.getElementById("bandeau_categories")
+    bandeaucat.classList.toggle("hidden")
+    bandeaucat.classList.toggle("enable_on_desktop")
+
+  }
 }
