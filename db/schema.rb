@@ -156,7 +156,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_121954) do
     t.string "orientation"
     t.string "images", default: [], array: true
     t.integer "stock_quantity", default: 0
-    t.date "discount_ending_date"
+    t.date "discount_ending_date", default: "2023-05-05"
     t.integer "supplier_delay", default: 14
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

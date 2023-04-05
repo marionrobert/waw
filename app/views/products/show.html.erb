@@ -74,21 +74,24 @@
                         data: { share_target: "title"}) %>
         <span data-loadvariants-target="pricezone">
           <% if @product.discount_price_cents != 0 %>
-            <h4 style="text-decoration:line-through">Prix : <%= @price %> € TTC</h4>
-            <h3 style="color:green;text-align:right"><b>Prix promo: <%= @promotionnal_price %> € TTC</b></h3>
+            <h4 style="text-decoration:line-through">Prix : <span data-loadvariants-target="price"><%= @price %></span> € TTC</h4>
+            <h3 style="color:green;text-align:right"><b>Prix promo: <span data-loadvariants-target="promotionnalprice"><%= @promotionnal_price %></span> € TTC</b></h3>
+            <span style="display:none" data-loadvariants-target="endingDate"><%= @product.discount_ending_date %></span>
+            <p style="color:red;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time"></span></p>
           <% else %>
             <h4><b>Prix : <%= @price %> € TTC</b></h4>
+            <span data-loadvariants-target="endingDate" style="display:none"></span>
           <%end%>
         </span>
-        <span data-loadvariants-target="stockzone">
+
+        <div data-loadvariants-target="stockzone" style="margin-top:2em">
           <%if @product.stock_quantity > 0%>
-            <p style="color:green;text-align:right"><strong>En stock</strong></p>
-            <p><i>Quantité disponible: <%=@product.stock_quantity%></i></p>
+            <p style="color:green;text-align:left"><strong>En stock :</strong> <%=@product.stock_quantity%> exemplaires disponibles</p>
           <%else%>
-            <p style="color:green;text-align:right"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
+            <p style="color:green;text-align:left"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
             <%# voir :delay_retailer a ajouter a product %>
           <%end%>
-        </span>
+        </div>
 
         <div class="tags_description">
           <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
@@ -155,7 +158,7 @@
   <%# Product description area %>
   <div style="margin-top:3vh;border-top:1px solid grey;">
     <%# Simple description %>
-    <%= content_tag(:p, @product.description, style:"padding-top:2vh;", data: {share_target: "body"}) %>
+    <%= content_tag(:p, @product.description, style:"padding-top:2vh;display:none", data: {share_target: "body"}) %>
     <%# Simple description %>
     <p>
       <%= @product.full_description %>
