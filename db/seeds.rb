@@ -1095,6 +1095,983 @@ product_27.photos.attach(io: file1, filename: "product_27_photo.png")
 puts "Produit #{Product.last.id} créé"
 
 # # ////////////////////////////////
+
+product_28 = Product.create!(
+  name: "city_road",
+  main: true,
+  sku: "city_road_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_28.photos.attach(io: file1, filename: "product_28_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_29 = Product.create!(
+  name: "enseignetokyo",
+  main: true,
+  sku: "enseignetokyo_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680673535663-7dfe0ca784da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_29.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_30 = Product.create!(
+  name: "monkeycoffee",
+  main: true,
+  sku: "monkeycoffee_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_30.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_31 = Product.create!(
+  name: "trek",
+  main: true,
+  sku: "trek_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680528811934-b976d0c446af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_31.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_32 = Product.create!(
+  name: "nomansland",
+  main: true,
+  sku: "nomansland_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680675313845-13d3f5f17080?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_32.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_33 = Product.create!(
+  name: "sunnyplants",
+  main: true,
+  sku: "sunnyplants_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680413286277-34c88fc9b049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_33.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_34 = Product.create!(
+  name: "citizenact",
+  main: true,
+  sku: "citizenact_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1679678691005-3815eb29bc61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_34.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+# # ////////////////////////////////
+
+product_35 = Product.create!(
+  name: "surforfly",
+  main: true,
+  sku: "surforfly_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680562727022-158f17391a9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_35.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+product_36 = Product.create!(
+  name: "drunk",
+  main: true,
+  sku: "drunk_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680629478068-659129a4e414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=658&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_36.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_37 = Product.create!(
+  name: "surfeverywhere",
+  main: true,
+  sku: "surfeverywhere_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_37.photos.attach(io: file1, filename: "product_38_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+# # ////////////////////////////////
+
+product_38 = Product.create!(
+  name: "surfeverywhere",
+  main: true,
+  sku: "surfeverywhere_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 120,
+  height: 90,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_38.photos.attach(io: file1, filename: "product_38_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_39 = Product.create!(
+  name: "feellittle",
+  main: true,
+  sku: "feellittle_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680442170372-4a30138d03f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_39.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_40 = Product.create!(
+  name: "foreignstreet",
+  main: true,
+  sku: "foreignstreet_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680373369132-1feaaccbef04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_40.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_41 = Product.create!(
+  name: "modernromance",
+  main: true,
+  sku: "modernromance_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680625777622-58b1e0f17afd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_41.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_42 = Product.create!(
+  name: "focusoneggs",
+  main: true,
+  sku: "focusoneggs_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680642729809-ab7ba4b28da0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_42.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_43 = Product.create!(
+  name: "droneviewforest",
+  main: true,
+  sku: "droneviewforest_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1669985168729-571894001a2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_43.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_44 = Product.create!(
+  name: "emptystadium",
+  main: true,
+  sku: "emptystadium_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1674327175233-51f4d1430eac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_44.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_45 = Product.create!(
+  name: "brightwater",
+  main: true,
+  sku: "brightwater_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680169276460-857463081825?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_45.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_46 = Product.create!(
+  name: "homesweethome",
+  main: true,
+  sku: "homesweethome_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1679939153966-6ec05249db1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_46.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_47 = Product.create!(
+  name: "girlinfield",
+  main: true,
+  sku: "girlinfield_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680263547745-4e0555920ea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_47.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_48 = Product.create!(
+  name: "easyclimbing",
+  main: true,
+  sku: "easyclimbing_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680584300354-a33993e1a750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_48.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_49 = Product.create!(
+  name: "youmeanselfie",
+  main: true,
+  sku: "youmeanselfie_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680566822089-4830308972ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_49.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_50 = Product.create!(
+  name: "whiteloneliness",
+  main: true,
+  sku: "whiteloneliness_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680675805063-3aa8b3607b0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_50.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_51 = Product.create!(
+  name: "preciousthangold",
+  main: true,
+  sku: "preciousthangold_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680607102205-e98d20a12930?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_51.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_52 = Product.create!(
+  name: "chiarobscuroreverted",
+  main: true,
+  sku: "chiarobscuroreverted_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680523004872-f38aad6922b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_52.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_53 = Product.create!(
+  name: "acidulé",
+  main: true,
+  sku: "acidulé_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1675237625886-7529b3b0c1cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_53.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_54 = Product.create!(
+  name: "backgroundfocus",
+  main: true,
+  sku: "backgroundfocus_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680634218996-287b2985870e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_54.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"# # ////////////////////////////////
+
+product_55 = Product.create!(
+  name: "lookup",
+  main: true,
+  sku: "lookup_90x60_portrait_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680620296999-fd133df32ed2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_55.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_56 = Product.create!(
+  name: "yellowellipse",
+  main: true,
+  sku: "yellowellipse_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680627251286-7b8bfd3bf2e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_56.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_57 = Product.create!(
+  name: "springcommings",
+  main: true,
+  sku: "springcomings_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680607014792-5e95088d6e2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_57.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_58 = Product.create!(
+  name: "earlymorningriver",
+  main: true,
+  sku: "earlymorningriver_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680631757284-617846a5ef29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=702&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_58.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_59 = Product.create!(
+  name: "bigcitylife",
+  main: true,
+  sku: "bigcitylife_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1673349586431-9f4bfbb0552d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_59.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_60 = Product.create!(
+  name: "japanandtradition",
+  main: true,
+  sku: "japanandtradition_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680529687272-9a49f34fdf4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_60.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_61 = Product.create!(
+  name: "nicebuilding",
+  main: true,
+  sku: "nicebuilding_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680454161096-7734f7938c5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_61.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_62 = Product.create!(
+  name: "vertigo",
+  main: true,
+  sku: "city_road_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1680262302403-a6ea3c9fb952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1285&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_62.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
 # product_7 = Product.create!(
 #   name: "Poêle à granulés FREEPOINT Duke airtight noir 12 kW",
 #   sku: "849055721",

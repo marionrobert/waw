@@ -8,7 +8,9 @@ class SubcategoriesController < ApplicationController
 
   def show
     @subcategory = Subcategory.find(params[:id])
-    @products = @subcategory.products.where(main: true)
+    # @pagy, @products = pagy(@subcategory.products.where(main: true), items: 5)
+    @pagy, @products = pagy(@subcategory.products.where(main: true))
+
   end
 
   def new

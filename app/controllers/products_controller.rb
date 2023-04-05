@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def index
     # @query = Product.ransack(params[:q])
     # @products = @query.result.joins(:subcategory).order(:name)
-    @products = Product.where(main: true).order(:name)
+    @pagy, @products = pagy(Product.where(main: true).order(:name), items: 5)
     if params[:query].present?
       @results = PgSearch.multisearch("%#{params[:query]}%")
       result_category_name = @results.select { |element| element.searchable_type == "Category" }

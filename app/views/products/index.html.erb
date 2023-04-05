@@ -3,6 +3,12 @@
       data-search-target="title">
     <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
   </h1>
+  <h3>
+    Nombre de produits: <%=@products.count%> / <%=Product.where(main: true).count%>
+  </h3>
+  <br>
+  <%== pagy_nav(@pagy) %>
+
   <div style="flex-wrap: wrap;display:flex;justify-content:center"
        data-controller="favorites"
        data-search-target="list">
