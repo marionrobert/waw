@@ -7,6 +7,7 @@ export default class extends Controller {
 
   fav(evt) {
     // console.log("fav clicked")
+    evt.preventDefault();
     fetch(`/products/${evt.params.productId}/favorites`, {
       method: "POST",
       headers: {
