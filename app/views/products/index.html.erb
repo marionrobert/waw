@@ -1,17 +1,18 @@
-<div class="container pt-5" style="margin-top: 10vh;">
+<div class="pt-5" style="margin-top: 10vh;">
   <h1 class="mb-5 text-center"
       data-search-target="title">
     <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
   </h1>
-  <h3>
-    Nombre de produits: <%=@products.count%> / <%=Product.where(main: true).count%>
-  </h3>
-  <br>
-  <%== pagy_nav(@pagy) %>
+
+  <div style="display:flex;justify-content:center;width:100%;height:50px;"><%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+  <p><i><%== pagy_info(@pagy) %></i></p>
 
   <div style="flex-wrap: wrap;display:flex;justify-content:center"
        data-controller="favorites"
        data-search-target="list">
     <%= render 'list', products: @products %>
+  </div>
+  <div style="display:flex;justify-content:center;width:100%;height:50px;"><%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
