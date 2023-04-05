@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  before_save :ensure_discount_ending_date
+
   ORIENTATION = ["paysage", "portrait", "carre"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
@@ -22,7 +24,6 @@ class Product < ApplicationRecord
   validates :supplier_delay, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 65, message: ": Le délai fournisseur doit être compris entre 0 et 65 jours." }
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promotionnel doit être inférieur au prix d'origine." }
   monetize :price_cents
-  validates :discount_ending_date, presence: true
   delegate :category, to: :subcategory, allow_nil: true
 
   include PgSearch::Model
@@ -40,6 +41,13 @@ class Product < ApplicationRecord
   def self.update_items(items:)
     content = content_from_order(items:)
     decrease_stock_quantities(content:)
+  end
+
+  def ensure_discount_ending_date
+    if discount_price_cents.positive? && discount_ending_date.blank?
+      errors.add(:discount_ending_date, "must be present if discount price is set")
+      throw(:abort)
+    end
   end
 
   def self.content_from_order(items:)

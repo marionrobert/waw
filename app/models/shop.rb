@@ -14,7 +14,8 @@ class Shop < ApplicationRecord
               "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
               "Georgia, 'Times New Roman', Times, serif",
               "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
-              "Verdana, Geneva, Tahoma, sans-serif"
+              "Verdana, Geneva, Tahoma, sans-serif",
+              "'Montserrat', sans-serif "
             ]
 
   belongs_to :user, dependent: :destroy
