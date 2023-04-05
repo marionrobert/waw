@@ -53,6 +53,7 @@ class ProductsController < ApplicationController
     @price += "0" if @price[-2] == ","
 
     @promotionnal_price = (@product.discount_price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
+    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
     @promotionnal_price += "0" if @promotionnal_price[-2] == ","
 
     @discount_percent = (((@product.discount_price_cents.to_f - @product.price_cents.to_f) / @product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
@@ -73,6 +74,7 @@ class ProductsController < ApplicationController
         {
           discount_percent: @discount_percent,
           discount_price_cents: @product.discount_price_cents,
+          discount_ending_date: @product.discount_ending_date,
           price: @price,
           promotionnal_price: @promotionnal_price,
           orientation: @product.orientation,
@@ -82,7 +84,6 @@ class ProductsController < ApplicationController
           frame_quantity: @product.frame_quantity,
           description: @product.description,
           full_description: @product.full_description,
-          discount_ending_date: @product.discount_ending_date,
           stock_quantity: @product.stock_quantity,
           supplier_delay: @product.supplier_delay,
           id: @product.id,
