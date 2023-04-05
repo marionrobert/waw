@@ -30,9 +30,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgb(219, 185, 152);
-  border: none;
-  color: #000;
+  background-color: rgb(19, 19, 19);
+  border:1px solid rgba(0,0,0,0);
+  color: rgb(255, 255, 255);
   font-size: 1.5rem;
   padding: 1rem;
   cursor: pointer;
@@ -41,15 +41,17 @@
 .prev {
   left: 0px;
   &:hover{
+    color: rgba(255, 255, 255,0.6);
     border:1px solid black;
-    background-color:rgb(167, 141, 115); ;
+    background-color:rgb(53, 53, 53); ;
   }
 }
 
 .next {
   right: 0px;
   &:hover{
+    color: rgba(255, 255, 255,0.6);
     border:1px solid black;
-    background-color:rgb(167, 141, 115); ;
+    background-color:rgb(53, 53, 53); ;
   }
 }

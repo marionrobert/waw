@@ -147,7 +147,7 @@
             <% end %>
         </div>
         <span data-loadvariants-target="addtocart">
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4" %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4", style:"justify-content: center; align-items: center; display: flex;" %>
         </span>
       </div>
 
@@ -165,7 +165,7 @@
     </p>
   </div >
 
-  <section data-controller="gallerie">
+  <section data-controller="gallerie" style="background:rgba(200,200,200,0.3);padding: 15px 0; box-shadow: 0px 0px 10px rgba(200,200,200,0.5);">
     <%= render "pages/homegallerie"%>
   </section>
 

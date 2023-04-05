@@ -3,6 +3,7 @@ class Shop < ApplicationRecord
   CARD = ["card1","card2","card3","card4", "card5", "card6"]
 
   THEMEFONT = [
+              "'Montserrat', sans-serif ",
               "'Courier New', Courier, monospace",
               "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
               "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
@@ -15,7 +16,7 @@ class Shop < ApplicationRecord
               "Georgia, 'Times New Roman', Times, serif",
               "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
               "Verdana, Geneva, Tahoma, sans-serif",
-              "'Montserrat', sans-serif "
+              "Arial Nova Cond, sans-serif",
             ]
 
   belongs_to :user, dependent: :destroy
