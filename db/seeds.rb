@@ -82,7 +82,7 @@ category1 = Category.create!(name:"NATURE")
             category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
-  subcategory1 = Subcategory.new(name:"Fôret")
+  subcategory1 = Subcategory.new(name:"Forêt")
   subcategory1.category = category1
   subcategory1.save!
   puts "Sous-catégorie #{subcategory1.name} créée"

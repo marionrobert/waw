@@ -16,7 +16,7 @@ class Shop < ApplicationRecord
               "Georgia, 'Times New Roman', Times, serif",
               "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
               "Verdana, Geneva, Tahoma, sans-serif",
-              "Arial Nova Cond, sans-serif",
+              "Arial Nova Cond, sans-serif"
             ]
 
   belongs_to :user, dependent: :destroy

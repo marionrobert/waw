@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone", "time", "promotionnalprice", "price", "endingDate"]
 
   connect() {
-    console.log("tadammmm!")
     this.startTimer();
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
