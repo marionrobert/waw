@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :products do
     member do
       get :preview
+      get :deletepreview
     end
     resources :favorites, only: [:create]
     post :search, on: :collection

@@ -7,9 +7,7 @@ export default class extends Controller {
   connect() {
   }
 
-  zoompreview() {
 
-  }
 
   move_left() {
     // console.log("MOVE FRAME LEFT");
@@ -159,13 +157,6 @@ export default class extends Controller {
     this.room6Target.style.display = "";
   }
 
-  showPreview() {
-    let zoom = document.getElementById("zoomvignette");
-    zoom.classList.toggle("hiddenzoom");
-    zoom.classList.toggle("zoompreview");
-
-  }
-
   hidebutton() {
     let boutton = document.getElementById("simulateurgridmobile");
     let bgselector = document.getElementById("bg_selector");
@@ -177,4 +168,5 @@ export default class extends Controller {
     framewidth.classList.toggle("d-flex");
     bgselector.classList.toggle("hidden");
   }
+
 }

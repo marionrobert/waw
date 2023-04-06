@@ -1,3 +1,4 @@
+
 <div class="producthomecontainer showmargintop" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
   <div class="container" >
     <div class="fildariane">
@@ -59,7 +60,13 @@
               class: 'd-block mx-auto') %>
         <% end %>
 
-        <%= link_to "ZOOM", preview_product_path, data: {turbo_frame: "modal"} %>
+
+        <div id="zoom-product-show">
+          <%= link_to preview_product_path(@product), data: { turbo_frame: "modal" } do %>
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <% end %>
+        </div>
+
 
         <div class="simulateurbutton">
           <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
