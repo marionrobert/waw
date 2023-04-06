@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
     # Voir config/initializers/pagy.rb pour changer la quantité de product par page
     if params[:query].present?
       @pagy, @results = pagy(PgSearch.multisearch("%#{params[:query]}%"))
-      @pagy, result_category_name = pagy(@results.select { |element| element.searchable_type == "Category" })
-      @pagy, result_subcategory_name = pagy(@results.select { |element| element.searchable_type == "Subcategory" })
-      @pagy, result_product_name_or_description = pagy(@results.select { |element| element.searchable_type == "Product" })
+      result_category_name = @results.select { |element| element.searchable_type == "Category" }
+      result_subcategory_name = @results.select { |element| element.searchable_type == "Subcategory" }
+      result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
       if !result_category_name.empty?
         @pagy, category = pagy(Category.where(name: result_category_name[0].content))
         @pagy, @products = pagy(Category.find_by(name: category[0].name).products.where(main: true))
