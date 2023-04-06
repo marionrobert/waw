@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :modal do%>
+  <div class="zoompreview">
+      <% if @product.photos.attached? %>
+        <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+          style:"max-width:90%;max-height:90%",
+          alt: "Pas d'image disponible",
+          class: 'd-block mx-auto') %>
+      <% end %>
+  </div>
+<%end%>

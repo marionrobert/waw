@@ -46,6 +46,7 @@
       <%= render "shared/panier"%>
       <%= render "shared/flashes" %>
       <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
+      <%= turbo_frame_tag :modal %>
       <%= yield %>
       <p id="alert"><%= alert %></p>
       <p id="notice"><%= notice %></p>
