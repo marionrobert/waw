@@ -45,10 +45,11 @@ Rails.application.routes.draw do
 
 
   resources :products do
-    resources :favorites, only: [:create]
-    collection do
-      post :search, to: 'products#index'
+    member do
+      get :preview
     end
+    resources :favorites, only: [:create]
+    post :search, on: :collection
   end
 
   get "stockmanagement", to: "pages#stockmanagement"

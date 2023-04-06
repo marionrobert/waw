@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   skip_before_action :set_query, only: %i[index]
 
+  def preview
+    @product = Product.find(params[:id])
+  end
+
   def index
     # @query = Product.ransack(params[:q])
     # @products = @query.result.joins(:subcategory).order(:name)

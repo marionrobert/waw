@@ -59,23 +59,7 @@
               class: 'd-block mx-auto') %>
         <% end %>
 
-
-
-        <div id="zoom-product-show" data-controller="gallerie" data-action="click->gallerie#showPreview">
-          <i class="fa-solid fa-magnifying-glass-plus"></i>
-        </div>
-
-
-        <div class="hiddenzoom" id="zoomvignette" data-controller="gallerie" data-action="click->gallerie#showPreview">
-           <% if @product.photos.attached? %>
-              <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
-            <% else %>
-              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
-                style:"max-width:90%;max-height:90%",
-                alt: "Pas d'image disponible",
-                class: 'd-block mx-auto') %>
-            <% end %>
-        </div>
+        <%= link_to "ZOOM", preview_product_path, data: {turbo_frame: "modal"} %>
 
         <div class="simulateurbutton">
           <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
