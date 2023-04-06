@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   include CurrentCart
   before_action :set_cart
   before_action :set_number_icon_cart
