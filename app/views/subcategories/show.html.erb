@@ -1,4 +1,13 @@
 <div style="margin-top:35vh;margin-bottom:15vh;width:100%">
+  <div class="fildariane">
+    <%= link_to category_path(@subcategory.category) do  %>
+      <span> <%=  @subcategory.category.name.capitalize() %> </span>
+    <% end %>
+    >
+    <%=link_to  category_subcategory_path(@subcategory.category, @subcategory) do  %>
+      <span> <%=  @subcategory.name %> </span>
+    <% end %>
+  </div>
   <div style="display:flex;justify-content:center">
     <h2 class="mb-3">Tous nos produits « <%=@subcategory.name%> »</h2>
   </div>

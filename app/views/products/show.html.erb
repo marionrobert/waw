@@ -1,7 +1,21 @@
 <div class="producthomecontainer showmargintop" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
   <div class="container" >
-    <div class="mt-5">
-      <%= link_to products_path, :class => "btn btn-dark mt-5" do%>
+    <div class="fildariane">
+      <%= link_to category_path(@product.subcategory.category) do  %>
+        <span><%=  @product.subcategory.category.name.capitalize() %> </span>
+      <% end %>
+      >
+      <%=link_to  category_subcategory_path(@product.subcategory.category, @product.subcategory) do  %>
+        <span><%=  @product.subcategory.name %> </span>
+      <% end %>
+      >
+      <%=link_to  product_path(@product) do  %>
+        <span><%=  @product.name %> </span>
+      <% end %>
+    </div>
+
+    <div class="back-products-button">
+      <%= link_to products_path, :class => "btn btn-dark" do%>
         <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
       <% end %>
     </div>

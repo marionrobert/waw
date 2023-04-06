@@ -12,6 +12,7 @@
   display: flex;
 }
 
+
 .productcaract{
   background:rgb(241, 237, 237);
   margin:2rem 0;
@@ -111,6 +112,11 @@
     position:fixed;
     z-index: 50;
   }
+  .fildariane {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+  }
+
 }
 
 @media screen and (min-width: 481px) {
@@ -123,7 +129,32 @@
     top:25vh;
     height:100%
   }
+
+  .fildariane {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .back-products-button{
+    margin-bottom: 2rem;
+  }
+
+
 }
+
+
+.fildariane {
+  color: rgb(75, 75, 75);
+  a {
+    text-decoration: none !important;
+    cursor:pointer;
+    color: rgb(75, 75, 75);
+  }
+  a:hover{
+    color: black;
+  }
+}
+
 
 .heart-favorite-product-show{
   position: absolute;
