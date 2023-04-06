@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_action :set_subcategory, except: %i[search]
   before_action :rebuild_pg_document, only: [:index]
-  skip_before_action :authenticate_user!, only: %i[index show preview]
+  skip_before_action :authenticate_user!, only: %i[index show preview deletepreview]
   skip_before_action :set_query, only: %i[index]
 
   def deletepreview
