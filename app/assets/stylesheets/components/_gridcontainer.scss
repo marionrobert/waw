@@ -32,18 +32,31 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(30vw, 1fr));
-    grid-template-rows: repeat(11, minmax(auto, 50vw));
+    grid-template-rows: repeat(20, minmax(auto, 50vw));
     gap: 0px 0px;
     grid-template-areas:
       ". ."
       ". ."
+      ". ."
+      ". ."
+      ". ."
+      ". ."
+      ". ."
       "BIG1 BIG1"
       "BIG1 BIG1"
       ". ."
       ". ."
       ". ."
+      ". ."
+      ". ."
+      ". ."
       "BIG2 BIG2"
       "BIG2 BIG2"
+      ". ."
+      ". ."
+      ". ."
+      ". ."
+      ". ."
       ". ."
       ". .";
       .c6-fullcard {
