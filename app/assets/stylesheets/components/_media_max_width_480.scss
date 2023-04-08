@@ -115,10 +115,9 @@
     color:white;
   }
 
-  // .producthomecontainer {
-  //   // width:9100;
-  //   // margin: 0 auto;
-  // }
+  .producthomecontainer {
+    overflow-x: hidden;
+  }
 
   .dashboard-div-selectors {
     display:grid;
@@ -159,9 +158,9 @@
 
     .oddcategory {
       box-shadow: 5px 5px 10px grey;;
-      border-radius: 10px;
+      // border-radius: 10px;
       padding:15px;
-      margin-right:80px;
+      margin-right:210px;
       max-width:210px;
       min-width:210px;
       min-height:160px;
@@ -174,9 +173,9 @@
 
     .evencategory {
       box-shadow: 5px 5px 10px grey;;
-      border-radius: 10px;
+      // border-radius: 10px;
       padding:15px;
-      margin-left:100px;
+      margin-left:20px;
       max-width:210px;
       min-width:210px;
       min-height:160px;
@@ -247,8 +246,6 @@
   }
 
   .banner {
-    filter:opacity(0.85);
-
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;

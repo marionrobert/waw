@@ -1,13 +1,15 @@
 .carouselgroup-container {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   @media screen and (min-width: 480px) {
-  height: 560px;
+    min-height:25vw;
+    max-height:75vw;
   // padding: 40px 0;
   }
   @media screen and (max-width: 481px) {
-  height: 390px;
+    min-height: 32vh;
+    max-height: 60vh;
   }
 }
 
@@ -17,6 +19,7 @@
 }
 
 .carouselgroup-item {
+  // overflow: visible;
   display:flex;
   justify-content: space-between;
   flex: 0 0 100%;

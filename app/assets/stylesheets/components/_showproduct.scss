@@ -14,14 +14,23 @@
 
 
 .productcaract{
-  background:rgb(241, 237, 237);
+  box-shadow: 1px 1px 3px grey;
   margin:2rem 0;
+  tbody {
+    td {
+      p {
+        display: grid;
+        margin: 0 auto;
+      }
+    }
+  }
+
   .boldcaract{
-    border-right:1px solid black;
+    color:white;
+    background: black;
     font-weight:bold;
     text-align:left;
     margin-left:1rem;
-    background:rgb(201, 201, 201);
   }
   @media screen and (max-width: 481px) {
     .boldcaract {
@@ -36,27 +45,40 @@
   }
 }
 
+
+.btnathome {
+  background: black;
+  border: none;
+  border-radius: 0px;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  text-transform: uppercase;
+  &:hover {
+    color:rgb(231, 231, 231);
+    background: #131618;
+  }
+}
+
 .tags_description {
   padding-top:2vh
 }
 
 .span_wordtag {
-  margin:0.4rem;
-  padding:0.5rem;
-  background: rgb(245,22,247);
-  background: linear-gradient(180deg, rgb(245,22,247) 0%, rgb(148,37,222) 87%);
-  border-radius:3px;
-  color:white;
+  margin: 0.4rem;
+  padding: 0.5rem;
+  background: linear-gradient(180deg, #d2d2d2 0%, #b5b5b5 87%);
+  border-radius: 3px;
+  color: white;
   text-transform: uppercase;
   font-style: oblique;
-  font-size:larger;
-  font-weight:bolder;
-  // -webkit-text-stroke: 1px grey;
+  font-size: smaller;
+  font-weight: bolder;
   text-decoration: wavy;
 }
 
 .dataproductnameshow {
-  text-align: center;
+  text-transform: capitalize;
+  text-align: left;
   border-bottom:1px solid grey;
   padding-bottom:3vh;
   margin-bottom:3vh;
@@ -64,6 +86,22 @@
     margin-top:1rem;
   }
 }
+
+@media screen and (min-width: 481px) {
+  .btnaddproduct {
+    width: 100%;
+    background-color: #54a054;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0px;
+    border: none;
+    color: white;
+  }
+}
+
+
 
 .promospanshowproduct {
   position:absolute;
@@ -100,7 +138,10 @@
     height: fit-content;
     position:relative;
   }
-  .addtocart {
+  .btnaddproduct {
+    background-color: #54a054;
+    border-radius: 0px;
+    color: white;
     position:absolute;
     bottom:-5px;
     padding-bottom: 5px;
@@ -138,8 +179,6 @@
   .back-products-button{
     margin-bottom: 2rem;
   }
-
-
 }
 
 
@@ -179,4 +218,16 @@
   display:flex;
   justify-content:center;
   margin-top:1rem
+}
+
+.btn-backproduct {
+  padding: 0.6rem;
+  background: #212529;
+  height: 5vh;
+  color:white;
+  align-items: center;
+  &:hover {
+    color:rgb(231, 231, 231);
+    background: #131618;
+  }
 }

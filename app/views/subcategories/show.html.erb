@@ -1,5 +1,5 @@
-<div style="margin-top:35vh;margin-bottom:15vh;width:100%">
-  <div class="fildariane">
+<div style="margin-top:7vh;margin-bottom:15vh;width:100%">
+  <div class="fildariane" style="margin-left:5vw">
     <%= link_to category_path(@subcategory.category) do  %>
       <span> <%=  @subcategory.category.name.capitalize() %> </span>
     <% end %>
@@ -13,7 +13,7 @@
   </div>
     <div style="display:flex;justify-content:center;width:100%;height:50px;"><%== pagy_bootstrap_nav(@pagy) %>
     </div>
-    <p><i><%== pagy_info(@pagy) %></i></p>
+    <p class="pagymarginleft"><i><%== pagy_info(@pagy) %></i></p>
     <%# Oeuvres: %>
     <%#= @products.count%>
     <%# / %>
