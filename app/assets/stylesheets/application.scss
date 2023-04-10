@@ -150,6 +150,14 @@ button {
   background-image:radial-gradient(circle, rgba(0,0,0,0.29485297536983546) 0%, rgba(0,0,0,0.50773812943146) 44%, rgba(0,0,0,0.6449930313922444) 100%)
 }
 
+.pagynavdiv {
+  display:flex;
+  justify-content:center;
+  width:100%;
+  height:50px;
+  margin: 5vh 0px;
+}
+
 .catvignettename {
   // font-weight:bolder;
   text-shadow: black 0px 0 5px;

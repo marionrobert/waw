@@ -1,6 +1,9 @@
+
+.cardcarousel .c6-fullcard {
+  display:contents;
+}
+
 .c6-fullcard {
-  // border:1px solid red;
-  // padding:10px;
   @media screen and (max-width: 480px) {
     margin: 25% 2%;
     font-size: 14px;
@@ -24,7 +27,6 @@
   justify-content: center;
   align-items: center;
   margin: 15% 7%;
-  // padding:10px;
   @media screen and (max-width: 480px) {
     font-size:22px;
     min-width: 87%;
@@ -42,7 +44,6 @@
 }
 
 .c6-imagediv {
-  // overflow: visible;
   position:relative;
   display: flex;
   justify-content: center;

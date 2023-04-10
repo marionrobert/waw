@@ -4,7 +4,7 @@
     <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
   </h1>
 
-  <div style="display:flex;justify-content:center;width:100%;height:50px;"><%== pagy_bootstrap_nav(@pagy) %>
+  <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy)%>
   </div>
   <p class="pagymarginleft"><i><%== pagy_info(@pagy) %></i></p>
   <div class="gridcontainer" data-controller="favorites" data-search-target="list">
@@ -27,6 +27,6 @@
     </div>
   </div>
 
-  <div style="display:flex;justify-content:center;width:100%;height:50px;"><%== pagy_bootstrap_nav(@pagy) %>
+  <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
