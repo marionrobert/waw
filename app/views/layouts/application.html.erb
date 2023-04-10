@@ -54,6 +54,90 @@
       <%#= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
       <%#  A mettre dans un controller JS %>
+
+      <script>
+
+  // Récupération des éléments HTML
+  const scrollLeft = document.getElementById('scroll_left');
+  const scrollRight = document.getElementById('scroll_right');
+  const carouselClickable = document.getElementById('carouselclickable');
+  const carouselItems = carouselClickable.querySelectorAll('.carousel-item');
+  const cards = carouselClickable.querySelectorAll('.cardcarousel');
+
+  // Fonction pour calculer la nouvelle largeur de la div carouselclickable
+  function calculateNewWidth() {
+    let newWidth;
+    if (window.innerWidth < 700) {
+      newWidth = cards.length * 100;
+    } else if (window.innerWidth >= 701 && window.innerWidth <= 959) {
+      newWidth = cards.length * 50;
+    } else {
+      newWidth = cards.length * 25;
+    }
+    return newWidth;
+  }
+
+  // Fonction pour modifier la largeur de la div carouselclickable
+  function setCarouselWidth() {
+    const newWidth = calculateNewWidth();
+    carouselClickable.style.width = `${newWidth}vw`;
+  }
+
+  // Fonction pour déplacer la div carouselclickable vers la gauche
+  function moveLeft() {
+  // Si nous sommes sur un écran de moins de 700px, on se déplace de 100vw
+  if (window.innerWidth < 700) {
+    transformValue += 100;
+    carouselClickable.style.transform = `translateX(${transformValue}vw)`;
+  } else {
+    // Si nous avons atteint la fin du carrousel, nous devons masquer les éléments et réorganiser le carrousel à l'autre bout
+    if (transformValue >= 0) {
+      transformValue -= totalWidth;
+      carouselClickable.style.transform = `translateX(${transformValue}px)`;
+    }
+    // Soustraction de la valeur de transformation
+    transformValue += quarterScreenWidth;
+    carouselClickable.style.transform = `translateX(${transformValue}px)`;
+  }
+}
+
+function moveRight() {
+  // Si nous sommes sur un écran de moins de 700px, on se déplace de -100vw
+  if (window.innerWidth < 700) {
+    transformValue -= 100;
+    carouselClickable.style.transform = `translateX(${transformValue}vw)`;
+  } else {
+    // Si nous avons atteint la fin du carrousel, nous devons masquer les éléments et réorganiser le carrousel à l'autre bout
+    if (transformValue <= -totalWidth + quarterScreenWidth) {
+      transformValue += totalWidth;
+      carouselClickable.style.transform = `translateX(${transformValue}px)`;
+    }
+    // Ajout de la valeur de transformation
+    transformValue -= quarterScreenWidth;
+    carouselClickable.style.transform = `translateX(${transformValue}px)`;
+  }
+}
+
+// Initialisation des variables
+let transformValue = 0;
+let quarterScreenWidth = window.innerWidth * 0.25;
+const totalWidth = carouselClickable.scrollWidth;
+
+// Modification de la largeur de la div carouselclickable
+setCarouselWidth();
+
+// Ajout des écouteurs d'événements sur les clics des boutons
+scrollLeft.addEventListener('click', moveLeft);
+scrollRight.addEventListener('click', moveRight);
+
+// Ajout de l'écouteur d'événement sur le redimensionnement de la fenêtre
+window.addEventListener('resize', function() {
+  quarterScreenWidth = window.innerWidth < 700 ? window.innerWidth : window.innerWidth < 960 ? window.innerWidth * 0.5 : window.innerWidth * 0.25;
+  setCarouselWidth();
+});
+
+</script>
+
     </body>
   <footer class="footer">
     <%= render "shared/footer"%>
