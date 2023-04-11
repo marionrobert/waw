@@ -45,6 +45,7 @@
       <%#= session[:cookies_accepted] %>
       <%= render "shared/panier"%>
       <%= render "shared/flashes" %>
+      <%= render "shared/moncompte" %>
       <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
       <%= turbo_frame_tag :modal %>
       <%= yield %>
@@ -58,11 +59,11 @@
       <script>
 
   // Récupération des éléments HTML
-  const scrollLeft = document.getElementById('scroll_left');
-  const scrollRight = document.getElementById('scroll_right');
-  const carouselClickable = document.getElementById('carouselclickable');
-  const carouselItems = carouselClickable.querySelectorAll('.carousel-item');
-  const cards = carouselClickable.querySelectorAll('.cardcarousel');
+  let scrollLeft = document.getElementById('scroll_left');
+  let scrollRight = document.getElementById('scroll_right');
+  let carouselClickable = document.getElementById('carouselclickable');
+  let carouselItems = carouselClickable.querySelectorAll('.carousel-item');
+  let cards = carouselClickable.querySelectorAll('.cardcarousel');
 
   // Fonction pour calculer la nouvelle largeur de la div carouselclickable
   function calculateNewWidth() {
@@ -79,7 +80,7 @@
 
   // Fonction pour modifier la largeur de la div carouselclickable
   function setCarouselWidth() {
-    const newWidth = calculateNewWidth();
+    let newWidth = calculateNewWidth();
     carouselClickable.style.width = `${newWidth}vw`;
   }
 
@@ -121,7 +122,7 @@ function moveRight() {
 // Initialisation des variables
 let transformValue = 0;
 let quarterScreenWidth = window.innerWidth * 0.25;
-const totalWidth = carouselClickable.scrollWidth;
+let totalWidth = carouselClickable.scrollWidth;
 
 // Modification de la largeur de la div carouselclickable
 setCarouselWidth();

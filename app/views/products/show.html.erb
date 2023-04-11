@@ -82,14 +82,18 @@
           <%end%>
         </span>
 
-        <div data-loadvariants-target="stockzone" style="margin-top:2em">
-          <%if @product.stock_quantity > 0%>
-            <p style="color:green;text-align:left"><strong>En stock :</strong> <%=@product.stock_quantity%> exemplaires disponibles</p>
-          <%else%>
-            <p style="color:green;text-align:left"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
+        <%# <div data-loadvariants-target="stockzone" style="margin-top:2em;"> %>
+          <%#if @product.stock_quantity > 0%>
+            <%# <p style="color:green;text-align:left"><strong>En stock :</strong> %>
+            <%#=@product.stock_quantity%>
+             <%# exemplaires disponibles</p> %>
+          <%#else%>
+            <%# <p style="color:green;text-align:left"><i>Disponible sous %>
+            <%#=@product.supplier_delay%>
+             <%# jours</i></p> %>
             <%# voir :delay_retailer a ajouter a product %>
-          <%end%>
-        </div>
+          <%#end%>
+        <%# </div> %>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, debitis necessitatibus inventore, ad perferendis ipsa ea enim beatae totam recusandae, aliquam quod placeat maxime illum porro exercitationem minus assumenda blanditiis!</p>
 
         <h2 style="margin:2rem 0">Caractéristiques:</h2>
@@ -139,9 +143,22 @@
             <% end %>
         </div>
 
+
+
         <span data-loadvariants-target="addtocart" style="margin: 2rem;">
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btnaddproduct", style:"text-transform: uppercase;justify-content: center; align-items: center; display: flex;" %>
+          <% if @product.discount_price_cents != 0 %>
+            <%= button_to "#{(@product.discount_price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+              class: "btnaddproduct",
+              style: "text-transform: uppercase; justify-content: center; align-items: center; display: flex;" %>
+          <% else %>
+            <%= button_to "#{(@product.price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+              class: "btnaddproduct",
+              style: "text-transform: uppercase; justify-content: center; align-items: center; display: flex;" %>
+          <% end %>
         </span>
+        <%# <span data-loadvariants-target="addtocart" style="margin: 2rem;"> %>
+          <%#= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btnaddproduct", style:"text-transform: uppercase;justify-content: center; align-items: center; display: flex;" %>
+        <%# </span> %>
 
         <div class="tags_description">
           <h2 style="margin-bottom:2rem">Tags descriptif:</h2>

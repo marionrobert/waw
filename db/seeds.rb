@@ -1141,15 +1141,15 @@ puts "Produit #{Product.last.id} créé"
 product_29 = Product.create!(
   name: "enseignetokyo",
   main: true,
-  sku: "enseignetokyo_80x60_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "enseignetokyo_50x80_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 80,
-  height: 60,
+  width: 50,
+  height: 80,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
@@ -1366,7 +1366,7 @@ puts "Produit #{Product.last.id} créé"
 product_37 = Product.create!(
   name: "surfeverywhere",
   main: true,
-  sku: "surfeverywhere_70x45_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "surfeverywhere_45x70_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1374,11 +1374,11 @@ product_37 = Product.create!(
   discount_ending_date: Time.zone.parse('04-06-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 70,
-  height: 45,
+  width: 45,
+  height: 70,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
@@ -1452,18 +1452,18 @@ puts "Produit #{Product.last.id} créé"
 product_40 = Product.create!(
   name: "foreignstreet",
   main: true,
-  sku: "foreignstreet_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "foreignstreet_50x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 50,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680373369132-1feaaccbef04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1564,19 +1564,19 @@ puts "Produit #{Product.last.id} créé"
 product_44 = Product.create!(
   name: "emptystadium",
   main: true,
-  sku: "emptystadium_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
+  sku: "emptystadium_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  description: "stade sport vide competition",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 7410,
   discount_ending_date: Time.zone.parse('31-05-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1674327175233-51f4d1430eac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")

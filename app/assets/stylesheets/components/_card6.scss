@@ -3,6 +3,15 @@
   display:contents;
 }
 
+.favabsolute {
+  position:absolute;
+  bottom:20%;
+  right:10%;
+  a {
+    color:black;
+  }
+}
+
 .c6-fullcard {
   @media screen and (max-width: 480px) {
     margin: 25% 2%;
@@ -76,8 +85,8 @@
 .c6-bloccentral {
   margin-top: 5%;
   width:100%;
-  min-height: 25%;
-  max-height: 25%;
+  min-height: 30%;
+  max-height: 30%;
   display: flex;
 }
 
@@ -103,6 +112,7 @@
   color:black;
   text-transform: capitalize;
   text-align: left;
+  overflow: hidden;
 }
 
 .c6-toutformats {
@@ -110,8 +120,8 @@
   font-size: 14px;
   font-style: italic;
   text-align: left;
-  min-height: 10%;
-  max-height: 10%;
+  min-height: 5%;
+  max-height: 5%;
   min-width: 100%;
   max-width: 100%;
   p {
@@ -164,7 +174,7 @@
 
 .c6-favorite {
   font-size: x-large;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
@@ -172,17 +182,10 @@
 .c6-pricearea {
   margin: 0;
   text-align: left;
-  display: flex;
+  // display: flex;
   min-width: 100%;
   max-width: 100%;
   p{
   color:black
   }
 }
-
-// c6-actionandpricearea
-// c6-buttonarea
-// c6-font
-// c6-promo
-// c6-fontpromobis
-// promo_timer
