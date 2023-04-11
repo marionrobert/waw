@@ -17,3 +17,30 @@
   // padding-left: 10px;
   // padding-right: 10px;
 }
+
+.table-container {
+  display: flex;
+  th {
+    height:5vh;
+    background: black;
+    color:white;
+    border:1px solid white;
+  }
+  tr {
+    border-bottom:1px solid black
+  }
+  td {
+    height:5vh;
+    text-align:left;
+  }
+}
+
+
+.fixed-column {
+  width: 100px;
+}
+
+.scrollable-columns {
+  overflow-x: scroll;
+  flex: 1;
+}

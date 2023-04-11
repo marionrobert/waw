@@ -1,3 +1,74 @@
+<h3>Noueau tableau</h3>
+<div class="table-container">
+  <table class="fixed-column">
+    <thead>
+      <tr>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody style="border-right:2px solid black">
+      <% @products.each_with_index do |product, index| %>
+        <tr>
+          <td><%= product.id %></td>
+        </tr>
+      <% end %>
+        <tr style="height:0.85rem;">
+          <td style="height:0.85rem;background:black"></td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="scrollable-columns">
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>sku</th>
+          <th>width</th>
+          <th>height</th>
+          <th>support</th>
+          <th>orientation</th>
+          <th>frame quantity</th>
+          <th>price_cents</th>
+          <th>discount_price_cents</th>
+          <th>discount_ending_date</th>
+          <th>délai fournisseur</th>
+          <th>render_price</th>
+          <th>fournisseur</th>
+          <th>reward</th>
+          <th>nbr visites</th>
+          <th>validate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each_with_index do |product, index| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.sku %></td>
+            <td><%= product.width %></td>
+            <td><%= product.height %></td>
+            <td><%= product.support %></td>
+            <td><%= product.orientation %></td>
+            <td><%= product.frame_quantity %></td>
+            <td><%= product.price_cents %></td>
+            <td><%= product.discount_price_cents %></td>
+            <td><%= product.discount_ending_date %></td>
+            <td><%= product.supplier_delay %></td>
+            <td><%= product.render_price %></td>
+            <td><%= product.fournisseur %></td>
+            <td><%= product.reward %></td>
+            <% if product.visit %>
+            <td><%= product.visit.count %></td>
+            <% else %>
+            <td>0</td>
+            <%end%>
+            <td>VALIDATION BTN</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="container">
   <h1 class="mb-4 text-center">Gestion des stocks</h1>
       <% @products.each_with_index do |product, index| %>
@@ -103,7 +174,6 @@
               <%end%>
             </td>
           </tr>
-
         </tbody>
       </table>
     <%end%>

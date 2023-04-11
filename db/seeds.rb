@@ -2092,6 +2092,124 @@ product_62.photos.attach(io: file1, filename: "product_1_photo.png")
 # product_1.photos.attach(io: file3, filename: "product_1_photo.png")
 
 puts "Produit #{Product.last.id} créé"
+
+
+
+# # ////////////////////////////////
+
+product_63 = Product.create!(
+  name: "church",
+  main: true,
+  sku: "church_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "eglise",
+  meta_description: "vue du sol",
+  price_cents: 23400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681125282872-ecd5e684ecc4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_63.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_64 = Product.create!(
+  name: "tools",
+  main: true,
+  sku: "tools_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "outils",
+  meta_description: "outils de conception",
+  price_cents: 22400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1677456384043-d131d8db2a81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_64.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
+# # ////////////////////////////////
+
+product_65 = Product.create!(
+  name: "modern_dance",
+  main: true,
+  sku: "modern_dance_60x60_carre_Toileseulecanvas100%coton340gm2",
+  description: "danse",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 19400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 60,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "carre",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681152322586-7ddde43866a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_65.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
+# # ////////////////////////////////
+
+product_66 = Product.create!(
+  name: "cubalibre",
+  main: true,
+  sku: "cubalibre_50x70_portrait_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 50,
+  height: 70,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681120740487-3cf9ca15e0c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_66.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
 # product_7 = Product.create!(
 #   name: "Poêle à granulés FREEPOINT Duke airtight noir 12 kW",
 #   sku: "849055721",

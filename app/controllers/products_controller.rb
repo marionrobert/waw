@@ -180,6 +180,10 @@ class ProductsController < ApplicationController
       :stock_quantity,
       :supplier_delay,
       :main,
+      :render_price,
+      :fournisseur,
+      :reward,
+      watermarks: [],
       photos: []
     )
   end
