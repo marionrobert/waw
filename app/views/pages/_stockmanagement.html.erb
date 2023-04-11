@@ -43,7 +43,7 @@
           <th>Modifier</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody  data-controller="preview-price-change" >
         <% @products.order(:name).each_with_index do |product, index| %>
           <tr>
             <td><%= product.name %></td>
@@ -53,8 +53,38 @@
             <td><%= product.support %></td>
             <td><%= product.orientation %></td>
             <td><%= product.frame_quantity %></td>
-            <td><%= product.price_cents %></td>
-            <td><%= product.discount_price_cents %></td>
+            <td><%= simple_form_for(product) do |product| %>
+                  <%= product.error_notification %>
+                  <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+                  <div class="form-inputs" style="width:200px">
+                    <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                    <%# <p id= %>
+                    <%#= "input_price_#{index}" %>
+                    <%# style="font-size: 12px;">cents >>> €</p> %>
+                  </div>
+                    <div class="form-actions" style="text-align:center">
+                    <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
+                      <i class="fa-regular fa-circle-check"></i>
+                    <% end %>
+                  </div>
+                <%end%>
+            </td>
+            <td><%= simple_form_for(product) do |product| %>
+                  <%= product.error_notification %>
+                  <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+                  <div class="form-inputs" style="width:200px">
+                    <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                    <%# <p id= %>
+                    <%#= "input_price_#{index}" %>
+                    <%# style="font-size: 12px;">cents >>> €</p> %>
+                  </div>
+                    <div class="form-actions" style="text-align:center">
+                    <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
+                      <i class="fa-regular fa-circle-check"></i>
+                    <% end %>
+                  </div>
+                <%end%>
+            </td>
             <td><%= product.discount_ending_date %></td>
             <td><%= product.supplier_delay %></td>
             <td><%= product.render_price %></td>
