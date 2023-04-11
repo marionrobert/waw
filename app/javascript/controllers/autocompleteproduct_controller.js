@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["sku", "width", "height", "orientation", "support", "name"]
 
   connect(){
-    console.log("hello")
+    // console.log("hello")
   }
 
   nameautocomplete() {

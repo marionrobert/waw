@@ -3,11 +3,19 @@ class ProductsController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_action :set_subcategory, except: %i[search]
   before_action :rebuild_pg_document, only: [:index]
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show preview deletepreview]
   skip_before_action :set_query, only: %i[index]
+
+  def deletepreview
+  end
 
   def preview
     @product = Product.find(params[:id])
+    if @product.main
+      @product
+    else
+      @product = Product.where(name: @product.name).where(main: true)
+    end
   end
 
   def index
