@@ -1,14 +1,14 @@
 <%= turbo_frame_tag :modal do%>
   <div id="zoompreview">
       <%= link_to deletepreview_product_path(@product), data: { turbo_frame: "modal" } do %>
-        <i class="fa-regular fa-circle-xmark" style="position:absolute;right:3%;top:3%"></i>
+        <i class="fa-regular fa-circle-xmark" style="-webkit-text-stroke: 1px white;font-size: xx-large;color:black;position:absolute;right:3%;top:3%"></i>
       <% end %>
 
       <% if @product.photos.attached? %>
-        <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
+        <%= cl_image_tag @product.photos.first.key, style:"padding: 20px;"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
-          style:"max-width:90%;max-height:90%",
+          style:"padding: 20px;",
           alt: "Pas d'image disponible",
           class: 'd-block mx-auto') %>
       <% end %>

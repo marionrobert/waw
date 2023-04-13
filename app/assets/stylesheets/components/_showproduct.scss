@@ -4,12 +4,13 @@
 }
 
 .shareicon {
-  color:white;
+  color:black;
   font-size:2rem;
   align-items: center;
   font-size: 2rem;
   justify-content: center;
   display: flex;
+  -webkit-text-stroke: 1px white;
 }
 
 
@@ -65,19 +66,53 @@
   }
 }
 
+.vignettesalon {
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px grey;
+  overflow: hidden;
+  img {
+    height:auto;
+    width:100%;
+  }
+  @media screen and (min-width: 481px) {
+    width:7vw;
+    height:5vw;
+    p {
+      font-weight: lighter;
+      text-align: left;
+      margin: auto;
+      display: table-caption;
+      margin-left: 30%;
+    }
+    i {
+      margin-right:5%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    width:7vh;
+    height:5vh;
+    p{
+      display:none;
+    }
+    i {
+      font-size: xx-large;
+      margin:0 auto
+    }
+  }
+}
+
 .promospanshowproduct {
   position:absolute;
   right:0;
   top:15%;
-  border:1px solid red;
-  color:red;
-  padding:4px;
-  background:white;
+  color:white;
+  padding:4px 8px;
+  background:grey;
   z-index:2;
 }
 
 .shareiconbg {
-  background: black;
+  // background: black;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -90,6 +125,7 @@
   justify-content: center;
   padding: 22px;
   padding-right: 25px;
+  box-shadow: 1px 1px 2px grey;
 }
 
 @media screen and (max-width: 480px) {
@@ -162,6 +198,7 @@
   top: 5%;
   z-index: 2;
   font-size: 2rem;
+  -webkit-text-stroke: 1px white;
 }
 
 #zoom-product-show {

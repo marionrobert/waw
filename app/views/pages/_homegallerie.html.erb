@@ -6,7 +6,7 @@
     <img id="room2" class="roombg" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none" data-gallerie-target="room2">
     <img id="room3" class="roombg" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon3" style="display:none" data-gallerie-target="room3">
     <img id="room4" class="roombg" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none" data-gallerie-target="room4">
-    <img id="room5" class="roombg" src="https://i.ibb.co/hXW62Dv/salon5.png" alt="salon5" style="display:none" data-gallerie-target="room5">
+    <img id="room5" class="roombg" src="" alt="salon5" style="display:none" data-gallerie-target="room5">
     <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;" data-gallerie-target="room6">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
@@ -41,20 +41,38 @@
   </div>
 </div>
 <div>
-  <div style="display:grid;justify-content:center;margin:1rem">
+
+
+  <div style="display:none;justify-content:center;margin:1rem">
     <p style="text-align:center;font-weight:bold"><i class="fa-sharp fa-solid fa-angles-down fa-bounce" style=";font-weight:bold;margin-right:0.2rem"></i></i>Téléchargez une photo de chez moi<i class="fa-sharp fa-solid fa-angles-down fa-bounce" style="font-weight:bold;margin-left:0.2rem"></i></p>
     <div style="display-flex">
       <i class="fa-sharp fa-solid fa-angles-right fa-fade fa-xl"></i>
       <input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()" >
     </div>
   </div>
-  <p style="text-align:center;color:blue;display:grid">Ou selectionnez un intérieur:</p>
+
   <div id="bg_selector">
-    <p id="r1" data-action="click->gallerie#change_bg1">1</p>
-    <p id="r2" data-action="click->gallerie#change_bg2">2</p>
-    <p id="r3" data-action="click->gallerie#change_bg3">3</p>
-    <p id="r4" data-action="click->gallerie#change_bg4">4</p>
-    <p id="r5" data-action="click->gallerie#change_bg5">5</p>
+    <div id="r1" class="vignettesalon" data-action="click->gallerie#change_bg1">
+      <%= image_tag "salons/salon1.jpg" %>
+    </div>
+
+    <div id="r2" class="vignettesalon" data-action="click->gallerie#change_bg2">
+      <%= image_tag "salons/salon2.jpg"%>
+    </div>
+
+    <div id="r3" class="vignettesalon" data-action="click->gallerie#change_bg3">
+      <%= image_tag "salons/salon3.jpg"%>
+    </div>
+
+    <div id="r4" class="vignettesalon" data-action="click->gallerie#change_bg4">
+      <%= image_tag "salons/salon4.jpg"%>
+    </div>
+
+    <div id="r5" class="vignettesalon" onclick="document.querySelector('#imageUpload').click()" style="background:white; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+      <p style="margin: 0;text-align:center">Importer ma photo</p>
+      <i class="fa-solid fa-camera" ></i>
+    </div>
+
   </div>
 </div>
 
@@ -64,6 +82,7 @@
 <script>
   function myhomeImage() {
     const bgselector = document.getElementById('bg_selector');
+    let r5 = document.getElementById('r5');
     let myhome = document.querySelector('#myhome');
     let file    = document.querySelector('#imageUpload').files[0];
     let reader  = new FileReader();
@@ -71,19 +90,18 @@
 
     reader.onloadend = function () {
       myhome.src = reader.result;
+      document.getElementById('room5').src = reader.result;
       myhome.style.display = "block";
+      r5.style.backgroundImage = "url('" + reader.result + "')";
+      r5.style.backgroundSize = "contain";
+
     }
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
       myhome.src = "";
-    }
-
-
-    if (r6 === null) {
-      // console.log("OKAY")
-      bgselector.insertAdjacentHTML('beforeend', '<p id="r6" class="roombg" data-action="click->gallerie#change_bg6" style="color:red;font-weight:bold">Chez moi</p>');
+      r5.style.backgroundImage = "none";
     }
   }
 </script>
