@@ -246,7 +246,7 @@
     position:sticky;
     background-size:cover;
     background-position: center;
-    height: 60vh;
+    height: 72vh;
     padding-top: 0vh;
     left: 0;
     // top: -25vh;
@@ -446,7 +446,7 @@
     &::-webkit-scrollbar{
       border-radius: 10px;
       // C'est ce HEIGHT la qui fait que quand on hover une sous-categorie le trait noir ne touche pas le bas de la navbar
-      height: 5px;
+      height: 0px;
       // background-color: yellow;
     }
     &::-webkit-scrollbar-thumb {
