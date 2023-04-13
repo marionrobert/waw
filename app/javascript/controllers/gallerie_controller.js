@@ -169,4 +169,49 @@ export default class extends Controller {
     bgselector.classList.toggle("hidden");
   }
 
+  noframe() {
+    console.log("no frame");
+    let mainframe = document.getElementById("mainframe");
+    mainframe.classList.remove("brownframe");
+    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("blackframepaddingwhite");
+    mainframe.classList.remove("whiteframe");
+  }
+
+  blackframe() {
+    console.log("black frame");
+    let mainframe = document.getElementById("mainframe");
+    mainframe.classList.remove("brownframe");
+    mainframe.classList.add("blackframe");
+    mainframe.classList.remove("blackframepaddingwhite");
+    mainframe.classList.remove("whiteframe");
+  }
+
+  blackframepaddingwhite() {
+    console.log("blackframepaddingwhite");
+    let mainframe = document.getElementById("mainframe");
+    mainframe.classList.remove("brownframe");
+    mainframe.classList.add("blackframepaddingwhite");
+    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("whiteframe");
+  }
+
+  whiteframe() {
+    console.log("white frame");
+    let mainframe = document.getElementById("mainframe");
+    mainframe.classList.add("whiteframe");
+    mainframe.classList.remove("blackframepaddingwhite");
+    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("brownframe");
+  }
+
+  brownframe() {
+    console.log("brown frame");
+    let mainframe = document.getElementById("mainframe");
+    mainframe.classList.add("brownframe");
+    mainframe.classList.remove("blackframepaddingwhite");
+    mainframe.classList.remove("whiteframe");
+    mainframe.classList.remove("blackframe");
+  }
+
 }

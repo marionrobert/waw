@@ -70,7 +70,65 @@
     }
 }
 
+#frame_selector {
+  // border: 1px solid black;
+  // background: rgba(100,100,100,0.3);
+  height: auto;
+  margin:5px auto;
+  font-weight: bold;
+  // color:rgb(46, 46, 46);
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  p {
+    cursor:pointer;
+  }
+    @media screen and (max-width: 480px) {
+      margin-top:1rem;
+      width: 100vw;
+    }
+    @media screen and (min-width: 481px) {
+      width: 80vh;
+    }
+}
 
+@media screen and (min-width: 481px) {
+
+  .blackframe {
+    border:5px solid black;
+  }
+
+  .whiteframe {
+    border:5px solid white;
+  }
+
+  .blackframepaddingwhite {
+    box-shadow: 0 0 0 10px white, 0 0 0 15px black;
+  }
+
+  .brownframe {
+    border:5px solid brown
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blackframe {
+    border:2px solid black;
+  }
+
+  .whiteframe {
+    border:2px solid white;
+  }
+
+  .blackframepaddingwhite {
+    box-shadow: 0 0 0 5px white, 0 0 0 7px black;
+  }
+
+  .brownframe {
+    border:2px solid brown
+  }
+}
 
 #tableau-slider {
   position:relative;

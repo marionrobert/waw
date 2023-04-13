@@ -1,12 +1,34 @@
 <%# MISE EN PAGE CENTRE %>
+  <div id="frame_selector">
+    <div id="nofame" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto"%>
+    </div>
+
+    <div id="blackframe" class="vignettesalon" style="position:relative;background:rgb(247, 229, 203)"  data-action="click->gallerie#blackframe">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:50%;margin-left:40%;width:7vw;height:auto;border:5px solid black"%>
+    </div>
+
+    <div id="blackframepaddingwhite" class="vignettesalon" style="position:relative;background:rgb(206, 236, 248)"  data-action="click->gallerie#blackframepaddingwhite">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:50%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white, 0 0 0 15px black"%>
+    </div>
+
+    <div id="whiteframe" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)"  data-action="click->gallerie#whiteframe">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;border: 5px solid white"%>
+    </div>
+
+    <div id="brownframe" class="vignettesalon" style="position:relative;background:rgb(250, 240, 250)"  data-action="click->gallerie#brownframe">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;border: 5px solid brown"%>
+    </div>
+  </div>
 <div style="display:flex;justify-content:center">
 <%# ENSEMBLE GLOBAL %>
+
   <div id="house_background">
-    <img id="room1" class="roombg" src="https://i.ibb.co/PWFpcZk/Salon2.png" alt="salon1" data-gallerie-target="room1">
-    <img id="room2" class="roombg" src="https://i.ibb.co/hKKrLrV/salon6.png" alt="salon2" style="display:none" data-gallerie-target="room2">
-    <img id="room3" class="roombg" src="https://i.ibb.co/QJ4663s/Salon-tableau.png" alt="salon3" style="display:none" data-gallerie-target="room3">
-    <img id="room4" class="roombg" src="https://i.ibb.co/RTMVj6G/salon3.png" alt="salon4" style="display:none" data-gallerie-target="room4">
-    <img id="room5" class="roombg" src="" alt="salon5" style="display:none" data-gallerie-target="room5">
+    <img id="room1" class="roombg" src="/assets/salons/salon1.jpg" alt="salon1" data-gallerie-target="room1">
+    <img id="room2" class="roombg" src="/assets/salons/salon2.jpg" alt="salon2" style="display:none" data-gallerie-target="room2">
+    <img id="room3" class="roombg" src="/assets/salons/salon3.jpg" alt="salon3" style="display:none" data-gallerie-target="room3">
+    <img id="room4" class="roombg" src="/assets/salons/salon4.jpg" alt="salon4" style="display:none" data-gallerie-target="room4">
+    <%# <img id="room5" class="roombg" src="" alt="salon5" style="display:none" data-gallerie-target="room5"> %>
     <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;" data-gallerie-target="room6">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
@@ -72,7 +94,6 @@
       <p style="margin: 0;text-align:center">Importer ma photo</p>
       <i class="fa-solid fa-camera" ></i>
     </div>
-
   </div>
 </div>
 
