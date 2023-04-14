@@ -4,13 +4,13 @@
 <%#§////////////////// les categories/////////////////////  %>
 <div data-controller="category">
   <div id="bandeau_categories" class="hidden">
+    <div class="categories-overflow">
       <p class="allproductlink">
         <%= link_to "TOUS NOS PRODUITS",
             products_path,
             style:"color:black"
         %>
       </p>
-    <div class="categories-overflow">
       <p>
         <%= link_to "PROMO",
             promo_path,
@@ -26,7 +26,6 @@
       <% end %>
     </div>
   <%#//////////////////////////////// les sous-categories /////////////////////%>
-  </div>
     <div id="subcatdesktopmenu",
          class="subcategorydesktopmenu",
          style="display:none",
@@ -41,6 +40,7 @@
         </p>
       <% end %>
     </div>
+  </div>
 </div>
 
 

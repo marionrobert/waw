@@ -439,10 +439,10 @@
     p {
       color:black;
     }
-    width:88%;
-    display:flex;
-    justify-content:space-around;
-    overflow-x: scroll;
+    width:25%;
+    display:grid;
+    // justify-content:space-around;
+    overflow-y: scroll;
     &::-webkit-scrollbar{
       border-radius: 10px;
       // C'est ce HEIGHT la qui fait que quand on hover une sous-categorie le trait noir ne touche pas le bas de la navbar
@@ -466,8 +466,9 @@
   .enable_on_desktop {
     margin:0;
     width:100vw;
+    height:50vh;
     display:flex;
-    justify-content:space-around;
+    justify-content:flex-start;
     // border-top:1px solid rgba(150,150,150,0.3);
     border-bottom: 1px solid rgba(150,150,150,0.3);
     background:white;
@@ -491,13 +492,13 @@
   }
 
   .subcategorydesktopmenu {
-    background-color:rgb(222, 222, 222);
+    // background-color:rgb(222, 222, 222);
     margin:0;
     width:100vw;
-    height:7vh;
+    height:100%;
     // padding: 10px;
-    display: flex;
-    justify-content:space-around;
+    display: grid;
+    justify-content: flex-start;
     // border-bottom: 1px solid grey;
     a {
       color:black;
