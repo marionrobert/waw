@@ -1,5 +1,9 @@
 @media screen and (min-width: 481px) {
 
+  .product-details:before {
+    content: "Format.";
+  }
+
   .shortcut_payement {
     width:500px;
     height:120px;
@@ -114,18 +118,19 @@
     z-index:1
   }
 
-  // .producthomecontainer {
-  //   width:70vw;
-  //   margin: 0 auto;
-  // }
+  .producthomecontainer {
+    overflow-x: hidden;
+    min-height: 45vh;
+    margin-top: 5vh;
+  }
 
   .showmargintop{
-    margin-top:15vh;
+    margin-top:5vh;
   }
 
   .oddcategory {
     box-shadow: 5px 5px 10px grey;
-    border-radius: 10px;
+    // border-radius: 10px;
     padding:15px;
     margin-right:125px;
     max-width:400px;
@@ -140,7 +145,7 @@
 
   .evencategory {
     box-shadow: 5px 5px 10px grey;
-    border-radius: 10px;
+    // border-radius: 10px;
     padding:15px;
     margin-left:175px;
     max-width:400px;
@@ -176,7 +181,7 @@
   }
 
   .catwrapperhomepage {
-    width:70vw;
+    width:90vw;
     height:200px;
     margin:0 auto;
     display:flex;
@@ -238,20 +243,22 @@
   }
 
   .banner {
-    filter:brightness(0.7);
     position:sticky;
     background-size:cover;
     background-position: center;
-    height: 80vh;
+    height: 72vh;
     padding-top: 0vh;
     left: 0;
-    top: -25vh;
+    // top: -25vh;
     width: 100%;
     z-index: 10;
   }
 
   .bannertextfield {
-    padding-top: 12rem;
+    // width: 100%;
+    height: 100%;
+    margin: 0vw 5vw;
+    padding-top: 6rem;
     text-align:center;
   }
 
@@ -277,6 +284,7 @@
     cursor: pointer;
     width: 30%;
     margin: 0 5px 0 10px;
+    max-height: 100%;
     display: inline-block;
     white-space: nowrap;
     border: 2px solid rgba(0, 0, 0, 0);
@@ -301,6 +309,7 @@
   }
 
   .responsivesearchbar {
+    height:100%;
     justify-content: left;
     display: flex;
     width:50%
@@ -437,7 +446,7 @@
     &::-webkit-scrollbar{
       border-radius: 10px;
       // C'est ce HEIGHT la qui fait que quand on hover une sous-categorie le trait noir ne touche pas le bas de la navbar
-      height: 5px;
+      height: 0px;
       // background-color: yellow;
     }
     &::-webkit-scrollbar-thumb {

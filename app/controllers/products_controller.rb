@@ -19,6 +19,12 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @categories_illustration = []
+
+    Category.all.each do |category|
+    @categories_illustration << category.photos.first
+    end
+
     # @query = Product.ransack(params[:q])
     # @products = @query.result.joins(:subcategory).order(:name)
     @pagy, @products = pagy(Product.where(main: true).order(:name))
@@ -182,6 +188,10 @@ class ProductsController < ApplicationController
       :stock_quantity,
       :supplier_delay,
       :main,
+      :render_price,
+      :fournisseur,
+      :reward,
+      watermarks: [],
       photos: []
     )
   end

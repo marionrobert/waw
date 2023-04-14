@@ -5,17 +5,22 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
 .bannerh1 {
-  -webkit-text-stroke: 1px grey;
-  padding-top:10vh;
+  text-transform: uppercase;
+  text-align: right;
+  font-style: oblique;
+  // padding-top:6vh;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 2rem;
-  font-weight: bold;
   text-decoration: none;
+
+    @media screen and (min-width: 481px) {
+    margin-top: 8vh;
+    }
 }
 
 .bannerh3 {
-  -webkit-text-stroke: 1px grey;
+  text-align: right;
+  font-style: oblique;
   color:white;
   padding:5vh 0;
   text-decoration:none

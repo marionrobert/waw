@@ -24,9 +24,9 @@ puts "#{User.count} utilisateurs créés"
 puts "1 profil administrateur créé(aurelien), 3 non admins créés"
 
 puts "La société est liquidée"
-Shop.create!(user: User.where(admin: true).first, name: "L'@telier de Lysiane", description: "Magasin de décoration de Noël artisanales", phone: "02.43.15.42.56", siren: "123456789",
-address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card6", themebgcolor: "white", themefont: "'Montserrat', sans-serif ", bannerpub: "Livraison offerte pour Noël!",
- juridicform: "SAS", capitalisation: 5000, localregister: "Le Mans", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
+Shop.create!(user: User.where(admin: true).first, name: "Wall Art Works", description: "Transformez votre espace", phone: "06.80.77.57.22", siren: "123456789",
+address: "4 rue Albert Einstein, 93200 Saint Denis", card: "card6", themebgcolor: "white", themefont: "'Montserrat', sans-serif ", bannerpub: "Livraison offerte dès 129€",
+ juridicform: "EI", capitalisation: 1000, localregister: "Saint Denis", email: "contact@monsite.fr", uetva: "FR76123456789", president: "PREVOST Aurélien")
 
  puts "#{Shop.count} Le Nouveau magasin ouvre ses portes"
  Coupon.destroy_all
@@ -523,8 +523,8 @@ product_7 = Product.create!(
   discount_ending_date: Time.zone.parse('21-04-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
-  height: 60,
+  width: 60,
+  height: 120,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
@@ -604,7 +604,7 @@ puts "Produit #{Product.last.id} créé"
 product_10 = Product.create!(
   name: "departure",
   main: true,
-  sku: "departure_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "departure_45x45_carre_Toileseulecanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -612,11 +612,11 @@ product_10 = Product.create!(
   discount_ending_date: Time.zone.parse('31-04-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 45,
+  height: 45,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -633,18 +633,18 @@ puts "Produit #{Product.last.id} créé"
 product_11 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_60x60_carre_Toilesurchassiscanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
+  width: 60,
   height: 60,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -661,7 +661,7 @@ puts "Produit #{Product.last.id} créé"
 product_12 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_90x60_paysage_PVCexpanse5mmforex",
+  sku: "departure_90x90_carre_PVCexpanse5mmforex",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -669,10 +669,10 @@ product_12 = Product.create!(
   stock_quantity: 0,
   supplier_delay: 21,
   width: 90,
-  height: 60,
+  height: 90,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -688,18 +688,18 @@ puts "Produit #{Product.last.id} créé"
 
 product_13 = Product.create!(
   name: "departure",
-  sku: "departure_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "departure_100x100_carre_Toileseulecanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
-  support:"Toileseulecanvas100%coton340gm2",
+  width: 100,
+  height: 100,
+  support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation:"paysage",
+  orientation: "carre",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -715,7 +715,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_14 = Product.create!(
   name: "departure",
-  sku: "departure_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_25x25_carre_Toilesurchassiscanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -723,11 +723,11 @@ product_14 = Product.create!(
   discount_ending_date: Time.zone.parse('31-06-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 25,
+  height: 25,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -743,18 +743,18 @@ puts "Produit #{Product.last.id} créé"
 
 product_15 = Product.create!(
   name: "departure",
-  sku: "departure_120x90_paysage_PVCexpanse5mmforex",
+  sku: "departure_100x100_carre_PVCexpanse5mmforex",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 100,
+  height: 100,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -771,7 +771,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_16 = Product.create!(
   name: "departure",
-  sku: "departure_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "departure_60x60_carre_Toileseulecanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 34900,
@@ -779,11 +779,11 @@ product_16 = Product.create!(
   discount_ending_date: Time.zone.parse('21-04-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
+  width: 60,
   height: 60,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "portrait",
+  orientation: "carre",
   subcategory: subcategory2,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -800,7 +800,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_17 = Product.create!(
   name: "departure",
-  sku: "departure_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_45x45_carre_Toilesurchassiscanvas100%coton340gm2",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 39900,
@@ -808,11 +808,11 @@ product_17 = Product.create!(
   discount_ending_date: Time.zone.parse('13-04-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
-  height: 60,
+  width: 45,
+  height: 45,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "portrait",
+  orientation: "carre",
   subcategory: subcategory2,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -829,7 +829,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_18 = Product.create!(
   name: "departure",
-  sku: "departure_60x120_portrait_PVCexpanse5mmforex",
+  sku: "departure_120x120_carre_PVCexpanse5mmforex",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 42900,
@@ -838,10 +838,10 @@ product_18 = Product.create!(
   stock_quantity: 5,
   supplier_delay: 14,
   width: 120,
-  height: 60,
+  height: 120,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
-  orientation: "portrait",
+  orientation: "carre",
   subcategory: subcategory2,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -860,18 +860,18 @@ puts "Produit #{Product.last.id} créé"
 product_19 = Product.create!(
   name: "line",
   main: true,
-  sku: "line_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "line_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -888,18 +888,18 @@ puts "Produit #{Product.last.id} créé"
 product_20 = Product.create!(
   name: "line",
   main: false,
-  sku: "line_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "line_60x90_portrait_Toilesurchassiscanvas100%coton340gm2",
   description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   meta_description: "line mountain",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -916,7 +916,7 @@ puts "Produit #{Product.last.id} créé"
 product_21 = Product.create!(
   name: "line",
   main: false,
-  sku: "line_90x60_paysage_PVCexpanse5mmforex",
+  sku: "line_60x90_portrait_PVCexpanse5mmforex",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -924,11 +924,11 @@ product_21 = Product.create!(
   discount_ending_date: Time.zone.parse('14-06-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -944,18 +944,18 @@ puts "Produit #{Product.last.id} créé"
 
 product_22 = Product.create!(
   name: "line",
-  sku: "line_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "line_90x120_portrait_Toileseulecanvas100%coton340gm2",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 90,
+  height: 120,
   support:"Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation:"paysage",
+  orientation:"portrait",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -971,18 +971,18 @@ puts "Produit #{Product.last.id} créé"
 
 product_23 = Product.create!(
   name: "line",
-  sku: "line_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "line_90x120_portrait_Toilesurchassiscanvas100%coton340gm2",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 90,
+  height: 120,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -998,18 +998,18 @@ puts "Produit #{Product.last.id} créé"
 
 product_24 = Product.create!(
   name: "line",
-  sku: "line_120x90_paysage_PVCexpanse5mmforex",
+  sku: "line_90x120_portrait_PVCexpanse5mmforex",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 90,
+  height: 120,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1,
   main: false)
 file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
@@ -1026,7 +1026,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_25 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "coquelicot_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 34900,
@@ -1034,8 +1034,8 @@ product_25 = Product.create!(
   discount_ending_date: Time.zone.parse('15-05-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
@@ -1055,7 +1055,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_26 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "coquelicot_60x90_portrait_Toilesurchassiscanvas100%coton340gm2",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 39900,
@@ -1063,8 +1063,8 @@ product_26 = Product.create!(
   discount_ending_date: Time.zone.parse('12-06-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toilesurchassiscanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
@@ -1084,7 +1084,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_27 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x120_portrait_PVCexpanse5mmforex",
+  sku: "coquelicot_60x90_portrait_PVCexpanse5mmforex",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 42900,
@@ -1092,8 +1092,8 @@ product_27 = Product.create!(
   discount_ending_date: Time.zone.parse('23-04-2023 23:59:59'),
   stock_quantity: 5,
   supplier_delay: 14,
-  width: 120,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "PVCexpanse5mmforex",
   frame_quantity: 1,
   orientation: "portrait",
@@ -1113,18 +1113,18 @@ puts "Produit #{Product.last.id} créé"
 product_28 = Product.create!(
   name: "city_road",
   main: true,
-  sku: "city_road_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "city_road_60x60_carre_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
+  width: 60,
   height: 60,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
@@ -1141,18 +1141,18 @@ puts "Produit #{Product.last.id} créé"
 product_29 = Product.create!(
   name: "enseignetokyo",
   main: true,
-  sku: "enseignetokyo_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "enseignetokyo_50x80_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 50,
+  height: 80,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680673535663-7dfe0ca784da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80")
@@ -1167,9 +1167,9 @@ puts "Produit #{Product.last.id} créé"
 # # ////////////////////////////////
 
 product_30 = Product.create!(
-  name: "monkeycoffee",
+  name: "tokyostreet",
   main: true,
-  sku: "monkeycoffee_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "tokyostreet_60x60_care_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1177,11 +1177,11 @@ product_30 = Product.create!(
   discount_ending_date: Time.zone.parse('23-05-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
+  width: 60,
   height: 60,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "carre",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
@@ -1198,18 +1198,18 @@ puts "Produit #{Product.last.id} créé"
 product_31 = Product.create!(
   name: "trek",
   main: true,
-  sku: "trek_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "trek_45x70_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 45,
+  height: 70,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680528811934-b976d0c446af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1254,18 +1254,18 @@ puts "Produit #{Product.last.id} créé"
 product_33 = Product.create!(
   name: "sunnyplants",
   main: true,
-  sku: "sunnyplants_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "sunnyplants_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680413286277-34c88fc9b049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1311,15 +1311,15 @@ puts "Produit #{Product.last.id} créé"
 product_35 = Product.create!(
   name: "surforfly",
   main: true,
-  sku: "surforfly_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "surforfly_45x70_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 45,
+  height: 70,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1338,15 +1338,15 @@ puts "Produit #{Product.last.id} créé"
 product_36 = Product.create!(
   name: "drunk",
   main: true,
-  sku: "drunk_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "drunk_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1366,7 +1366,7 @@ puts "Produit #{Product.last.id} créé"
 product_37 = Product.create!(
   name: "surfeverywhere",
   main: true,
-  sku: "surfeverywhere_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "surfeverywhere_45x70_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1374,11 +1374,11 @@ product_37 = Product.create!(
   discount_ending_date: Time.zone.parse('04-06-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 45,
+  height: 70,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
@@ -1395,16 +1395,16 @@ puts "Produit #{Product.last.id} créé"
 
 product_38 = Product.create!(
   name: "surfeverywhere",
-  main: true,
-  sku: "surfeverywhere_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  main: false,
+  sku: "surfeverywhere_80x150_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 120,
-  height: 90,
+  width: 80,
+  height: 150,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1424,15 +1424,15 @@ puts "Produit #{Product.last.id} créé"
 product_39 = Product.create!(
   name: "feellittle",
   main: true,
-  sku: "feellittle_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "feellittle_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1452,18 +1452,18 @@ puts "Produit #{Product.last.id} créé"
 product_40 = Product.create!(
   name: "foreignstreet",
   main: true,
-  sku: "foreignstreet_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "foreignstreet_50x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 50,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680373369132-1feaaccbef04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1508,15 +1508,15 @@ puts "Produit #{Product.last.id} créé"
 product_42 = Product.create!(
   name: "focusoneggs",
   main: true,
-  sku: "focusoneggs_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "focusoneggs_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1536,14 +1536,14 @@ puts "Produit #{Product.last.id} créé"
 product_43 = Product.create!(
   name: "droneviewforest",
   main: true,
-  sku: "droneviewforest_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "droneviewforest_75x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
+  width: 75,
   height: 60,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
@@ -1564,19 +1564,19 @@ puts "Produit #{Product.last.id} créé"
 product_44 = Product.create!(
   name: "emptystadium",
   main: true,
-  sku: "emptystadium_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
+  sku: "emptystadium_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  description: "stade sport vide competition",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 7410,
   discount_ending_date: Time.zone.parse('31-05-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1674327175233-51f4d1430eac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1593,15 +1593,15 @@ puts "Produit #{Product.last.id} créé"
 product_45 = Product.create!(
   name: "brightwater",
   main: true,
-  sku: "brightwater_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "brightwater_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1621,15 +1621,15 @@ puts "Produit #{Product.last.id} créé"
 product_46 = Product.create!(
   name: "homesweethome",
   main: true,
-  sku: "homesweethome_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "homesweethome_80x50_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 80,
+  height: 50,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1649,15 +1649,15 @@ puts "Produit #{Product.last.id} créé"
 product_47 = Product.create!(
   name: "girlinfield",
   main: true,
-  sku: "girlinfield_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "girlinfield_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1684,8 +1684,8 @@ product_48 = Product.create!(
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 75,
+  height: 50,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1705,15 +1705,15 @@ puts "Produit #{Product.last.id} créé"
 product_49 = Product.create!(
   name: "youmeanselfie",
   main: true,
-  sku: "youmeanselfie_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "youmeanselfie_45x80_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 45,
+  height: 80,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1733,7 +1733,7 @@ puts "Produit #{Product.last.id} créé"
 product_50 = Product.create!(
   name: "whiteloneliness",
   main: true,
-  sku: "whiteloneliness_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "whiteloneliness_90x50_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1741,7 +1741,7 @@ product_50 = Product.create!(
   stock_quantity: 0,
   supplier_delay: 21,
   width: 90,
-  height: 60,
+  height: 50,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1761,7 +1761,7 @@ puts "Produit #{Product.last.id} créé"
 product_51 = Product.create!(
   name: "preciousthangold",
   main: true,
-  sku: "preciousthangold_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "preciousthangold_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1769,8 +1769,8 @@ product_51 = Product.create!(
   discount_ending_date: Time.zone.parse('06-04-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1790,7 +1790,7 @@ puts "Produit #{Product.last.id} créé"
 product_52 = Product.create!(
   name: "chiarobscuroreverted",
   main: true,
-  sku: "chiarobscuroreverted_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "chiarobscuroreverted_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1798,8 +1798,8 @@ product_52 = Product.create!(
   discount_ending_date: Time.zone.parse('25-04-2023 23:59:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1819,15 +1819,15 @@ puts "Produit #{Product.last.id} créé"
 product_53 = Product.create!(
   name: "acidulé",
   main: true,
-  sku: "acidulé_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "acidulé_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1847,7 +1847,7 @@ puts "Produit #{Product.last.id} créé"
 product_54 = Product.create!(
   name: "backgroundfocus",
   main: true,
-  sku: "backgroundfocus_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "backgroundfocus_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1855,8 +1855,8 @@ product_54 = Product.create!(
   discount_ending_date: Time.zone.parse('07-04-2023 23:45:59'),
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1874,15 +1874,15 @@ puts "Produit #{Product.last.id} créé"# # ////////////////////////////////
 product_55 = Product.create!(
   name: "lookup",
   main: true,
-  sku: "lookup_90x60_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "lookup_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "portrait",
@@ -1902,7 +1902,7 @@ puts "Produit #{Product.last.id} créé"
 product_56 = Product.create!(
   name: "yellowellipse",
   main: true,
-  sku: "yellowellipse_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "yellowellipse_90x45_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -1910,7 +1910,7 @@ product_56 = Product.create!(
   stock_quantity: 0,
   supplier_delay: 21,
   width: 90,
-  height: 60,
+  height: 45,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
@@ -1930,18 +1930,18 @@ puts "Produit #{Product.last.id} créé"
 product_57 = Product.create!(
   name: "springcommings",
   main: true,
-  sku: "springcomings_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "springcomings_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680607014792-5e95088d6e2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
@@ -1958,18 +1958,18 @@ puts "Produit #{Product.last.id} créé"
 product_58 = Product.create!(
   name: "earlymorningriver",
   main: true,
-  sku: "earlymorningriver_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "earlymorningriver_50x80_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 50,
+  height: 80,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680631757284-617846a5ef29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=702&q=80")
@@ -1986,18 +1986,18 @@ puts "Produit #{Product.last.id} créé"
 product_59 = Product.create!(
   name: "bigcitylife",
   main: true,
-  sku: "bigcitylife_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "bigcitylife_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1673349586431-9f4bfbb0552d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -2014,18 +2014,18 @@ puts "Produit #{Product.last.id} créé"
 product_60 = Product.create!(
   name: "japanandtradition",
   main: true,
-  sku: "japanandtradition_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "japanandtradition_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 60,
+  height: 90,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680529687272-9a49f34fdf4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -2042,18 +2042,18 @@ puts "Produit #{Product.last.id} créé"
 product_61 = Product.create!(
   name: "nicebuilding",
   main: true,
-  sku: "nicebuilding_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "nicebuilding_50x80_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
-  height: 60,
+  width: 50,
+  height: 80,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680454161096-7734f7938c5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
@@ -2070,14 +2070,14 @@ puts "Produit #{Product.last.id} créé"
 product_62 = Product.create!(
   name: "vertigo",
   main: true,
-  sku: "city_road_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "vertigo_80x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
   supplier_delay: 21,
-  width: 90,
+  width: 80,
   height: 60,
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
@@ -2092,6 +2092,124 @@ product_62.photos.attach(io: file1, filename: "product_1_photo.png")
 # product_1.photos.attach(io: file3, filename: "product_1_photo.png")
 
 puts "Produit #{Product.last.id} créé"
+
+
+
+# # ////////////////////////////////
+
+product_63 = Product.create!(
+  name: "church",
+  main: true,
+  sku: "church_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "eglise",
+  meta_description: "vue du sol",
+  price_cents: 23400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681125282872-ecd5e684ecc4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_63.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+# # ////////////////////////////////
+
+product_64 = Product.create!(
+  name: "tools",
+  main: true,
+  sku: "tools_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  description: "outils",
+  meta_description: "outils de conception",
+  price_cents: 22400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 90,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "paysage",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://plus.unsplash.com/premium_photo-1677456384043-d131d8db2a81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_64.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
+# # ////////////////////////////////
+
+product_65 = Product.create!(
+  name: "modern_dance",
+  main: true,
+  sku: "modern_dance_60x60_carre_Toileseulecanvas100%coton340gm2",
+  description: "danse",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 19400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 60,
+  height: 60,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "carre",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681152322586-7ddde43866a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_65.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
+# # ////////////////////////////////
+
+product_66 = Product.create!(
+  name: "cubalibre",
+  main: true,
+  sku: "cubalibre_50x70_portrait_Toileseulecanvas100%coton340gm2",
+  description: "ville route",
+  meta_description: "tableau d'un loup qui lutte contre le vent",
+  price_cents: 29400,
+  discount_price_cents: 0,
+  stock_quantity: 0,
+  supplier_delay: 21,
+  width: 50,
+  height: 70,
+  support: "Toileseulecanvas100%coton340gm2",
+  frame_quantity: 1,
+  orientation: "portrait",
+  subcategory: subcategory1
+)
+file1 = URI.open("https://images.unsplash.com/photo-1681120740487-3cf9ca15e0c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+product_66.photos.attach(io: file1, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+
+puts "Produit #{Product.last.id} créé"
+
+
 # product_7 = Product.create!(
 #   name: "Poêle à granulés FREEPOINT Duke airtight noir 12 kW",
 #   sku: "849055721",

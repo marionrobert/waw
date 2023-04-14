@@ -15,6 +15,9 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :stock_quantity, default: 0
       t.date :discount_ending_date, default: 30.days.from_now.to_date
       t.integer :supplier_delay, default: 14
+      t.integer :render_price
+      t.string :fournisseur
+      t.integer :reward
       t.timestamps
       t.references :subcategory, null: false, foreign_key: true
     end

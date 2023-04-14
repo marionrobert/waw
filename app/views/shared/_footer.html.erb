@@ -1,4 +1,4 @@
-<div style="height:100%;margin-top:10vh">
+<%# <div style="height:100%;margin-top:10vh"> %>
   <div class="sectionresponsivefooter">
     <div style="display:grid;margin-bottom:4vh;margin-right:10%">
       <div style="display:flex;align-items:center">
@@ -19,7 +19,7 @@
           <p style="text-align:left;height:auto">Inscrivez-vous à notre Newsletter</p>
           <div style="display:flex;align-items:center">
             <%= text_field_tag 'email_contact[email]', nil, placeholder: "Entrez votre adresse e-mail", style: "color:white;width:70%;height:4vh;display:flex;justify-content:start;text-align:left;background:black;border:2px solid white;margin:1vh 0;" %>
-            <input type="submit" value="Valider" style="margin-left:10px;padding:0 15px;height:4vh;width:auto">
+            <input type="submit" value="Valider" style="text-transform:uppercase;font-size:smaller;margin-left:10px;padding:0 15px;height:4vh;width:auto">
           </div>
         </div>
       </form>
@@ -30,4 +30,4 @@
       <p class="mentionslegales"><%= link_to "Mentions legales", legal_path , class:"white_deco_none"%></p>
     </div>
   </div>
-</div>
+<%# </div> %>

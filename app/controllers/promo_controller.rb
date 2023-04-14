@@ -3,7 +3,7 @@ class PromoController < ApplicationController
 
 
   def index
-    @products = Product.where("discount_price_cents > 0")
+    @pagy, @products = pagy(Product.where("discount_price_cents > 0").where(main: true).order(:name))
     # scope :products, -> { where("discount_price_cents > 20") }
   end
 end

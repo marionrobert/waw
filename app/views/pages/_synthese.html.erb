@@ -52,3 +52,20 @@
     </div>
   </div>
 <%end%>
+
+<div>
+  <%if current_user != nil%>
+    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+    <%if current_user.favorite_products.count == 0%>
+      <p style="text-align:center;margin-bottom:15vh;"><i>Vous n'avez aucun produit en favoris</i></p>
+    <%else%>
+    <div class="" style="display:flex;margin-bottom:15vh;height:75vh;width:100%;overflow:auto;">
+      <%# <div style="height:5vh;display:flex;flew-flow:wrap"> %>
+          <% current_user.favorite_products.each do |product| %>
+          <%= render "shared/#{Shop.first.card}", product: product %>
+          <% end %>
+      <%# </div> %>
+    </div>
+    <%end%>
+  <%end%>
+</div>

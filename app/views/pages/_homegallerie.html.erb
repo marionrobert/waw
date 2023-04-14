@@ -21,6 +21,11 @@
     </div>
   </div>
 <div style="display:flex;justify-content:center">
+
+<h3 style="text-align:center">Simulateur d'intérieur</h3>
+<p style="text-align:center"><i>Prenez une photo de votre intérieur et simulé la présence de l'oeuvre chez vous<i></p>
+<div style="display:flex;justify-content:center;margin-top:1rem">
+
 <%# ENSEMBLE GLOBAL %>
 
   <div id="house_background">
@@ -32,12 +37,15 @@
     <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;" data-gallerie-target="room6">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
-        <% if @product.photos.first %>
+        <% if @product %>
           <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
           <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
           </div>
-
+        <% else %>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+          <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
+          </div>
         <% end %>
       </div>
     </div>

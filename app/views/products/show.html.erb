@@ -1,5 +1,4 @@
-
-<div class="producthomecontainer showmargintop" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
+<div class="producthomecontainer" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
   <div class="container" >
     <div class="fildariane">
       <%= link_to category_path(@product.subcategory.category) do  %>
@@ -16,7 +15,7 @@
     </div>
 
     <div class="back-products-button">
-      <%= link_to products_path, :class => "btn btn-dark" do%>
+      <%= link_to products_path, :class => "btn-backproduct" do%>
         <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
       <% end %>
     </div>
@@ -47,7 +46,7 @@
           <%end%>
         </span>
         <%# favorite %>
-        <i class="fa-solid fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
+        <i class="fa-regular fa-heart c4-favorite heart-favorite-product-show <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
             data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>
             data-favorites-product-id-param="<%= @product.id %>">
         </i>
@@ -69,7 +68,7 @@
 
 
         <div class="simulateurbutton">
-          <a href="#house_background"><button class="btn btn-primary">Voir chez moi</button></a>
+          <a href="#house_background"><button class="btnathome">Voir chez moi</button></a>
         </div>
       </div>
 
@@ -84,26 +83,24 @@
             <span style="display:none" data-loadvariants-target="endingDate"><%= @product.discount_ending_date %></span>
             <p style="color:red;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time"></span></p>
           <% else %>
-            <h4><b>Prix : <%= @price %> € TTC</b></h4>
+            <h4 style="text-align: left;font-weight: 400;">Prix : <%= @price %> € TTC</h4>
             <span data-loadvariants-target="endingDate" style="display:none"></span>
           <%end%>
         </span>
 
-        <div data-loadvariants-target="stockzone" style="margin-top:2em">
-          <%if @product.stock_quantity > 0%>
-            <p style="color:green;text-align:left"><strong>En stock :</strong> <%=@product.stock_quantity%> exemplaires disponibles</p>
-          <%else%>
-            <p style="color:green;text-align:left"><i>Disponible sous <%=@product.supplier_delay%> jours</i></p>
+        <%# <div data-loadvariants-target="stockzone" style="margin-top:2em;"> %>
+          <%#if @product.stock_quantity > 0%>
+            <%# <p style="color:green;text-align:left"><strong>En stock :</strong> %>
+            <%#=@product.stock_quantity%>
+             <%# exemplaires disponibles</p> %>
+          <%#else%>
+            <%# <p style="color:green;text-align:left"><i>Disponible sous %>
+            <%#=@product.supplier_delay%>
+             <%# jours</i></p> %>
             <%# voir :delay_retailer a ajouter a product %>
-          <%end%>
-        </div>
-
-        <div class="tags_description">
-          <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
-          <%@words.each do |word|%>
-            <span class="span_wordtag">#<%=word%></span>
-          <%end%>
-        </div>
+          <%#end%>
+        <%# </div> %>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, debitis necessitatibus inventore, ad perferendis ipsa ea enim beatae totam recusandae, aliquam quod placeat maxime illum porro exercitationem minus assumenda blanditiis!</p>
 
         <h2 style="margin:2rem 0">Caractéristiques:</h2>
           <table class="productcaract">
@@ -152,9 +149,31 @@
             <% end %>
             <%= link_to "Dimension sur mesure? Contactez-nous", shop_path(Shop.first) , class:"mt-3 mb-5", style:"display:flex;justify-content:start"%>
         </div>
-        <span data-loadvariants-target="addtocart">
-          <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btn btn-success addtocart p-4", style:"justify-content: center; align-items: center; display: flex;" %>
+
+
+
+        <span data-loadvariants-target="addtocart" style="margin: 2rem;">
+          <% if @product.discount_price_cents != 0 %>
+            <%= button_to "#{(@product.discount_price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+              class: "btnaddproduct",
+              style: "text-transform: uppercase; justify-content: center; align-items: center; display: flex;" %>
+          <% else %>
+            <%= button_to "#{(@product.price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+              class: "btnaddproduct",
+              style: "text-transform: uppercase; justify-content: center; align-items: center; display: flex;" %>
+          <% end %>
         </span>
+        <%# <span data-loadvariants-target="addtocart" style="margin: 2rem;"> %>
+          <%#= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btnaddproduct", style:"text-transform: uppercase;justify-content: center; align-items: center; display: flex;" %>
+        <%# </span> %>
+
+        <div class="tags_description">
+          <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
+          <%@words.each do |word|%>
+            <span class="span_wordtag">#<%=word%></span>
+          <%end%>
+        </div>
+
       </div>
 
     </div>
@@ -162,7 +181,7 @@
   </div>
 
   <%# Product description area %>
-  <div style="margin-top:3vh;border-top:1px solid grey;">
+  <div style="margin-top:5vh;">
     <%# Simple description %>
     <%= content_tag(:p, @product.description, style:"padding-top:2vh;display:none", data: {share_target: "body"}) %>
     <%# Simple description %>
@@ -171,7 +190,7 @@
     </p>
   </div >
 
-  <section data-controller="gallerie" style="background:rgba(200,200,200,0.3);padding: 15px 0; box-shadow: 0px 0px 10px rgba(200,200,200,0.5);">
+  <section data-controller="gallerie" style="background:rgba(200,200,200,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(200,200,200,0.5);">
     <%= render "pages/homegallerie"%>
   </section>
 
