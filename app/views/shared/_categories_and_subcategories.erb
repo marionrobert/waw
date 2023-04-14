@@ -3,24 +3,15 @@
 
 <%#§////////////////// les categories/////////////////////  %>
 <div data-controller="category">
+<%# la class ".enable_on_desktop" toggle avec hidden au hover %>
   <div id="bandeau_categories" class="hidden">
-    <div class="categories-overflow">
-      <p class="allproductlink">
-        <%= link_to "TOUS NOS PRODUITS",
-            products_path,
-            style:"color:black"
-        %>
-      </p>
-      <p>
-        <%= link_to "PROMO",
-            promo_path,
-            class:"promolink"
-        %>
-      </p>
+    <div class="categories-overflow" style="border:none">
+      <p class="special_cat"><%= link_to "TOUS NOS PRODUITS", products_path, style:"color:black"%></p>
+      <p class="special_cat"><%= link_to "PROMO", promo_path, class:"promolink" %></p>
       <% @categories.each do |category| %>
         <%=link_to category_path(category) do%>
           <div data-action="mouseenter->category#sub_cat_deploy_desktop">
-            <p><%=category.name%></p>
+            <p class="hover_deco"><%=category.name%></p>
           </div>
         <%end%>
       <% end %>
