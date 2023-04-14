@@ -4,8 +4,8 @@
         <i class="fa-regular fa-circle-xmark" style="-webkit-text-stroke: 1px white;font-size: xx-large;color:black;position:absolute;right:3%;top:3%"></i>
       <% end %>
 
-      <% if @product.photos.attached? %>
-        <%= cl_image_tag @product.photos.first.key, style:"padding: 20px;"%>
+      <% if @product.watermarks.attached? %>
+        <%= cl_image_tag @product.watermarks.first.key, style:"padding: 20px;"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
           style:"padding: 20px;",
