@@ -161,12 +161,14 @@ export default class extends Controller {
     let boutton = document.getElementById("simulateurgridmobile");
     let bgselector = document.getElementById("bg_selector");
     let framewidth = document.getElementById("framewidth");
+    let brightness_slider = document.getElementById("brightness-slider");
 
     boutton.classList.toggle("hidden");
     boutton.classList.toggle("simulateurgridmobile");
     framewidth.classList.toggle("hidden");
     framewidth.classList.toggle("d-flex");
     bgselector.classList.toggle("hidden");
+    brightness_slider.classList.toggle("hidden");
   }
 
   noframe() {
