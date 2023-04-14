@@ -74,18 +74,7 @@
              %>
           </p>
         </div>
-        <%= link_to "MON COMPTE", profile_path, style:"margin: 0 auto;display:flex;
-                                                       align-items:center;
-                                                       position: absolute;
-                                                       bottom: 0;
-                                                       left: 0;
-                                                       right: 0;
-                                                       width: auto;
-                                                       justify-content: center;
-                                                       height: 5vh;
-                                                       background:black;
-                                                       color:white;
-                                                       z-index:1001" %>
+
       <% @categories.each do |category| %>
         <div class="categorymenu",
              data-action="click->category#displaysubcategory">

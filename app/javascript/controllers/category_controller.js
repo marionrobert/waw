@@ -6,17 +6,17 @@ export default class extends Controller {
   connect() {
   }
 
-  homebuttondeploy() {
-    const homebtn= document.getElementById("homebutton");
-    homebtn.classList.remove("deploy_home_icon");
-    homebtn.classList.add("TESTAPPEARHOME");
-  }
+  // homebuttondeploy() {
+  //   const homebtn= document.getElementById("homebutton");
+  //   homebtn.classList.remove("deploy_home_icon");
+  //   homebtn.classList.add("TESTAPPEARHOME");
+  // }
 
-  homebuttonrestore() {
-    const homebtn2= document.getElementById("homebutton");
-    homebtn2.classList.remove("TESTAPPEARHOME");
-    homebtn2.classList.add("deploy_home_icon");
-  }
+  // homebuttonrestore() {
+  //   const homebtn2= document.getElementById("homebutton");
+  //   homebtn2.classList.remove("TESTAPPEARHOME");
+  //   homebtn2.classList.add("deploy_home_icon");
+  // }
 
 
 
@@ -24,17 +24,21 @@ export default class extends Controller {
 
   /* 1 - slide category menu */
   slidecategorymenu() {
+    const accountbutton = document.getElementById('account_and_wishlist_buttons');
     const cat_left_barre = document.getElementById("smalldevicecategories");
     cat_left_barre.classList.add("displaycat");
+    accountbutton.classList.add("displaycat");
   }
 
   /* 1 - hide category menu */
   hidecategorymenu() {
+    const accountbutton = document.getElementById('account_and_wishlist_buttons');
     const catcross = document.getElementById("smalldevicecategories");
     catcross.classList.remove("displaycat");
 
     // supprimer les sub-catégories qui étaient affichées selon la catégorie sélectionnée
     // remise à zéro
+    accountbutton.classList.remove("displaycat");
     const allSubcategories = document.getElementsByClassName("subcat")
     const arrayallSubcategories = Object.values(allSubcategories)
     arrayallSubcategories.forEach(function(subcategory){

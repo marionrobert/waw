@@ -7,6 +7,7 @@ class Product < ApplicationRecord
 
   has_one :visit, dependent: :destroy
   has_many_attached :photos
+  has_many_attached :watermarks
   validates :width, presence: true
   validates :height, presence: true
   validates :support, presence: true

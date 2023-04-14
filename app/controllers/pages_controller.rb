@@ -10,8 +10,8 @@ class PagesController < ApplicationController
     @categories = Category.all
     @subcategories = Subcategory.all
     @last_products = Product.where(main: true).last(15)
-    @products_in_stock = Product.where("stock_quantity > 0").where(main: true).first(20)
-
+    @products_landscape = Product.where("width > height").where(main: true).first(20)
+    @products_portrait = Product.where("width < height").where(main: true).first(20)
     all_promo = []
     @products_with_discount = Product.where("discount_price_cents > 0").where(main: true)
     @products_with_discount.each do |product|
