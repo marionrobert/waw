@@ -1,5 +1,9 @@
 <%= turbo_frame_tag :modal do%>
-  <div class="zoompreview">
+  <div id="zoompreview">
+      <%= link_to deletepreview_product_path(@product), data: { turbo_frame: "modal" } do %>
+        <i class="fa-regular fa-circle-xmark" style="position:absolute;right:3%;top:3%"></i>
+      <% end %>
+
       <% if @product.photos.attached? %>
         <%= cl_image_tag @product.photos.first.key, style:"max-width:90%;max-height:90%"%>
       <% else %>

@@ -59,7 +59,13 @@
               class: 'd-block mx-auto') %>
         <% end %>
 
-        <%= link_to "ZOOM", preview_product_path, data: {turbo_frame: "modal"} %>
+
+        <div id="zoom-product-show">
+          <%= link_to preview_product_path(@product), data: { turbo_frame: "modal" } do %>
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <% end %>
+        </div>
+
 
         <div class="simulateurbutton">
           <a href="#house_background"><button class="btnathome">Voir chez moi</button></a>
