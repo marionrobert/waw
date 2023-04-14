@@ -1,4 +1,8 @@
 <%# MISE EN PAGE CENTRE %>
+<h3 style="text-align:center">Simulateur d'intérieur</h3>
+<p style="text-align:center"><i>Prenez une photo de votre intérieur et simuler la présence de l'oeuvre chez vous<i></p>
+<%# <div style="display:flex;justify-content:center;margin-top:1rem"> %>
+
   <div id="frame_selector">
     <div id="nofame" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
       <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto"%>
@@ -22,9 +26,6 @@
   </div>
 <div style="display:flex;justify-content:center">
 
-<h3 style="text-align:center">Simulateur d'intérieur</h3>
-<p style="text-align:center"><i>Prenez une photo de votre intérieur et simulé la présence de l'oeuvre chez vous<i></p>
-<div style="display:flex;justify-content:center;margin-top:1rem">
 
 <%# ENSEMBLE GLOBAL %>
 
@@ -38,7 +39,7 @@
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product %>
-          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
           <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
           </div>
@@ -47,6 +48,7 @@
           <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
           </div>
         <% end %>
+        <input type="range" min="0" max="1" step="0.05" value="1" id="brightness-slider">
       </div>
     </div>
         <button class="eye" data-action="click->gallerie#hidebutton"><i class="fa-solid fa-eye"></i></button>
@@ -70,9 +72,8 @@
     </div>
   </div>
 </div>
+
 <div>
-
-
   <div style="display:none;justify-content:center;margin:1rem">
     <p style="text-align:center;font-weight:bold"><i class="fa-sharp fa-solid fa-angles-down fa-bounce" style=";font-weight:bold;margin-right:0.2rem"></i></i>Téléchargez une photo de chez moi<i class="fa-sharp fa-solid fa-angles-down fa-bounce" style="font-weight:bold;margin-left:0.2rem"></i></p>
     <div style="display-flex">
@@ -106,6 +107,7 @@
 </div>
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 <script>
@@ -133,4 +135,22 @@
       r5.style.backgroundImage = "none";
     }
   }
+</script>
+
+
+<!-- Ajouter du code JavaScript -->
+<script>
+  $(document).ready(function() {
+    // Récupérer l'élément <img> à partir de son ID
+    const img = document.getElementById("mainframe");
+
+    // Ajouter un événement "input" au sélecteur de défilement
+    $("#brightness-slider").on("input", function() {
+      // Récupérer la valeur du sélecteur de défilement
+      const brightnessValue = $(this).val();
+
+      // Appliquer le filtre de luminosité à l'image
+      img.style.filter = `brightness(${brightnessValue})`;
+    });
+  });
 </script>
