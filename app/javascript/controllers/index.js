@@ -37,9 +37,6 @@ application.register("favorites", FavoritesController)
 import GallerieController from "./gallerie_controller"
 application.register("gallerie", GallerieController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import LineItemQuantityController from "./line_item_quantity_controller"
 application.register("line-item-quantity", LineItemQuantityController)
 
