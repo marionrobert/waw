@@ -76,6 +76,8 @@
         <%= content_tag(:h2, @product.name,
                         class:"dataproductnameshow",
                         data: { share_target: "title"}) %>
+
+          <p>Par <%=@product.fournisseur ? @product.fournisseur.capitalize : ""%></p>
         <span data-loadvariants-target="pricezone">
           <% if @product.discount_price_cents != 0 %>
             <h4 style="text-decoration:line-through">Prix : <span data-loadvariants-target="price"><%= @price %></span> € TTC</h4>

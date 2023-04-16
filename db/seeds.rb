@@ -361,6 +361,7 @@ product_1 = Product.create!(
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "paysage",
+  fournisseur: "intel",
   subcategory: subcategory1
 )
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
@@ -617,6 +618,7 @@ product_10 = Product.create!(
   support: "Toileseulecanvas100%coton340gm2",
   frame_quantity: 1,
   orientation: "carre",
+  fournisseur: "machin",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")

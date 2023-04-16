@@ -38,8 +38,8 @@
           <%= product.input :photos, as: :file, label: "Photos du produit", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
           <%= product.input :watermarks, as: :file, label: "Photo watermark", input_html: { multiple: true }, label_html:{ class:"labelcolor" }%>
           <%= product.input :render_price, label: "Coût de revient", placeholder: "12800", label_html:{ class:"labelcolor" }, input_html: { min: '1', :class => "input_price"} %>
-          <%= product.input :name, label: "Fournisseur", placeholder: "John DOE", label_html:{ class:"labelcolor" } %>
-          <%= product.input :reward, label: "Coût de revient", placeholder: "12800", label_html:{ class:"labelcolor" }, input_html: { min: '1', :class => "input_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
+          <%= product.input :fournisseur, label: "Fournisseur", placeholder: "John DOE", label_html:{ class:"labelcolor" } %>
+          <%= product.input :reward, label: "Reward", placeholder: "12800", label_html:{ class:"labelcolor" }, input_html: { min: '1', :class => "input_price", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }} %>
           <div style="width:100%;background:rgba(234,179,241,0.8);padding:15px;border-radius:5px">
             <%= product.input :discount_price_cents, label: "Prix promotionnel (0 si aucune promo en cours)", placeholder: "1990", label_html:{ class:"labelcolor" }, input_html: { min: '0', :class => "input_discount_price"} %>
             <p id=<%= "input_discount_price"%> style="font-size: 12px;">Renseignez un prix pour le convertir en euro</p>
