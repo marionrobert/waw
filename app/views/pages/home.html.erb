@@ -153,8 +153,6 @@
 
 <script>
 
-  // Récupération des éléments HTML
-  console.log("okiiiiiikj!");
   let scrollLeft = document.getElementById('scroll_left');
   let scrollRight = document.getElementById('scroll_right');
   let carouselClickable = document.getElementById('carouselclickable');
@@ -163,81 +161,45 @@
   let quarterScreenWidth = window.innerWidth * 0.25;
   let totalWidth = carouselClickable.scrollWidth;
 
-  // Fonction pour calculer la nouvelle largeur de la div carouselclickable
-  function calculateNewWidth() {
-    let newWidth;
-    if (window.innerWidth < 700) {
-      newWidth = cards.length * 100;
-    } else if (window.innerWidth >= 701 && window.innerWidth <= 959) {
-      newWidth = cards.length * 50;
-    } else {
-      newWidth = cards.length * 25;
-    }
-    return newWidth;
-  }
-
-  // Fonction pour modifier la largeur de la div carouselclickable
-  function setCarouselWidth() {
-    let newWidth = calculateNewWidth();
-    carouselClickable.style.width = `${newWidth}vw`;
-  }
-
-  // Fonction pour déplacer la div carouselclickable vers la gauche
   function moveLeft() {
 
     if (window.innerWidth < 700) {
-
       if (transformValue >= 0) {
         transformValue = (cards.length) * -100;
       }
-      transformValue += 100
+      transformValue += 100;
       carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-
     } else {
-
       if (transformValue >= 0) {
         transformValue = (cards.length - 1) * -25;
       }
       transformValue += 25;
       carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-
     }
   }
 
   function moveRight() {
-
     if (window.innerWidth < 700) {
-
-       if (transformValue <= (cards.length - 1) * -100) {
+      if (transformValue <= (cards.length - 1) * -100) {
         transformValue = 100;
       }
-      transformValue -= 100
+      transformValue -= 100;
       carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-
     } else {
-
       if (transformValue <= (cards.length - 1) * -25) {
-        transformValue = 0;
+        transformValue = 25;
       }
       transformValue -= 25;
       carouselClickable.style.transform = `translateX(${transformValue}vw)`;
     }
   }
 
+  scrollLeft.addEventListener('click', moveLeft);
+  scrollRight.addEventListener('click', moveRight);
 
-// setCarouselWidth();
-scrollLeft.addEventListener('click', moveLeft);
-scrollRight.addEventListener('click', moveRight);
-
-// Ajout de l'écouteur d'événement sur le redimensionnement de la fenêtre
-window.addEventListener('resize', function() {
-  console.log("je change d'écran");
-  setCarouselWidth();
-  console.log(transformValue);
-  transformValue = 0;
-  // moveLeft();
-  console.log(transformValue);
-  }
-);
+  window.addEventListener('resize', function() {
+    carouselClickable.style.transform = `translateX(0)`;
+    }
+  );
 
 </script>
