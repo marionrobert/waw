@@ -20,10 +20,14 @@ export default class extends Controller {
   }
 
   categoriesdisplay() {
-    // const categoriesbutton = document.getElementById("categoriesdesktopbutton")
-    const bandeaucat = document.getElementById("bandeau_categories")
-    bandeaucat.classList.toggle("hidden")
-    bandeaucat.classList.toggle("enable_on_desktop")
+    const bandeaucat = document.getElementById("bandeau_categories");
+    bandeaucat.classList.remove("hidden");
+    bandeaucat.classList.add("enable_on_desktop");
 
+    // Ajout de l'écouteur d'événements
+    bandeaucat.addEventListener("mouseleave", function() {
+      bandeaucat.classList.remove("enable_on_desktop");
+      bandeaucat.classList.add("hidden");
+    });
   }
 }

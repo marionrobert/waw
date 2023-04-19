@@ -421,83 +421,64 @@
     left:-60vw;
   }
 
-  .allproductlink {
-    margin:0 auto;
-    // border:2px solid rgba(120,120,120,0.1);
-    border-bottom:2px solid rgba(0,0,0,0);
-    // background: rgb(230,230,230);
-    color:black;
-    &:hover {
-      color:grey;
-      border-bottom:2px solid rgba(0,0,0,1);
-      // background: rgb(125,125,125);
-    }
-  }
+  // .allproductlink a{
+  //   margin:0 auto;
+  //   // border:2px solid rgba(120,120,120,0.1);
+  //   border-bottom:2px solid rgba(0,0,0,0);
+  //   // background: rgb(230,230,230);
+  //   color:black;
+  //   &:hover {
+  //     color:grey;
+  //     border-bottom:2px solid rgba(0,0,0,1);
+  //     // background: rgb(125,125,125);
+  //   }
+
+  // }
 
 
   .categories-overflow {
     p {
       color:black;
     }
-    width:88%;
-    display:flex;
-    justify-content:space-around;
-    overflow-x: scroll;
+    width:25%;
+    display:grid;
+    overflow-y: scroll;
     &::-webkit-scrollbar{
       border-radius: 10px;
-      // C'est ce HEIGHT la qui fait que quand on hover une sous-categorie le trait noir ne touche pas le bas de la navbar
       height: 0px;
-      // background-color: yellow;
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      // -webkit-box-shadow: inset 0 0 6px violet;
       background-color: purple;
       // border:1px solid black;
     }
     &::-webkit-scrollbar-track {
       height: 50px;
       border-radius: 10px;
-      // -webkit-box-shadow: inset 0 0 6px blue;
-      // background-color: green;
     }
   }
 
   .enable_on_desktop {
-    margin:0;
+    padding:2rem 0 0 2rem;
     width:100vw;
+    height:50vh;
     display:flex;
-    justify-content:space-around;
-    // border-top:1px solid rgba(150,150,150,0.3);
+    justify-content:flex-start;
     border-bottom: 1px solid rgba(150,150,150,0.3);
     background:white;
-
-    p {
-      cursor:pointer;
-      width:auto;
-      margin: 0 1vw;
-      display: inline-block;
-      white-space: nowrap;
-      border:2px solid rgba(0,0,0,0);
-      padding: 5px 20px;
-      border-radius:2px;
-      // text-shadow: white 0px 0px 1px;
-    }
-
-    p:hover {
-      color:black;
-      border-bottom:2px solid rgba(0,0,0,1);
-    }
   }
 
   .subcategorydesktopmenu {
-    background-color:rgb(222, 222, 222);
-    margin:0;
-    width:100vw;
-    height:7vh;
+    // background-color:rgb(222, 222, 222);
+    transition: 300ms;
+    border-left:2px solid rgb(80,80,80);
+    // margin:0;
+    width:100%;
+    height:100%;
+    margin:0 0 0 -1rem;
     // padding: 10px;
-    display: flex;
-    justify-content:space-around;
+    display: grid;
+    justify-content: flex-start;
     // border-bottom: 1px solid grey;
     a {
       color:black;
@@ -507,8 +488,29 @@
     }
   }
 
+  .hover_deco {
+    border-bottom: 2px solid rgba(0,0,0,0);
+
+    &:hover{
+      transition: 300ms;
+      border-bottom: 2px solid rgb(80,80,80);
+      }
+  }
+
+  .special_cat {
+    transition: 300ms;
+    &:hover{
+      transition: 300ms;
+      transform: translateX(1rem);
+      }
+  }
+
   .desktop_subcat_hide_or_not {
     display:none;
+  }
+
+  .subcat {
+    padding-left:2rem;
   }
 
 

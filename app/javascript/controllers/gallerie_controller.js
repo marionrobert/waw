@@ -163,6 +163,7 @@ export default class extends Controller {
     let framewidth = document.getElementById("framewidth");
     let brightness_slider = document.getElementById("brightness-slider");
 
+
     boutton.classList.toggle("hidden");
     boutton.classList.toggle("simulateurgridmobile");
     framewidth.classList.toggle("hidden");

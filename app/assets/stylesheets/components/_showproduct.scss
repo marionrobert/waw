@@ -16,7 +16,8 @@
 
 .productcaract{
   box-shadow: 1px 1px 3px grey;
-  margin:2rem 0;
+  // margin:2rem 0;
+  margin: 0 auto;
   tbody {
     td {
       p {
@@ -26,13 +27,19 @@
     }
   }
 
+  .tabledata {
+    width:65%;
+  }
+
   .boldcaract{
     color:white;
     background: black;
     font-weight:bold;
     text-align:left;
     margin-left:1rem;
+    width:35%;
   }
+
   @media screen and (max-width: 481px) {
     .boldcaract {
       min-width:35vw;
@@ -125,6 +132,10 @@
 
 @media screen and (min-width: 481px) {
   .btnaddproduct {
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     width: 100%;
     background-color: #54a054;
     height: 5vh;
@@ -175,6 +186,10 @@
     position:relative;
   }
   .btnaddproduct {
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     background-color: #54a054;
     border-radius: 0px;
     color: white;
@@ -251,10 +266,13 @@
 }
 
 
-.simulateurbutton {
+.buttons_show_action {
   display:flex;
-  justify-content:center;
-  margin-top:1rem
+  justify-content:space-around;
+  align-items: center;
+  margin-top:1rem;
+  color:black;
+  font-size:xx-large;
 }
 
 .btn-backproduct {

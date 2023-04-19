@@ -34,21 +34,20 @@
     <img id="room2" class="roombg" src="/assets/salons/salon2.jpg" alt="salon2" style="display:none" data-gallerie-target="room2">
     <img id="room3" class="roombg" src="/assets/salons/salon3.jpg" alt="salon3" style="display:none" data-gallerie-target="room3">
     <img id="room4" class="roombg" src="/assets/salons/salon4.jpg" alt="salon4" style="display:none" data-gallerie-target="room4">
-    <%# <img id="room5" class="roombg" src="" alt="salon5" style="display:none" data-gallerie-target="room5"> %>
+    <img id="room5" class="roombg" src="" alt="salon5" style="display:none" data-gallerie-target="room5">
     <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;" data-gallerie-target="room6">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product %>
           <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
-          <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
+          <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
           </div>
         <% else %>
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
-          <div id="framewidth" class="d-flex" style="color:black;align-items:baseline;font-size:smaller;position:absolute;top:-10%;margin-left:40%;transform: perspective(400px) rotateY(0deg);" data-gallerie-target="framewidth">
+          <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
           </div>
         <% end %>
-        <input type="range" min="0" max="1" step="0.05" value="1" id="brightness-slider">
       </div>
     </div>
         <button class="eye" data-action="click->gallerie#hidebutton"><i class="fa-solid fa-eye"></i></button>
@@ -83,28 +82,30 @@
   </div>
 
   <div id="bg_selector">
-    <div id="r1" class="vignettesalon" data-action="click->gallerie#change_bg1">
-      <%= image_tag "salons/salon1.jpg" %>
-    </div>
+      <div id="r1" class="vignettesalon" data-action="click->gallerie#change_bg1">
+        <%= image_tag "salons/salon1.jpg" %>
+      </div>
 
-    <div id="r2" class="vignettesalon" data-action="click->gallerie#change_bg2">
-      <%= image_tag "salons/salon2.jpg"%>
-    </div>
+      <div id="r2" class="vignettesalon" data-action="click->gallerie#change_bg2">
+        <%= image_tag "salons/salon2.jpg"%>
+      </div>
 
-    <div id="r3" class="vignettesalon" data-action="click->gallerie#change_bg3">
-      <%= image_tag "salons/salon3.jpg"%>
-    </div>
+      <div id="r3" class="vignettesalon" data-action="click->gallerie#change_bg3">
+        <%= image_tag "salons/salon3.jpg"%>
+      </div>
 
-    <div id="r4" class="vignettesalon" data-action="click->gallerie#change_bg4">
-      <%= image_tag "salons/salon4.jpg"%>
-    </div>
+      <div id="r4" class="vignettesalon" data-action="click->gallerie#change_bg4">
+        <%= image_tag "salons/salon4.jpg"%>
+      </div>
 
-    <div id="r5" class="vignettesalon" onclick="document.querySelector('#imageUpload').click()" style="background:white; cursor: pointer; display: flex; justify-content: center; align-items: center;">
-      <p style="margin: 0;text-align:center">Importer ma photo</p>
-      <i class="fa-solid fa-camera" ></i>
-    </div>
+      <div id="r5" class="vignettesalon" onclick="document.querySelector('#imageUpload').click()" style="background:white; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+        <p style="margin: 0;text-align:center">Importer ma photo</p>
+        <i class="fa-solid fa-camera" ></i>
+      </div>
   </div>
 </div>
+<p style="text-align:center;margin:2rem 0 0.5rem 0;">luminositée:</p>
+<input type="range" min="0" max="1" step="0.05" value="1" id="brightness-slider" style="margin:0 auto;width:50%;display:grid">
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
