@@ -42,8 +42,9 @@
 }
 
 .prev {
-  left: 0.5vw;
+  left: 0.1vw;
   i {
+    font-size: 2rem;
     &:hover{
       color: rgba(12, 12, 12, 0.8);
     }
@@ -51,8 +52,9 @@
 }
 
 .next {
-  right: 0.5vw;
+  right: 0.1vw;
   i {
+    font-size: 2rem;
     &:hover{
       color: rgba(12, 12, 12, 0.8);
     }
