@@ -21,19 +21,18 @@
 </div>
 
 
-<div class="producthomecontainer" data-controller="favorites carousel-homepage">
+<div class="producthomecontainer" data-controller="favorites">
 
   <div style="display:flex;justify-content:space-between">
-    <h3 class="carouselh3">Les articles en promotions - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
+    <h3 class="carouselh3">Découvrez nos oeuvres en promotion - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
     <h4 style="display: grid;align-items: center;margin-right:2rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
   </div>
-<%# CE CAROUSEL EST BON %>
   <section>
-    <div class="main_carousel_area">
+    <div class="main_carousel_area" data-controller="carousel-homepage">
       <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-      <div id="carouselclickable" data-carousel-homepage-target="carouselpromo"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
         <% @products_with_discount.each do |product| %>
-          <div class="cardcarousel" data-carousel-homepage-target="cardcarouselpromo">
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
             <%= render "shared/#{Shop.first.card}", product: product %>
           </div>
         <% end %>
@@ -84,22 +83,34 @@
 
 
   <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
-    <h3 class="carouselh3">Aperçu des oeuvres format paysages</h3>
-    <div class="d-flex justify-content-center" style="flex-flow:nowrap;width:100%;margin: 0 auto;overflow:auto" data-controller="favorites" >
-      <% @products_landscape.each do |product| %>
-        <%= render "shared/#{Shop.first.card}", product: product%>
-      <% end %>
+    <h3 class="carouselh3">Découvrez nos oeuvres en format paysage</h3>
+    <div class="main_carousel_area" data-controller="carousel-homepage">
+      <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+        <% @products_landscape.each do |product| %>
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+            <%= render "shared/#{Shop.first.card}", product: product %>
+          </div>
+        <% end %>
+      </div>
+      <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
     </div>
   </section>
 
-  <section>
-      <h3 class="carouselh3">Aperçu des oeuvres format portrait</h3>
-    <div class="d-flex justify-content-center" style="flex-flow:nowrap;width:100%;margin: 0 auto;overflow:auto" data-controller="favorites" >
-      <% @products_portrait.each do |product| %>
-        <%= render "shared/#{Shop.first.card}", product: product%>
-      <% end %>
+  <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
+    <h3 class="carouselh3">Découvrez nos oeuvres en format portrait</h3>
+    <div class="main_carousel_area" data-controller="carousel-homepage">
+      <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+        <% @products_portrait.each do |product| %>
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+            <%= render "shared/#{Shop.first.card}", product: product %>
+          </div>
+        <% end %>
+      </div>
+      <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
     </div>
-  <section>
+  </section>
 
   <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);" >
     <h3 class="carouselh3">Produits par catégories</h3>

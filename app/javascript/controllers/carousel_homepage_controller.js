@@ -2,53 +2,50 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="carousel-homepage"
 export default class extends Controller {
-  static targets = ["carouselpromo", "cardcarouselpromo"]
+  static targets = ["carousel", "cardcarousel"]
 
   connect() {
-    console.log("test!!!")
-    console.log(this.carouselpromoTarget)
-    console.log(this.cardcarouselpromoTargets)
+    console.log("testouille")
+    console.log(this.carouselTarget)
+    console.log(this.cardcarouselTargets)
     this.transformValue = 0
     window.addEventListener("resize", () => this.resetTransformValue());
   }
 
   scroll_left() {
-    console.log("scroll left function has been triggered")
-
     if (window.innerWidth < 700) {
       if (this.transformValue >= 0) {
-        this.transformValue = (this.cardcarouselpromoTargets.length) * -100;
+        this.transformValue = (this.cardcarouselTargets.length) * -100;
       }
       this.transformValue += 100;
-      this.carouselpromoTarget.style.transform = `translateX(${this.transformValue}vw)`;
+      this.carouselTarget.style.transform = `translateX(${this.transformValue}vw)`;
     } else {
       if (this.transformValue >= 0) {
-        this.transformValue = (this.cardcarouselpromoTargets.length - 1) * -25;
+        this.transformValue = (this.cardcarouselTargets.length - 1) * -25;
       }
       this.transformValue += 25;
-      this.carouselpromoTarget.style.transform = `translateX(${this.transformValue}vw)`;
+      this.carouselTarget.style.transform = `translateX(${this.transformValue}vw)`;
     }
   }
 
   scroll_right() {
-    console.log("scroll right function has been triggered")
     if (window.innerWidth < 700) {
-      if (this.transformValue <= (this.cardcarouselpromoTargets.length - 1) * -100) {
+      if (this.transformValue <= (this.cardcarouselTargets.length - 1) * -100) {
         this.transformValue = 100;
       }
       this.transformValue -= 100;
-      this.carouselpromoTarget.style.transform = `translateX(${this.transformValue}vw)`;
+      this.carouselTarget.style.transform = `translateX(${this.transformValue}vw)`;
     } else {
-      if (this.transformValue <= (this.cardcarouselpromoTargets.length - 1) * -25) {
+      if (this.transformValue <= (this.cardcarouselTargets.length - 1) * -25) {
         this.transformValue = 25;
       }
       this.transformValue -= 25;
-      this.carouselpromoTarget.style.transform = `translateX(${this.transformValue}vw)`;
+      this.carouselTarget.style.transform = `translateX(${this.transformValue}vw)`;
     }
   }
 
   resetTransformValue() {
     this.transformValue = 0;
-    this.carouselpromoTarget.style.transform = `translateX(${this.transformValue})`;
+    this.carouselTarget.style.transform = `translateX(${this.transformValue})`;
   }
 }
