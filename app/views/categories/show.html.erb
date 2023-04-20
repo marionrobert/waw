@@ -8,20 +8,24 @@
     width: 100vw;
     background-image: url('<%= cl_image_path @category.photos.first.key %>')">
 </div>
-<div class="container" style="margin-top:5vh">
-  <div style="display:flex;justify-content:center">
-    <h2><%=@category.name%></h2>
-  </div>
-  <%@subcategories.each do |subcategory|%>
-    <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
-      <button class="btn btn-dark m-5 p-3">Tous nos produits « <%=subcategory.name%> »</button>
-    <%end%>
-    <div style="display:flex;">
-      <div class="wrapperhomepage" data-controller="favorites">
-        <% subcategory.products.where(main: true).each do |product| %>
-          <%= render "shared/#{Shop.first.card}", product: product%>
-        <%end%>
-      </div>
-    </div>
-  <%end%>
+<div style="display:flex;justify-content:center" style="margin-top:5vh">
+  <h2><%=@category.name%></h2>
 </div>
+<%@subcategories.each do |subcategory|%>
+  <%=link_to category_subcategory_path(subcategory.category, subcategory) do%>
+    <button class="btn btn-dark m-5 p-3">Tous nos produits « <%=subcategory.name%> »</button>
+  <%end%>
+  <section class="carouselcontainer">
+    <div class="main_carousel_area" data-controller="carousel-homepage">
+      <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+        <% subcategory.products.where(main: true).each do |product| %>
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+            <%= render "shared/#{Shop.first.card}", product: product %>
+          </div>
+        <% end %>
+      </div>
+      <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
+    </div>
+  </section>
+<%end%>

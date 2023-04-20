@@ -1,7 +1,7 @@
 @media screen and (min-width: 481px) {
 
   .product-details:before {
-    content: "Format.";
+    content: "Format:\00a0";
   }
 
   .shortcut_payement {
@@ -511,6 +511,12 @@
 
   .subcat {
     padding-left:2rem;
+  }
+
+  .carouselcontainer {
+    margin-right: auto;
+    margin-left: auto;
+    width:80%;
   }
 
 

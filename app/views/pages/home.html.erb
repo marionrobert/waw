@@ -22,263 +22,105 @@
 
 
 <div class="producthomecontainer" data-controller="favorites">
+
   <div style="display:flex;justify-content:space-between">
-    <h3 class="carouselh3">Les articles en promotions - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
+    <h3 class="carouselh3">Découvrez nos oeuvres en promotion - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
     <h4 style="display: grid;align-items: center;margin-right:2rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
   </div>
-<%# CE CAROUSEL EST BON %>
-<section>
-  <div class="main_carousel_area">
-    <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel#prev"><i class="fa-solid fa-angles-left"></i></button>
-    <div id="carouselclickable" style="height:100%;position:absolute;left:0;top:0;display:flex;">
-      <% @products_with_discount.each do |product| %>
-        <div class="cardcarousel">
-          <%= render "shared/#{Shop.first.card}", product: product %>
-        </div>
-      <% end %>
+  <section class="carouselcontainer">
+    <div class="main_carousel_area" data-controller="carousel-homepage">
+      <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+        <% @products_with_discount.each do |product| %>
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+            <%= render "shared/#{Shop.first.card}", product: product %>
+          </div>
+        <% end %>
+      </div>
+      <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
     </div>
-    <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel#next"><i class="fa-solid fa-angles-right"></i></button>
-  </div>
-</section>
+  </section>
 
-<section style="display:none">
-<h3 class="carouselh3">Découvrez les derniers tendances</h3>
-<%# CE CAROUSEL LA EST FOIREUX %>
-  <div class="carouselgroup-container">
-    <div class="carouselgroup" data-controller="carousel">
-      <div class="carouselgroup-content">
-        <div class="carouselgroup-item">
-          <% if @last_products.present? && @last_products.first(5).present? %>
-            <% @last_products.first(5).each do |product| %>
+  <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
+    <div class="carouselcontainer">
+      <h3 class="carouselh3">Découvrez nos oeuvres en format paysage</h3>
+      <div class="main_carousel_area" data-controller="carousel-homepage">
+        <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+        <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+          <% @products_landscape.each do |product| %>
+            <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
               <%= render "shared/#{Shop.first.card}", product: product %>
-            <% end %>
-          <% else %>
-            <p>Aucun produit en promotion pour le moment.</p>
+            </div>
           <% end %>
         </div>
-        <div class="carouselgroup-item">
-          <% if @last_products.present? && @last_products.first(11)[6..10].present? %>
-            <% @last_products.first(11)[6..10].each do |product| %>
-              <%= render "shared/#{Shop.first.card}", product: product %>
-            <% end %>
-          <% else %>
-            <p>Aucun produit en promotion pour le moment.</p>
-          <% end %>
-        </div>
-        <div class="carouselgroup-item">
-          <% if @last_products.present? && @last_products.last(5).present? %>
-            <% @last_products.last(5).each do |product| %>
-              <%= render "shared/#{Shop.first.card}", product: product %>
-            <% end %>
-          <% else %>
-            <p>Aucun produit en promotion pour le moment.</p>
-          <% end %>
-        </div>
+        <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
       </div>
     </div>
-    <button class="carouselgroup-button prev" data-action="click->carousel#prev"><i class="fa-solid fa-angles-left"></i></button>
-    <button class="carouselgroup-button next" data-action="click->carousel#next"><i class="fa-solid fa-angles-right"></i></button>
-  </div>
-</section>
+  </section>
 
-
-<section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
-  <h3 class="carouselh3">Aperçu des oeuvres format paysages</h3>
-  <div class="d-flex justify-content-center" style="flex-flow:nowrap;width:100%;margin: 0 auto;overflow:auto" data-controller="favorites" >
-    <% @products_landscape.each do |product| %>
-      <%= render "shared/#{Shop.first.card}", product: product%>
-    <% end %>
-  </div>
-</section>
-
-<section>
-    <h3 class="carouselh3">Aperçu des oeuvres format portrait</h3>
-  <div class="d-flex justify-content-center" style="flex-flow:nowrap;width:100%;margin: 0 auto;overflow:auto" data-controller="favorites" >
-    <% @products_portrait.each do |product| %>
-      <%= render "shared/#{Shop.first.card}", product: product%>
-    <% end %>
-  </div>
-<section>
-
-<section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);" >
-  <h3 class="carouselh3">Produits par catégories</h3>
-  <div class="catwrapperoddevencontent">
-    <div style="display:flex">
-      <div class="catwrapperhomepage">
-        <% @categories.each_with_index do |category, index| %>
-          <%=link_to category_path(category) do%>
-            <% if index.odd? %>
-              <% if category.photos.first %>
-                <div class="oddcategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
-                  <h3 class="catvignettename"><%= category.name %></h3>
-                </div>
-              <% else %>
-                <div class="oddcategory" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
-                  <h3 class="catvignettename"><%= category.name %></h3>
-                </div>
-              <% end %>
-            <% end%>
-          <%end%>
-        <%end%>
+  <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
+    <div class="carouselcontainer">
+      <h3 class="carouselh3">Découvrez nos oeuvres en format portrait</h3>
+      <div class="main_carousel_area" data-controller="carousel-homepage">
+        <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+        <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+          <% @products_portrait.each do |product| %>
+            <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+              <%= render "shared/#{Shop.first.card}", product: product %>
+            </div>
+          <% end %>
+        </div>
+        <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
       </div>
     </div>
-    <div style="display:flex">
-      <div class="catwrapperhomepage">
-        <% @categories.each_with_index do |category, index| %>
-          <%=link_to category_path(category) do%>
-            <% if index.even? %>
-              <% if category.photos.first %>
-                  <div class="evencategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
+  </section>
+
+  <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);" >
+    <h3 class="carouselh3">Produits par catégories</h3>
+    <div class="catwrapperoddevencontent">
+      <div style="display:flex">
+        <div class="catwrapperhomepage">
+          <% @categories.each_with_index do |category, index| %>
+            <%=link_to category_path(category) do%>
+              <% if index.odd? %>
+                <% if category.photos.first %>
+                  <div class="oddcategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
                     <h3 class="catvignettename"><%= category.name %></h3>
                   </div>
                 <% else %>
-                  <div class="evencategory" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
+                  <div class="oddcategory" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
                     <h3 class="catvignettename"><%= category.name %></h3>
                   </div>
                 <% end %>
-            <% end%>
+              <% end%>
+            <%end%>
           <%end%>
-        <%end%>
+        </div>
+      </div>
+      <div style="display:flex">
+        <div class="catwrapperhomepage">
+          <% @categories.each_with_index do |category, index| %>
+            <%=link_to category_path(category) do%>
+              <% if index.even? %>
+                <% if category.photos.first %>
+                    <div class="evencategory" style="background-image: url('<%= cl_image_path category.photos.first.key %>');">
+                      <h3 class="catvignettename"><%= category.name %></h3>
+                    </div>
+                  <% else %>
+                    <div class="evencategory" style="background-image: url('https://images.unsplash.com/photo-1528027656671-6d156f4f1f48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80');">
+                      <h3 class="catvignettename"><%= category.name %></h3>
+                    </div>
+                  <% end %>
+              <% end%>
+            <%end%>
+          <%end%>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section style="margin-bottom:5vh;">
     <h3 class="carouselh3">Découvrez les derniers articles publiés !</h3>
       <%= render "blogposts/blogpostoddeven"%>
   </section>
 </div>
-
-
-<script>
-
-  // Récupération des éléments HTML
-  let scrollLeft = document.getElementById('scroll_left');
-  let scrollRight = document.getElementById('scroll_right');
-  let carouselClickable = document.getElementById('carouselclickable');
-  let carouselItems = carouselClickable.querySelectorAll('.carousel-item');
-  let cards = carouselClickable.querySelectorAll('.cardcarousel');
-
-  // Fonction pour calculer la nouvelle largeur de la div carouselclickable
-  function calculateNewWidth() {
-    let newWidth;
-    if (window.innerWidth < 700) {
-      newWidth = cards.length * 100;
-    } else if (window.innerWidth >= 701 && window.innerWidth <= 959) {
-      newWidth = cards.length * 50;
-    } else {
-      newWidth = cards.length * 25;
-    }
-    return newWidth;
-  }
-
-  // Fonction pour modifier la largeur de la div carouselclickable
-  function setCarouselWidth() {
-    let newWidth = calculateNewWidth();
-    carouselClickable.style.width = `${newWidth}vw`;
-  }
-
-  // Fonction pour déplacer la div carouselclickable vers la gauche
-  function moveLeft() {
-    // Si nous sommes sur un écran de moins de 700px, on se déplace de 100vw
-    if (window.innerWidth < 700) {
-      if (transformValue === (cards.length - 1) * -100) {
-        transformValue = 0;
-      } else {
-        transformValue -= 100;
-      }
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    } else {
-      // Si nous avons atteint la fin du carrousel, nous devons masquer les éléments et réorganiser le carrousel à l'autre bout
-      if (transformValue >= 0) {
-        transformValue -= totalWidth;
-        carouselClickable.style.transform = `translateX(${transformValue}px)`;
-      }
-      // Soustraction de la valeur de transformation
-      transformValue += quarterScreenWidth;
-      carouselClickable.style.transform = `translateX(${transformValue}px)`;
-    }
-  }
-
-  function moveRight() {
-    // Si nous sommes sur un écran de moins de 700px, on se déplace de -100vw
-    if (window.innerWidth < 700) {
-      if (transformValue === 0) {
-        transformValue = (cards.length - 1) * -100;
-      } else {
-        transformValue += 100;
-      }
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    } else {
-      // Si nous avons atteint la fin du carrousel, nous devons masquer les éléments et réorganiser le carrousel à l'autre bout
-      if (transformValue <= -totalWidth + quarterScreenWidth) {
-        transformValue += totalWidth;
-        carouselClickable.style.transform = `translateX(${transformValue}px)`;
-      }
-      // Ajout de la valeur de transformation
-      transformValue -= quarterScreenWidth;
-      carouselClickable.style.transform = `translateX(${transformValue}px)`;
-    }
-  }
-
-// Initialisation des variables
-let transformValue = 0;
-let quarterScreenWidth = window.innerWidth * 0.25;
-let totalWidth = carouselClickable.scrollWidth;
-
-// Modification de la largeur de la div carouselclickable
-setCarouselWidth();
-
-// Ajout des écouteurs d'événements sur les clics des boutons
-if (window.innerWidth < 700) {
-scrollLeft.addEventListener('click', moveRight);
-scrollRight.addEventListener('click', moveLeft);
-} else {
-scrollLeft.addEventListener('click', moveLeft);
-scrollRight.addEventListener('click', moveRight);
-}
-
-// Ajout de l'écouteur d'événement sur le redimensionnement de la fenêtre
-window.addEventListener('resize', function() {
-let newQuarterScreenWidth;
-if (window.innerWidth < 700) {
-newQuarterScreenWidth = window.innerWidth * 0.25;
-} else if (window.innerWidth >= 700 && window.innerWidth <= 959) {
-newQuarterScreenWidth = window.innerWidth * 0.5;
-} else {
-newQuarterScreenWidth = window.innerWidth * 0.25;
-}
-if (quarterScreenWidth !== newQuarterScreenWidth) {
-quarterScreenWidth = newQuarterScreenWidth;
-totalWidth = carouselClickable.scrollWidth;
-setCarouselWidth();
-  // Mise à jour des écouteurs d'événements sur les clics des boutons
-  if (window.innerWidth < 700) {
-    scrollLeft.removeEventListener('click', moveLeft);
-    scrollRight.removeEventListener('click', moveRight);
-    scrollLeft.addEventListener('click', moveRight);
-    scrollRight.addEventListener('click', moveLeft);
-  } else {
-    scrollLeft.removeEventListener('click', moveRight);
-    scrollRight.removeEventListener('click', moveLeft);
-    scrollLeft.addEventListener('click', moveLeft);
-    scrollRight.addEventListener('click', moveRight);
-  }
-}
-  // Mise à jour des écouteurs d'événements sur les clics des boutons
-  if (window.innerWidth < 700) {
-    scrollLeft.removeEventListener('click', moveLeft);
-    scrollRight.removeEventListener('click', moveRight);
-    scrollLeft.addEventListener('click', moveRight);
-    scrollRight.addEventListener('click', moveLeft);
-  } else {
-    scrollLeft.removeEventListener('click', moveRight);
-    scrollRight.removeEventListener('click', moveLeft);
-    scrollLeft.addEventListener('click', moveLeft);
-    scrollRight.addEventListener('click', moveRight);
-  }
-}
-);
-
-</script>
