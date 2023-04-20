@@ -5,9 +5,6 @@ export default class extends Controller {
   static targets = ["carousel", "cardcarousel"]
 
   connect() {
-    console.log("testouille")
-    console.log(this.carouselTarget)
-    console.log(this.cardcarouselTargets)
     this.transformValue = 0
     window.addEventListener("resize", () => this.resetTransformValue());
   }
