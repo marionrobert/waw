@@ -21,7 +21,8 @@
 </div>
 
 
-<div class="producthomecontainer" data-controller="favorites">
+<div class="producthomecontainer" data-controller="favorites carousel-homepage">
+
   <div style="display:flex;justify-content:space-between">
     <h3 class="carouselh3">Les articles en promotions - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
     <h4 style="display: grid;align-items: center;margin-right:2rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
@@ -29,15 +30,15 @@
 <%# CE CAROUSEL EST BON %>
   <section>
     <div class="main_carousel_area">
-      <button id="scroll_left" class="carouselgroup-button prev" ><i class="fa-solid fa-angles-left"></i></button>
-      <div id="carouselclickable" style="height:100%;position:absolute;left:0;top:0;display:flex;">
+      <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+      <div id="carouselclickable" data-carousel-homepage-target="carouselpromo"style="height:100%;position:absolute;left:0;top:0;display:flex;">
         <% @products_with_discount.each do |product| %>
-          <div class="cardcarousel">
+          <div class="cardcarousel" data-carousel-homepage-target="cardcarouselpromo">
             <%= render "shared/#{Shop.first.card}", product: product %>
           </div>
         <% end %>
       </div>
-      <button id="scroll_right" class="carouselgroup-button next" ><i class="fa-solid fa-angles-right"></i></button>
+      <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
     </div>
   </section>
 
@@ -149,57 +150,3 @@
       <%= render "blogposts/blogpostoddeven"%>
   </section>
 </div>
-
-
-<script>
-
-  let scrollLeft = document.getElementById('scroll_left');
-  let scrollRight = document.getElementById('scroll_right');
-  let carouselClickable = document.getElementById('carouselclickable');
-  let cards = carouselClickable.querySelectorAll('.cardcarousel');
-  let transformValue = 0;
-  let quarterScreenWidth = window.innerWidth * 0.25;
-  let totalWidth = carouselClickable.scrollWidth;
-
-  function moveLeft() {
-
-    if (window.innerWidth < 700) {
-      if (transformValue >= 0) {
-        transformValue = (cards.length) * -100;
-      }
-      transformValue += 100;
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    } else {
-      if (transformValue >= 0) {
-        transformValue = (cards.length - 1) * -25;
-      }
-      transformValue += 25;
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    }
-  }
-
-  function moveRight() {
-    if (window.innerWidth < 700) {
-      if (transformValue <= (cards.length - 1) * -100) {
-        transformValue = 100;
-      }
-      transformValue -= 100;
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    } else {
-      if (transformValue <= (cards.length - 1) * -25) {
-        transformValue = 25;
-      }
-      transformValue -= 25;
-      carouselClickable.style.transform = `translateX(${transformValue}vw)`;
-    }
-  }
-
-  scrollLeft.addEventListener('click', moveLeft);
-  scrollRight.addEventListener('click', moveRight);
-
-  window.addEventListener('resize', function() {
-    carouselClickable.style.transform = `translateX(0)`;
-    }
-  );
-
-</script>

@@ -2,22 +2,13 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { Application } from "stimulus"
-
-// chatgpt m'a dit d'ajouter ca
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-const application = Application.start()
-const context = require.context("../controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
-// fin ici
-
-
+import { application } from "./application"
 
 import AutocompleteproductController from "./autocompleteproduct_controller"
 application.register("autocompleteproduct", AutocompleteproductController)
 
-import CarouselController from "./carousel_controller"
-application.register("carousel", CarouselController)
+import CarouselHomepageController from "./carousel_homepage_controller"
+application.register("carousel-homepage", CarouselHomepageController)
 
 import CategoryController from "./category_controller"
 application.register("category", CategoryController)
@@ -49,14 +40,8 @@ application.register("map", MapController)
 import PreviewPriceChangeController from "./preview_price_change_controller"
 application.register("preview-price-change", PreviewPriceChangeController)
 
-import ScrollController from "./scroll_controller"
-application.register("scroll", ScrollController)
-
 import SearchController from "./search_controller"
 application.register("search", SearchController)
-
-import SearchareaController from "./searcharea_controller"
-application.register("searcharea", SearchareaController)
 
 import ShareController from "./share_controller"
 application.register("share", ShareController)
