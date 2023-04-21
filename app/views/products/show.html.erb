@@ -94,7 +94,7 @@
           <%end%>
         </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, debitis necessitatibus inventore, ad perferendis ipsa ea enim beatae totam recusandae, aliquam quod placeat maxime illum porro exercitationem minus assumenda blanditiis!</p>
+        <p><%= @product.description %></p>
 
         <h2 style="text-align:left;margin:2rem 0">Caractéristiques:</h2>
           <table class="productcaract">
@@ -156,8 +156,8 @@
         </span>
 
         <div class="tags_description">
-          <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
-          <%@words.each do |word|%>
+          <h2 style="margin-bottom:2rem">Tags descriptifs:</h2>
+          <%@tag_words.each do |word|%>
             <span class="span_wordtag">#<%=word%></span>
           <%end%>
         </div>
@@ -191,3 +191,4 @@
     </div>
   </div>
 </div>
+<%= console %>

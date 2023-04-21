@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @categories_illustration = []
 
     Category.all.each do |category|
-    @categories_illustration << category.photos.first
+      @categories_illustration << category.photos.first
     end
 
     # @query = Product.ransack(params[:q])
@@ -49,8 +49,13 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     @product = Product.find(params[:format]) if !@product
+
     description = @product.description
-    @words = description.split(" ")
+    words = description.split
+    words.map! { |element| element.gsub(/\./, "") }
+
+    @tag_words = words.select { |word| word.length >= 5 }
+
     @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
     # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
     @price += "0" if @price[-2] == ","
