@@ -31,6 +31,7 @@ export default class extends Controller {
           <span style="display:none" data-loadvariants-target="endingDate">${data.discount_ending_date}</span>
           <p style="color:red;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time"></span></p>`
         } else {
+          this.discountpercentzoneTarget.innerHTML = ""
           this.pricezoneTarget.innerHTML = `<h4><b>Prix : ${data.price} € TTC</b></h4>
           <span data-loadvariants-target="endingDate" style="display:none"></span>`
         }
@@ -48,9 +49,6 @@ export default class extends Controller {
         } else {
           this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><i>Disponible sous ${data.supplier_delay} jours</i></p>`
         }
-        // update button add to cart
-        this.addtocartTarget.innerHTML = `<form class="button_to" method="post" action="/line_items?product_id=${data.id}"><button class="btnaddproduct" type="submit">${data.price} € Ajouter au panier</button><input type="hidden" name="authenticity_token" value="TqR7J7iQcO8bM-9Phoc75WLMmNhlcC5eh3tr-kkGA3-PdGzGkrtA6rTepL9nqRG8hL03fhGdvdHqnIkb_ipm1g" autocomplete="off"></form>`
-
 
         // no display all the red arrows
         const all_arrows = document.getElementsByClassName("fa-arrow-right")
@@ -79,6 +77,12 @@ export default class extends Controller {
           }
         });
 
+        // update price in "addtocart" button
+        if (data.discount_price_cents === 0) {
+          this.addtocartTarget.innerHTML = `<form class="button_to" method="post" action="/line_items?product_id=${data.id}"><button class="btnaddproduct" type="submit">Ajouter au panier : ${data.price} € </button><input type="hidden" name="authenticity_token" value="TqR7J7iQcO8bM-9Phoc75WLMmNhlcC5eh3tr-kkGA3-PdGzGkrtA6rTepL9nqRG8hL03fhGdvdHqnIkb_ipm1g" autocomplete="off"></form>`
+        } else {
+          this.addtocartTarget.innerHTML = `<form class="button_to" method="post" action="/line_items?product_id=${data.id}"><button class="btnaddproduct" type="submit">Ajouter au panier : ${data.promotionnal_price} € </button><input type="hidden" name="authenticity_token" value="TqR7J7iQcO8bM-9Phoc75WLMmNhlcC5eh3tr-kkGA3-PdGzGkrtA6rTepL9nqRG8hL03fhGdvdHqnIkb_ipm1g" autocomplete="off"></form>`
+        }
       })
   }
 
