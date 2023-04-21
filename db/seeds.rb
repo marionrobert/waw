@@ -77,7 +77,7 @@ blogpost_3 = Blogpost.create!(title:"Où partir en 2023 ?",
 puts "CREATION DES DIFFERENTES CATEGORIES ET SOUS-CATEGORIES ASSOCIES"
 # CATEGORIE 1
 
-category1 = Category.create!(name:"NATURE")
+category1 = Category.create!(name:"Nature")
             file1 = URI.open("https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
@@ -110,7 +110,7 @@ puts "category #{category1.name} créée"
 
 # CATEGORIE 2
 
-category2 = Category.create!(name:"ENFANT")
+category2 = Category.create!(name:"Enfant")
             file1 = URI.open("https://images.unsplash.com/photo-1541043081679-e877f6b15b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
             category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
@@ -120,22 +120,22 @@ puts "category #{category2.name} créée"
   subcategory6.save!
   puts "Sous-catégorie #{subcategory6.name} créée"
 
-  subcategory7 = Subcategory.new(name:"animaux 3D")
+  subcategory7 = Subcategory.new(name:"Animaux3D")
   subcategory7.category = category2
   subcategory7.save!
   puts "Sous-catégorie #{subcategory7.name} créée"
 
-  subcategory8 = Subcategory.new(name:"dessin")
+  subcategory8 = Subcategory.new(name:"Dessin")
   subcategory8.category = category2
   subcategory8.save!
   puts "Sous-catégorie #{subcategory8.name} créée"
 
-  subcategory9 = Subcategory.new(name:"animaux")
+  subcategory9 = Subcategory.new(name:"Jouets")
   subcategory9.category = category2
   subcategory9.save!
   puts "Sous-catégorie #{subcategory9.name} créée"
 
-  subcategory10 = Subcategory.new(name:"coloré")
+  subcategory10 = Subcategory.new(name:"Coloré")
   subcategory10.category = category2
   subcategory10.save!
   puts "Sous-catégorie #{subcategory10.name} créée"
@@ -180,7 +180,7 @@ puts "category #{category4.name} créée"
   subcategory15.save!
   puts "Sous-catégorie #{subcategory15.name} créée"
 
-  subcategory16 = Subcategory.new(name:"Coloré")
+  subcategory16 = Subcategory.new(name:"Multicolore")
   subcategory16.category = category4
   subcategory16.save!
   puts "Sous-catégorie #{subcategory16.name} créée"
@@ -1117,7 +1117,7 @@ product_28 = Product.create!(
   main: true,
   sku: "city_road_60x60_carre_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "tableau d'une ville avec une route",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1145,7 +1145,7 @@ product_29 = Product.create!(
   main: true,
   sku: "enseignetokyo_50x80_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Tableau d'une enseigne dans une rue de Tokyo",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1173,7 +1173,7 @@ product_30 = Product.create!(
   main: true,
   sku: "tokyostreet_60x60_care_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Rue de Tokyo",
   price_cents: 29400,
   discount_price_cents: 7415,
   discount_ending_date: Time.zone.parse('23-05-2023 23:59:59'),
@@ -1202,7 +1202,7 @@ product_31 = Product.create!(
   main: true,
   sku: "trek_45x70_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Homme marchant dans la forêt lors d'un trek",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1230,7 +1230,7 @@ product_32 = Product.create!(
   main: true,
   sku: "nomansland_90x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Paysage désertique traversé par une route",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1258,7 +1258,7 @@ product_33 = Product.create!(
   main: true,
   sku: "sunnyplants_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Ensemble de plantes dans une cour ensoleillée",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1286,7 +1286,7 @@ product_34 = Product.create!(
   main: true,
   sku: "citizenact_90x60_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Actes citoyens inscrits sur des briques de lait",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1315,7 +1315,7 @@ product_35 = Product.create!(
   main: true,
   sku: "surforfly_45x70_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Sport extrême. Coucher de soleil.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1342,7 +1342,7 @@ product_36 = Product.create!(
   main: true,
   sku: "drunk_60x90_paysage_Toileseulecanvas100%coton340gm2",
   description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Reflet dans le miroir de deux femmes alcoolisées.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1369,8 +1369,8 @@ product_37 = Product.create!(
   name: "surfeverywhere",
   main: true,
   sku: "surfeverywhere_45x70_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "ordinateur femme montre lit",
+  meta_description: "Femme travaillant sur son ordinateur portable.",
   price_cents: 29400,
   discount_price_cents: 852,
   discount_ending_date: Time.zone.parse('04-06-2023 23:59:59'),
@@ -1399,8 +1399,8 @@ product_38 = Product.create!(
   name: "surfeverywhere",
   main: false,
   sku: "surfeverywhere_80x150_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "ordinateur femme montre lit",
+  meta_description: "Femme travaillant sur son ordinateur portable.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1427,8 +1427,8 @@ product_39 = Product.create!(
   name: "feellittle",
   main: true,
   sku: "feellittle_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "mer baignade paysage",
+  meta_description: "Deux personnes se baignent dans une mer agitée.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1455,8 +1455,8 @@ product_40 = Product.create!(
   name: "foreignstreet",
   main: true,
   sku: "foreignstreet_50x90_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "rue Allemagne",
+  meta_description: "Rue allemande.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1483,8 +1483,8 @@ product_41 = Product.create!(
   name: "modernromance",
   main: true,
   sku: "modernromance_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "amoureux métro mariage",
+  meta_description: "Deux jeunes mariés se tiennent la main en attendant le métro.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1511,8 +1511,8 @@ product_42 = Product.create!(
   name: "focusoneggs",
   main: true,
   sku: "focusoneggs_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "oeufs table",
+  meta_description: "Deux oeufs sur une table dressée.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1539,8 +1539,8 @@ product_43 = Product.create!(
   name: "droneviewforest",
   main: true,
   sku: "droneviewforest_75x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "forêt",
+  meta_description: "Forêt vue du ciel. Couleurs automnales.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1568,7 +1568,7 @@ product_44 = Product.create!(
   main: true,
   sku: "emptystadium_60x90_portrait_Toileseulecanvas100%coton340gm2",
   description: "stade sport vide competition",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  meta_description: "Stade vidé de ses spectateurs.",
   price_cents: 29400,
   discount_price_cents: 7410,
   discount_ending_date: Time.zone.parse('31-05-2023 23:59:59'),
@@ -1596,8 +1596,8 @@ product_45 = Product.create!(
   name: "brightwater",
   main: true,
   sku: "brightwater_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "eau turquoise",
+  meta_description: "Eau turquoise. Mer.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1624,8 +1624,8 @@ product_46 = Product.create!(
   name: "homesweethome",
   main: true,
   sku: "homesweethome_80x50_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "intéieur maison salon",
+  meta_description: "Salon cosy d'une maison.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1652,8 +1652,8 @@ product_47 = Product.create!(
   name: "girlinfield",
   main: true,
   sku: "girlinfield_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Femme jupe champ blé été",
+  meta_description: "Femme marchant dans un champ de blé avec un bouquet de fleurs à la main.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1680,8 +1680,8 @@ product_48 = Product.create!(
   name: "easyclimbing",
   main: true,
   sku: "easyclimbing_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "escalier tourbillon",
+  meta_description: "Escalier",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1708,8 +1708,8 @@ product_49 = Product.create!(
   name: "youmeanselfie",
   main: true,
   sku: "youmeanselfie_45x80_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "nature selfie homme sable",
+  meta_description: "Homme regardant les photos qu'il vient de prendre. Paysage côtier.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1736,8 +1736,8 @@ product_50 = Product.create!(
   name: "whiteloneliness",
   main: true,
   sku: "whiteloneliness_90x50_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Marcheur dans la neige sous un ciel bleu",
+  meta_description: "Marcheur dans la neige sous un ciel bleu",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1764,8 +1764,8 @@ product_51 = Product.create!(
   name: "preciousthangold",
   main: true,
   sku: "preciousthangold_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Mer bleue.",
+  meta_description: "Mer bleue.",
   price_cents: 29400,
   discount_price_cents: 842,
   discount_ending_date: Time.zone.parse('06-04-2023 23:59:59'),
@@ -1793,8 +1793,8 @@ product_52 = Product.create!(
   name: "chiarobscuroreverted",
   main: true,
   sku: "chiarobscuroreverted_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Homme jouant de la guitare devant un coucher de soleil.",
+  meta_description: "Homme jouant de la guitare devant un coucher de soleil.",
   price_cents: 29400,
   discount_price_cents: 852,
   discount_ending_date: Time.zone.parse('25-04-2023 23:59:59'),
@@ -1822,8 +1822,8 @@ product_53 = Product.create!(
   name: "acidulé",
   main: true,
   sku: "acidulé_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Oranges",
+  meta_description: "Oranges",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1850,8 +1850,8 @@ product_54 = Product.create!(
   name: "backgroundfocus",
   main: true,
   sku: "backgroundfocus_60x90_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Femme dans un paysage de montagnes en été.",
+  meta_description: "Femme dans un paysage de montagnes en été.",
   price_cents: 29400,
   discount_price_cents: 842,
   discount_ending_date: Time.zone.parse('07-04-2023 23:45:59'),
@@ -1877,8 +1877,8 @@ product_55 = Product.create!(
   name: "lookup",
   main: true,
   sku: "lookup_60x90_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Feuilles de palmier sur fond de ciel bleu.",
+  meta_description: "Feuilles de palmier sur fond de ciel bleu.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1905,8 +1905,8 @@ product_56 = Product.create!(
   name: "yellowellipse",
   main: true,
   sku: "yellowellipse_90x45_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Elipse jaune.",
+  meta_description: "Elipse jaune.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1933,8 +1933,8 @@ product_57 = Product.create!(
   name: "springcommings",
   main: true,
   sku: "springcomings_60x90_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Fleurs de sakura sur fond de ciel bleu.",
+  meta_description: "Fleurs de sakura sur fond de ciel bleu.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1961,8 +1961,8 @@ product_58 = Product.create!(
   name: "earlymorningriver",
   main: true,
   sku: "earlymorningriver_50x80_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Rivière à l'aube dans un paysage de montagnes.",
+  meta_description: "Rivière à l'aube dans un paysage de montagnes.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -1989,8 +1989,8 @@ product_59 = Product.create!(
   name: "bigcitylife",
   main: true,
   sku: "bigcitylife_60x90_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Ville tentaculaire. Urbanisme.",
+  meta_description: "Ville tentaculaire. Urbanisme.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2017,8 +2017,8 @@ product_60 = Product.create!(
   name: "japanandtradition",
   main: true,
   sku: "japanandtradition_60x90_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Femme japonaise en kimono marchant une rue traditionnelle.",
+  meta_description: "Femme japonaise en kimono marchant une rue traditionnelle.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2045,8 +2045,8 @@ product_61 = Product.create!(
   name: "nicebuilding",
   main: true,
   sku: "nicebuilding_50x80_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Immeuble aux nombreuses fenêtres dans Brooklyn.",
+  meta_description: "Immeuble aux nombreuses fenêtres dans Brooklyn.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2073,8 +2073,8 @@ product_62 = Product.create!(
   name: "vertigo",
   main: true,
   sku: "vertigo_80x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Paysage de montagne et de vide.",
+  meta_description: "Paysage de montagne et de vide.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2103,8 +2103,8 @@ product_63 = Product.create!(
   name: "church",
   main: true,
   sku: "church_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "eglise",
-  meta_description: "vue du sol",
+  description: "Intérieur d'une cathédrale, vue du sol.",
+  meta_description: "Intérieur d'une cathédrale, vue du sol.",
   price_cents: 23400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2131,8 +2131,8 @@ product_64 = Product.create!(
   name: "tools",
   main: true,
   sku: "tools_90x60_paysage_Toileseulecanvas100%coton340gm2",
-  description: "outils",
-  meta_description: "outils de conception",
+  description: "Ustentils.",
+  meta_description: "Ustentils",
   price_cents: 22400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2160,8 +2160,8 @@ product_65 = Product.create!(
   name: "modern_dance",
   main: true,
   sku: "modern_dance_60x60_carre_Toileseulecanvas100%coton340gm2",
-  description: "danse",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Danseuse exécutant une danse moderne.",
+  meta_description: "Danseuse exécutant une danse moderne.",
   price_cents: 19400,
   discount_price_cents: 0,
   stock_quantity: 0,
@@ -2189,8 +2189,8 @@ product_66 = Product.create!(
   name: "cubalibre",
   main: true,
   sku: "cubalibre_50x70_portrait_Toileseulecanvas100%coton340gm2",
-  description: "ville route",
-  meta_description: "tableau d'un loup qui lutte contre le vent",
+  description: "Verres d'alcool à Cuba.",
+  meta_description: "Verres d'alcool à Cuba.",
   price_cents: 29400,
   discount_price_cents: 0,
   stock_quantity: 0,

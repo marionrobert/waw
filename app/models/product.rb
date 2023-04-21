@@ -28,14 +28,14 @@ class Product < ApplicationRecord
   delegate :category, to: :subcategory, allow_nil: true
 
   include PgSearch::Model
-  multisearchable against: %i[name description]
-
-  pg_search_scope :name_and_description_search,
-                  against: %i[name description],
+  pg_search_scope :name_and_description_meta_description_search,
+                  against: %i[name description meta_description],
+                  associated_against: {
+                    subcategory: [:name]
+                  },
                   using: {
                     tsearch: {
-                      prefix: true,
-                      dictionary: "french"
+                      prefix: true
                     }
                   }
 
