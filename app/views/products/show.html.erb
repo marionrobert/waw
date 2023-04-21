@@ -10,13 +10,13 @@
       <% end %>
       >
       <%=link_to  product_path(@product) do  %>
-        <span><%=  @product.name %> </span>
+        <span><%=  @product.name.capitalize() %> </span>
       <% end %>
     </div>
 
     <div class="back-products-button">
       <%= link_to products_path, :class => "btn-backproduct" do%>
-        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
+        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux oeuvres</span>
       <% end %>
     </div>
 
@@ -191,4 +191,3 @@
     </div>
   </div>
 </div>
-<%= console %>

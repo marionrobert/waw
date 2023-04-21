@@ -3,16 +3,13 @@
       data-search-target="title">
     <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
   </h1>
-  <div class="back-products-button m-5">
-  <%= link_to products_path, :class => "btn-backproduct" do%>
-    <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux produits</span>
-  <% end %>
-  </div>
   <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy)%>
   </div>
   <p class="pagymarginleft"><i><%== pagy_info(@pagy) %></i></p>
   <div class="gridcontainer" data-controller="favorites" data-search-target="list">
-    <%= render 'list', products: @products %>
+    <% @products.each do |product| %>
+      <%= render "shared/#{Shop.first.card}", product: product %>
+    <% end %>
     <div class="BIG1">
       <% random_productBIG1 = @products.sample(1) %>
       <% random_productBIG1.each do |product| %>
@@ -33,4 +30,3 @@
   <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
-

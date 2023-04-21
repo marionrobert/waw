@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     @pagy, @products = pagy(Product.where(main: true).order(:name))
     # Voir config/initializers/pagy.rb pour changer la quantité de product par page
     if params[:query].present?
-        @pagy, @products = pagy(Product.where(main: true).name_and_description_meta_description_search("%#{params[:query]}%"))
+      @pagy, @products = pagy(Product.where(main: true).name_and_description_meta_description_search("%#{params[:query]}%"))
     else
       @pagy, @products = pagy(Product.where(main: true).order(:name))
     end
@@ -57,11 +57,9 @@ class ProductsController < ApplicationController
     @tag_words = words.select { |word| word.length >= 5 }
 
     @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
-    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
-    @price += "0" if @price[-2] == ","
-
     @promotionnal_price = (@product.discount_price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
-    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
+    # ajouter un 0 si les prix sont sous ce format 12,9 --> 12,90
+    @price += "0" if @price[-2] == ","
     @promotionnal_price += "0" if @promotionnal_price[-2] == ","
 
     @discount_percent = (((@product.discount_price_cents.to_f - @product.price_cents.to_f) / @product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
