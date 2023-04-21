@@ -35,14 +35,11 @@
 
     <div class="product_top_view">
       <div class="productcarrousselarea">
-        <%# Share button %>
-        <%# Promo span %>
         <span data-loadvariants-target= "discountpercentzone">
           <%if @product.discount_price_cents != 0%>
             <span class="promospanshowproduct"> <%= @discount_percent.to_i %> %</span>
           <%end%>
         </span>
-        <%# favorite %>
         <% if @product.photos.attached? %>
           <%= render "carrousel-product", product: @product %>
         <% else %>
@@ -150,16 +147,13 @@
         </div>
         <span data-loadvariants-target="addtocart" style="margin: 2rem;">
           <% if @product.discount_price_cents != 0 %>
-            <%= button_to "#{(@product.discount_price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+            <%= button_to "Ajouter au panier : #{@promotionnal_price} €", line_items_path(product_id: @product.id),
               class: "btnaddproduct"%>
           <% else %>
-            <%= button_to "#{(@product.price_cents)/100}€ Ajouter au panier", line_items_path(product_id: @product.id),
+            <%= button_to "Ajouter au panier : #{@price} €", line_items_path(product_id: @product.id),
               class: "btnaddproduct"%>
           <% end %>
         </span>
-        <%# <span data-loadvariants-target="addtocart" style="margin: 2rem;"> %>
-          <%#= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class:"btnaddproduct", style:"text-transform: uppercase;justify-content: center; align-items: center; display: flex;" %>
-        <%# </span> %>
 
         <div class="tags_description">
           <h2 style="margin-bottom:2rem">Tags descriptif:</h2>
