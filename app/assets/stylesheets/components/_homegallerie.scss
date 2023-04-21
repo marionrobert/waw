@@ -31,18 +31,21 @@
 
 .framedefaultsize {
   height:auto;
-  max-width: 15%;
+  max-width: 25%;
 }
 
 .frameadjustingarea {
   position:relative;
+  width:50%;
+  margin: 20% 45%;
+
   @media screen and (max-width: 480px) {
-    height:50vw;
-    width:80vw;
+    // height:50vw;
+    // width:80vw;
     }
   @media screen and (min-width: 481px) {
-    height:50vh;
-    width:80vh;
+    // height:50vh;
+    // width:80vh;
   }
 }
 
@@ -141,7 +144,7 @@
 }
 
 #tableau-slider {
-  position:relative;
+  // position:relative;
   z-index:100;
   width:100%;
   height:100%;

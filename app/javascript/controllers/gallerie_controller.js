@@ -3,8 +3,44 @@ import { Alert } from "bootstrap"
 
 export default class extends Controller {
   static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame", "framewidth"]
+  static values = { scale: Number }
 
   connect() {
+    this.scaleValue = 1
+    this.scale = this.scaleValue
+  }
+
+  get scale() {
+    return this.scaleValue
+  }
+
+  set scale(value) {
+    this.scaleValue = value
+    const frame = this.frameTarget
+    frame.style.transform = `scale(${value})`
+    const width = this.framewidthTarget
+    width.innerHTML = `<p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur ${(value * this.width).toFixed(2)} cm</i></p>`
+  }
+
+  get width() {
+    return parseInt(this.data.get("width"))
+  }
+
+  shrink_frame() {
+    if (this.scale <= 0.05) {
+      this.scale = 1
+      return
+    }
+    this.scale -= 0.05
+  }
+
+  bigger_frame() {
+    this.scale += 0.05
+  }
+
+  adjust_frame(event) {
+    const scaleValue = parseFloat(event.target.value)
+    this.scale = scaleValue
   }
 
 
@@ -67,38 +103,38 @@ export default class extends Controller {
     this.frameTarget.style.transform = `perspective(400px) rotateY(${newRotation}deg)`;
   }
 
-  bigger_frame() {
-    // console.log("TESTBIGGER");
+  // bigger_frame() {
+  //   // console.log("TESTBIGGER");
 
-    let frame = document.getElementById("frameadjusting");
-    if (!frame) {
-      console.error("Element not found.");
-      return;
-    }
-    let currentTransform = frame.style.transform || "scale(1)";
-    // console.log(currentTransform)
-    let currentScale = parseFloat(currentTransform.slice(6));
-    // console.log(currentScale)
-    if(currentScale < 1){
-      currentScale = 1;
-    }
-    frame.style.transform = `scale(${currentScale + 0.05})`;
-    // console.log(frame.style.transform)
-  }
+  //   let frame = document.getElementById("frameadjusting");
+  //   if (!frame) {
+  //     console.error("Element not found.");
+  //     return;
+  //   }
+  //   let currentTransform = frame.style.transform || "scale(1)";
+  //   // console.log(currentTransform)
+  //   let currentScale = parseFloat(currentTransform.slice(6));
+  //   // console.log(currentScale)
+  //   if(currentScale < 1){
+  //     currentScale = 1;
+  //   }
+  //   frame.style.transform = `scale(${currentScale + 0.05})`;
+  //   // console.log(frame.style.transform)
+  // }
 
-  shrink_frame() {
-    // console.log("size_adjust_less")
+  // shrink_frame() {
+  //   // console.log("size_adjust_less")
 
-    let frame = document.getElementById("frameadjusting");
-    let currentTransform = getComputedStyle(frame).transform;
-    let currentScale = parseFloat(currentTransform.slice(7));
-    if(currentScale <= 0.05){
-      frame.style.transform = `scale(1)`;
-      return;
-    }
-    frame.style.transform = `scale(${currentScale - 0.05})`;
-    // console.log(frame.style.transform)
-  }
+  //   let frame = document.getElementById("frameadjusting");
+  //   let currentTransform = getComputedStyle(frame).transform;
+  //   let currentScale = parseFloat(currentTransform.slice(7));
+  //   if(currentScale <= 0.05){
+  //     frame.style.transform = `scale(1)`;
+  //     return;
+  //   }
+  //   frame.style.transform = `scale(${currentScale - 0.05})`;
+  //   // console.log(frame.style.transform)
+  // }
 
 
   change_bg1() {

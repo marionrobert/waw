@@ -39,14 +39,14 @@
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if @product %>
-          <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
-          <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
-            <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
-          </div>
+        <%= cl_image_tag @product.photos.first.key, class:"framedefaultsize", style:"position:absolute;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+        <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
+          <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=@product.width%> cm</i></p>
+        </div>
         <% else %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
-          <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
-          </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+        <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
+        </div>
         <% end %>
       </div>
     </div>
@@ -104,12 +104,44 @@
       </div>
   </div>
 </div>
-<p style="text-align:center;margin:2rem 0 0.5rem 0;">luminositée:</p>
+<p style="text-align:center;margin:2rem 0 0.5rem 0;">Luminositée:</p>
 <input type="range" min="0" max="1" step="0.05" value="1" id="brightness-slider" style="margin:0 auto;width:50%;display:grid">
+<p style="text-align:center;margin:2rem 0 0.5rem 0;">Taille de l'oeuvre:</p>
+<input type="range" min="0.5" max="2" step="0.05" value="1" id="scale-slider" style="margin:0 auto;width:50%;display:grid;" data-action="change->gallerie#adjust_frame" data-gallerie-target="scale" data-width="<%=@product.width%>">
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+  const element = document.querySelector('#mainframe');
+  let isDragging = false;
+  let startPosition = {x: 0, y: 0};
+  let offset = {x: 0, y: 0};
+
+  element.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    startPosition = {x: event.clientX, y: event.clientY};
+    offset = {
+      x: startPosition.x - element.offsetLeft,
+      y: startPosition.y - element.offsetTop
+    };
+  });
+
+  document.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+      const newPosition = {
+        x: event.clientX - offset.x,
+        y: event.clientY - offset.y
+      };
+      element.style.left = `${newPosition.x}px`;
+      element.style.top = `${newPosition.y}px`;
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+</script>
 
 <script>
   function myhomeImage() {
