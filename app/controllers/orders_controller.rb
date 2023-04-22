@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
           product_data: {
             name: item.product.sku,
             description: item.product.description,
-            # images: item.photos.first.key
+            images: @cart.line_items.map { |li| cl_image_path(li.product.photos.first.key, secure: true) }
           }
         },
         quantity: item[:quantity]
@@ -83,10 +83,10 @@ class OrdersController < ApplicationController
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: {
-              amount: 500,
+              amount: 0,
               currency: 'eur'
             },
-            display_name: 'Livraison gratuite',
+            display_name: 'Livraison offerte',
             # Delivers between 5-7 business days
             delivery_estimate: {
               minimum: {
@@ -99,28 +99,29 @@ class OrdersController < ApplicationController
               }
             }
           }
-        },
-        {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: {
-              amount: 1500,
-              currency: 'eur'
-            },
-            display_name: 'Livraison express',
-            # Delivers in exactly 1 business day
-            delivery_estimate: {
-              minimum: {
-                unit: 'business_day',
-                value: @stock_delay
-              },
-              maximum: {
-                unit: 'business_day',
-                value: @stock_delay + 2
-              }
-            }
-          }
         }
+        # },
+        # {
+        #   shipping_rate_data: {
+        #     type: 'fixed_amount',
+        #     fixed_amount: {
+        #       amount: 1500,
+        #       currency: 'eur'
+        #     },
+        #     display_name: 'Livraison express',
+        #     # Delivers in exactly 1 business day
+        #     delivery_estimate: {
+        #       minimum: {
+        #         unit: 'business_day',
+        #         value: @stock_delay
+        #       },
+        #       maximum: {
+        #         unit: 'business_day',
+        #         value: @stock_delay + 2
+        #       }
+        #     }
+        #   }
+        # }
       ],
       line_items: @items_for_stripe,
       mode: 'payment',
