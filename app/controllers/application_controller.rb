@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include CloudinaryHelper
   include Pagy::Backend
   include CurrentCart
   before_action :set_cart

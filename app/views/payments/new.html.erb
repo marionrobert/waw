@@ -7,57 +7,64 @@
     <%# </div> %>
 
     <div class="col">
-      <h1 class="m-3", style="text-align:center;">Récapitulatif de la commande</h1>
+      <h1 class="m-5", style="text-align:center;">Récapitulatif de la commande</h1>
       <table>
-        <thead>
+        <thead style="border-top:1px solid grey;border-bottom:1px solid grey;text-align:center;">
           <tr>
-            <th class="col-6", colspan="1">References</th>
-            <th class="col-1", colspan="1">Quantité</th>
-            <th class="col-1", colspan="1">Prix unitaire en € ttc</th>
-            <th class="col-1", colspan="1">Sous-total</th>
+            <th class="col-2", colspan="1" style="padding:0rem 1rem">Illustration</th>
+            <th class="col-4", colspan="1" style="padding:0rem 1rem">References</th>
+            <th class="col-1", colspan="1" style="padding:0rem 1rem">Quantité</th>
+            <th class="col-1", colspan="1" style="padding:0rem 1rem">Prix unitaire en € ttc</th>
+            <th class="col-1", colspan="1" style="padding:0rem 1rem">Sous-total</th>
           </tr>
         </thead>
         <tbody>
-        <% @order.items.each do |key, value| %>
+        <% @order.items.each_with_index do |(key, value), index| %>
           <div class="row">
-            <tr>
-              <td class="col-6" style="text-align:left"><%= @order.items[key]["name"] %><br><p style="margin-left:20px;text-decoration"><i><%= @order.items[key]["sku"] %></i></p></td>
+            <tr <%= "style=background:rgba(240,240,240,0.5)" if index.odd? %>>
+              <% if @cart.line_items[index].product.photos.any? %>
+                <td class="col-2"><img src="<%= cl_image_path(@cart.line_items[index].product.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
+              <% else %>
+                <td class="col-2"><p>Pas d'image disponible pour ce produit</p></td>
+              <% end %>
+              <td class="col-4" style="text-align:left"><b><%= @order.items[key]["name"] %></b><br><p style="margin-left:2rem;text-decoration;"><i><%= @order.items[key]["sku"] %></i></p></td>
               <td class="col-1" style="text-align:right"><%= @order.items[key]["quantity"]  %></td>
-              <td class="col-1" style="text-align:right"><%= (@order.items[key]["unit_amount"] / 100) %></td>
-              <td class="col-1" style="text-align:right"><%= (@order.items[key]["quantity"]) * (@order.items[key]["unit_amount"] / 100) %></td>
+              <td class="col-1" style="text-align:right"><%= (@order.items[key]["unit_amount"].to_f.round(2) / 100) %> €</td>
+              <td class="col-1" style="text-align:right"><%= BigDecimal((@order.items[key]["quantity"]).to_s) * BigDecimal((@order.items[key]["unit_amount"].to_f.round(2) / 100).to_s) %> €</td>
             </tr>
           </div>
-          <% end %>
+        <% end %>
         <thead>
           <tr>
-            <td class="col-8", style="text-align:right; background:white;", colspan="3">SOUS-TOTAL</td>
-            <td class="col-1", style="text-align:right;", colspan="1">
+            <td class="col-8", style="text-align:right;border-top:1px solid grey;border-right:1px solid grey", colspan="4"><b>SOUS-TOTAL</b></td>
+            <td class="col-1", style="text-align:right;border-top:1px solid grey", colspan="1">
             <% sub_total = [] %>
             <%@order.items.each do |key, value| %>
-              <%sub_total << ((@order.items[key]["unit_amount"])*(@order.items[key]["quantity"]))/100%>
+              <%sub_total << ((@order.items[key]["unit_amount"].to_f.round(2))*(@order.items[key]["quantity"]))/100%>
             <%end%>
-              <%=sub_total.sum%>
+              <%=sub_total.sum.to_f.round(2)%> €
               </td>
           </tr>
           <tr>
-            <td class="col-8", style="text-align:right; background:white;", colspan="3">FRAIS DE PORT (différents mode de livraisons vous seront proposés avant paiement)</td>
-            <td class="col-1", style="text-align:right;", colspan="1">15</td>
+            <td class="col-8", style="text-align:right; background:white;border-right:1px solid grey", colspan="4"><b>FRAIS DE PORT (offert)</b></td>
+            <td class="col-1", style="text-align:right;", colspan="1">0 €</td>
             <%# LA VALEUR DES FRAIS DE PORT EST A DISCUTER ENSEMBLE, COMMENT ON LA CALCUL...FIXE...AU POID DU PAQUET...OFFERT?...A VOIR %>
           </tr>
           <tr>
-            <td class="col-8", style="text-align:right; background:white;", colspan="3">TOTAL</td>
-            <td class="col-1", style="text-align:right;", colspan="1"><%= sub_total.sum + 15 %></td>
+            <td class="col-8", style="text-align:right; background:white;border-right:1px solid grey", colspan="4"><b>TOTAL</b></td>
+            <td class="col-1", style="text-align:right;border-top:1px solid grey", colspan="1"><%= sub_total.sum.to_f.round(2)%> €</td>
           </tr>
         </thead>
         </tbody>
       </table>
+        <p><b>Si vous disposez d'un code promotionnel vous pourrez le saisir sur la page suivante</b></p>
       <div>
 <%# BOUTON DE VALIDATION DES CGV %>
         <input type="checkbox" id="checkcgv"/>
         <label for="checkcgv" style="color:black">En cochant cette case, je reconnais avoir pris connaissance des <%= link_to "mentions légales", legal_path, target: "_blank"%> et accepte les <%= link_to "conditions générales de vente et de garantie", cgv_path, target:"_blank"%></label>
       </div>
       <div class="d-flex justify-content-center m-3">
-        <input type="submit" id="pay" disabled="disabled" class="btn btn-primary" value="Finaliser votre commande"/>
+        <input type="submit" id="pay" disabled="disabled" class="btn btn-primary d-flex" value="Finaliser ma commande"/>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');
@@ -69,7 +76,7 @@
           });
         </script>
       </div>
-        <p style="font-size:smaller; color:gray;text-align:center;"><i></i>*Vous allez être redirigé vers la page de paiement sécurisé Stripe ou Google Pay</p>
+        <p style="font-size:smaller; color:gray;text-align:center;"><i></i>*Vous allez être redirigé vers la page de paiement sécurisé</p>
     </div>
   </div>
 </div>
@@ -86,3 +93,4 @@
     }
   }
 </script>
+<%= console %>
