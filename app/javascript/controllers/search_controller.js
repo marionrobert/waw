@@ -6,6 +6,8 @@ export default class extends Controller {
     'form',
     'title'
   ]
+  connect(){
+  }
 
   update(event) {
     if (!this.hasListTarget) return
@@ -15,7 +17,10 @@ export default class extends Controller {
     const options = {
       method: 'POST',
       body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: {
+        "content-Type": "application/json",
+        'Accept': 'application/json'
+      }
     }
 
     fetchWithToken(url, options)
@@ -24,6 +29,7 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       })
+      .catch(error => console.error(error));
   }
 
   displayMobileSearchInput() {

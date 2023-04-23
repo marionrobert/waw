@@ -50,7 +50,9 @@ Rails.application.routes.draw do
       get :deletepreview
     end
     resources :favorites, only: [:create]
-    post :search, on: :collection
+    collection do
+      post :search, to: 'products#index'
+    end
   end
 
   get "stockmanagement", to: "pages#stockmanagement"

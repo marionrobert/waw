@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   include CurrentCart
   include ActionView::Helpers::TextHelper
   before_action :set_subcategory, except: %i[search]
-  before_action :rebuild_pg_document, only: [:index]
   skip_before_action :authenticate_user!, only: %i[index show preview deletepreview]
   skip_before_action :set_query, only: %i[index]
 
@@ -22,7 +21,7 @@ class ProductsController < ApplicationController
     @categories_illustration = []
 
     Category.all.each do |category|
-    @categories_illustration << category.photos.first
+      @categories_illustration << category.photos.first
     end
 
     # @query = Product.ransack(params[:q])
@@ -30,21 +29,7 @@ class ProductsController < ApplicationController
     @pagy, @products = pagy(Product.where(main: true).order(:name))
     # Voir config/initializers/pagy.rb pour changer la quantité de product par page
     if params[:query].present?
-      @pagy, @results = pagy(PgSearch.multisearch("%#{params[:query]}%"))
-      result_category_name = @results.select { |element| element.searchable_type == "Category" }
-      result_subcategory_name = @results.select { |element| element.searchable_type == "Subcategory" }
-      result_product_name_or_description = @results.select { |element| element.searchable_type == "Product" }
-      if !result_category_name.empty?
-        @pagy, category = pagy(Category.where(name: result_category_name[0].content))
-        @pagy, @products = pagy(Category.find_by(name: category[0].name).products.where(main: true))
-      elsif !result_subcategory_name.empty?
-        @pagy, subcategory = pagy(Subcategory.where(name: result_subcategory_name[0].content))
-        @pagy, @products = pagy(Subcategory.find_by(name: subcategory[0].name).products.where(main: true))
-      elsif !result_product_name_or_description.empty?
-        @pagy, @products = pagy(Product.where(main: true).name_and_description_search("%#{params[:query]}%"))
-      else
-        @products = []
-      end
+      @pagy, @products = pagy(Product.where(main: true).name_and_description_meta_description_search("%#{params[:query]}%"))
     else
       @pagy, @products = pagy(Product.where(main: true).order(:name))
     end
@@ -64,14 +49,17 @@ class ProductsController < ApplicationController
     @current_user = current_user
     @product = Product.find(params[:id])
     @product = Product.find(params[:format]) if !@product
-    description = @product.description
-    @words = description.split(" ")
-    @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
-    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
-    @price += "0" if @price[-2] == ","
 
+    description = @product.description
+    words = description.split
+    words.map! { |element| element.gsub(/\./, "") }
+
+    @tag_words = words.select { |word| word.length >= 5 }
+
+    @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
     @promotionnal_price = (@product.discount_price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
-    # gérer le cas où le prix n'a qu'un seul chiffre après la virgule
+    # ajouter un 0 si les prix sont sous ce format 12,9 --> 12,90
+    @price += "0" if @price[-2] == ","
     @promotionnal_price += "0" if @promotionnal_price[-2] == ","
 
     @discount_percent = (((@product.discount_price_cents.to_f - @product.price_cents.to_f) / @product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
@@ -156,12 +144,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
-  def rebuild_pg_document
-    PgSearch::Multisearch.rebuild(Product)
-    PgSearch::Multisearch.rebuild(Category)
-    PgSearch::Multisearch.rebuild(Subcategory)
-  end
 
   def set_subcategory
     @categories = Category.all
