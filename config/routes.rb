@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    post '/sign_in_as_guest_user', to: 'users/sessions#sign_in_as_guest_user', as: :sign_in_as_guest_user
+  end
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

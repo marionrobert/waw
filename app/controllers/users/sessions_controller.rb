@@ -26,6 +26,12 @@ class Users::SessionsController < Devise::SessionsController
     stored_location_for(resource_or_scope) || root_path
   end
 
+  def sign_in_as_guest_user
+    user = User.find_by(email: "userguestwaw@gmail.com")
+    sign_in(:user, user)
+    redirect_to stored_location_for(:user) || root_path
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
