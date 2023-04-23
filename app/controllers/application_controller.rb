@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   include CurrentCart
+  include GuestUser
   before_action :set_cart
   before_action :set_number_icon_cart
   # The callback which stores the current location must be added before you authenticate the user

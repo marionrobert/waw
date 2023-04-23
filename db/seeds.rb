@@ -16,11 +16,11 @@ Blogpost.destroy_all
 puts "on détruit tous les articles de blog"
 
 puts "création de 4 utilisateurs format prenom@gmail.com et  mot de passe = 123456"
-user_guest = User.create!(email: "userguestwaw@gmail.com", password: "123456", admin: false)
-user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true)
-user_two = User.create!(email: "jeannoel@gmail.com", password: "123456", admin: false)
-user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false)
-user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false)
+user_guest = User.create!(email: "userguestwaw@gmail.com", password: "123456", admin: false, guest: true)
+user_one = User.create!(email: "aurelien@gmail.com", password: "123456", admin: true, guest: false)
+user_two = User.create!(email: "jeannoel@gmail.com", password: "123456", admin: false, guest: false)
+user_three = User.create!(email: "marion@gmail.com", password: "123456", admin: false, guest: false)
+user_four = User.create!(email: "kevin@gmail.com", password: "123456", admin: false, guest: false)
 puts "#{User.count} utilisateurs créés: 1 administrateur/proprio du shop (aurelien), 1 'guest', 3 non administrateurs."
 
 puts "La société est liquidée"

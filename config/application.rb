@@ -3,6 +3,7 @@ require_relative "boot"
 require "rails/all"
 
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -16,6 +17,10 @@ module EShopEasy
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    # Je ne sais pas si ceci (config.autoload_paths) a une quelconque utilitée, chat gpt l'a conseillé pour etre sur de charger les concerns
+    config.autoload_paths += %W(#{config.root}/app/controllers/concerns)
+
 
     # Configuration for the application, engines, and railties goes here.
     #

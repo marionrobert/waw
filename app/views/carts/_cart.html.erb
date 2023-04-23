@@ -142,6 +142,6 @@
   </button>
   <div class="connexion_buttons_cart m-5">
     <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-5 w-100", type: "submit" %>
-    <button class="btn btn-dark m-5 p-2">CONTINUER EN TANT QU'INVITE</button>
+    <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-5 p-2"%>
   </div>
 </div>
