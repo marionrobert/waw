@@ -27,9 +27,10 @@ class PagesController < ApplicationController
   end
 
   def profile
-    if current_user.email == "userguestwaw@gmail.com"
-      redirect_back(fallback_location: root_path, notice: "Vous êtes connecté en tant qu'invité. Créer votre compte pour accéder à votre profil.")
-    end
+    ## code à réactiver ci-dessous quand le navbar aura un bouton se déconnecter
+    # if current_user.email == "userguestwaw@gmail.com"
+    #   redirect_back(fallback_location: root_path, notice: "Vous êtes connecté en tant qu'invité. Créer votre compte pour accéder à votre profil.")
+    # end
     every_supplier_delay = []
     Product.all.each do |product|
       every_supplier_delay << product.supplier_delay
