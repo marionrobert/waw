@@ -42,8 +42,12 @@
     <div class="navbarrightside">
           <div class="profile_div" style="margin:0 auto">
             <%= button_to profile_path, method: :get, class: "profilebutton", type: "submit" do %>
-              <% if current_user %>
+              <% if current_user && current_user.guest == false && current_user.admin == false%>
                 <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
+              <% elsif current_user && current_user.guest %>
+                <i class="fa-solid fa-user-secret", style="color:green; font-size: 2.6vh;"></i>
+              <% elsif current_user && current_user.admin%>
+              <i class="fa-solid fa-user-tie", style="color:orange; font-size: 2.6vh;"></i>
               <% else %>
                 <i class="fa-regular fa-user", style="color:black; font-size: 2.6vh;"></i>
               <% end %>

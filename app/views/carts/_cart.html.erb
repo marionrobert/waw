@@ -120,17 +120,20 @@
       <%end%>
     </div>
 <%# ///////////////FINALISER LA COMMANDE///////////////////// %>
-<div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
-  <button class="btn btn-primary w-100 h-100">COUCOU</button>
-  <%# if user_signed_in? %>
-    <%#= form_with url: orders_path, method: :post do %>
-      <%#= hidden_field_tag 'cart_id', cart.id %>
-      <%#= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
-    <%# end %>
+<% if current_user == nil %>
+  <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
+    <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
+  </div>
+<% elsif current_user %>
+  <div id="cartvalidate">
+    <%= form_with url: orders_path, method: :post do %>
+      <%= hidden_field_tag 'cart_id', cart.id %>
+      <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
+    <% end %>
+  </div>
+<% end %>
+
   <%# else %>
-    <%#= link_to "Finaliser ma commande", user_session_path, class: 'btn btn-primary d-flex justify-content-center validcartbtn' %>
-  <%# end %>
-</div>
 
 <div id="connexioncartbutton" class="panierconnexion">
   <button type="button"
@@ -141,7 +144,8 @@
       data-action="click->display-cart#connexion">
   </button>
   <div class="connexion_buttons_cart m-5">
-    <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-5 w-100", type: "submit" %>
-    <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-5 p-2"%>
+    <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
+    <br>
+    <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
   </div>
 </div>

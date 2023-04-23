@@ -1,80 +1,91 @@
-<div class="dashboard-div-selectors">
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto; border:none">
-      <button class="marginfirstbuttondashboard dashboardselector active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa-solid fa-chart-line"></i></button>
-      <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
-      <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
-    <%if current_user && current_user.admin%>
-      <button class="dashboardselector" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><i class="fa-solid fa-tags"></i></button>
-      <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><i class="fa-regular fa-folder-open"></i></button>
-      <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><i class="fa-solid fa-folder-tree"></i></button>
-      <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cube"></i></button>
-      <button class="dashboardselector" id="nav-stock-tab" data-bs-toggle="tab" data-bs-target="#nav-stock" type="button" role="tab" aria-controls="nav-stock" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
-      <button class="dashboardselector" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><i class="fa-regular fa-newspaper"></i></button>
-      <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
-    <%end%>
-    </div>
-  </nav>
-</div>
-<div style="width:70%;margin:0 auto;min-height:100vh;padding-top:25vh;">
-  <div class="tab-content" id="nav-tabContent" style="height:auto;">
-
-  <%# Synthèse %>
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      <%= render "synthese", synthese: @synthese %>
-    </div>
-
-  <%# Coupons & Codes promo %>
-    <div class="tab-pane fade" id="nav-coupons-promo" role="tabpanel" aria-labelledby="nav-coupons-promo-tab">
-      <%= render "admin-coupons-promos", admin_coupons_promos: @admin_coupons_promos %>
-    </div>
-
-  <%# Formulaire du magasin%>
-    <div data-controller="dashboard" class="tab-pane fade" id="nav-Horaires-contact" role="tabpanel" aria-labelledby="nav-Horaires-contact-tab">
-      <%= render "shopdata", shop: @shop %>
-    </div>
-
-  <%# Ajouter une categorie %>
-    <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
-      <%= render "admin-categories", category: @category, categories: @categories %>
-    </div>
-
-  <%# Ajouter une sous-categorie %>
-    <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
-      <%= render "admin-subcategories", categories: @categories, subcategory: @subcategory %>
-    </div>
-
-  <%# Ajouter un produit %>
-    <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
-      <%= render "admin-product-new", admin_product_new: @admin_product_new %>
-    </div>
-
-  <%# Gestion des stocks %>
-    <div class="tab-pane fade" id="nav-stock" role="tabpanel" aria-labelledby="nav-stock-tab">
-      <%= render "stockmanagement"%>
-    </div>
-
-  <%# Commande à traiter %>
-    <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
-      <%if current_user.admin == true %>
-        <%= render "admin-paid-orders", admin_paid_orders: @admin_paid_orders %>
-      <%else%>
-        <%= render "my-paid-orders", my_paid_orders: @my_paid_orders %>
-      <%end%>
-    </div>
-  <%# Historique des commandes %>
-    <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
-      <%if current_user.admin == true %>
-        <%= render "admin-delivered-orders", admin_delivered_orders: @admin_delivered_orders %>
-      <%else%>
-        <%= render "my-delivered-orders", my_delivered_orders: @my_delivered_orders %>
-      <%end%>
-    </div>
-
-  <%#Articles de blog%>
-    <div class="tab-pane fade" id="nav-blogpost" role="tabpanel" aria-labelledby="nav-blogpost-tab">
-      <%= render "admin-blogpost", admin_blogpost: @admin_blogpost %>
-    </div>
-
+<% if current_user && current_user.guest %>
+  <div class="container" style="margin:20vh auto">
+    <%= button_to "Me connecter ou créer un compte", destroy_user_session_path, method: :delete, class: "btn btn-primary p-4", type: "submit" %>
+    <h3 class="m-5">Pourquoi me créer un compte?</h3>
+    <p>Vous créé un compte sur le site Wall Art Works vous permettra d'accéder
+    à un tableau de bord avec un suivi de commande et de paiement personnalisé.
+    En outre vous pourrez également y retrouver vos oeuvres favorites </p>
   </div>
-</div>
+
+<% else%>
+  <div class="dashboard-div-selectors">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin:0 auto; border:none">
+        <button class="marginfirstbuttondashboard dashboardselector active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa-solid fa-chart-line"></i></button>
+        <button class="dashboardselector" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="false"><i class="fa-solid fa-clipboard-list"></i></button>
+        <button class="dashboardselector" id="nav-historic-tab" data-bs-toggle="tab" data-bs-target="#nav-historic" type="button" role="tab" aria-controls="nav-historic" aria-selected="false"><i class="fa-solid fa-clipboard-check"></i></button>
+      <%if current_user && current_user.admin%>
+        <button class="dashboardselector" id="nav-coupons-promo-tab" data-bs-toggle="tab" data-bs-target="#nav-coupons-promo" type="button" role="tab" aria-controls="nav-coupons-promo" aria-selected="false"><i class="fa-solid fa-tags"></i></button>
+        <button class="dashboardselector" id="nav-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-categorie" type="button" role="tab" aria-controls="nav-categorie" aria-selected="false"><i class="fa-regular fa-folder-open"></i></button>
+        <button class="dashboardselector" id="nav-sous-categorie-tab" data-bs-toggle="tab" data-bs-target="#nav-sous-categorie" type="button" role="tab" aria-controls="nav-sous-categorie" aria-selected="false"><i class="fa-solid fa-folder-tree"></i></button>
+        <button class="dashboardselector" id="nav-produit-tab" data-bs-toggle="tab" data-bs-target="#nav-produit" type="button" role="tab" aria-controls="nav-produit" aria-selected="false"><i class="fa-solid fa-cube"></i></button>
+        <button class="dashboardselector" id="nav-stock-tab" data-bs-toggle="tab" data-bs-target="#nav-stock" type="button" role="tab" aria-controls="nav-stock" aria-selected="false"><i class="fa-solid fa-cubes"></i></button>
+        <button class="dashboardselector" id="nav-blogpost-tab" data-bs-toggle="tab" data-bs-target="#nav-blogpost" type="button" role="tab" aria-controls="nav-blogpost" aria-selected="false"><i class="fa-regular fa-newspaper"></i></button>
+        <button class="dashboardselector" id="nav-Horaires-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-Horaires-contact" type="button" role="tab" aria-controls="nav-Horaires-contact" aria-selected="false"><i class="fa-solid fa-business-time"></i></button>
+      <%end%>
+      </div>
+    </nav>
+  </div>
+  <div style="width:70%;margin:0 auto;min-height:100vh;padding-top:25vh;">
+    <div class="tab-content" id="nav-tabContent" style="height:auto;">
+
+    <%# Synthèse %>
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <%= render "synthese", synthese: @synthese %>
+      </div>
+
+    <%# Coupons & Codes promo %>
+      <div class="tab-pane fade" id="nav-coupons-promo" role="tabpanel" aria-labelledby="nav-coupons-promo-tab">
+        <%= render "admin-coupons-promos", admin_coupons_promos: @admin_coupons_promos %>
+      </div>
+
+    <%# Formulaire du magasin%>
+      <div data-controller="dashboard" class="tab-pane fade" id="nav-Horaires-contact" role="tabpanel" aria-labelledby="nav-Horaires-contact-tab">
+        <%= render "shopdata", shop: @shop %>
+      </div>
+
+    <%# Ajouter une categorie %>
+      <div class="tab-pane fade" id="nav-categorie" role="tabpanel" aria-labelledby="nav-categorie-tab">
+        <%= render "admin-categories", category: @category, categories: @categories %>
+      </div>
+
+    <%# Ajouter une sous-categorie %>
+      <div class="tab-pane fade" id="nav-sous-categorie" role="tabpanel" aria-labelledby="nav-sous-categorie-tab">
+        <%= render "admin-subcategories", categories: @categories, subcategory: @subcategory %>
+      </div>
+
+    <%# Ajouter un produit %>
+      <div class="tab-pane fade" id="nav-produit" role="tabpanel" aria-labelledby="nav-produit-tab">
+        <%= render "admin-product-new", admin_product_new: @admin_product_new %>
+      </div>
+
+    <%# Gestion des stocks %>
+      <div class="tab-pane fade" id="nav-stock" role="tabpanel" aria-labelledby="nav-stock-tab">
+        <%= render "stockmanagement"%>
+      </div>
+
+    <%# Commande à traiter %>
+      <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+        <%if current_user.admin == true %>
+          <%= render "admin-paid-orders", admin_paid_orders: @admin_paid_orders %>
+        <%else%>
+          <%= render "my-paid-orders", my_paid_orders: @my_paid_orders %>
+        <%end%>
+      </div>
+    <%# Historique des commandes %>
+      <div class="tab-pane fade" id="nav-historic" role="tabpanel" aria-labelledby="nav-historic-tab">
+        <%if current_user.admin == true %>
+          <%= render "admin-delivered-orders", admin_delivered_orders: @admin_delivered_orders %>
+        <%else%>
+          <%= render "my-delivered-orders", my_delivered_orders: @my_delivered_orders %>
+        <%end%>
+      </div>
+
+    <%#Articles de blog%>
+      <div class="tab-pane fade" id="nav-blogpost" role="tabpanel" aria-labelledby="nav-blogpost-tab">
+        <%= render "admin-blogpost", admin_blogpost: @admin_blogpost %>
+      </div>
+
+    </div>
+  </div>
+<%end%>

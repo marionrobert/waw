@@ -1,3 +1,6 @@
+
+
+
 <div style="text-align:left;font-style:italic;">
   <%if current_user.first_name == nil %>
     <h3 class="pt-2">Bienvenue <%= current_user.email %></h3>
@@ -6,13 +9,12 @@
   <%else%>
     <h3 class="pt-2">Bienvenue</h3>
   <%end%>
-    <button class="btn btn-primary p-3 mt-4">
-      <%= link_to "Me déconnecter",
-      destroy_user_session_path,
-      'data-turbo-method': :delete,
-      style:"text-decoration:none;color:white;"
-      %>
-    </button>
+    <%= button_to "Me déconnecter",
+            destroy_user_session_path,
+            method: :delete,
+            class: "btn btn-primary p-3 mt-4",
+            style:"text-decoration:none;color:white;"
+    %>
 </div>
 
 <%if current_user && current_user.admin%>
