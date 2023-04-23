@@ -5,8 +5,4 @@ class Category < ApplicationRecord
   has_many :products, through: :subcategories
   has_many_attached :photos
 
-
-  include PgSearch::Model
-  multisearchable against: [:name]
-
 end
