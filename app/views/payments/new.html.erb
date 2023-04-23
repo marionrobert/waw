@@ -23,8 +23,7 @@
           <div class="row">
             <tr <%= "style=background:rgba(240,240,240,0.5)" if index.odd? %>>
               <% if @cart.line_items[index].product.photos.any? %>
-                <% varphotos = cl_image_path(@cart.line_items[index].product.photos.first.key, secure: true)%>
-                <td class="col-2"><img src="<%= varphotos %>" style="height:6rem;width:auto"></td>
+                <td class="col-2"><img src="<%= cl_image_path(@cart.line_items[index].product.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
               <% else %>
                 <td class="col-2"><p>Pas d'image disponible pour ce produit</p></td>
               <% end %>
@@ -94,3 +93,4 @@
     }
   }
 </script>
+<%= console %>

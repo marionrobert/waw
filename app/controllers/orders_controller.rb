@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
           product_data: {
             name: item.product.sku,
             description: item.product.description,
-            images: @cart.line_items.map { |li| cl_image_path(li.product.photos.first.key, secure: true) }
+            images: [cl_image_path(item.product.photos.first.key, secure: true)]
           }
         },
         quantity: item[:quantity]
