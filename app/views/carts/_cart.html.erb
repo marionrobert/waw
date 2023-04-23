@@ -120,13 +120,24 @@
       <%end%>
     </div>
 <%# ///////////////FINALISER LA COMMANDE///////////////////// %>
-    <div class="cartvalidate">
-      <% if user_signed_in? %>
-        <%= form_with url: orders_path, method: :post do %>
-          <%= hidden_field_tag 'cart_id', cart.id %>
-          <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
-        <% end %>
-      <% else %>
-        <%= link_to "Finaliser ma commande", user_session_path, class: 'btn btn-primary d-flex justify-content-center validcartbtn' %>
-      <% end %>
-    </div>
+<div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
+  <button class="btn btn-primary w-100 h-100">COUCOU</button>
+  <%# if user_signed_in? %>
+    <%#= form_with url: orders_path, method: :post do %>
+      <%#= hidden_field_tag 'cart_id', cart.id %>
+      <%#= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
+    <%# end %>
+  <%# else %>
+    <%#= link_to "Finaliser ma commande", user_session_path, class: 'btn btn-primary d-flex justify-content-center validcartbtn' %>
+  <%# end %>
+</div>
+
+<div id="connexioncartbutton" class="panierconnexion">
+  <button type="button"
+      class="btn-close"
+      <%# aria-label="Close" %>
+      style=" z-index:1001;margin:1rem 3rem;"
+      data-controller="display-cart",
+      data-action="click->display-cart#connexion">
+  </button>
+</div>

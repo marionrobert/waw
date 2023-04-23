@@ -14,9 +14,11 @@ export default class extends Controller {
 
   closeCart() {
     const panierflottant = document.getElementById("panierflottant")
+    const connexioncartbutton = document.getElementById("connexioncartbutton");
     const dark= document.getElementById("darken")
     panierflottant.classList.remove("open")
     dark.classList.remove("darkenmenuopen")
+    connexioncartbutton.classList.remove("open")
   }
 
   categoriesdisplay() {
@@ -29,5 +31,10 @@ export default class extends Controller {
       bandeaucat.classList.remove("enable_on_desktop");
       bandeaucat.classList.add("hidden");
     });
+  }
+
+  connexion () {
+    const connexioncartbutton = document.getElementById("connexioncartbutton");
+    connexioncartbutton.classList.toggle("open");
   }
 }

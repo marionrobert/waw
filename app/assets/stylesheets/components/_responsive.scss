@@ -32,6 +32,16 @@
   transition-duration: 350ms;
 }
 
+.panierconnexion {
+  min-height: 40vh;
+  position:fixed;
+  position: absolute;
+  top:30vh;
+  z-index: 1001;
+  background-color:red;
+  transition-duration: 350ms;
+}
+
 .menucategory {
   position:absolute;
   top:0;
