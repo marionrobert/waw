@@ -1,10 +1,8 @@
-  <div class="container" , style="margin-top:10vh;">
-    <div class="container pt-5">
-      <h1 class="mb-5 text-center">Produits actuellement en promotion</h1>
-      <div style="flex-wrap: wrap;display:flex;justify-content:center" data-controller="favorites">
-        <% @products.each do |product| %>
-          <%= render "shared/#{Shop.first.card}", product: product%>
-        <% end %>
-      </div>
+  <div style="margin-top:10vh;">
+    <h1 class="mb-5 text-center">Produits actuellement en promotion</h1>
+    <div style="flex-wrap: wrap;display:flex;justify-content:center" data-controller="favorites">
+      <% @products.each do |product| %>
+        <%= render "shared/#{Shop.first.card}", product: product%>
+      <% end %>
     </div>
   </div>
