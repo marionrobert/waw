@@ -21,7 +21,8 @@
             <%# </div> %>
             <%# ////////////barre de recherche/////////////////// %>
             <div id="mobile-input-search"
-                class="responsivesearchbar">
+                class="responsivesearchbar"
+                data-action="click->search#displayMobileSearchInput">
               <%= render "search/form" %>
             </div>
             <%# Bouton de recherche pour mobile %>
@@ -29,7 +30,6 @@
               <i id="mobile-magnifying-glass",
                 style="margin:0 auto",
                 class="fa-solid fa-magnifying-glass",
-                data-controller="search",
                 data-action="click->search#displayMobileSearchInput"></i>
             </div>
     </div>
