@@ -101,17 +101,15 @@
   </div>
 <%# ////////////////FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS/////////////// %>
   <%if current_user != nil%>
-    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-    <%if current_user.favorite_products.count == 0%>
-      <p style="text-align:center;margin-bottom:15vh;"><i>Vous n'avez aucun produit en favoris</i></p>
-    <%else%>
-    <div class="container" style="margin-bottom:15vh;height:75vh;">
-      <div style="height:5vh;display:flex;flew-flow:wrap">
-          <% current_user.favorite_products.sample(3).each do |product| %>
-          <%= render "shared/#{Shop.first.card}", product: product %>
-          <% end %>
+    <%if current_user.favorite_products.count > 0%>
+      <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+      <div class="container" style="margin-bottom:15vh;height:75vh;">
+        <div style="height:5vh;display:flex;flew-flow:wrap">
+            <% current_user.favorite_products.sample(3).each do |product| %>
+            <%= render "shared/#{Shop.first.card}", product: product %>
+            <% end %>
+        </div>
       </div>
-    </div>
     <%end%>
   <%end%>
 </div>
@@ -122,13 +120,32 @@
       <%end%>
     </div>
 <%# ///////////////FINALISER LA COMMANDE///////////////////// %>
-    <div class="cartvalidate">
-      <% if user_signed_in? %>
-        <%= form_with url: orders_path, method: :post do %>
-          <%= hidden_field_tag 'cart_id', cart.id %>
-          <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
-        <% end %>
-      <% else %>
-        <%= link_to "Finaliser ma commande", user_session_path, class: 'btn btn-primary d-flex justify-content-center validcartbtn' %>
-      <% end %>
-    </div>
+<% if current_user == nil %>
+  <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
+    <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
+  </div>
+<% elsif current_user %>
+  <div id="cartvalidate">
+    <%= form_with url: orders_path, method: :post do %>
+      <%= hidden_field_tag 'cart_id', cart.id %>
+      <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
+    <% end %>
+  </div>
+<% end %>
+
+  <%# else %>
+
+<div id="connexioncartbutton" class="panierconnexion">
+  <button type="button"
+      class="btn-close"
+      <%# aria-label="Close" %>
+      style=" z-index:1001;margin:1rem 3rem;"
+      data-controller="display-cart",
+      data-action="click->display-cart#connexion">
+  </button>
+  <div class="connexion_buttons_cart m-5">
+    <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
+    <br>
+    <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
+  </div>
+</div>

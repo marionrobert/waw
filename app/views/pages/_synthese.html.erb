@@ -1,3 +1,6 @@
+
+
+
 <div style="text-align:left;font-style:italic;">
   <%if current_user.first_name == nil %>
     <h3 class="pt-2">Bienvenue <%= current_user.email %></h3>
@@ -6,13 +9,12 @@
   <%else%>
     <h3 class="pt-2">Bienvenue</h3>
   <%end%>
-    <button class="btn btn-primary p-3 mt-4">
-      <%= link_to "Me déconnecter",
-      destroy_user_session_path,
-      'data-turbo-method': :delete,
-      style:"text-decoration:none;color:white;"
-      %>
-    </button>
+    <%= button_to "Me déconnecter",
+            destroy_user_session_path,
+            method: :delete,
+            class: "btn btn-primary p-3 mt-4",
+            style:"text-decoration:none;color:white;"
+    %>
 </div>
 
 <%if current_user && current_user.admin%>
@@ -55,17 +57,15 @@
 
 <div>
   <%if current_user != nil%>
-    <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-    <%if current_user.favorite_products.count == 0%>
-      <p style="text-align:center;margin-bottom:15vh;"><i>Vous n'avez aucun produit en favoris</i></p>
-    <%else%>
-    <div class="" style="display:flex;margin-bottom:15vh;height:75vh;width:100%;overflow:auto;">
-      <%# <div style="height:5vh;display:flex;flew-flow:wrap"> %>
-          <% current_user.favorite_products.each do |product| %>
-          <%= render "shared/#{Shop.first.card}", product: product %>
-          <% end %>
-      <%# </div> %>
-    </div>
+    <%if current_user.favorite_products.count > 0%>
+      <h3 class="mb-5 text-center"> Vos produits favoris</h3>
+      <div class="container" style="margin-bottom:15vh;height:75vh;">
+        <div style="height:5vh;display:flex;flew-flow:wrap">
+            <% current_user.favorite_products.sample(3).each do |product| %>
+            <%= render "shared/#{Shop.first.card}", product: product %>
+            <% end %>
+        </div>
+      </div>
     <%end%>
   <%end%>
 </div>

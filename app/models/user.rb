@@ -11,6 +11,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
+  def self.create_guest
+    new_guest = new
+    new_guest.email = "guest_#{Time.now.to_i}#{rand(100)}@example.com"
+    new_guest.password = SecureRandom.hex(8)
+    new_guest.guest = true
+    new_guest.save!(validate: false)
+    new_guest
+  end
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
