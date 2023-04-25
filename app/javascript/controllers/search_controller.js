@@ -8,7 +8,7 @@ export default class extends Controller {
     "pages"
   ]
   connect(){
-    console.log("hcoucou")
+    // console.log("coucou from search controller")
     this.pagesTarget.style.visibility = "visible";
   }
 
