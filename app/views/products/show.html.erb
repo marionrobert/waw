@@ -1,4 +1,4 @@
-<div class="producthomecontainer" data-controller="share favorites loadvariants" data-share-url-value= "<%= product_url(@product) %>">
+<div class="producthomecontainer" data-controller="share favorites loadvariants addproducttocart" data-share-url-value= "<%= product_url(@product) %>">
   <div class="container" >
     <div class="fildariane">
       <%= link_to category_path(@product.subcategory.category) do  %>
@@ -145,10 +145,12 @@
               <% end %>
             <% end %>
         </div>
-        <span data-loadvariants-target="addtocart" style="margin: 2rem;">
+        <span data-loadvariants-target="addtocart" data-action="click->addproducttocart#addproduct" data-addproducttocart-target="button" style="margin: 2rem;">
           <% if @product.discount_price_cents != 0 %>
             <%= button_to "Ajouter au panier : #{@promotionnal_price} €", line_items_path(product_id: @product.id),
-              class: "btnaddproduct"%>
+              class: "btnaddproduct"
+              # data: { addproducttocart_target:"button"}
+              %>
           <% else %>
             <%= button_to "Ajouter au panier : #{@price} €", line_items_path(product_id: @product.id),
               class: "btnaddproduct"%>
