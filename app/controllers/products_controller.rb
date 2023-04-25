@@ -27,11 +27,10 @@ class ProductsController < ApplicationController
     # @query = Product.ransack(params[:q])
     # @products = @query.result.joins(:subcategory).order(:name)
     @pagy, @products = pagy(Product.where(main: true).order(:name))
+
     # Voir config/initializers/pagy.rb pour changer la quantité de product par page
     if params[:query].present?
-      @pagy, @products = pagy(Product.where(main: true).name_and_description_meta_description_search("%#{params[:query]}%"))
-    else
-      @pagy, @products = pagy(Product.where(main: true).order(:name))
+      @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
     end
 
     respond_to do |format|
@@ -39,7 +38,7 @@ class ProductsController < ApplicationController
       format.json do
         render json: {
           list: render_to_string(partial: "products/list", locals: { products: @products }, layout: false, formats: [:html]),
-          title: pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles')
+          title: pluralize(@products.size, 'oeuvre disponible', plural: 'oeuvres disponibles')
         }
       end
     end
@@ -53,8 +52,10 @@ class ProductsController < ApplicationController
     description = @product.description
     words = description.split
     words.map! { |element| element.gsub(/\./, "") }
+    words.map! { |element| element.gsub(/\,/, "") }
+    words.map! { |element| element.gsub(/\w\'/, "") }
 
-    @tag_words = words.select { |word| word.length >= 5 }
+    @tag_words = words.select { |word| word.length >= 4 }
 
     @price = (@product.price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)
     @promotionnal_price = (@product.discount_price_cents / 100.00).to_s.gsub(/\./, ',').slice(0..50)

@@ -1,11 +1,13 @@
 <div class="pt-5" style="margin-top: 10vh;">
-  <h1 class="mb-5 text-center"
-      data-search-target="title">
-    <%= pluralize(@products.size, 'Produit disponible', plural: 'Produits disponibles') %>
-  </h1>
   <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy)%>
   </div>
-  <p class="pagymarginleft"><i><%== pagy_info(@pagy) %></i></p>
+
+  <h2 class="mb-5 text-center" data-search-target="title">
+    <%= pluralize(@products.size, 'oeuvre disponible', plural: 'oeuvres disponibles') %>
+  </h2>
+
+  <p class="pagymarginleft" data-search-target="pages"><i><%== pagy_info(@pagy) %></i></p>
+
   <div class="gridcontainer" data-controller="favorites" data-search-target="list">
     <% @products.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product %>
@@ -30,3 +32,4 @@
   <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
+
