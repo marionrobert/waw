@@ -72,7 +72,8 @@ export default class extends Controller {
       .then((data) => {
         console.log('ok')
         user_icon.innerHTML = "<i class='fa-solid fa-user-secret', style='color:green; font-size: 2.6vh;'></i>"
-        this.display_chose_connexion_window();
+        // à faire : résoudre erreur 406 en console
+        // renvoyer vers la page de checkout order
       });
   }
 
@@ -89,6 +90,11 @@ export default class extends Controller {
     console.log("sign_in has been triggered")
     console.log(document.getElementById("email").innerText)
     console.log(document.getElementById("password").innerText)
+
+    // ensuite il faut faire une requête ajax ave fetch pour envoyer l'emial et le password
+    // à la méthode sign_in/login de devise
+    // mettre à jour le petit bonhomme de connexion
+    // puis renvoyer vers la page de checkout order
   }
 
 }
