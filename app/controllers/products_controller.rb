@@ -28,6 +28,9 @@ class ProductsController < ApplicationController
     # @products = @query.result.joins(:subcategory).order(:name)
     @pagy, @products = pagy(Product.where(main: true).order(:name))
 
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+
     # Voir config/initializers/pagy.rb pour changer la quantité de product par page
     if params[:query].present?
       @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
