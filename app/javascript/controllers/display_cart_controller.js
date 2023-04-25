@@ -1,8 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+static targets = [
+  "guestbutton"
+]
+
   connect() {
-    // console.log("hello from display-cart controller")
+    console.log("test")
   }
 
   showCart() {
@@ -33,8 +37,13 @@ export default class extends Controller {
     });
   }
 
-  connexion () {
+  display_connexion_window () {
     const connexioncartbutton = document.getElementById("connexioncartbutton");
     connexioncartbutton.classList.toggle("open");
+  }
+
+  sign_in_as_guest(){
+    console.log(this.guestbuttonTarget)
+    console.log("sign_in_as_guest has been triggered")
   }
 }
