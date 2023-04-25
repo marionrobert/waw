@@ -14,7 +14,7 @@ export default class extends Controller {
 
   closeCart() {
     const panierflottant = document.getElementById("panierflottant")
-    const connexioncartbutton = document.getElementById("connexioncartbutton");
+    const connexioncartbutton = document.getElementById("connexioncartbuttons");
     const dark= document.getElementById("darken")
     panierflottant.classList.remove("open")
     dark.classList.remove("darkenmenuopen")
@@ -34,7 +34,7 @@ export default class extends Controller {
   }
 
   connexion () {
-    const connexioncartbutton = document.getElementById("connexioncartbutton");
-    connexioncartbutton.classList.toggle("open");
+    const connexioncartbuttons = document.getElementById("connexioncartbuttons");
+    connexioncartbuttons.classList.toggle("open");
   }
 }

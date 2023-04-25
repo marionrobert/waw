@@ -32,8 +32,14 @@
             <% end %>
             <p style="text-align:center; color:black; margin-top:2rem;">Vous ne voulez pas créer de compte ?</p>
             <div class="d-flex justify-content-center">
-              <%= button_to "Continuez en tant qu'invité", sign_in_as_guest_user_path, method: :post, class: "btn btn-primary" %>
+              <%= button_to "Continuez en tant qu'invité", new_guest_session_path, method: :post, class:"btn btn-primary"%>
             </div>
+
+            <%# a supprimer si par la suite tout est ok %>
+            <%# <p style="text-align:center; color:black; margin-top:2rem;">Vous ne voulez pas créer de compte ?</p> %>
+            <%# <div class="d-flex justify-content-center"> %>
+              <%#= button_to "Continuez en tant qu'invité", sign_in_as_guest_user_path, method: :post, class: "btn btn-primary" %>
+            <%# </div> %>
         </div>
 
         <div class="sign_up_form">
