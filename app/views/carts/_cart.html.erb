@@ -133,8 +133,6 @@
   </div>
 <% end %>
 
-  <%# else %>
-
 <div id="connexioncartbutton" class="panierconnexion">
   <button type="button"
       class="btn-close"
@@ -144,7 +142,7 @@
       data-action="click->display-cart#connexion">
   </button>
   <div class="connexion_buttons_cart m-5">
-    <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
+    <%= button_to "ME CONNECTER OU CREER UN COMPTE",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
     <br>
     <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
   </div>

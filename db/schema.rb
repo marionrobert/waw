@@ -156,7 +156,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_223918) do
     t.string "orientation"
     t.string "images", default: [], array: true
     t.integer "stock_quantity", default: 0
-    t.date "discount_ending_date", default: "2023-05-23"
+    t.date "discount_ending_date", default: "2023-05-25"
     t.integer "supplier_delay", default: 14
     t.integer "render_price"
     t.string "fournisseur"
@@ -234,7 +234,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_223918) do
     t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
-    t.boolean "guest"
+    t.boolean "guest", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
