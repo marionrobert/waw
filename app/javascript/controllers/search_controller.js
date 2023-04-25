@@ -4,23 +4,22 @@ export default class extends Controller {
   static targets = [
     'list',
     'form',
-    'title'
+    'title',
+    "pages"
   ]
   connect(){
+    // console.log("coucou from search controller")
+    this.pagesTarget.style.visibility = "visible";
   }
 
   update(event) {
     if (!this.hasListTarget) return
-
     const data = new FormData(this.formTarget)
     const url = `/products/search`
     const options = {
       method: 'POST',
       body: data,
-      headers: {
-        "content-Type": "application/json",
-        'Accept': 'application/json'
-      }
+      headers: {'Accept': 'application/json'}
     }
 
     fetchWithToken(url, options)
@@ -28,8 +27,8 @@ export default class extends Controller {
       .then((data) => {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
-      })
-      .catch(error => console.error(error));
+      });
+    this.pagesTarget.style.visibility = "hidden";
   }
 
   displayMobileSearchInput() {

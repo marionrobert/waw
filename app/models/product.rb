@@ -28,8 +28,8 @@ class Product < ApplicationRecord
   delegate :category, to: :subcategory, allow_nil: true
 
   include PgSearch::Model
-  pg_search_scope :name_and_description_meta_description_search,
-                  against: %i[name description meta_description],
+  pg_search_scope :name_and_metadescription_and_description_search,
+                  against: %i[name meta_description description],
                   associated_against: {
                     subcategory: [:name]
                   },
