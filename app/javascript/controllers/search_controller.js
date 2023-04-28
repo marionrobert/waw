@@ -9,6 +9,7 @@ export default class extends Controller {
   ]
   connect(){
     // console.log("coucou from search controller")
+    if (!this.haspagesTarget) return
     this.pagesTarget.style.visibility = "visible";
   }
 

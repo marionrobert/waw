@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddproducttocartController from "./addproducttocart_controller"
+application.register("addproducttocart", AddproducttocartController)
+
 import AutocompleteproductController from "./autocompleteproduct_controller"
 application.register("autocompleteproduct", AutocompleteproductController)
 

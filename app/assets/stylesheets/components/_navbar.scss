@@ -111,7 +111,6 @@
 
 .circle_items_count {
   font-size: 10px;
-  background:rgba(254, 169, 1, 1);
   position: absolute;
   top: 3px;
   border-radius:50%;
@@ -119,6 +118,14 @@
   width: 15px;
   text-align: center;
   margin-left: 2px;
+}
+
+.circle_items_count.visible {
+  background:rgba(254, 169, 1, 1);
+}
+
+.circle_items_count.hidden {
+  background:rgba(254, 169, 1, 0);
 }
 
 .nav {

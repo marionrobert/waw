@@ -5,36 +5,19 @@ class LineItemsController < ApplicationController
   before_action :set_line_item, only: %i[add_one show edit update]
   skip_before_action :authenticate_user!, except: %i[index]
 
-
-
-  # GET /line_items or /line_items.json
-  def index
-    @line_items = LineItem.all
-  end
-
-  # GET /line_items/1 or /line_items/1.json
-  def show
-  end
-
   # GET /line_items/new
   def new
     @line_item = LineItem.new
-  end
-
-  # GET /line_items/1/edit
-  def edit
   end
 
   # POST /line_items or /line_items.json
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-    # NORMALEMENT TOUT EST BON MAINTENANT
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to products_url, success: "L'oeuvre a bien été ajoutée au panier" }
-        format.js
-        format.json { render :show, status: :created, location: @line_item, success:  "L'oeuvre a bien été ajoutée au panier" }
+        format.html { redirect_to products_url, success: "L'oeuvre a bien été ajoutée au panier." }
+        format.json { render :show, status: :created, location: @line_item, success:  "L'oeuvre a bien été ajoutée au panier." }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
