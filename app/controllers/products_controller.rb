@@ -19,16 +19,20 @@ class ProductsController < ApplicationController
 
   def index
     @categories_illustration = []
-
     Category.all.each do |category|
       @categories_illustration << category.photos.first
     end
 
-    # @query = Product.ransack(params[:q])
-    # @products = @query.result.joins(:subcategory).order(:name)
-    @pagy, @products = pagy(Product.where(main: true).order(:name))
+    @q = Product.where(main: true).ransack(params[:q])
 
-    # Voir config/initializers/pagy.rb pour changer la quantité de product par page
+    if params[:sort_by] == "name_asc"
+      @q.sorts = "name asc"
+    elsif params[:sort_by] == "name_desc"
+      @q.sorts = "name desc"
+    end
+
+    @pagy, @products = pagy(@q.result(distinct: true))
+
     if params[:query].present?
       @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
     end
@@ -43,6 +47,7 @@ class ProductsController < ApplicationController
       end
     end
   end
+
 
   def show
     @current_user = current_user

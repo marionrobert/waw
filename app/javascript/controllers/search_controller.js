@@ -45,7 +45,7 @@ export default class extends Controller {
   hideMobileSearchInput() {
     const loupe = document.getElementById("mobile-magnifying-glass")
     const searchinput = document.getElementById("mobile-input-search")
-    const closesearchinput = document.getElementById("close-search-input")
+    // const closesearchinput = document.getElementById("close-search-input")
     // const bodydark = document.getElementById("darken2")
     // bodydark.classList.remove("darkenmenuopen")
     searchinput.classList.remove("responsivesearchbaronclick")
