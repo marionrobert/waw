@@ -4,28 +4,28 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("ioioioioio")
+    console.log("yesssss")
   }
 
   addproduct(event) {
     event.preventDefault();
     console.log("addproduct has been triggered")
-    const url = "/line_items/new"
-    const product_id = document.getElementsByClassName("button_to")[1].getAttribute("action").match(/product_id=\d+/)[0]
-    console.log(product_id)
+    const url = "/line_items"
+    const product_id = document.querySelector("span#addproducttocartbutton form.button_to").getAttribute("action").match(/\d+/)[0]
 
     const options = {
       method: 'POST',
-      body: product_id,
-      headers: {'Accept': 'application/json'}
+      headers: {
+        "content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({ product_id: product_id })
     }
 
     fetchWithToken(url, options)
       .then(response => response.json())
       .then((data) => {
-        console.log("ok")
       });
 
-  // ajouter un numéro au panier
   }
 }
