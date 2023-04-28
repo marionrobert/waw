@@ -176,16 +176,16 @@ export default class extends Controller {
     console.log("no frame");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("black_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
     mainframe.classList.remove("white_usa_box");
   }
 
-  blackframe() {
-    console.log("black frame");
+  black_usa_box() {
+    console.log("black_usa_box");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
-    mainframe.classList.add("blackframe");
+    mainframe.classList.add("black_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
     mainframe.classList.remove("white_usa_box");
   }
@@ -195,7 +195,7 @@ export default class extends Controller {
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
     mainframe.classList.add("blackframepaddingwhite");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("black_usa_box");
     mainframe.classList.remove("white_usa_box");
   }
 
@@ -204,7 +204,7 @@ export default class extends Controller {
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.add("white_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("black_usa_box");
     mainframe.classList.remove("wood_usa_box");
   }
 
@@ -214,7 +214,7 @@ export default class extends Controller {
     mainframe.classList.add("wood_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
     mainframe.classList.remove("white_usa_box");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("black_usa_box");
   }
 
 }

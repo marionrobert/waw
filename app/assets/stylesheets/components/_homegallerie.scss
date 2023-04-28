@@ -105,30 +105,30 @@
 
 @media screen and (min-width: 481px) {
 
-  .blackframe {
-    border:5px solid black;
+  .black_usa_box {
+    box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);
   }
 
   .white_usa_box {
-    box-shadow: 0 0 0 5px rgb(230, 230, 230), 0 0 0 10px rgb(255, 255, 255);
+    box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);
   }
 
   .blackframepaddingwhite {
-    box-shadow: 0 0 0 10px white, 0 0 0 15px black;
+    box-shadow: 0 0 0 10px white;
   }
 
   .wood_usa_box {
-    box-shadow: 0 0 0 5px rgb(173, 104, 55), 0 0 0 10px rgb(131, 78, 41);
+    box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);
   }
 }
 
 @media screen and (max-width: 480px) {
-  .blackframe {
-    border:2px solid black;
+  .black_usa_box {
+    box-shadow: 0 0 0 2px rgb(32, 32, 32), 0 0 0 4px rgb(0, 0, 0);
   }
 
   .white_usa_box {
-    box-shadow: 0 0 0 2px rgb(230, 230, 230), 0 0 0 4px rgb(255, 255, 255);
+    box-shadow: 0 0 0 2px rgb(255, 255, 255), 0 0 0 4px rgb(245, 245, 245);
   }
 
   .blackframepaddingwhite {
@@ -136,7 +136,7 @@
   }
 
   .wood_usa_box {
-    box-shadow: 0 0 0 2px rgb(173, 104, 55), 0 0 0 4px rgb(131, 78, 41);
+    box-shadow: 0 0 0 2px rgb(228, 195, 160), 0 0 0 4px rgb(198, 152, 107);
   }
 }
 
