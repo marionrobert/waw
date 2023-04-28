@@ -113,19 +113,25 @@
   font-size: 10px;
   position: absolute;
   top: 3px;
-  border-radius:50%;
+  border-radius: 50%;
   height: 15px;
   width: 15px;
   text-align: center;
   margin-left: 2px;
+  transform-origin: top;
+  transition: transform 1500ms ease-in-out;
 }
 
 .circle_items_count.visible {
-  background:rgba(254, 169, 1, 1);
+  background: rgba(254, 169, 1, 1);
+}
+
+.cartflash {
+  transform: scale(4);
 }
 
 .circle_items_count.hidden {
-  background:rgba(254, 169, 1, 0);
+  background:rgba(0, 0, 0, 0);
 }
 
 .nav {

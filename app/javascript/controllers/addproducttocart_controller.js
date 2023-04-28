@@ -23,13 +23,16 @@ export default class extends Controller {
     }
 
     fetchWithToken(url, options)
-      .then(response => response.json())
-      .then((data) => {
-        circle_items_count.classList.remove("hidden");
-        circle_items_count.classList.add("visible");
-        circle_items_count.innerText = `${items_nb + 1}`;
-        // il faudrait ajouter une flash alert ou autre moyen pour notifier l'utilisateur du bon ajout du produit dans le panier
-      });
-
+    .then(response => response.json())
+    .then((data) => {
+      circle_items_count.classList.remove("hidden");
+      circle_items_count.classList.add("visible");
+      circle_items_count.classList.add("cartflash");
+      circle_items_count.innerText = `${items_nb + 1}`;
+      setTimeout(() => {
+        circle_items_count.classList.remove("cartflash");
+      }, 1500);
+    });
   }
+
 }
