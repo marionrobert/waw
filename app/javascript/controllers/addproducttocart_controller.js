@@ -4,14 +4,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("yesssss")
+    console.log("yes")
   }
 
   addproduct(event) {
     event.preventDefault();
-    console.log("addproduct has been triggered")
     const url = "/line_items"
     const product_id = document.querySelector("span#addproducttocartbutton form.button_to").getAttribute("action").match(/\d+/)[0]
+    const circle_items_count = document.querySelector(".circle_items_count")
+    const items_nb = Number(circle_items_count.innerText)
 
     const options = {
       method: 'POST',
@@ -25,6 +26,9 @@ export default class extends Controller {
     fetchWithToken(url, options)
       .then(response => response.json())
       .then((data) => {
+        circle_items_count.classList.remove("hidden");
+        circle_items_count.classList.add("visible");
+        circle_items_count.innerText = `${items_nb + 1}`
       });
 
   }
