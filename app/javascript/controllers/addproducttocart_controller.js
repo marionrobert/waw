@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("yes")
   }
 
   addproduct(event) {
@@ -28,7 +27,8 @@ export default class extends Controller {
       .then((data) => {
         circle_items_count.classList.remove("hidden");
         circle_items_count.classList.add("visible");
-        circle_items_count.innerText = `${items_nb + 1}`
+        circle_items_count.innerText = `${items_nb + 1}`;
+        // il faudrait ajouter une flash alert ou autre moyen pour notifier l'utilisateur du bon ajout du produit dans le panier
       });
 
   }
