@@ -55,7 +55,7 @@
           </div>
           <%# /////////////////PANIER///////////////// %>
           <div class="btncart", data-controller="display-cart", data-action="click->display-cart#showCart">
-            <i class="fa-solid fa-cart-shopping", style="color:black; font-size: 2.9vh;"></i>
+            <i class="fa-solid fa-basket-shopping", style="color:black; font-size: 2.9vh;"></i>
             <% if @cart.line_items.count.positive? %>
               <p class="circle_items_count visible">
                   <%= @cartcontent%>
