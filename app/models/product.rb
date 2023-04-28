@@ -3,7 +3,12 @@ class Product < ApplicationRecord
 
   ORIENTATION = ["paysage", "portrait", "carre"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
-  SUPPORT = ["Toileseulecanvas100%coton340gm2", "Toilesurchassiscanvas100%coton340gm2", "PVCexpanse5mmforex"]
+  SUPPORT = [ "Fine_art_315g",
+              "Fine_art_315g_avec_marge_blanche",
+              "Toile_chassis_100%_lin_400g",
+              "Toile_chassis_100%_lin_400g_caisse_americaine_bois_naturel",
+              "Toile_chassis_100%_lin_400g_caisse_americaine_blanche",
+              "Toile_chassis_100%_lin_400g_caisse_americaine_noire"]
 
   has_one :visit, dependent: :destroy
   has_many_attached :photos

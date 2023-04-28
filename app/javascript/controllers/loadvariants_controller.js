@@ -37,10 +37,10 @@ export default class extends Controller {
         }
 
         // update table zone
-        this.orientationTarget.innerText = data.orientation
+        // this.orientationTarget.innerText = data.orientation
         this.heightTarget.innerText = data.height
         this.widthTarget.innerText = data.width
-        this.supportTarget.innerText = data.support
+        this.supportTarget.innerText = data.support.replace(/_/g, " ");
         this.framequantityTarget.innerText = data.frame_quantity
 
         // update stock zone
@@ -67,7 +67,7 @@ export default class extends Controller {
             element.style.boxShadow = "0px 2px 1px grey"
             element.style.borderRadius = "0"
             element.style.border = "none"
-            element.innerHTML = `${data.height}x${data.width} - ${data.orientation} - ${data.support}`
+            element.innerHTML = `${data.height}x${data.width}cm - ${data.support.replace(/_/g, " ")}`
           } else {
             element.style.color = "black"
             element.style.background = "rgb(236, 240, 241)"

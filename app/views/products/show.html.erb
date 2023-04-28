@@ -37,7 +37,7 @@
       <div class="productcarrousselarea">
         <span data-loadvariants-target= "discountpercentzone">
           <%if @product.discount_price_cents != 0%>
-            <span class="promospanshowproduct"> <%= @discount_percent.to_i %> %</span>
+            <span class="promospanshowproduct"> <%= @discount_percent.to_i.round(0) %> %</span>
           <%end%>
         </span>
         <% if @product.photos.attached? %>
@@ -131,7 +131,7 @@
                             id="<%=product.id%>"
                             data-action="click->loadvariants#loadNewVariant"
                             data-loadvariants-product-id-param="<%= product.id %>">
-                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                      <%= product.height%>x<%= product.width%>cm - <%= product.support.gsub("_"," ")%>
                     </button>
                   <% else %>
                     <button class="btn btn-dark mb-2 variant"
@@ -139,7 +139,7 @@
                             id="<%=product.id%>"
                             data-action="click->loadvariants#loadNewVariant"
                             data-loadvariants-product-id-param="<%= product.id %>">
-                      <%= product.height%>x<%= product.width%> - <%= product.orientation%> - <%= product.support%>
+                      <%= product.height%>x<%= product.width%>cm - <%= product.support.gsub("_"," ")%>
                     </button>
                   <% end %>
               <% end %>

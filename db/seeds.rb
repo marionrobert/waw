@@ -348,7 +348,7 @@ puts "Remplissage des rayons"
 product_1 = Product.create!(
   name: "wolfs",
   main: true,
-  sku: "wolfs_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "wolfs_90x60_paysage_Fine_art_315g",
   description: "loup nature froid blanc animaux",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -358,7 +358,7 @@ product_1 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   fournisseur: "intel",
@@ -378,7 +378,7 @@ puts "Produit #{Product.last.id} créé"
 product_2 = Product.create!(
   name: "wolfs",
   main: false,
-  sku: "wolfs_90x60_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "wolfs_90x60_paysage_Fine_art_315g_avec_marge_blanche",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   description: "loup nature froid blanc animaux",
   price_cents: 29400,
@@ -387,7 +387,7 @@ product_2 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -406,7 +406,7 @@ puts "Produit #{Product.last.id} créé"
 product_3 = Product.create!(
   name: "wolfs",
   main: false,
-  sku: "wolfs_90x60_paysage_PVCexpanse5mmforex",
+  sku: "wolfs_90x60_paysage_Toile_chassis_100%_lin_400g",
   description: "loup nature froid blanc animaux",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -415,7 +415,7 @@ product_3 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -433,7 +433,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_4 = Product.create!(
   name: "wolfs",
-  sku: "wolfs_120x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "wolfs_120x90_paysage_Fine_art_315g",
   description: "loup nature froid blanc animaux",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -442,7 +442,7 @@ product_4 = Product.create!(
   supplier_delay: 21,
   width: 120,
   height: 90,
-  support:"Toileseulecanvas100%coton340gm2",
+  support:"Fine_art_315g",
   frame_quantity: 1,
   orientation:"paysage",
   subcategory: subcategory1,
@@ -460,7 +460,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_5 = Product.create!(
   name: "wolfs",
-  sku: "wolfs_120x90_paysage_Toilesurchassiscanvas100%coton340gm2",
+  sku: "wolfs_120x90_paysage_Fine_art_315g_avec_marge_blanche",
   description: "loup nature froid blanc animaux",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -469,7 +469,7 @@ product_5 = Product.create!(
   supplier_delay: 21,
   width: 120,
   height: 90,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1,
@@ -487,7 +487,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_6 = Product.create!(
   name: "wolfs",
-  sku: "wolfs_120x90_paysage_PVCexpanse5mmforex",
+  sku: "wolfs_120x90_paysage_Toile_chassis_100%_lin_400g",
   description: "loup nature froid blanc animaux",
   meta_description: "tableau d'un loup qui lutte contre le vent",
   price_cents: 29400,
@@ -497,7 +497,7 @@ product_6 = Product.create!(
   supplier_delay: 21,
   width: 120,
   height: 90,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1,
@@ -516,7 +516,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_7 = Product.create!(
   name: "notfriendlywolf",
-  sku: "notfriendlywolf_60x120_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "notfriendlywolf_60x120_portrait_Fine_art_315g",
   description: "loup agressif sombre nature animaux sauvage",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 34900,
@@ -526,7 +526,7 @@ product_7 = Product.create!(
   supplier_delay: 14,
   width: 60,
   height: 120,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -545,7 +545,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_8 = Product.create!(
   name: "notfriendlywolf",
-  sku: "notfriendlywolf_60x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "notfriendlywolf_60x120_portrait_Fine_art_315g_avec_marge_blanche",
   description: "loup agressif sombre nature animaux sauvage",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 39900,
@@ -555,7 +555,7 @@ product_8 = Product.create!(
   supplier_delay: 14,
   width: 120,
   height: 60,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -574,7 +574,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_9 = Product.create!(
   name: "notfriendlywolf",
-  sku: "notfriendlywolf_60x120_portrait_PVCexpanse5mmforex",
+  sku: "notfriendlywolf_60x120_portrait_Toile_chassis_100%_lin_400g",
   description: "loup agressif sombre nature animaux sauvage",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 42900,
@@ -584,7 +584,7 @@ product_9 = Product.create!(
   supplier_delay: 14,
   width: 120,
   height: 60,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -605,7 +605,7 @@ puts "Produit #{Product.last.id} créé"
 product_10 = Product.create!(
   name: "departure",
   main: true,
-  sku: "departure_45x45_carre_Toileseulecanvas100%coton340gm2",
+  sku: "departure_45x45_carre_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -615,7 +615,7 @@ product_10 = Product.create!(
   supplier_delay: 21,
   width: 45,
   height: 45,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   fournisseur: "machin",
@@ -635,7 +635,7 @@ puts "Produit #{Product.last.id} créé"
 product_11 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_60x60_carre_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_60x60_carre_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -644,7 +644,7 @@ product_11 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 60,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1
@@ -663,7 +663,7 @@ puts "Produit #{Product.last.id} créé"
 product_12 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_90x90_carre_PVCexpanse5mmforex",
+  sku: "departure_90x90_carre_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -672,7 +672,7 @@ product_12 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 90,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1
@@ -690,7 +690,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_13 = Product.create!(
   name: "departure",
-  sku: "departure_100x100_carre_Toileseulecanvas100%coton340gm2",
+  sku: "departure_100x100_carre_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -699,7 +699,7 @@ product_13 = Product.create!(
   supplier_delay: 21,
   width: 100,
   height: 100,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1,
@@ -717,7 +717,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_14 = Product.create!(
   name: "departure",
-  sku: "departure_25x25_carre_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_25x25_carre_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -727,7 +727,7 @@ product_14 = Product.create!(
   supplier_delay: 21,
   width: 25,
   height: 25,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1,
@@ -745,7 +745,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_15 = Product.create!(
   name: "departure",
-  sku: "departure_100x100_carre_PVCexpanse5mmforex",
+  sku: "departure_100x100_carre_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -754,7 +754,7 @@ product_15 = Product.create!(
   supplier_delay: 21,
   width: 100,
   height: 100,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1,
@@ -773,7 +773,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_16 = Product.create!(
   name: "departure",
-  sku: "departure_60x60_carre_Toileseulecanvas100%coton340gm2",
+  sku: "departure_60x60_carre_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 34900,
@@ -783,7 +783,7 @@ product_16 = Product.create!(
   supplier_delay: 14,
   width: 60,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory2,
@@ -802,7 +802,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_17 = Product.create!(
   name: "departure",
-  sku: "departure_45x45_carre_Toilesurchassiscanvas100%coton340gm2",
+  sku: "departure_45x45_carre_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 39900,
@@ -812,7 +812,7 @@ product_17 = Product.create!(
   supplier_delay: 14,
   width: 45,
   height: 45,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory2,
@@ -831,7 +831,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_18 = Product.create!(
   name: "departure",
-  sku: "departure_120x120_carre_PVCexpanse5mmforex",
+  sku: "departure_120x120_carre_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 42900,
@@ -841,7 +841,7 @@ product_18 = Product.create!(
   supplier_delay: 14,
   width: 120,
   height: 120,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory2,
@@ -862,7 +862,7 @@ puts "Produit #{Product.last.id} créé"
 product_19 = Product.create!(
   name: "line",
   main: true,
-  sku: "line_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "line_60x90_portrait_Fine_art_315g",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -871,7 +871,7 @@ product_19 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -890,7 +890,7 @@ puts "Produit #{Product.last.id} créé"
 product_20 = Product.create!(
   name: "line",
   main: false,
-  sku: "line_60x90_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "line_60x90_portrait_Fine_art_315g_avec_marge_blanche",
   description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   meta_description: "line mountain",
   price_cents: 29400,
@@ -899,7 +899,7 @@ product_20 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -918,7 +918,7 @@ puts "Produit #{Product.last.id} créé"
 product_21 = Product.create!(
   name: "line",
   main: false,
-  sku: "line_60x90_portrait_PVCexpanse5mmforex",
+  sku: "line_60x90_portrait_Toile_chassis_100%_lin_400g",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -928,7 +928,7 @@ product_21 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -946,7 +946,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_22 = Product.create!(
   name: "line",
-  sku: "line_90x120_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "line_90x120_portrait_Fine_art_315g",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -955,7 +955,7 @@ product_22 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 120,
-  support:"Toileseulecanvas100%coton340gm2",
+  support:"Fine_art_315g",
   frame_quantity: 1,
   orientation:"portrait",
   subcategory: subcategory1,
@@ -973,7 +973,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_23 = Product.create!(
   name: "line",
-  sku: "line_90x120_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "line_90x120_portrait_Fine_art_315g_avec_marge_blanche",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -982,7 +982,7 @@ product_23 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 120,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1,
@@ -1000,7 +1000,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_24 = Product.create!(
   name: "line",
-  sku: "line_90x120_portrait_PVCexpanse5mmforex",
+  sku: "line_90x120_portrait_Toile_chassis_100%_lin_400g",
   description: "line mountain",
   meta_description: "someone crossing between two mountain on a line, feeling the deep under his feets",
   price_cents: 29400,
@@ -1009,7 +1009,7 @@ product_24 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 120,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1,
@@ -1028,7 +1028,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_25 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "coquelicot_60x90_portrait_Fine_art_315g",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 34900,
@@ -1038,7 +1038,7 @@ product_25 = Product.create!(
   supplier_delay: 14,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -1057,7 +1057,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_26 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x90_portrait_Toilesurchassiscanvas100%coton340gm2",
+  sku: "coquelicot_60x90_portrait_Fine_art_315g_avec_marge_blanche",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 39900,
@@ -1067,7 +1067,7 @@ product_26 = Product.create!(
   supplier_delay: 14,
   width: 60,
   height: 90,
-  support: "Toilesurchassiscanvas100%coton340gm2",
+  support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -1086,7 +1086,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_27 = Product.create!(
   name: "coquelicot",
-  sku: "coquelicot_60x90_portrait_PVCexpanse5mmforex",
+  sku: "coquelicot_60x90_portrait_Toile_chassis_100%_lin_400g",
   description: "focus coquelicot",
   meta_description: "un coquelicot seul dans un champ ",
   price_cents: 42900,
@@ -1096,7 +1096,7 @@ product_27 = Product.create!(
   supplier_delay: 14,
   width: 60,
   height: 90,
-  support: "PVCexpanse5mmforex",
+  support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory2,
@@ -1115,7 +1115,7 @@ puts "Produit #{Product.last.id} créé"
 product_28 = Product.create!(
   name: "city_road",
   main: true,
-  sku: "city_road_60x60_carre_Toileseulecanvas100%coton340gm2",
+  sku: "city_road_60x60_carre_Fine_art_315g",
   description: "ville route",
   meta_description: "tableau d'une ville avec une route",
   price_cents: 29400,
@@ -1124,7 +1124,7 @@ product_28 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1
@@ -1143,7 +1143,7 @@ puts "Produit #{Product.last.id} créé"
 product_29 = Product.create!(
   name: "enseignetokyo",
   main: true,
-  sku: "enseignetokyo_50x80_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "enseignetokyo_50x80_portrait_Fine_art_315g",
   description: "ville route",
   meta_description: "Tableau d'une enseigne dans une rue de Tokyo",
   price_cents: 29400,
@@ -1152,7 +1152,7 @@ product_29 = Product.create!(
   supplier_delay: 21,
   width: 50,
   height: 80,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1171,7 +1171,7 @@ puts "Produit #{Product.last.id} créé"
 product_30 = Product.create!(
   name: "tokyostreet",
   main: true,
-  sku: "tokyostreet_60x60_care_Toileseulecanvas100%coton340gm2",
+  sku: "tokyostreet_60x60_care_Fine_art_315g",
   description: "ville route",
   meta_description: "Rue de Tokyo",
   price_cents: 29400,
@@ -1181,7 +1181,7 @@ product_30 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1
@@ -1200,7 +1200,7 @@ puts "Produit #{Product.last.id} créé"
 product_31 = Product.create!(
   name: "trek",
   main: true,
-  sku: "trek_45x70_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "trek_45x70_portrait_Fine_art_315g",
   description: "ville route",
   meta_description: "Homme marchant dans la forêt lors d'un trek",
   price_cents: 29400,
@@ -1209,7 +1209,7 @@ product_31 = Product.create!(
   supplier_delay: 21,
   width: 45,
   height: 70,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1228,7 +1228,7 @@ puts "Produit #{Product.last.id} créé"
 product_32 = Product.create!(
   name: "nomansland",
   main: true,
-  sku: "nomansland_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "nomansland_90x60_paysage_Fine_art_315g",
   description: "ville route",
   meta_description: "Paysage désertique traversé par une route",
   price_cents: 29400,
@@ -1237,7 +1237,7 @@ product_32 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1256,7 +1256,7 @@ puts "Produit #{Product.last.id} créé"
 product_33 = Product.create!(
   name: "sunnyplants",
   main: true,
-  sku: "sunnyplants_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "sunnyplants_60x90_portrait_Fine_art_315g",
   description: "ville route",
   meta_description: "Ensemble de plantes dans une cour ensoleillée",
   price_cents: 29400,
@@ -1265,7 +1265,7 @@ product_33 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1284,7 +1284,7 @@ puts "Produit #{Product.last.id} créé"
 product_34 = Product.create!(
   name: "citizenact",
   main: true,
-  sku: "citizenact_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "citizenact_90x60_paysage_Fine_art_315g",
   description: "ville route",
   meta_description: "Actes citoyens inscrits sur des briques de lait",
   price_cents: 29400,
@@ -1293,7 +1293,7 @@ product_34 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1313,7 +1313,7 @@ puts "Produit #{Product.last.id} créé"
 product_35 = Product.create!(
   name: "surforfly",
   main: true,
-  sku: "surforfly_45x70_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "surforfly_45x70_paysage_Fine_art_315g",
   description: "ville route",
   meta_description: "Sport extrême. Coucher de soleil.",
   price_cents: 29400,
@@ -1322,7 +1322,7 @@ product_35 = Product.create!(
   supplier_delay: 21,
   width: 45,
   height: 70,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1340,7 +1340,7 @@ puts "Produit #{Product.last.id} créé"
 product_36 = Product.create!(
   name: "drunk",
   main: true,
-  sku: "drunk_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "drunk_60x90_paysage_Fine_art_315g",
   description: "ville route",
   meta_description: "Reflet dans le miroir de deux femmes alcoolisées.",
   price_cents: 29400,
@@ -1349,7 +1349,7 @@ product_36 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1368,7 +1368,7 @@ puts "Produit #{Product.last.id} créé"
 product_37 = Product.create!(
   name: "surfeverywhere",
   main: true,
-  sku: "surfeverywhere_45x70_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "surfeverywhere_45x70_portrait_Fine_art_315g",
   description: "ordinateur femme montre lit",
   meta_description: "Femme travaillant sur son ordinateur portable.",
   price_cents: 29400,
@@ -1378,7 +1378,7 @@ product_37 = Product.create!(
   supplier_delay: 21,
   width: 45,
   height: 70,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1398,7 +1398,7 @@ puts "Produit #{Product.last.id} créé"
 product_38 = Product.create!(
   name: "surfeverywhere",
   main: false,
-  sku: "surfeverywhere_80x150_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "surfeverywhere_80x150_paysage_Fine_art_315g",
   description: "ordinateur femme montre lit",
   meta_description: "Femme travaillant sur son ordinateur portable.",
   price_cents: 29400,
@@ -1407,7 +1407,7 @@ product_38 = Product.create!(
   supplier_delay: 21,
   width: 80,
   height: 150,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1426,7 +1426,7 @@ puts "Produit #{Product.last.id} créé"
 product_39 = Product.create!(
   name: "feellittle",
   main: true,
-  sku: "feellittle_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "feellittle_60x90_paysage_Fine_art_315g",
   description: "mer baignade paysage",
   meta_description: "Deux personnes se baignent dans une mer agitée.",
   price_cents: 29400,
@@ -1435,7 +1435,7 @@ product_39 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1454,7 +1454,7 @@ puts "Produit #{Product.last.id} créé"
 product_40 = Product.create!(
   name: "foreignstreet",
   main: true,
-  sku: "foreignstreet_50x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "foreignstreet_50x90_portrait_Fine_art_315g",
   description: "rue Allemagne",
   meta_description: "Rue allemande.",
   price_cents: 29400,
@@ -1463,7 +1463,7 @@ product_40 = Product.create!(
   supplier_delay: 21,
   width: 50,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1482,7 +1482,7 @@ puts "Produit #{Product.last.id} créé"
 product_41 = Product.create!(
   name: "modernromance",
   main: true,
-  sku: "modernromance_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "modernromance_90x60_paysage_Fine_art_315g",
   description: "amoureux métro mariage",
   meta_description: "Deux jeunes mariés se tiennent la main en attendant le métro.",
   price_cents: 29400,
@@ -1491,7 +1491,7 @@ product_41 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1510,7 +1510,7 @@ puts "Produit #{Product.last.id} créé"
 product_42 = Product.create!(
   name: "focusoneggs",
   main: true,
-  sku: "focusoneggs_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "focusoneggs_60x90_paysage_Fine_art_315g",
   description: "oeufs table",
   meta_description: "Deux oeufs sur une table dressée.",
   price_cents: 29400,
@@ -1519,7 +1519,7 @@ product_42 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1538,7 +1538,7 @@ puts "Produit #{Product.last.id} créé"
 product_43 = Product.create!(
   name: "droneviewforest",
   main: true,
-  sku: "droneviewforest_75x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "droneviewforest_75x60_paysage_Fine_art_315g",
   description: "forêt",
   meta_description: "Forêt vue du ciel. Couleurs automnales.",
   price_cents: 29400,
@@ -1547,7 +1547,7 @@ product_43 = Product.create!(
   supplier_delay: 21,
   width: 75,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1566,7 +1566,7 @@ puts "Produit #{Product.last.id} créé"
 product_44 = Product.create!(
   name: "emptystadium",
   main: true,
-  sku: "emptystadium_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "emptystadium_60x90_portrait_Fine_art_315g",
   description: "stade sport vide competition",
   meta_description: "Stade vidé de ses spectateurs.",
   price_cents: 29400,
@@ -1576,7 +1576,7 @@ product_44 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1595,7 +1595,7 @@ puts "Produit #{Product.last.id} créé"
 product_45 = Product.create!(
   name: "brightwater",
   main: true,
-  sku: "brightwater_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "brightwater_60x90_paysage_Fine_art_315g",
   description: "eau turquoise",
   meta_description: "Eau turquoise. Mer.",
   price_cents: 29400,
@@ -1604,7 +1604,7 @@ product_45 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1623,7 +1623,7 @@ puts "Produit #{Product.last.id} créé"
 product_46 = Product.create!(
   name: "homesweethome",
   main: true,
-  sku: "homesweethome_80x50_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "homesweethome_80x50_paysage_Fine_art_315g",
   description: "intéieur maison salon",
   meta_description: "Salon cosy d'une maison.",
   price_cents: 29400,
@@ -1632,7 +1632,7 @@ product_46 = Product.create!(
   supplier_delay: 21,
   width: 80,
   height: 50,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1651,7 +1651,7 @@ puts "Produit #{Product.last.id} créé"
 product_47 = Product.create!(
   name: "girlinfield",
   main: true,
-  sku: "girlinfield_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "girlinfield_60x90_paysage_Fine_art_315g",
   description: "Femme jupe champ blé été",
   meta_description: "Femme marchant dans un champ de blé avec un bouquet de fleurs à la main.",
   price_cents: 29400,
@@ -1660,7 +1660,7 @@ product_47 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1679,7 +1679,7 @@ puts "Produit #{Product.last.id} créé"
 product_48 = Product.create!(
   name: "easyclimbing",
   main: true,
-  sku: "easyclimbing_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "easyclimbing_90x60_paysage_Fine_art_315g",
   description: "escalier tourbillon",
   meta_description: "Escalier",
   price_cents: 29400,
@@ -1688,7 +1688,7 @@ product_48 = Product.create!(
   supplier_delay: 21,
   width: 75,
   height: 50,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1707,7 +1707,7 @@ puts "Produit #{Product.last.id} créé"
 product_49 = Product.create!(
   name: "youmeanselfie",
   main: true,
-  sku: "youmeanselfie_45x80_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "youmeanselfie_45x80_paysage_Fine_art_315g",
   description: "nature selfie homme sable",
   meta_description: "Homme regardant les photos qu'il vient de prendre. Paysage côtier.",
   price_cents: 29400,
@@ -1716,7 +1716,7 @@ product_49 = Product.create!(
   supplier_delay: 21,
   width: 45,
   height: 80,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1735,7 +1735,7 @@ puts "Produit #{Product.last.id} créé"
 product_50 = Product.create!(
   name: "whiteloneliness",
   main: true,
-  sku: "whiteloneliness_90x50_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "whiteloneliness_90x50_paysage_Fine_art_315g",
   description: "Marcheur dans la neige sous un ciel bleu",
   meta_description: "Marcheur dans la neige sous un ciel bleu",
   price_cents: 29400,
@@ -1744,7 +1744,7 @@ product_50 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 50,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1763,7 +1763,7 @@ puts "Produit #{Product.last.id} créé"
 product_51 = Product.create!(
   name: "preciousthangold",
   main: true,
-  sku: "preciousthangold_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "preciousthangold_60x90_paysage_Fine_art_315g",
   description: "Mer bleue.",
   meta_description: "Mer bleue.",
   price_cents: 29400,
@@ -1773,7 +1773,7 @@ product_51 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1792,7 +1792,7 @@ puts "Produit #{Product.last.id} créé"
 product_52 = Product.create!(
   name: "chiarobscuroreverted",
   main: true,
-  sku: "chiarobscuroreverted_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "chiarobscuroreverted_60x90_paysage_Fine_art_315g",
   description: "Homme jouant de la guitare devant un coucher de soleil.",
   meta_description: "Homme jouant de la guitare devant un coucher de soleil.",
   price_cents: 29400,
@@ -1802,7 +1802,7 @@ product_52 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1821,7 +1821,7 @@ puts "Produit #{Product.last.id} créé"
 product_53 = Product.create!(
   name: "acidulé",
   main: true,
-  sku: "acidulé_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "acidulé_60x90_paysage_Fine_art_315g",
   description: "Oranges",
   meta_description: "Oranges",
   price_cents: 29400,
@@ -1830,7 +1830,7 @@ product_53 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1849,7 +1849,7 @@ puts "Produit #{Product.last.id} créé"
 product_54 = Product.create!(
   name: "backgroundfocus",
   main: true,
-  sku: "backgroundfocus_60x90_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "backgroundfocus_60x90_paysage_Fine_art_315g",
   description: "Femme dans un paysage de montagnes en été.",
   meta_description: "Femme dans un paysage de montagnes en été.",
   price_cents: 29400,
@@ -1859,7 +1859,7 @@ product_54 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1876,7 +1876,7 @@ puts "Produit #{Product.last.id} créé"# # ////////////////////////////////
 product_55 = Product.create!(
   name: "lookup",
   main: true,
-  sku: "lookup_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "lookup_60x90_portrait_Fine_art_315g",
   description: "Feuilles de palmier sur fond de ciel bleu.",
   meta_description: "Feuilles de palmier sur fond de ciel bleu.",
   price_cents: 29400,
@@ -1885,7 +1885,7 @@ product_55 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1904,7 +1904,7 @@ puts "Produit #{Product.last.id} créé"
 product_56 = Product.create!(
   name: "yellowellipse",
   main: true,
-  sku: "yellowellipse_90x45_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "yellowellipse_90x45_paysage_Fine_art_315g",
   description: "Elipse jaune.",
   meta_description: "Elipse jaune.",
   price_cents: 29400,
@@ -1913,7 +1913,7 @@ product_56 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 45,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -1932,7 +1932,7 @@ puts "Produit #{Product.last.id} créé"
 product_57 = Product.create!(
   name: "springcommings",
   main: true,
-  sku: "springcomings_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "springcomings_60x90_portrait_Fine_art_315g",
   description: "Fleurs de sakura sur fond de ciel bleu.",
   meta_description: "Fleurs de sakura sur fond de ciel bleu.",
   price_cents: 29400,
@@ -1941,7 +1941,7 @@ product_57 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1960,7 +1960,7 @@ puts "Produit #{Product.last.id} créé"
 product_58 = Product.create!(
   name: "earlymorningriver",
   main: true,
-  sku: "earlymorningriver_50x80_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "earlymorningriver_50x80_portrait_Fine_art_315g",
   description: "Rivière à l'aube dans un paysage de montagnes.",
   meta_description: "Rivière à l'aube dans un paysage de montagnes.",
   price_cents: 29400,
@@ -1969,7 +1969,7 @@ product_58 = Product.create!(
   supplier_delay: 21,
   width: 50,
   height: 80,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -1988,7 +1988,7 @@ puts "Produit #{Product.last.id} créé"
 product_59 = Product.create!(
   name: "bigcitylife",
   main: true,
-  sku: "bigcitylife_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "bigcitylife_60x90_portrait_Fine_art_315g",
   description: "Ville tentaculaire. Urbanisme.",
   meta_description: "Ville tentaculaire. Urbanisme.",
   price_cents: 29400,
@@ -1997,7 +1997,7 @@ product_59 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -2016,7 +2016,7 @@ puts "Produit #{Product.last.id} créé"
 product_60 = Product.create!(
   name: "japanandtradition",
   main: true,
-  sku: "japanandtradition_60x90_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "japanandtradition_60x90_portrait_Fine_art_315g",
   description: "Femme japonaise en kimono marchant dans une rue traditionnelle.",
   meta_description: "Femme japonaise en kimono marchant dans une rue traditionnelle.",
   price_cents: 29400,
@@ -2025,7 +2025,7 @@ product_60 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 90,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -2044,7 +2044,7 @@ puts "Produit #{Product.last.id} créé"
 product_61 = Product.create!(
   name: "nicebuilding",
   main: true,
-  sku: "nicebuilding_50x80_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "nicebuilding_50x80_portrait_Fine_art_315g",
   description: "Immeuble aux nombreuses fenêtres dans Brooklyn.",
   meta_description: "Immeuble aux nombreuses fenêtres dans Brooklyn.",
   price_cents: 29400,
@@ -2053,7 +2053,7 @@ product_61 = Product.create!(
   supplier_delay: 21,
   width: 50,
   height: 80,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
@@ -2072,7 +2072,7 @@ puts "Produit #{Product.last.id} créé"
 product_62 = Product.create!(
   name: "vertigo",
   main: true,
-  sku: "vertigo_80x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "vertigo_80x60_paysage_Fine_art_315g",
   description: "Paysage de montagne et de vide.",
   meta_description: "Paysage de montagne et de vide.",
   price_cents: 29400,
@@ -2081,7 +2081,7 @@ product_62 = Product.create!(
   supplier_delay: 21,
   width: 80,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -2102,7 +2102,7 @@ puts "Produit #{Product.last.id} créé"
 product_63 = Product.create!(
   name: "church",
   main: true,
-  sku: "church_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "church_90x60_paysage_Fine_art_315g",
   description: "Intérieur d'une cathédrale, vue du sol.",
   meta_description: "Intérieur d'une cathédrale, vue du sol.",
   price_cents: 23400,
@@ -2111,7 +2111,7 @@ product_63 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -2130,7 +2130,7 @@ puts "Produit #{Product.last.id} créé"
 product_64 = Product.create!(
   name: "tools",
   main: true,
-  sku: "tools_90x60_paysage_Toileseulecanvas100%coton340gm2",
+  sku: "tools_90x60_paysage_Fine_art_315g",
   description: "Ustentils.",
   meta_description: "Ustentils",
   price_cents: 22400,
@@ -2139,7 +2139,7 @@ product_64 = Product.create!(
   supplier_delay: 21,
   width: 90,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "paysage",
   subcategory: subcategory1
@@ -2159,7 +2159,7 @@ puts "Produit #{Product.last.id} créé"
 product_65 = Product.create!(
   name: "modern_dance",
   main: true,
-  sku: "modern_dance_60x60_carre_Toileseulecanvas100%coton340gm2",
+  sku: "modern_dance_60x60_carre_Fine_art_315g",
   description: "Danseuse exécutant une danse moderne.",
   meta_description: "Danseuse exécutant une danse moderne.",
   price_cents: 19400,
@@ -2168,7 +2168,7 @@ product_65 = Product.create!(
   supplier_delay: 21,
   width: 60,
   height: 60,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "carre",
   subcategory: subcategory1
@@ -2188,7 +2188,7 @@ puts "Produit #{Product.last.id} créé"
 product_66 = Product.create!(
   name: "cubalibre",
   main: true,
-  sku: "cubalibre_50x70_portrait_Toileseulecanvas100%coton340gm2",
+  sku: "cubalibre_50x70_portrait_Fine_art_315g",
   description: "Verres d'alcool à Cuba.",
   meta_description: "Verres d'alcool à Cuba.",
   price_cents: 29400,
@@ -2197,7 +2197,7 @@ product_66 = Product.create!(
   supplier_delay: 21,
   width: 50,
   height: 70,
-  support: "Toileseulecanvas100%coton340gm2",
+  support: "Fine_art_315g",
   frame_quantity: 1,
   orientation: "portrait",
   subcategory: subcategory1
