@@ -4,7 +4,7 @@
 <%# <div style="display:flex;justify-content:center;margin-top:1rem"> %>
 
   <div id="frame_selector">
-    <div id="nofame" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
+    <div id="noframe" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
       <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto"%>
     </div>
 
@@ -16,12 +16,12 @@
       <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:50%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white, 0 0 0 15px black"%>
     </div>
 
-    <div id="whiteframe" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)"  data-action="click->gallerie#whiteframe">
-      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;border: 5px solid white"%>
+    <div id="white_usa_box" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)"  data-action="click->gallerie#white_usa_box">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(230, 230, 230), 0 0 0 10px rgb(255, 255, 255);"%>
     </div>
 
-    <div id="brownframe" class="vignettesalon" style="position:relative;background:rgb(250, 240, 250)"  data-action="click->gallerie#brownframe">
-      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;border: 5px solid brown"%>
+    <div id="wood_usa_box" class="vignettesalon" style="position:relative;background:rgb(250, 240, 250)"  data-action="click->gallerie#wood_usa_box">
+      <%= cl_image_tag @product.photos.first.key, style:"position:absolute;top:40%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(173, 104, 55), 0 0 0 10px rgb(131, 78, 41);"%>
     </div>
   </div>
 <div style="display:flex;justify-content:center">
