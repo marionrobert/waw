@@ -1,7 +1,4 @@
-
-
-
-<div style="text-align:left;font-style:italic;">
+<div style="text-align:left;font-style:italic;margin-left:2rem;">
   <%if current_user.first_name == nil %>
     <h3 class="pt-2">Bienvenue <%= current_user.email %></h3>
   <%elsif current_user.first_name != nil%>
@@ -55,17 +52,25 @@
   </div>
 <%end%>
 
-<div>
-  <%if current_user != nil%>
-    <%if current_user.favorite_products.count > 0%>
-      <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-      <div class="container" style="margin-bottom:15vh;height:75vh;">
-        <div style="height:5vh;display:flex;flew-flow:wrap">
-            <% current_user.favorite_products.sample(3).each do |product| %>
-            <%= render "shared/#{Shop.first.card}", product: product %>
+<%if current_user != nil%>
+  <%if current_user.favorite_products.count > 0%>
+    <section style="background:rgba(220,220,220,0); box-shadow: 0px 0px 10px rgba(220,220,220,0); margin-left:2rem;">
+      <div class="carouselcontainer">
+        <h3 style="margin-top:2rem;"><%= current_user.favorites.count %> oeuvres favorites</h3>
+        <div class="main_carousel_area" data-controller="carousel-homepage favorites">
+          <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+          <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:80%;position:absolute;left:0;top:0;display:flex;">
+            <% current_user.favorite_products.each do |product| %>
+              <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+                <%= render "shared/#{Shop.first.card}", product: product %>
+              </div>
             <% end %>
+          </div>
+          <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
         </div>
       </div>
-    <%end%>
+    </section>
+  <% else %>
+    <h3 style="font-size:medium; margin-top:2rem;">Vous n'avez pas encore enregistré d'oeuvres favorites</h3>
   <%end%>
-</div>
+<%end%>

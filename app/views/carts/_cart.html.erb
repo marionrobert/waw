@@ -13,7 +13,7 @@
               <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
             <%end%>
           </div>
-    <%# ////////////////bloc central ///////////////%>
+    <%# bloc central    %>
           <div class="line-item-central-area">
             <%# product info %>
             <div class="line-item-info">
@@ -25,9 +25,9 @@
               </p>
             </div>
 
-    <%#///////////////// Gestionnaire de quantité ////////////////%>
+    <%# Gestionnaire de quantité   %>
             <div class="quantity-zone">
-      <%#//////////// AJOUTER 1 DE QUANTITE/////////// %>
+      <%#   AJOUTER 1 DE QUANTITE   %>
               <span class="quantity-icon" data-action="click->line-item-quantity#addOne" data-line-item-quantity-item-id-param="<%= item.id %>">
                 <i class="fa-solid fa-plus "></i>
               </span>
@@ -35,7 +35,7 @@
               <span style="margin:0 5%" id="quantityItem<%= item.id %>">
                 <%= item.quantity  %>
               </span>
-      <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
+      <%#   ENLEVER LA QUANTITE DE 1   %>
               <span class="quantity-icon" data-action="click->line-item-quantity#removeOne" data-line-item-quantity-item-id-param="<%= item.id %>" >
                 <i class="fa-solid fa-minus"></i>
               </span>
@@ -43,28 +43,28 @@
             </div>
           </div>
 
-    <%# ///////////////// prix produit * qté et promo *qté///////////// %>
+    <%#   prix produit * qté et promo *qté   %>
           <div class="price-zone">
-      <%# /////////////si promo ///////////// %>
+      <%#   si promo    %>
             <% if item.product.discount_price_cents.positive? %>
-      <%# /////////////////prix classique barré //////////////%>
+      <%#   prix classique barré   %>
               <p class="price-off">
                 <span id="totalOriginalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span> €
               </p>
-      <%#/////////////// REMISE EN % ///////////////%>
+      <%#   REMISE EN %   %>
               <span class="discount-percent">
                 -
                 <%=(100-((item.product.discount_price_cents).to_f / (item.product.price_cents).to_f)*100).round(0)%>
                 %
               </span>
-      <%#//////////// prix promo en vert %>
+      <%#   prix promo en vert %>
               <p class="promo-price" >
                 <span id="totalPromoPrice<%= item.id %>"><%= item.total_discount / 100.00 %></span> €
               </p>
               <%# need this none-displayed line for js !!! %>
               <span style="display:none" id="totalPrice<%= item.id %>"></span>
             <%else%>
-      <%# /////////////sinon prix classique ///////////////%>
+      <%#   sinon prix classique   %>
               <p>
                 <span id="totalPrice<%= item.id %>"><%= item.total_basic / 100.00 %></span>€
               </p>
@@ -74,7 +74,7 @@
             <%end%>
           </div>
 
-    <%# //////////// la Poubelle - detruit la line item //////// %>
+          <%# la Poubelle detruit la line item   %>
           <div class="trashzone">
             <span data-action="click->line-item-quantity#delete" data-line-item-quantity-item-id-param="<%= item.id %>">
               <i class="fa-solid fa-trash-can" style="color:grey"></i>
@@ -99,27 +99,37 @@
       </div>
     </div>
   </div>
-<%# ////////////////FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS/////////////// %>
+  <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
+
   <%if current_user != nil%>
     <%if current_user.favorite_products.count > 0%>
-      <h3 class="mb-5 text-center"> Vos produits favoris</h3>
-      <div class="container" style="margin-bottom:15vh;height:75vh;">
-        <div style="height:5vh;display:flex;flew-flow:wrap">
-            <% current_user.favorite_products.sample(3).each do |product| %>
-            <%= render "shared/#{Shop.first.card}", product: product %>
-            <% end %>
+      <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
+        <div class="carouselcontainer">
+          <div class="main_carousel_area" data-controller="carousel-homepage favorites"  style="transform: scale(0.7);">
+          <h3>Vos oeuvres favorites</h3>
+            <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+            <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+              <% current_user.favorite_products.each do |product| %>
+                <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+                  <%= render "shared/#{Shop.first.card}", product: product %>
+                </div>
+              <% end %>
+            </div>
+            <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
+          </div>
         </div>
-      </div>
+      </section>
     <%end%>
   <%end%>
+
 </div>
-<%# ///////////////BANNIERE PUB///////////////////// %>
+    <%# BANNIERE PUB    %>
     <div class="cartpub">
       <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
         <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
       <%end%>
     </div>
-<%# ///////////////FINALISER LA COMMANDE///////////////////// %>
+<%#   FINALISER LA COMMANDE    %>
 <% if current_user == nil %>
   <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
     <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>

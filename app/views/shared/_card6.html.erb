@@ -1,14 +1,16 @@
-<% cache product do %>
+
   <div class="c6-fullcard">
     <%# NE RIEN METTRE ICI %>
-    <%= link_to product_path(product) do%>
+    <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
       <div class="c6-imagediv">
-        <% if product.photos.attached? %>
-          <%= cl_image_tag product.photos.first.key, class:"c6-image"%>
-        <%else %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-                class="c6-image"
-                alt="Pas d'image disponible" >
+        <% cache product do %>
+          <% if product.photos.attached? %>
+              <%= cl_image_tag product.photos.first.key, class:"c6-image"%>
+          <%else %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                  class="c6-image"
+                  alt="Pas d'image disponible" >
+          <%end%>
         <%end%>
         <%if product.discount_price_cents.positive? %>
           <p class="c6-promoflash"><%=(((product.discount_price_cents.to_f - product.price_cents.to_f) / product.price_cents.to_f) * 100).round().to_s.gsub(/\./, ',')%>%</p>
@@ -16,13 +18,22 @@
       </div>
       <div class="c6-bloccentral" style="position:relative">
           <div class="favabsolute">
-          <% if user_signed_in?%>
-            <i class="fa-regular fa-heart c6-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
-          <%else%>
-            <%= link_to profile_path do %>
-              <i class="fa-regular fa-heart c6-favorite"></i>
+
+            <% if user_signed_in?%>
+              <% if Favorite.find_by(user: current_user, product: product) != nil  %>
+                <a class="fa-regular fa-heart c6-favorite fav-red"
+                  data-action='click->favorites#fav'
+                  data-favorites-product-id-param="<%= product.id %>"></a>
+              <% else %>
+                <a class="fa-regular fa-heart c6-favorite fav-black"
+                  data-action='click->favorites#fav'
+                  data-favorites-product-id-param="<%= product.id %>"></a>
+              <% end %>
+            <% else %>
+              <a class="fa-regular fa-heart c6-favorite fav-black"
+                data-action= 'click->favorites#redirect'
+                data-favorites-product-id-param="<%= product.id %>"></a>
             <% end %>
-          <%end%>
           </div>
         <div class="c6-descriptiondiv">
           <%if product.name.length > 20%>
@@ -77,4 +88,3 @@
       </div>
     <%end%>
   </div>
-<%end%>
