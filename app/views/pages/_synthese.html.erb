@@ -35,7 +35,7 @@
   </div>
 
   <div class="pt-5">
-    <h4><b> Veuillez trouver les indicateurs de votre magasin:</b></h4>
+    <h4> Veuillez trouver les indicateurs de votre magasin:</h4>
 
     <ul>Nombre de références à vendre: <%=Product.all.count%></ul>
     <ul>Nombre de références en stock: <%=Product.where("stock_quantity > 0 ").count%></ul>

@@ -175,46 +175,46 @@ export default class extends Controller {
   noframe() {
     console.log("no frame");
     let mainframe = document.getElementById("mainframe");
-    mainframe.classList.remove("brownframe");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("wood_usa_box");
+    mainframe.classList.remove("black_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
-    mainframe.classList.remove("whiteframe");
+    mainframe.classList.remove("white_usa_box");
   }
 
-  blackframe() {
-    console.log("black frame");
+  black_usa_box() {
+    console.log("black_usa_box");
     let mainframe = document.getElementById("mainframe");
-    mainframe.classList.remove("brownframe");
-    mainframe.classList.add("blackframe");
+    mainframe.classList.remove("wood_usa_box");
+    mainframe.classList.add("black_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
-    mainframe.classList.remove("whiteframe");
+    mainframe.classList.remove("white_usa_box");
   }
 
   blackframepaddingwhite() {
     console.log("blackframepaddingwhite");
     let mainframe = document.getElementById("mainframe");
-    mainframe.classList.remove("brownframe");
+    mainframe.classList.remove("wood_usa_box");
     mainframe.classList.add("blackframepaddingwhite");
-    mainframe.classList.remove("blackframe");
-    mainframe.classList.remove("whiteframe");
+    mainframe.classList.remove("black_usa_box");
+    mainframe.classList.remove("white_usa_box");
   }
 
-  whiteframe() {
+  white_usa_box() {
     console.log("white frame");
     let mainframe = document.getElementById("mainframe");
-    mainframe.classList.add("whiteframe");
+    mainframe.classList.add("white_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
-    mainframe.classList.remove("blackframe");
-    mainframe.classList.remove("brownframe");
+    mainframe.classList.remove("black_usa_box");
+    mainframe.classList.remove("wood_usa_box");
   }
 
-  brownframe() {
-    console.log("brown frame");
+  wood_usa_box() {
+    console.log("wood_usa_box");
     let mainframe = document.getElementById("mainframe");
-    mainframe.classList.add("brownframe");
+    mainframe.classList.add("wood_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
-    mainframe.classList.remove("whiteframe");
-    mainframe.classList.remove("blackframe");
+    mainframe.classList.remove("white_usa_box");
+    mainframe.classList.remove("black_usa_box");
   }
 
 }

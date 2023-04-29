@@ -44,11 +44,11 @@ export default class extends Controller {
         this.framequantityTarget.innerText = data.frame_quantity
 
         // update stock zone
-        if ( data.stock_quantity > 0) {
-          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><strong>En stock :</strong>  ${data.stock_quantity} exemplaires disponibles</p>`
-        } else {
-          this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><i>Disponible sous ${data.supplier_delay} jours</i></p>`
-        }
+        // if ( data.stock_quantity > 0) {
+        //   this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><strong>En stock :</strong>  ${data.stock_quantity} exemplaires disponibles</p>`
+        // } else {
+        //   this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><i>Disponible sous ${data.supplier_delay} jours</i></p>`
+        // }
 
         // no display all the red arrows
         const all_arrows = document.getElementsByClassName("fa-arrow-right")

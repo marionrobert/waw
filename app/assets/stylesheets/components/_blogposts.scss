@@ -14,9 +14,10 @@
 @media screen and (max-width: 480px) {
 
   .containerbgblogpost {
-    background: rgba(50,50,50,0.1);
-    margin-bottom:4vh;
+    // background: rgba(50,50,50,0.1);
+    margin: 5rem 0;
   }
+
   .blogpostcontent {
     width: auto;
     margin: 3vh 3vw;
@@ -82,6 +83,11 @@
 }
 
 @media screen and (min-width: 481px) {
+
+  .containerbgblogpost {
+    // background: rgba(50,50,50,0.1);
+    margin: 8rem 0;
+  }
 
   .blogpostcontent {
     width:auto;
