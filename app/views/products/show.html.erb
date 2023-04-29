@@ -184,12 +184,21 @@
     <%= render "pages/homegallerie"%>
   </section>
 
-  <h2 style="text-align:left;margin-left:10vw;margin-top:10vh;">Les produits suivants pourraient vous intéresser</h3>
-  <div style="display:flex;">
-    <div class="wrapperhomepage" data-controller="favorites">
-      <% @suggested_products.each do |product| %>
-        <%= render "shared/#{Shop.first.card}", product: product%>
-      <%end%>
+  <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
+    <div class="carouselcontainer">
+      <h3 class="carouselh3">Les oeuvres suivantes pourraient vous intéresser</h3>
+      <div class="main_carousel_area" data-controller="carousel-homepage">
+        <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+        <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+          <% @suggested_products.each do |product| %>
+            <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+              <%= render "shared/#{Shop.first.card}", product: product %>
+            </div>
+          <% end %>
+        </div>
+        <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
+      </div>
     </div>
-  </div>
+  </section>
+
 </div>
