@@ -14,6 +14,7 @@
 .CGV {
   h1 {
     font-size:xx-large;
+    text-decoration: underline;
     color:rgb(50, 40, 137);
     margin:7rem 0;
     text-align: center;
@@ -21,31 +22,37 @@
   }
 
   h2 {
+    text-decoration: underline;
     font-size:x-large;
     color:rgb(50, 40, 137);
-    margin:1.5rem 0;
+    margin:1.5rem 1rem;
   }
 
   h3 {
+    text-decoration: underline;
+
     font-size:large;
     color:rgb(50, 40, 137);
-    margin:1rem 0;
+    margin:1rem 2rem;
   }
 
   h4 {
+    text-decoration: underline;
+
     font-size:medium;
     color:rgb(50, 40, 137);
-    margin:0.7rem 0;
+    margin:0.7rem 3rem;
   }
 
   p {
+    font-size:medium;
     text-align: justify;
-    font-size:small;
     color:black;
     margin:0.5rem 0;
   }
 
   li {
+    font-size:small;
     text-align:left;
     margin-left:2rem;
   }
