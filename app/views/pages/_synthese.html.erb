@@ -54,12 +54,12 @@
 
 <%if current_user != nil%>
   <%if current_user.favorite_products.count > 0%>
-    <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
+    <section style="background:rgba(220,220,220,0); box-shadow: 0px 0px 10px rgba(220,220,220,0);">
       <div class="carouselcontainer">
-        <h3 class="carouselh3">Vos produits favoris</h3>
+        <h3 class="carouselh3">Vous avez <%= current_user.favorites.count %> oeuvres favorites</h3>
         <div class="main_carousel_area" data-controller="carousel-homepage favorites">
           <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-          <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+          <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:80%;position:absolute;left:0;top:0;display:flex;">
             <% current_user.favorite_products.each do |product| %>
               <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
                 <%= render "shared/#{Shop.first.card}", product: product %>
@@ -70,5 +70,7 @@
         </div>
       </div>
     </section>
+  <% else %>
+    <h3 style="font-size:medium; margin-top:2rem;">Vous n'avez pas encore enregistré d'oeuvres favorites</h3>
   <%end%>
 <%end%>

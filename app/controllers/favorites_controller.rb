@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     if Favorite.find_by(user: current_user, product: Product.find(params[:product_id]))
       Favorite.find_by(user: current_user, product: Product.find(params[:product_id])).destroy
