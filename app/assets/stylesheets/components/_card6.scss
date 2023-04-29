@@ -1,4 +1,3 @@
-
 .cardcarousel .c6-fullcard {
   display:contents;
 }
@@ -13,6 +12,15 @@
 }
 
 .c6-fullcard {
+  a {
+    text-decoration: none;
+    color:black;
+  }
+
+  a:hover{
+    color: red;
+  }
+
   @media screen and (max-width: 480px) {
     margin: 25% 2%;
     font-size: 14px;
