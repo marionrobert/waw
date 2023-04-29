@@ -3,7 +3,7 @@
 <%if Shop.first.banner.key%>
   <div class="banner" style="background-image:radial-gradient(circle, rgba(193,193,193,0.23012955182072825) 0%, rgba(17,17,17,0.49343487394957986) 45%, rgba(52,52,52,0.7707457983193278) 71%), url('<%= cl_image_path Shop.first.banner.key %>');">
 <%else %>
-  <div class="banner nobanner">
+  <div class="banner nobanner" style="background-image: radial-gradient(circle, rgba(193,193,193,0.23012955182072825) 0%, rgba(17,17,17,0.49343487394957986) 45%, rgba(52,52,52,0.7707457983193278) 71%), url('<%= asset_url('banner_home.jpg') %>');">
 <%end%>
     <div class="bannertextfield">
       <h1 class="bannerh1"><%= Shop.first.name%></h1>
@@ -25,7 +25,7 @@
 
   <div style="display:flex;justify-content:space-between">
     <h3 class="carouselh3">Découvrez nos oeuvres en promotion - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
-    <h4 style="display: grid;align-items: center;margin-right:2rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
+    <h4 style="display: grid;align-items: center;margin-right:1.5rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
   </div>
   <section class="carouselcontainer">
     <div class="main_carousel_area" data-controller="carousel-homepage">

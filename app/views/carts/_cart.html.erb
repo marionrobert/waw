@@ -1,10 +1,10 @@
 <h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
 <div class="scroller">
-  <div class="container" data-controller="line-item-quantity">
+  <div data-controller="line-item-quantity">
     <% cart.line_items.each do |item| %>
       <div id="lineItem<%= item.id %>">
         <%# ligne complete %>
-        <div style="display:flex">
+        <div class="onelineitem">
           <%# photo - possiblement ajouté max-width:100%; a l'image%>
           <div class="vignette-line-item">
             <%if item.product.photos.attached?%>
@@ -32,7 +32,7 @@
                 <i class="fa-solid fa-plus "></i>
               </span>
       <%#//////////// QUANTITE/////////// %>
-              <span style="margin-left:2vw;margin-right:2vw" id="quantityItem<%= item.id %>">
+              <span style="margin:0 5%" id="quantityItem<%= item.id %>">
                 <%= item.quantity  %>
               </span>
       <%# ////////////ENLEVER LA QUANTITE DE 1 ///////////////%>
@@ -88,7 +88,7 @@
     <% end %>
 
 <%# ////////// SOUS TOTAL DU PANIER ////////////%>
-    <div class="container subtotal-line" >
+    <div class="subtotal-line" >
       <div class="subtotal-txt">
         <p>SOUS-TOTAL TTC</p>
       </div>
