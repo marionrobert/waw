@@ -1,5 +1,5 @@
 
-  <div class="c6-fullcard" data-controller="favorites">
+  <div class="c6-fullcard">
     <%# NE RIEN METTRE ICI %>
     <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
       <div class="c6-imagediv">
@@ -22,20 +22,20 @@
             <% if user_signed_in?%>
               <%# si le produit est déjà enregistré dans les favoris, le coeur est rouge et pointe vers action fav %>
               <% if Favorite.find_by(user: current_user, product: product) != nil  %>
-                <span class="fa-regular fa-heart c6-favorite fav-red"
+                <a class="fa-regular fa-heart c6-favorite fav-red"
                   data-action='click->favorites#fav'
-                  data-favorites-product-id-param="<%= product.id %>"></span>
+                  data-favorites-product-id-param="<%= product.id %>"></a>
               <% else %>
                 <%# sinon le coeur est noir et pointe vers action fav  %>
-                <span class="fa-regular fa-heart c6-favorite fav-black"
+                <a class="fa-regular fa-heart c6-favorite fav-black"
                   data-action='click->favorites#fav'
-                  data-favorites-product-id-param="<%= product.id %>"></span>
+                  data-favorites-product-id-param="<%= product.id %>"></a>
               <% end %>
             <% else %>
               <%# pas de user connecté --> le coeur est noir et pointe vers action redirect %>
-              <span class="fa-regular fa-heart c6-favorite fav-black"
+              <a class="fa-regular fa-heart c6-favorite fav-black"
                 data-action= 'click->favorites#redirect'
-                data-favorites-product-id-param="<%= product.id %>"></span>
+                data-favorites-product-id-param="<%= product.id %>"></a>
             <% end %>
           </div>
         <div class="c6-descriptiondiv">

@@ -19,14 +19,11 @@
   color:black;
 }
 
-a.fav-black:hover {
-  color: red;
-}
-
 .c6-fullcard {
   a {
     text-decoration: none;
     color:black;
+    cursor: pointer;
   }
 
   a:hover{
