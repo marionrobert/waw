@@ -1,6 +1,7 @@
-<h3 style="text-align:right;margin-right:5vw;margin-bottom:5vh;">Panier en cours</h3>
+<h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier en cours</h3>
 <div class="scroller">
-  <div data-controller="line-item-quantity addproducttocart" data-addproducttocart-target="contenupanier">
+
+  <div data-controller="line-item-quantity" data-addproducttocart-target="contenupanier">
     <% cart.line_items.each do |item| %>
       <div id="lineItem<%= item.id %>">
         <%# ligne complete %>
@@ -102,13 +103,13 @@
       </div>
     </div>
   </div>
-  <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
 
+  <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
   <%if current_user != nil%>
     <%if current_user.favorite_products.count > 0%>
       <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
         <div class="carouselcontainer">
-          <div class="main_carousel_area" data-controller="carousel-homepage favorites"  style="transform: scale(0.7);">
+          <div class="main_carousel_area" data-controller="carousel-homepage favorites">
           <h3>Vos oeuvres favorites</h3>
             <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
             <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
@@ -126,12 +127,15 @@
   <%end%>
 
 </div>
-    <%# BANNIERE PUB    %>
-    <div class="cartpub">
-      <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-        <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
-      <%end%>
-    </div>
+
+
+<%# BANNIERE PUB    %>
+<div class="cartpub">
+  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+    <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
+  <%end%>
+</div>
+
 <%#   FINALISER LA COMMANDE    %>
 <% if current_user == nil %>
   <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
@@ -145,8 +149,6 @@
     <% end %>
   </div>
 <% end %>
-
-  <%# else %>
 
 <div id="connexioncartbutton" class="panierconnexion">
   <button type="button"

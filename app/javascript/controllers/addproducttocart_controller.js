@@ -3,14 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="addproducttocart"
 export default class extends Controller {
 
-  static targets = [
-    "contenupanier"
-  ]
-
+  static targets = [ "contenupanier" ]
 
   connect() {
-    console.log("helloooooooo from addproducttocart")
-    console.log(this.contenupanierTarget)
+    console.log("lll from addproducttocart")
   }
 
   addproduct(event) {
@@ -32,7 +28,6 @@ export default class extends Controller {
     fetchWithToken(url, options)
     .then(response => response.json())
     .then((data) => {
-      console.log(data.line_items);
       circle_items_count.classList.remove("hidden");
       circle_items_count.classList.add("visible");
       circle_items_count.classList.add("cartflash");
@@ -40,12 +35,12 @@ export default class extends Controller {
       setTimeout(() => {
         circle_items_count.classList.remove("cartflash");
       }, 1500);
+
+      console.log(data.total_cart)
+
+      data.products.forEach(product => {
+        console.log(product);
+      });
     });
   }
-
-
-  //en data target, je veux récupérer, le nom du produit, le sku, le prix sans promo, le % de discount, le prix promo
-  // s'il existe déjà en line_items, le même sku : alors onf ait juste +1 en quantité, +prix_unitaire (promo et original)
-
-
 }

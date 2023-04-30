@@ -112,7 +112,7 @@
 .circle_items_count {
   font-size: 10px;
   position: absolute;
-  top: 3px;
+  top: 5px;
   border-radius: 50%;
   height: 15px;
   width: 15px;
@@ -123,11 +123,11 @@
 }
 
 .circle_items_count.visible {
-  background: rgba(254, 169, 1, 1);
+  background: rgba(135, 183, 189, 1);
 }
 
 .cartflash {
-  transform: scale(4);
+  transform: scale(2.5);
 }
 
 .circle_items_count.hidden {
