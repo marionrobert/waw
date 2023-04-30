@@ -1,0 +1,50 @@
+<section style="transform: perspective(2080px) rotateY(5deg);opacity:0.8">
+  <div id="mainbannerautoscroll">
+
+    <div class="bannerscrollcontainer">
+      <% @products.shuffle.each do |product| %>
+        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+          <%=cl_image_tag product.photos.first.key%>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="bannerscrollcontainer">
+      <% @products.shuffle.each do |product| %>
+        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+          <%=cl_image_tag product.photos.first.key%>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="bannerscrollcontainer">
+      <% @products.shuffle.each do |product| %>
+        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+          <%=cl_image_tag product.photos.first.key%>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</section>
+<script>
+  window.onload = function() {
+    var mainDiv = document.getElementById("mainbannerautoscroll");
+    var containerHeight = mainDiv.offsetHeight;
+    var screenHeight = window.innerHeight;
+    var currentPosition = 0;
+    var scrollSpeed = 1;
+
+    function scrollDown() {
+      currentPosition += scrollSpeed;
+      if (currentPosition > containerHeight - screenHeight) {
+        currentPosition = 0;
+      }
+      mainDiv.style.transform = "translateY(-" + currentPosition + "px)";
+      requestAnimationFrame(scrollDown);
+    }
+
+    scrollDown();
+  }
+</script>

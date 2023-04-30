@@ -4,13 +4,66 @@ a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
+
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  transform-origin: left center;
+  transform: translateZ(50px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+#mainbannerautoscroll {
+  display:flex;
+  width: 1200px;
+  margin: 0 20% 0 10%;
+  transform: perspective(1000px) rotateY(15deg);
+  a {
+    margin:50px;
+    img {
+      cursor:pointer;
+      transition: 500ms;
+      max-width: 100%;
+      box-shadow: 0 0 0 10px white, 0 0 0 20px black, 15px 10px 10px 10px grey;
+      // margin:40px;
+      &:hover {
+        transition: 500ms;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+
+// .product-link {
+//   color: inherit;
+//   text-decoration: none;
+// }
+
+.bannerscrollcontainer {
+	display:flex;
+	flex-direction: column;
+	margin:0 auto;
+
+}
+
+
+
+
+
 .bannerh1 {
   text-transform: uppercase;
   text-align: right;
   font-style: oblique;
   // padding-top:6vh;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
   text-decoration: none;
 
     @media screen and (min-width: 481px) {
@@ -23,7 +76,8 @@ a:active { text-decoration: none; }
   font-style: oblique;
   color:white;
   padding:5vh 0;
-  text-decoration:none
+  text-decoration:none;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 
 .bannerp {
