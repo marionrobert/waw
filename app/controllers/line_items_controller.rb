@@ -17,7 +17,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to products_url, success: "L'oeuvre a bien été ajoutée au panier." }
-        format.json { render :show, status: :created, location: @line_item, success:  "L'oeuvre a bien été ajoutée au panier." }
+        format.json { render json: { line_items: @line_item.cart.line_items } }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
