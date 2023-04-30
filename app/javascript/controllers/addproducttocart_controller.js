@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = [ "contenupanier" ]
 
   connect() {
-    console.log("www from addproducttocart")
   }
 
   addproduct(event) {
@@ -39,7 +38,6 @@ export default class extends Controller {
       this.contenupanierTarget.innerHTML = "";
 
       data.products.forEach(product => {
-        console.log(product.line_item_id);
         let html_to_insert=`
         <div id="lineItem${product.line_item_id}">
           <div class="onelineitem">
