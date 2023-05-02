@@ -271,8 +271,20 @@
   justify-content:space-around;
   align-items: center;
   margin-top:1rem;
-  color:black;
   font-size:xx-large;
+  a {
+    color:black;
+  }
+  .fav-red {
+    color: red;
+  }
+  i:hover {
+    cursor: pointer;
+    color: black;
+  }
+  .fav-black:hover {
+    color: red;
+  }
 }
 
 .btn-backproduct {

@@ -49,20 +49,28 @@
               class: 'd-block mx-auto') %>
         <% end %>
 
-
-
         <div class="buttons_show_action">
-            <i class="fa-regular fa-heart <%= Favorite.find_by(user: current_user, product: @product) ? 'fav-red' : 'fav-black' %>"
-               style="cursor:pointer"
-               data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>
-               data-favorites-product-id-param="<%= @product.id %>">
-            </i>
-            <%= link_to products_path, :data => {action: "click->share#share"} do%>
-              <i class="fa-solid fa-share-nodes shareicon"></i>
+          <% if user_signed_in?%>
+            <% if Favorite.find_by(user: current_user, product: @product) != nil  %>
+              <i class="fa-regular fa-heart c6-favorite fav-red"
+                data-action='click->favorites#fav'
+                data-favorites-product-id-param="<%= @product.id %>"></i>
+            <% else %>
+              <i class="fa-regular fa-heart c6-favorite fav-black"
+                data-action='click->favorites#fav'
+                data-favorites-product-id-param="<%= @product.id %>"></i>
             <% end %>
-            <%= link_to preview_product_path(@product), data: { turbo_frame: "modal" } do %>
-              <i class="fa-solid fa-magnifying-glass-plus" style="color:black;-webkit-text-stroke: 1px white"></i>
-            <% end %>
+          <% else %>
+            <i class="fa-regular fa-heart c6-favorite fav-black"
+              data-action= 'click->favorites#redirect'
+              data-favorites-product-id-param="<%= @product.id %>"></i>
+          <% end %>
+          <%= link_to products_path, :data => {action: "click->share#share"} do%>
+            <i class="fa-solid fa-share-nodes shareicon"></i>
+          <% end %>
+          <%= link_to preview_product_path(@product), data: { turbo_frame: "modal" } do %>
+            <i class="fa-solid fa-magnifying-glass-plus" style="color:black;-webkit-text-stroke: 1px white"></i>
+          <% end %>
           <a href="#house_background"><i class="fa-solid fa-house-user"></i></a>
         </div>
       </div>

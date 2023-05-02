@@ -27,8 +27,8 @@ class LineItemsController < ApplicationController
             sku: line_item.product.sku,
             quantity: line_item.quantity,
             image_source: [cl_image_path(line_item.product.photos.first.key, secure: true)],
-            original_price: (line_item.product.price_cents / 100),
-            discount_price: (line_item.product.discount_price_cents / 100),
+            original_price: (line_item.product.price_cents / 100.00),
+            discount_price: (line_item.product.discount_price_cents / 100.00),
             discount_percent: (((line_item.product.discount_price_cents.to_f - line_item.product.price_cents.to_f) / line_item.product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
           }
           products_in_cart << product
