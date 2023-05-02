@@ -3,9 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="addproducttocart"
 export default class extends Controller {
 
-  static targets = [ "contenupanier" ]
+  static targets = [ "contenupanier", "makeorderbtn" ]
 
   connect() {
+    console.log("hello")
   }
 
   addproduct(event) {
@@ -102,6 +103,7 @@ export default class extends Controller {
       </div>
       `
       this.contenupanierTarget.insertAdjacentHTML('beforeend', total_cart_amount);
+      this.makeorderbtnTarget.style.visibility = "visible";
 
 
     });
