@@ -1,7 +1,6 @@
 <%if @cart && @cart.line_items.any? %>
   <h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
   <div class="scroller">
-
     <div data-controller="line-item-quantity" data-addproducttocart-target="contenupanier">
       <% cart.line_items.each do |item| %>
         <div id="lineItem<%= item.id %>">
@@ -15,10 +14,8 @@
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
               <%end%>
             </div>
-
-            <%# bloc central    %>
+            <%# bloc central %>
             <div class="line-item-central-area">
-
               <%# product info %>
               <div class="line-item-info">
                 <p class="line-item-product-name">
@@ -28,7 +25,6 @@
                   REF: <%= item.product.sku %>
                 </p>
               </div>
-
               <%# Gestionnaire de quantité   %>
               <div class="quantity-zone">
                 <%#   AJOUTER 1 DE QUANTITE   %>
@@ -44,9 +40,7 @@
                   <i class="fa-solid fa-minus"></i>
                 </span>
               </div>
-
             </div>
-
             <%#   price zone  %>
             <div class="price-zone">
               <%#   si promo    %>
@@ -67,7 +61,6 @@
                 </p>
                 <%# need this none-displayed line for js !!! %>
                 <span style="display:none" id="totalPrice<%= item.id %>"></span>
-
               <%else%>
                 <%#   sinon prix classique   %>
                 <p>
@@ -77,9 +70,7 @@
                 <span style="display:none" id="totalOriginalPrice<%= item.id %>"></span>
                 <span style="display:none" id="totalPromoPrice<%= item.id %>"></span>
               <%end%>
-
             </div>
-
             <%# la Poubelle detruit la line item   %>
             <div class="trashzone">
               <span data-action="click->line-item-quantity#delete" data-line-item-quantity-item-id-param="<%= item.id %>">
@@ -87,25 +78,22 @@
               </span>
             </div>
           </div>
-
-          <div class="line-item-separator"></div>
+          <div class="line-item-separator">
+          </div>
         </div>
       <% end %>
-
       <%# SOUS TOTAL DU PANIER %>
-      <div class="subtotal-line" >
+      <div class="subtotal-line">
         <div class="subtotal-txt">
           <p>SOUS-TOTAL TTC</p>
         </div>
         <div class="subtotal">
-          <p >
+          <p>
             <span id="amountCart"><%= cart.total / 100 %></span> €
           </p>
         </div>
       </div>
-
     </div>
-
     <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
     <%if current_user != nil%>
       <%if current_user.favorite_products.count > 0%>
@@ -127,16 +115,13 @@
         </section>
       <%end%>
     <%end%>
-
   </div>
-
-  <%# BANNIERE PUB    %>
+  <%# BANNIERE PUB %>
   <div class="cartpub">
     <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
       <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
     <%end%>
   </div>
-
   <%#   FINALISER LA COMMANDE    %>
   <% if current_user == nil %>
     <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
@@ -150,7 +135,6 @@
       <% end %>
     </div>
   <% end %>
-
   <div id="connexioncartbutton" class="panierconnexion">
     <button type="button"
         class="btn-close"
@@ -165,7 +149,6 @@
       <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
     </div>
   </div>
-
 <%else%>
   <h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
   <div class="scroller">
@@ -200,7 +183,6 @@
       <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
     <%end%>
   </div>
-
   <%#   FINALISER LA COMMANDE    %>
   <% if @cart.line_items.any? %>
     <% if current_user == nil %>
@@ -217,7 +199,7 @@
     <% end %>
   <% else %>
     <% if current_user == nil %>
-      <div id="cartvalidate", style="visibility:hidden", data-controller="display-cart", data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
+      <div id="cartvalidate" style="visibility:hidden" data-controller="display-cart" data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
         <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
       </div>
     <% elsif current_user %>
@@ -229,21 +211,11 @@
       </div>
     <% end %>
   <% end %>
-
-
   <div id="connexioncartbutton" class="panierconnexion">
-    <button type="button"
-        class="btn-close"
-        <%# aria-label="Close" %>
-        style=" z-index:1001;margin:1rem 3rem;"
-        data-controller="display-cart",
-        data-action="click->display-cart#connexion">
-    </button>
+    <button type="button" class="btn-close" style=" z-index:1001;margin:1rem 3rem;" data-controller="display-cart", data-action="click->display-cart#connexion"></button>
     <div class="connexion_buttons_cart m-5">
-      <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
-      <br>
+      <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary w-100", style:"margin: 0.5rem 0.5rem 2rem 0.5rem", type: "submit" %>
       <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
     </div>
   </div>
-
 <%end%>

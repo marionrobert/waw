@@ -4,69 +4,59 @@
 <%else%>
 <main class="navfixed">
   <%end%>
-  <nav class="navbar d-flex"
-       style="width: 100vw;height: 100%;background:white;"
-       aria-label="Light offcanvas navbar">
+  <nav class="navbar d-flex" style="width: 100vw;height: 100%;background:white;" aria-label="Light offcanvas navbar">
     <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
     <div class="navbarleftside">
-            <div class="displaybtncategories",
-                data-controller="category",
-                <%# style="margin:0 auto", %>
-                data-action="click->category#slidecategorymenu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <%# ////////BOUTON HOME ///////////// %>
-              <%#end%>
-              <p id="categoriesdesktopbutton", data-controller="display-cart", data-action="mouseenter->display-cart#categoriesdisplay">CATEGORIES</p>
-            <%# </div> %>
-            <%# ////////////barre de recherche/////////////////// %>
-            <div id="mobile-input-search"
-                class="responsivesearchbar"
-                data-action="click->search#displayMobileSearchInput">
-              <%= render "search/form" %>
-            </div>
-            <%# Bouton de recherche pour mobile %>
-            <div class="mobileglassdiv">
-              <i id="mobile-magnifying-glass",
-                style="margin:0 auto",
-                class="fa-solid fa-magnifying-glass",
-                data-action="click->search#displayMobileSearchInput"></i>
-            </div>
+      <div class="displaybtncategories" data-controller="category" data-action="click->category#slidecategorymenu">
+          <i class="fa-solid fa-bars"></i>
+      </div>
+      <%# ////////BOUTON HOME ///////////// %>
+        <%#end%>
+        <p id="categoriesdesktopbutton" data-controller="display-cart" data-action="mouseenter->display-cart#categoriesdisplay">CATEGORIES</p>
+      <%# </div> %>
+      <%# ////////////barre de recherche/////////////////// %>
+      <div id="mobile-input-search" class="responsivesearchbar" data-action="click->search#displayMobileSearchInput">
+        <%= render "search/form" %>
+      </div>
+      <%# Bouton de recherche pour mobile %>
+      <div class="mobileglassdiv">
+        <i id="mobile-magnifying-glass" style="margin:0 auto" class="fa-solid fa-magnifying-glass" data-action="click->search#displayMobileSearchInput"></i>
+      </div>
     </div>
     <div class="divlogowallartworks">
       <%= link_to root_path do %>
-        <%= image_tag("icons/WAW2.svg", class: "logowallartworks") %>
+        <%= image_tag("icons/WAW2.svg", class: "logowallartworks", alt:"logo_du_site") %>
       <% end %>
     </div>
     <%# ////////////////////////// MENU DEROULANT BOOTSTRAP //////////////////  %>
     <div class="navbarrightside">
-          <div class="profile_div" style="margin:0 auto">
-            <%= button_to profile_path, method: :get, class: "profilebutton", type: "submit" do %>
-              <% if current_user && current_user.guest == false && current_user.admin == false%>
-                <i class="fa-solid fa-user-check", style="color:black; font-size: 2.6vh;"></i>
-              <% elsif current_user && current_user.guest %>
-                <i class="fa-solid fa-user-secret", style="color:green; font-size: 2.6vh;"></i>
-              <% elsif current_user && current_user.admin%>
-              <i class="fa-solid fa-user-tie", style="color:orange; font-size: 2.6vh;"></i>
-              <% else %>
-                <i class="fa-regular fa-user", style="color:black; font-size: 2.6vh;"></i>
-              <% end %>
-            <% end %>
-          </div>
-          <%# /////////////////PANIER///////////////// %>
-          <div class="btncart", data-controller="display-cart", data-action="click->display-cart#showCart">
-            <i class="fa-solid fa-basket-shopping", style="color:black; font-size: 2.9vh;"></i>
-            <% if @cart.line_items.count.positive? %>
-              <p class="circle_items_count visible">
-                  <%= @cartcontent%>
-              </p>
-            <% else %>
-              <p class="circle_items_count hidden">
-                  <%= @cartcontent%>
-              </p>
-            <% end %>
-          </div>
+      <div class="profile_div" style="margin:0 auto">
+        <%= button_to profile_path, method: :get, class: "profilebutton", type: "submit" do %>
+          <% if current_user && current_user.guest == false && current_user.admin == false%>
+            <i class="fa-solid fa-user-check" style="color:black; font-size: 2.6vh;"></i>
+          <% elsif current_user && current_user.guest %>
+            <i class="fa-solid fa-user-secret" style="color:green; font-size: 2.6vh;"></i>
+          <% elsif current_user && current_user.admin%>
+            <i class="fa-solid fa-user-tie" style="color:orange; font-size: 2.6vh;"></i>
+          <% else %>
+            <i class="fa-regular fa-user" style="color:black; font-size: 2.6vh;"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <%# /////////////////PANIER///////////////// %>
+      <div class="btncart" data-controller="display-cart" data-action="click->display-cart#showCart">
+        <i class="fa-solid fa-basket-shopping" style="color:black;font-size:2.9vh;"></i>
+        <% if @cart.line_items.count.positive? %>
+          <p class="circle_items_count visible">
+            <%= @cartcontent%>
+          </p>
+        <% else %>
+          <p class="circle_items_count hidden">
+            <%= @cartcontent%>
+          </p>
+        <% end %>
+      </div>
     </div>
   </nav>
-    <%= render "shared/categories_and_subcategories" %>
+  <%= render "shared/categories_and_subcategories" %>
 </main>
