@@ -1,7 +1,6 @@
 <div id="darken">
 </div>
-<div id="panierflottant"
-     class="menupanier">
+<div id="panierflottant" class="menupanier">
   <div  id="cart">
     <div style="text-align:end;">
       <button type="button"
@@ -12,10 +11,6 @@
           data-action="click->display-cart#closeCart">
       </button>
     </div>
-    <%if @cart && @cart.line_items.any? %>
-      <%= render "carts/cart", cart: @cart %>
-    <%else%>
-      <h2 style="text-align:center;margin:100px;margin-top:10vh;">Panier vide</h2>
-    <%end%>
+    <%= render "carts/cart", cart: @cart %>
   </div>
 </div>

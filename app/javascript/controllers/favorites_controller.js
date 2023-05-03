@@ -2,12 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    console.log("favorites controller")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
   fav(evt) {
-    console.log("fav clicked")
     evt.preventDefault();
     fetch(`/products/${evt.params.productId}/favorites`, {
       method: "POST",
