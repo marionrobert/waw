@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <title>Wall Art Work</title>
     <meta charset="utf-8">
@@ -29,6 +29,9 @@
     <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
     <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
   </head>
+    <body class= "d-flex flex-column"
+          data-controller="search addproducttocart"
+          style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
     <header>
     <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
     <div class="bannerpub">
@@ -36,9 +39,6 @@
     </div>
     <%end%>
     </header>
-    <body class= "d-flex flex-column"
-          data-controller="search addproducttocart"
-          style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar", cartcontent: @cartcontent %>
       <%= render "shared/lateralbanner"%>
       <%# Cette div shortcutpay ne doit apparaitre qu'à la mise au panier d'un nouvel item %>
@@ -58,9 +58,9 @@
       <%#= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
       <%#  A mettre dans un controller JS %>
+      <%= render "shared/reinsurrance"%>
+    <footer class="footer" style="font-family: <%=Shop.first.themefont%>">
+      <%= render "shared/footer"%>
+    </footer>
     </body>
-    <%= render "shared/reinsurrance"%>
-  <footer class="footer" style="font-family: <%=Shop.first.themefont%>">
-    <%= render "shared/footer"%>
-  </footer>
 </html>
