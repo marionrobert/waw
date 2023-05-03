@@ -9,7 +9,7 @@
             <%# photo - possiblement ajouté max-width:100%; a l'image%>
             <div class="vignette-line-item">
               <%if item.product.photos.attached?%>
-                <%= cl_image_tag item.product.photos.first.key %>
+                <%= cl_image_tag item.product.photos.first.key , alt: item.product.name %>
               <%else%>
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
               <%end%>
@@ -102,7 +102,7 @@
             <div class="main_carousel_area" data-controller="carousel-homepage favorites">
             <h3>Vos oeuvres favorites</h3>
               <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-              <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+              <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
                 <% current_user.favorite_products.each do |product| %>
                   <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
                     <%= render "shared/#{Shop.first.card}", product: product %>
@@ -163,7 +163,7 @@
             <div class="main_carousel_area" data-controller="carousel-homepage favorites">
             <h3>Vos oeuvres favorites</h3>
               <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-              <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+              <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
                 <% current_user.favorite_products.each do |product| %>
                   <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
                     <%= render "shared/#{Shop.first.card}", product: product %>

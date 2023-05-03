@@ -1,32 +1,28 @@
 <section class="sectionbanner">
+  <h2 style="display:none">Oeuvres disponible à la vente défilant de haut en bas sur 3 colonnes</h2>
   <div id="mainbannerautoscroll">
-
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
         <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+          <%= cl_image_tag product.photos.first.key, alt: product.name %>
         <% end %>
       <% end %>
     </div>
-
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
         <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+          <%= cl_image_tag product.photos.first.key, alt: product.name %>
         <% end %>
       <% end %>
     </div>
-
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
         <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+          <%= cl_image_tag product.photos.first.key, alt: product.name %>
         <% end %>
       <% end %>
     </div>
-
   </div>
-
 </section>
 <script>
   window.onload = function() {
