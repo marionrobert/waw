@@ -40,8 +40,8 @@
             <span class="promospanshowproduct"> <%= @discount_percent.to_i.round(0) %> %</span>
           <%end%>
         </span>
-        <% if @product.photos.attached? %>
-          <%= render "carrousel-product", product: @product %>
+        <% if @main_product.photos.attached? %>
+          <%= render "carrousel-product", product: @main_product %>
         <% else %>
           <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
               size: "250x250",
@@ -192,7 +192,7 @@
   </div >
 
   <section data-controller="gallerie" style="background:rgba(200,200,200,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(200,200,200,0.5);">
-    <%= render "pages/homegallerie"%>
+    <%= render "pages/homegallerie", product: @main_product%>
   </section>
 
   <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">

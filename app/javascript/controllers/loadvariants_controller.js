@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="loadvariants"
 export default class extends Controller {
-  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "stockzone", "time", "promotionnalprice", "price", "endingDate"]
+  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "time", "promotionnalprice", "price", "endingDate"]
 
   connect() {
     this.startTimer();
@@ -44,6 +44,7 @@ export default class extends Controller {
         this.framequantityTarget.innerText = data.frame_quantity
 
         // update stock zone
+        // add stock_zone in targets' list
         // if ( data.stock_quantity > 0) {
         //   this.stockzoneTarget.innerHTML = `<p style="color:green;text-align:left"><strong>En stock :</strong>  ${data.stock_quantity} exemplaires disponibles</p>`
         // } else {
