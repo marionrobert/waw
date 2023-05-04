@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="loadvariants"
 export default class extends Controller {
-  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "time", "promotionnalprice", "price", "endingDate"]
+  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "time", "promotionnalprice", "stockzone", "price", "endingDate"]
 
   connect() {
     this.startTimer();
