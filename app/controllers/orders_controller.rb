@@ -39,10 +39,11 @@ class OrdersController < ApplicationController
         actualprice = item.product.price_cents
       end
       main_product = Product.where(name: item.product.name).where(main: true).first
-      # if main_product.photos.attached?
-      #   image_source = main_product.photos.first.key
-      # else
-      # end
+      if main_product.photos.attached?
+        image_src = cl_image_path(main_product.photos.first.key, secure: true)
+      else
+        image_src = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+      end
       new_item = {
         price_data: {
           currency: 'eur',
@@ -50,7 +51,7 @@ class OrdersController < ApplicationController
           product_data: {
             name: item.product.sku,
             description: item.product.description,
-            images: [cl_image_path(main_product.photos.first.key, secure: true)]
+            images: [image_src]
           }
         },
         quantity: item[:quantity]
