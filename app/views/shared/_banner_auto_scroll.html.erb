@@ -3,24 +3,30 @@
 
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%=cl_image_tag product.photos.first.key%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%=cl_image_tag product.photos.first.key%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%=cl_image_tag product.photos.first.key%>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%=cl_image_tag product.photos.first.key%>
+          <% end %>
         <% end %>
       <% end %>
     </div>

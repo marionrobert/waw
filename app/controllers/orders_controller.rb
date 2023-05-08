@@ -33,11 +33,16 @@ class OrdersController < ApplicationController
     @items_for_stripe = []
     @cart.line_items.each do |item|
       actualprice = 0
-      if item.product.discount_price_cents > 0 && item.product.discount_price_cents < item.product.price_cents
+      if item.product.discount_price_cents.positive? && item.product.discount_price_cents < item.product.price_cents
         actualprice = item.product.discount_price_cents
       else
         actualprice = item.product.price_cents
       end
+      main_product = Product.where(name: item.product.name).where(main: true).first
+      # if main_product.photos.attached?
+      #   image_source = main_product.photos.first.key
+      # else
+      # end
       new_item = {
         price_data: {
           currency: 'eur',
@@ -45,7 +50,7 @@ class OrdersController < ApplicationController
           product_data: {
             name: item.product.sku,
             description: item.product.description,
-            images: [cl_image_path(item.product.photos.first.key, secure: true)]
+            images: [cl_image_path(main_product.photos.first.key, secure: true)]
           }
         },
         quantity: item[:quantity]

@@ -16,8 +16,8 @@
         <% @order.items.each_with_index do |(key, value), index| %>
           <div class="row">
             <tr <%= "style=background:rgba(240,240,240,0.5)" if index.odd? %>>
-              <% if @cart.line_items[index].product.photos.any? %>
-                <td class="col-2"><img src="<%= cl_image_path(@cart.line_items[index].product.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
+              <%if Product.where(name: @cart.line_items[index].product.name).where(main: true).first.photos.attached?%>
+                <td class="col-2"><img src="<%= cl_image_path(Product.where(name: @cart.line_items[index].product.name).where(main: true).first.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
               <% else %>
                 <td class="col-2"><p>Pas d'image disponible pour ce produit</p></td>
               <% end %>
@@ -74,6 +74,7 @@
     </div>
   </div>
 </div>
+<%= console %>
 <script>
 // CONDITIONS GENERALES DE PAYMENT ACCEPTATION
  var checker = document.getElementById('checkcgv');

@@ -5,28 +5,62 @@
 
   <div id="frame_selector">
     <div id="noframe" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
-      <%= cl_image_tag product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto"%>
+      <% if main_product.photos.attached? %>
+        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                  alt: "Pas d'image disponible pour ce produit",
+                  style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;")
+              %>
+      <% end %>
       <p style="position:absolute;top:2%;margin-left:2%;width:96%;overflow:hidden">fine art<br>toile-chassis</p>
-
     </div>
 
     <div id="blackframepaddingwhite" class="vignettesalon" style="position:relative;background:rgb(206, 236, 248)"  data-action="click->gallerie#blackframepaddingwhite">
-      <%= cl_image_tag product.photos.first.key, style:"position:absolute;top:65%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white"%>
+      <% if main_product.photos.attached? %>
+        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                  alt: "Pas d'image disponible pour ce produit",
+                  style:"position:absolute;top:65%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white")
+              %>
+      <% end %>
       <p style="position:absolute;top:2%;margin-left:2%;width:96%;overflow:hidden">fine art<br>avec marge</p>
     </div>
 
     <div id="black_usa_box" class="vignettesalon" style="position:relative;background:rgb(247, 229, 203)"  data-action="click->gallerie#black_usa_box">
-      <%= cl_image_tag product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);"%>
+      <% if main_product.photos.attached? %>
+      <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                  alt: "Pas d'image disponible pour ce produit",
+                  style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);")
+              %>
+      <% end %>
       <p style="position:absolute;top:2%;margin-left:2%;width:96%;overflow:hidden">canvas<br>caisse americaine<br>noire</p>
     </div>
 
     <div id="white_usa_box" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)"  data-action="click->gallerie#white_usa_box">
-      <%= cl_image_tag product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);"%>
+      <% if main_product.photos.attached? %>
+        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                  alt: "Pas d'image disponible pour ce produit",
+                  style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);")
+              %>
+      <% end %>
       <p style="position:absolute;top:2%;margin-left:2%;width:96%;overflow:hidden">canvas<br>caisse americaine<br>blanche</p>
     </div>
 
     <div id="wood_usa_box" class="vignettesalon" style="position:relative;background:rgb(250, 240, 250)"  data-action="click->gallerie#wood_usa_box">
-      <%= cl_image_tag product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);"%>
+     <% if main_product.photos.attached? %>
+        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);"%>
+      <% else %>
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+                  alt: "Pas d'image disponible pour ce produit",
+                  style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);")
+              %>
+      <% end %>
       <p style="position:absolute;top:2%;margin-left:2%;width:96%;overflow:hidden">canvas<br>caisse americaine<br>bois</p>
     </div>
   </div>
@@ -44,13 +78,13 @@
     <img id="myhome" class="roombg" src="" alt="chezmoi"  style="display:none;" data-gallerie-target="room6">
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
-        <% if product %>
-          <%= cl_image_tag product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+        <% if main_product.photos.attached? %>
+          <%= cl_image_tag main_product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
           <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=product.width%> cm</i></p>
           </div>
         <% else %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", style="width:30%;position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id="mainframe", data-gallerie-target="frame">
           <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
           </div>
         <% end %>
