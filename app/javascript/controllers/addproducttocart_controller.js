@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = [ "contenupanier", "makeorderbtn" ]
 
   connect() {
-    console.log("ddd")
   }
 
   addproduct(event) {

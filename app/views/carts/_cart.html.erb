@@ -2,7 +2,7 @@
   <h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
   <div class="scroller">
 
-    <div data-controller="line-item-quantity" data-addproducttocart-target="contenupanier">
+    <div data-addproducttocart-target="contenupanier">
       <% cart.line_items.each do |item| %>
         <div id="lineItem<%= item.id %>">
           <%# ligne complete %>

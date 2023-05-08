@@ -2,12 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
+
+  static targets = ["numberProducts"]
+
   connect() {
-    // console.log("hello")
     this.token = document.querySelector("meta[name=csrf-token]").content
   }
 
   addOne(event) {
+    event.preventDefault();
+    const nb_products = Number(this.numberProductsTarget.innerText)
     let formerQuantity = document.getElementById(`quantityItem${event.params.itemId}`)
     let amountCart = document.getElementById(`amountCart`)
     let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
@@ -34,11 +38,13 @@ export default class extends Controller {
         setTimeout(function() {
           formerQuantity.classList.remove("afterchange")
         }, 4000);
+        this.numberProductsTarget.innerText =  nb_products + 1;
       });
   };
 
   delete(event){
     event.preventDefault();
+    const nb_products = Number(this.numberProductsTarget.innerText)
     let amountCart = document.getElementById(`amountCart`)
     let lineItem = document.getElementById(`lineItem${event.params.itemId}`)
 
@@ -55,12 +61,14 @@ export default class extends Controller {
       .then(data => {
         lineItem.style.display = "none";
         amountCart.innerText = data.amount_cart / 100.00;
+        this.numberProductsTarget.innerText =  nb_products - data.quantity;
       });
     };
   }
 
   removeOne(event){
     event.preventDefault();
+    const nb_products = Number(this.numberProductsTarget.innerText)
     let formerQuantity = document.getElementById(`quantityItem${event.params.itemId}`)
     let amountCart = document.getElementById(`amountCart`)
     let totalOriginalPrice = document.getElementById(`totalOriginalPrice${event.params.itemId}`)
@@ -93,6 +101,7 @@ export default class extends Controller {
           setTimeout(function() {
             formerQuantity.classList.remove("afterchange")
           }, 4000);
+          this.numberProductsTarget.innerText =  nb_products - 1;
         });
       }
   };

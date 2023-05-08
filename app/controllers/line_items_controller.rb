@@ -116,7 +116,8 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     render json: {
-      amount_cart: @line_item.cart.total
+      amount_cart: @line_item.cart.total,
+      quantity: @line_item.quantity
     }
   end
 
