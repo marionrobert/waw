@@ -17,9 +17,10 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        set_cart
         products_in_cart = []
-        total_cart = @line_item.cart.total / 100
-        @line_item.cart.line_items.each do |line_item|
+        total_cart = @cart.total / 100
+        @cart.line_items.each do |line_item|
           main_product = Product.where(name: line_item.product.name).where(main: true).first
           new_product = {
             product_id: line_item.product.id,
@@ -33,7 +34,6 @@ class LineItemsController < ApplicationController
             discount_percent: (((line_item.product.discount_price_cents.to_f - line_item.product.price_cents.to_f) / line_item.product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
           }
           products_in_cart << new_product
-          # raise
         end
         format.html { redirect_to products_url, success: "L'oeuvre a bien été ajoutée au panier." }
         format.json { render json:

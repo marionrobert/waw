@@ -6,11 +6,11 @@ export default class extends Controller {
   static targets = [ "contenupanier", "makeorderbtn" ]
 
   connect() {
-    console.log("aaa")
+    console.log("ddd")
   }
 
   addproduct(event) {
-    // event.preventDefault();
+    event.preventDefault();
     const url = "/line_items"
     const product_id = document.querySelector("span#addproducttocartbutton form.button_to").getAttribute("action").match(/\d+/)[0]
     const circle_items_count = document.querySelector(".circle_items_count")
@@ -43,6 +43,9 @@ export default class extends Controller {
       data.products.forEach(product => {
         let html_to_insert=`
         <div id="lineItem${product.line_item_id}">
+            <div class="onelineitem">
+              <div class="vignette-line-item"><img src=${product.image_source}></div>
+            <div class="line-item-central-area">
             <div class="line-item-info">
               <p class="line-item-product-name">${product.name}</p>
               <p class="line-item-sku">REF: ${product.sku}</p>
