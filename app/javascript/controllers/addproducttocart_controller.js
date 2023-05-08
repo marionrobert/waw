@@ -15,8 +15,6 @@ export default class extends Controller {
     const product_id = document.querySelector("span#addproducttocartbutton form.button_to").getAttribute("action").match(/\d+/)[0]
     const circle_items_count = document.querySelector(".circle_items_count")
     const items_nb = Number(circle_items_count.innerText)
-    console.log(product_id)
-    console.log(items_nb)
 
     const options = {
       method: 'POST',

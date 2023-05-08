@@ -9,8 +9,8 @@
           <div class="onelineitem">
             <%# photo - possiblement ajouté max-width:100%; a l'image%>
             <div class="vignette-line-item">
-              <%if item.product.photos.attached?%>
-                <%= cl_image_tag item.product.photos.first.key %>
+              <%if Product.where(name: item.product.name).where(main: true).first.photos.attached?%>
+                <%= cl_image_tag Product.where(name: item.product.name).where(main: true).first.photos.first.key %>
               <%else%>
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
               <%end%>
