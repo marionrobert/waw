@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = [ "contenupanier", "makeorderbtn" ]
 
   connect() {
+    console.log("bbb")
+    // console.log(this.makeorderbtnTarget);
   }
 
   addproduct(event) {
@@ -102,7 +104,8 @@ export default class extends Controller {
       </div>
       `
       this.contenupanierTarget.insertAdjacentHTML('beforeend', total_cart_amount);
-      this.makeorderbtnTarget.style.visibility = "visible";
+      const makeorderbtn = this.makeorderbtnTarget;
+      makeorderbtn.style.visibility = "visible";
 
 
     });
