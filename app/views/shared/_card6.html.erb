@@ -5,7 +5,8 @@
       <div class="c6-imagediv">
         <% cache product do %>
           <% if product.photos.attached? %>
-              <%= cl_image_tag product.photos.first.key, class:"c6-image"%>
+              <%#= cl_image_tag product.photos.first.key, class:"c6-image lazy"%>
+              <img src="#" alt="product image" lazy-src="<%= cl_image_path(product.photos.first.key, secure: true) %>" class="c6-image">
           <%else %>
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
                   class="c6-image"
