@@ -3,7 +3,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="loadvariants"
 export default class extends Controller {
-  static targets = ["discountpercentzone", "pricezone", "orientation", "height", "width", "support", "framequantity", "addtocart", "time", "promotionnalprice", "stockzone", "price", "endingDate"]
+  static targets = ["discountpercentzone",
+                    "pricezone",
+                    "orientation",
+                    "height",
+                    "width",
+                    "support",
+                    "framequantity",
+                    "addtocart",
+                    "time", "promotionnalprice",
+                    "stockzone",
+                    "price",
+                    "endingDate"]
 
   connect() {
     this.startTimer();
@@ -25,7 +36,7 @@ export default class extends Controller {
 
         // update price and discount_percent zones
         if (data.discount_price_cents != 0) {
-          this.discountpercentzoneTarget.innerHTML = `<span class="promospanshowproduct"> ${data.discount_percent}  %</span`
+          this.discountpercentzoneTarget.innerHTML = `<span class="promospanshowproduct"> ${Math.floor(parseInt(data.discount_percent))}  %</span>`;
           this.pricezoneTarget.innerHTML = `<h4 style="text-decoration:line-through">Prix : ${data.price} € TTC</h4>
           <h3 style="color:green;text-align:right"><b>Prix promo: ${data.promotionnal_price} € TTC</b></h3>
           <span style="display:none" data-loadvariants-target="endingDate">${data.discount_ending_date}</span>

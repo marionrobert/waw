@@ -37,7 +37,7 @@
       <div class="productcarrousselarea">
         <span data-loadvariants-target= "discountpercentzone">
           <%if @product.discount_price_cents != 0%>
-            <span class="promospanshowproduct"> <%= @discount_percent.to_i.round(0) %> %</span>
+            <span class="promospanshowproduct"> <%= @discount_percent.to_i.floor %> %</span>
           <%end%>
         </span>
         <% if @main_product.photos.attached? %>
