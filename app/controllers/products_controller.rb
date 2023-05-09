@@ -67,8 +67,9 @@ class ProductsController < ApplicationController
     # ajouter un 0 si les prix sont sous ce format 12,9 --> 12,90
     @price += "0" if @price[-2] == ","
     @promotionnal_price += "0" if @promotionnal_price[-2] == ","
-
     @discount_percent = (((@product.discount_price_cents.to_f - @product.price_cents.to_f) / @product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
+
+    @main_product = Product.where(name: @product.name).where(main: true).first
 
     visit = @product.visit || @product.create_visit(count: 0)
     visit.increment!(:count)

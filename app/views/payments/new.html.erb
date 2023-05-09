@@ -1,11 +1,5 @@
 <div class="container" style="margin-top:10vh;">
   <div class="row py-4">
-  <%# bug de recuperation de l'image à traiter %>
-
-    <%# <div class="col-md-3"> %>
-    <%#= image_tag @order.product.images.first, width: '100%' %>
-    <%# </div> %>
-
     <div class="col">
       <h1 class="m-5", style="text-align:center;">Récapitulatif de la commande</h1>
       <table>
@@ -22,8 +16,8 @@
         <% @order.items.each_with_index do |(key, value), index| %>
           <div class="row">
             <tr <%= "style=background:rgba(240,240,240,0.5)" if index.odd? %>>
-              <% if @cart.line_items[index].product.photos.any? %>
-                <td class="col-2"><img src="<%= cl_image_path(@cart.line_items[index].product.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
+              <%if Product.where(name: @cart.line_items[index].product.name).where(main: true).first.photos.attached?%>
+                <td class="col-2"><img src="<%= cl_image_path(Product.where(name: @cart.line_items[index].product.name).where(main: true).first.photos.first.key, secure: true) %>" style="height:6rem;width:auto"></td>
               <% else %>
                 <td class="col-2"><p>Pas d'image disponible pour ce produit</p></td>
               <% end %>
@@ -93,4 +87,3 @@
     }
   }
 </script>
-

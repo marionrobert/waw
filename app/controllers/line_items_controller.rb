@@ -17,24 +17,30 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        set_cart
         products_in_cart = []
-        total_cart = @line_item.cart.total / 100
-        @line_item.cart.line_items.each do |line_item|
-          product = {
+        total_cart = @cart.total / 100
+        @cart.line_items.each do |line_item|
+          main_product = Product.where(name: line_item.product.name).where(main: true).first
+          if main_product.photos.attached?
+            image_src = cl_image_path(main_product.photos.first.key, secure: true)
+          else
+            image_src = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+          end
+          new_product = {
             product_id: line_item.product.id,
             line_item_id: line_item.id,
             name: line_item.product.name,
             sku: line_item.product.sku,
             quantity: line_item.quantity,
-            image_source: [cl_image_path(line_item.product.photos.first.key, secure: true)],
+            image_source: [image_src],
             original_price: (line_item.product.price_cents / 100.00),
             discount_price: (line_item.product.discount_price_cents / 100.00),
             discount_percent: (((line_item.product.discount_price_cents.to_f - line_item.product.price_cents.to_f) / line_item.product.price_cents.to_f) * 100).round(2).to_s.gsub(/\./, ',')
           }
-          products_in_cart << product
+          products_in_cart << new_product
         end
         format.html { redirect_to products_url, success: "L'oeuvre a bien été ajoutée au panier." }
-        # format.json { render json: { line_items: @line_item.cart.line_items } }
         format.json { render json:
           {
             products: products_in_cart,
@@ -110,7 +116,8 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     render json: {
-      amount_cart: @line_item.cart.total
+      amount_cart: @line_item.cart.total,
+      quantity: @line_item.quantity
     }
   end
 

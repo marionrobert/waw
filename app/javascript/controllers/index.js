@@ -37,6 +37,9 @@ application.register("line-item-quantity", LineItemQuantityController)
 import LoadvariantsController from "./loadvariants_controller"
 application.register("loadvariants", LoadvariantsController)
 
+import MainproductController from "./mainproduct_controller"
+application.register("mainproduct", MainproductController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 

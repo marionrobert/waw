@@ -1,16 +1,15 @@
-<%if @cart && @cart.line_items.any? %>
-  <h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
-  <div class="scroller">
-
-    <div data-controller="line-item-quantity" data-addproducttocart-target="contenupanier">
+<h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
+<div class="scroller">
+  <%if @cart && @cart.line_items.any? %>
+    <div data-addproducttocart-target="contenupanier">
       <% cart.line_items.each do |item| %>
         <div id="lineItem<%= item.id %>">
           <%# ligne complete %>
           <div class="onelineitem">
             <%# photo - possiblement ajouté max-width:100%; a l'image%>
             <div class="vignette-line-item">
-              <%if item.product.photos.attached?%>
-                <%= cl_image_tag item.product.photos.first.key %>
+              <%if Product.where(name: item.product.name).where(main: true).first.photos.attached?%>
+                <%= cl_image_tag Product.where(name: item.product.name).where(main: true).first.photos.first.key %>
               <%else%>
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
               <%end%>
@@ -105,145 +104,83 @@
       </div>
 
     </div>
-
-    <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
-    <%if current_user != nil%>
-      <%if current_user.favorite_products.count > 0%>
-        <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
-          <div class="carouselcontainer">
-            <div class="main_carousel_area" data-controller="carousel-homepage favorites">
-            <h3>Vos oeuvres favorites</h3>
-              <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-              <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
-                <% current_user.favorite_products.each do |product| %>
-                  <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
-                    <%= render "shared/#{Shop.first.card}", product: product %>
-                  </div>
-                <% end %>
-              </div>
-              <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
-            </div>
-          </div>
-        </section>
-      <%end%>
-    <%end%>
-
-  </div>
-
-  <%# BANNIERE PUB    %>
-  <div class="cartpub">
-    <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-      <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
-    <%end%>
-  </div>
-
-  <%#   FINALISER LA COMMANDE    %>
-  <% if current_user == nil %>
-    <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion">
-      <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
+  <% else %>
+    <div data-addproducttocart-target="contenupanier">
+      <p style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Votre panier est vide <i class="fa-regular fa-face-frown-open"></i></p>
     </div>
-  <% elsif current_user %>
-    <div id="cartvalidate">
+  <% end %>
+
+  <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
+  <%if current_user != nil%>
+    <%if current_user.favorite_products.count > 0%>
+      <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0)">
+        <div class="carouselcontainer">
+          <div class="main_carousel_area" data-controller="carousel-homepage favorites">
+          <h3>Vos oeuvres favorites</h3>
+            <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+            <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+              <% current_user.favorite_products.each do |product| %>
+                <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+                  <%= render "shared/#{Shop.first.card}", product: product %>
+                </div>
+              <% end %>
+            </div>
+            <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
+          </div>
+        </div>
+      </section>
+    <%end%>
+  <%end%>
+</div>
+
+<%# BANNIERE PUB    %>
+<div class="cartpub">
+  <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+    <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
+  <%end%>
+</div>
+
+<%#   FINALISER LA COMMANDE    %>
+<% if @cart.line_items.any? %>
+  <% if current_user %>
+    <div id="cartvalidate" data-addproducttocart-target="makeorderbtn">
       <%= form_with url: orders_path, method: :post do %>
         <%= hidden_field_tag 'cart_id', cart.id %>
         <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
       <% end %>
     </div>
+  <% else  %>
+    <div id="cartvalidate" data-controller="display-cart" data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
+      <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
+    </div>
   <% end %>
 
-  <div id="connexioncartbutton" class="panierconnexion">
-    <button type="button"
-        class="btn-close"
-        <%# aria-label="Close" %>
-        style=" z-index:1001;margin:1rem 3rem;"
-        data-controller="display-cart",
-        data-action="click->display-cart#connexion">
-    </button>
-    <div class="connexion_buttons_cart m-5">
-      <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
-      <br>
-      <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
+<% else %>
+  <% if current_user %>
+    <div id="cartvalidate" style="visibility:hidden", data-addproducttocart-target="makeorderbtn">
+      <%= form_with url: orders_path, method: :post do %>
+        <%= hidden_field_tag 'cart_id', cart.id %>
+        <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
+      <% end %>
     </div>
-  </div>
-
-<%else%>
-  <h3 style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Panier</h3>
-  <div class="scroller">
-    <div data-controller="line-item-quantity" data-addproducttocart-target="contenupanier">
-      <p style="text-align:center;margin-right:3vw;margin-bottom:5vh;">Votre panier est vide <i class="fa-regular fa-face-frown-open"></i></p>
-    </div>
-    <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
-    <%if current_user != nil%>
-      <%if current_user.favorite_products.count > 0%>
-        <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
-          <div class="carouselcontainer">
-            <div class="main_carousel_area" data-controller="carousel-homepage favorites">
-            <h3>Vos oeuvres favorites</h3>
-              <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-              <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
-                <% current_user.favorite_products.each do |product| %>
-                  <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
-                    <%= render "shared/#{Shop.first.card}", product: product %>
-                  </div>
-                <% end %>
-              </div>
-              <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
-            </div>
-          </div>
-        </section>
-      <%end%>
-    <%end%>
-  </div>
-  <%# BANNIERE PUB    %>
-  <div class="cartpub">
-    <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-      <p style="background:black;color:white;"><%=Shop.first.bannerpub%></p>
-    <%end%>
-  </div>
-
-  <%#   FINALISER LA COMMANDE    %>
-  <% if @cart.line_items.any? %>
-    <% if current_user == nil %>
-      <div id="cartvalidate", data-controller="display-cart", data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
-        <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
-      </div>
-    <% elsif current_user %>
-      <div id="cartvalidate" data-addproducttocart-target="makeorderbtn">
-        <%= form_with url: orders_path, method: :post do %>
-          <%= hidden_field_tag 'cart_id', cart.id %>
-          <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
-        <% end %>
-      </div>
-    <% end %>
   <% else %>
-    <% if current_user == nil %>
-      <div id="cartvalidate", style="visibility:hidden", data-controller="display-cart", data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
-        <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
-      </div>
-    <% elsif current_user %>
-      <div id="cartvalidate" style="visibility:hidden", data-addproducttocart-target="makeorderbtn">
-        <%= form_with url: orders_path, method: :post do %>
-          <%= hidden_field_tag 'cart_id', cart.id %>
-          <%= submit_tag 'Finaliser ma commande', class: 'btn btn-primary validcartbtn' %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-
-
-  <div id="connexioncartbutton" class="panierconnexion">
-    <button type="button"
-        class="btn-close"
-        <%# aria-label="Close" %>
-        style=" z-index:1001;margin:1rem 3rem;"
-        data-controller="display-cart",
-        data-action="click->display-cart#connexion">
-    </button>
-    <div class="connexion_buttons_cart m-5">
-      <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
-      <br>
-      <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
+    <div id="cartvalidate" style="visibility:hidden" data-controller="display-cart" data-action="click->display-cart#connexion" data-addproducttocart-target="makeorderbtn">
+      <button class="btn btn-primary w-100 h-100">FINALISER MA COMMANDE</button>
     </div>
-  </div>
+  <% end %>
+<% end %>
 
-<%end%>
+<div id="connexioncartbutton" class="panierconnexion">
+  <button type="button"
+      class="btn-close"
+      <%# aria-label="Close" %>
+      style=" z-index:1001;margin:1rem 3rem;"
+      data-controller="display-cart",
+      data-action="click->display-cart#connexion">
+  </button>
+  <div class="connexion_buttons_cart m-5">
+    <%= button_to "ME CONNECTER",  new_user_session_path, method: :get, class: "btn btn-primary m-2 w-100", type: "submit" %>
+    <br>
+    <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
+  </div>
+</div>

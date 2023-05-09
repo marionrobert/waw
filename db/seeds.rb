@@ -82,30 +82,30 @@ category1 = Category.create!(name:"Nature")
             category1.photos.attach(io: file1, filename: "category_1_photo.png")
 puts "category #{category1.name} créée"
 
-  subcategory1 = Subcategory.new(name:"Forêt")
-  subcategory1.category = category1
-  subcategory1.save!
-  puts "Sous-catégorie #{subcategory1.name} créée"
+subcategory1 = Subcategory.new(name:"Forêt")
+subcategory1.category = category1
+subcategory1.save!
+puts "Sous-catégorie #{subcategory1.name} créée"
 
-  subcategory2 = Subcategory.new(name:"Paysage")
-  subcategory2.category = category1
-  subcategory2.save!
-  puts "Sous-catégorie #{subcategory2.name} créée"
+subcategory2 = Subcategory.new(name:"Paysage")
+subcategory2.category = category1
+subcategory2.save!
+puts "Sous-catégorie #{subcategory2.name} créée"
 
-  subcategory3 = Subcategory.new(name:"Minimalist")
-  subcategory3.category = category1
-  subcategory3.save!
-  puts "Sous-catégorie #{subcategory3.name} créée"
+subcategory3 = Subcategory.new(name:"Minimalist")
+subcategory3.category = category1
+subcategory3.save!
+puts "Sous-catégorie #{subcategory3.name} créée"
 
-  subcategory4 = Subcategory.new(name:"Peinture à l'huile")
-  subcategory4.category = category1
-  subcategory4.save!
-  puts "Sous-catégorie #{subcategory4.name} créée"
+subcategory4 = Subcategory.new(name:"Peinture à l'huile")
+subcategory4.category = category1
+subcategory4.save!
+puts "Sous-catégorie #{subcategory4.name} créée"
 
-  subcategory5 = Subcategory.new(name:"Animaux")
-  subcategory5.category = category1
-  subcategory5.save!
-  puts "Sous-catégorie #{subcategory5.name} créée"
+subcategory5 = Subcategory.new(name:"Animaux")
+subcategory5.category = category1
+subcategory5.save!
+puts "Sous-catégorie #{subcategory5.name} créée"
 
 
 # CATEGORIE 2
@@ -115,30 +115,30 @@ category2 = Category.create!(name:"Enfant")
             category2.photos.attach(io: file1, filename: "category_2_photo.png")
 puts "category #{category2.name} créée"
 
-  subcategory6 = Subcategory.new(name:"Conte de fée")
-  subcategory6.category = category2
-  subcategory6.save!
-  puts "Sous-catégorie #{subcategory6.name} créée"
+subcategory6 = Subcategory.new(name:"Conte de fée")
+subcategory6.category = category2
+subcategory6.save!
+puts "Sous-catégorie #{subcategory6.name} créée"
 
-  subcategory7 = Subcategory.new(name:"Animaux3D")
-  subcategory7.category = category2
-  subcategory7.save!
-  puts "Sous-catégorie #{subcategory7.name} créée"
+subcategory7 = Subcategory.new(name:"Animaux3D")
+subcategory7.category = category2
+subcategory7.save!
+puts "Sous-catégorie #{subcategory7.name} créée"
 
-  subcategory8 = Subcategory.new(name:"Dessin")
-  subcategory8.category = category2
-  subcategory8.save!
-  puts "Sous-catégorie #{subcategory8.name} créée"
+subcategory8 = Subcategory.new(name:"Dessin")
+subcategory8.category = category2
+subcategory8.save!
+puts "Sous-catégorie #{subcategory8.name} créée"
 
-  subcategory9 = Subcategory.new(name:"Jouets")
-  subcategory9.category = category2
-  subcategory9.save!
-  puts "Sous-catégorie #{subcategory9.name} créée"
+subcategory9 = Subcategory.new(name:"Jouets")
+subcategory9.category = category2
+subcategory9.save!
+puts "Sous-catégorie #{subcategory9.name} créée"
 
-  subcategory10 = Subcategory.new(name:"Coloré")
-  subcategory10.category = category2
-  subcategory10.save!
-  puts "Sous-catégorie #{subcategory10.name} créée"
+subcategory10 = Subcategory.new(name:"Coloré")
+subcategory10.category = category2
+subcategory10.save!
+puts "Sous-catégorie #{subcategory10.name} créée"
 
 # CATEGORIE 3
 
@@ -147,25 +147,25 @@ category3 = Category.create!(name:"POSTER")
             category3.photos.attach(io: file1, filename: "category_3_photo.png")
 puts "category #{category3.name} créée"
 
-  subcategory11 = Subcategory.new(name:"Pin-up")
-  subcategory11.category = category3
-  subcategory11.save!
-  puts "Sous-catégorie #{subcategory11.name} créée"
+subcategory11 = Subcategory.new(name:"Pin-up")
+subcategory11.category = category3
+subcategory11.save!
+puts "Sous-catégorie #{subcategory11.name} créée"
 
-  subcategory12 = Subcategory.new(name:"Ville")
-  subcategory12.category = category3
-  subcategory12.save!
-  puts "Sous-catégorie #{subcategory12.name} créée"
+subcategory12 = Subcategory.new(name:"Ville")
+subcategory12.category = category3
+subcategory12.save!
+puts "Sous-catégorie #{subcategory12.name} créée"
 
-  subcategory13 = Subcategory.new(name:"Nature")
-  subcategory13.category = category3
-  subcategory13.save!
-  puts "Sous-catégorie #{subcategory13.name} créée"
+subcategory13 = Subcategory.new(name:"Nature")
+subcategory13.category = category3
+subcategory13.save!
+puts "Sous-catégorie #{subcategory13.name} créée"
 
-  subcategory14 = Subcategory.new(name:"Auto/Moto")
-  subcategory14.category = category3
-  subcategory14.save!
-  puts "Sous-catégorie #{subcategory14.name} créée"
+subcategory14 = Subcategory.new(name:"Auto/Moto")
+subcategory14.category = category3
+subcategory14.save!
+puts "Sous-catégorie #{subcategory14.name} créée"
 
 
 # CATEGORIE 4
@@ -175,30 +175,30 @@ category4 = Category.create!(name:"ABSTRAIT")
             category4.photos.attach(io: file1, filename: "category_4_photo.png")
 puts "category #{category4.name} créée"
 
-  subcategory15 = Subcategory.new(name:"Sombre")
-  subcategory15.category = category4
-  subcategory15.save!
-  puts "Sous-catégorie #{subcategory15.name} créée"
+subcategory15 = Subcategory.new(name:"Sombre")
+subcategory15.category = category4
+subcategory15.save!
+puts "Sous-catégorie #{subcategory15.name} créée"
 
-  subcategory16 = Subcategory.new(name:"Multicolore")
-  subcategory16.category = category4
-  subcategory16.save!
-  puts "Sous-catégorie #{subcategory16.name} créée"
+subcategory16 = Subcategory.new(name:"Multicolore")
+subcategory16.category = category4
+subcategory16.save!
+puts "Sous-catégorie #{subcategory16.name} créée"
 
-  subcategory17 = Subcategory.new(name:"abstrait Minimalist")
-  subcategory17.category = category4
-  subcategory17.save!
-  puts "Sous-catégorie #{subcategory17.name} créée"
+subcategory17 = Subcategory.new(name:"abstrait Minimalist")
+subcategory17.category = category4
+subcategory17.save!
+puts "Sous-catégorie #{subcategory17.name} créée"
 
-  subcategory18 = Subcategory.new(name:"Inclassable")
-  subcategory18.category = category4
-  subcategory18.save!
-  puts "Sous-catégorie #{subcategory18.name} créée"
+subcategory18 = Subcategory.new(name:"Inclassable")
+subcategory18.category = category4
+subcategory18.save!
+puts "Sous-catégorie #{subcategory18.name} créée"
 
-  subcategory18 = Subcategory.new(name:"Reference")
-  subcategory18.category = category4
-  subcategory18.save!
-  puts "Sous-catégorie #{subcategory18.name} créée"
+subcategory18 = Subcategory.new(name:"Reference")
+subcategory18.category = category4
+subcategory18.save!
+puts "Sous-catégorie #{subcategory18.name} créée"
 
 
 
@@ -209,25 +209,25 @@ category5 = Category.create!(name:"LIFE STYLE")
             category5.photos.attach(io: file1, filename: "category_5_photo.png")
 puts "category #{category5.name} créée"
 
-  subcategory21 = Subcategory.new(name:"Zen")
-  subcategory21.category = category5
-  subcategory21.save!
-  puts "Sous-catégorie #{subcategory21.name} créée"
+subcategory21 = Subcategory.new(name:"Zen")
+subcategory21.category = category5
+subcategory21.save!
+puts "Sous-catégorie #{subcategory21.name} créée"
 
-  subcategory22 = Subcategory.new(name:"Sport")
-  subcategory22.category = category5
-  subcategory22.save!
-  puts "Sous-catégorie #{subcategory22.name} créée"
+subcategory22 = Subcategory.new(name:"Sport")
+subcategory22.category = category5
+subcategory22.save!
+puts "Sous-catégorie #{subcategory22.name} créée"
 
-  subcategory23 = Subcategory.new(name:"Cyberpunk/Steampunk")
-  subcategory23.category = category5
-  subcategory23.save!
-  puts "Sous-catégorie #{subcategory23.name} créée"
+subcategory23 = Subcategory.new(name:"Cyberpunk/Steampunk")
+subcategory23.category = category5
+subcategory23.save!
+puts "Sous-catégorie #{subcategory23.name} créée"
 
-  subcategory24 = Subcategory.new(name:"Comics")
-  subcategory24.category = category5
-  subcategory24.save!
-  puts "Sous-catégorie #{subcategory24.name} créée"
+subcategory24 = Subcategory.new(name:"Comics")
+subcategory24.category = category5
+subcategory24.save!
+puts "Sous-catégorie #{subcategory24.name} créée"
 
 
 # CATEGORIE 6
@@ -237,35 +237,35 @@ category6 = Category.create!(name:"ART DE LA TABLE")
             category6.photos.attach(io: file1, filename: "category_6_photo.png")
 puts "category #{category6.name} créée"
 
-  subcategory27 = Subcategory.new(name:"Glace")
-  subcategory27.category = category6
-  subcategory27.save!
-  puts "Sous-catégorie #{subcategory27.name} créée"
+subcategory27 = Subcategory.new(name:"Glace")
+subcategory27.category = category6
+subcategory27.save!
+puts "Sous-catégorie #{subcategory27.name} créée"
 
-  subcategory28 = Subcategory.new(name:"Dessert et confiserie")
-  subcategory28.category = category6
-  subcategory28.save!
-  puts "Sous-catégorie #{subcategory28.name} créée"
+subcategory28 = Subcategory.new(name:"Dessert et confiserie")
+subcategory28.category = category6
+subcategory28.save!
+puts "Sous-catégorie #{subcategory28.name} créée"
 
-  subcategory29 = Subcategory.new(name:"Boulangerie/Patisserie")
-  subcategory29.category = category6
-  subcategory29.save!
-  puts "Sous-catégorie #{subcategory29.name} créée"
+subcategory29 = Subcategory.new(name:"Boulangerie/Patisserie")
+subcategory29.category = category6
+subcategory29.save!
+puts "Sous-catégorie #{subcategory29.name} créée"
 
-  subcategory30 = Subcategory.new(name:"Café-thé")
-  subcategory30.category = category6
-  subcategory30.save!
-  puts "Sous-catégorie #{subcategory30.name} créée"
+subcategory30 = Subcategory.new(name:"Café-thé")
+subcategory30.category = category6
+subcategory30.save!
+puts "Sous-catégorie #{subcategory30.name} créée"
 
-  subcategory31 = Subcategory.new(name:"Plat")
-  subcategory31.category = category6
-  subcategory31.save!
-  puts "Sous-catégorie #{subcategory31.name} créée"
+subcategory31 = Subcategory.new(name:"Plat")
+subcategory31.category = category6
+subcategory31.save!
+puts "Sous-catégorie #{subcategory31.name} créée"
 
-  subcategory32 = Subcategory.new(name:"Divers")
-  subcategory32.category = category6
-  subcategory32.save!
-  puts "Sous-catégorie #{subcategory32.name} créée"
+subcategory32 = Subcategory.new(name:"Divers")
+subcategory32.category = category6
+subcategory32.save!
+puts "Sous-catégorie #{subcategory32.name} créée"
 
 
 # CATEGORIE 7
@@ -333,15 +333,10 @@ puts "category #{category6.name} créée"
 #   subcategory38.save!
 #   puts "Sous-catégorie #{subcategory38.name} créée"
 
-
-
 puts "#{Category.count} Categories créés avec #{Subcategory.count} Sous-categories associés en tout"
 
 
-
-
 puts "Remplissage des rayons"
-
 
 # ////////////////////
 
@@ -392,12 +387,12 @@ product_2 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_2.photos.attach(io: file1, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file2, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file3, filename: "product_2_photo.png")
+# file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_2.photos.attach(io: file1, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file2, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file3, filename: "product_2_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -420,12 +415,12 @@ product_3 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_3.photos.attach(io: file1, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file2, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file3, filename: "product_3_photo.png")
+# file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_3.photos.attach(io: file1, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file2, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file3, filename: "product_3_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -447,12 +442,12 @@ product_4 = Product.create!(
   orientation:"paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_4.photos.attach(io: file1, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file2, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file3, filename: "product_4_photo.png")
+# file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_4.photos.attach(io: file1, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file2, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file3, filename: "product_4_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -474,12 +469,12 @@ product_5 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_5.photos.attach(io: file1, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file2, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file3, filename: "product_5_photo.png")
+# file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_5.photos.attach(io: file1, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file2, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file3, filename: "product_5_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -502,12 +497,12 @@ product_6 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_6.photos.attach(io: file1, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+# file1 = URI.open("https://plus.unsplash.com/premium_photo-1673549599522-12df44624fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_6.photos.attach(io: file1, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file3, filename: "product_6_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -560,12 +555,12 @@ product_8 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_8.photos.attach(io: file1, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_8.photos.attach(io: file1, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file3, filename: "product_8_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -589,12 +584,12 @@ product_9 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_9.photos.attach(io: file1, filename: "product_9_photo.png")
-# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
-# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1590420485404-f86d22b8abf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_9.photos.attach(io: file1, filename: "product_9_photo.png")
+# # product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# # product_9.photos.attach(io: file3, filename: "product_9_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -649,12 +644,12 @@ product_11 = Product.create!(
   orientation: "carre",
   subcategory: subcategory1
 )
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_11.photos.attach(io: file1, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file2, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file3, filename: "product_2_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_11.photos.attach(io: file1, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file2, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file3, filename: "product_2_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -677,12 +672,12 @@ product_12 = Product.create!(
   orientation: "carre",
   subcategory: subcategory1
 )
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_12.photos.attach(io: file1, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file2, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file3, filename: "product_3_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_12.photos.attach(io: file1, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file2, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file3, filename: "product_3_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -704,12 +699,12 @@ product_13 = Product.create!(
   orientation: "carre",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_13.photos.attach(io: file1, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file2, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file3, filename: "product_4_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_13.photos.attach(io: file1, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file2, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file3, filename: "product_4_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -732,12 +727,12 @@ product_14 = Product.create!(
   orientation: "carre",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_14.photos.attach(io: file1, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file2, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file3, filename: "product_5_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_14.photos.attach(io: file1, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file2, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file3, filename: "product_5_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -759,12 +754,12 @@ product_15 = Product.create!(
   orientation: "carre",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_15.photos.attach(io: file1, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_15.photos.attach(io: file1, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file3, filename: "product_6_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -788,12 +783,12 @@ product_16 = Product.create!(
   orientation: "carre",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_16.photos.attach(io: file1, filename: "product_7_photo.png")
-# product_7.photos.attach(io: file2, filename: "product_7_photo.png")
-# product_7.photos.attach(io: file3, filename: "product_7_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_16.photos.attach(io: file1, filename: "product_7_photo.png")
+# # product_7.photos.attach(io: file2, filename: "product_7_photo.png")
+# # product_7.photos.attach(io: file3, filename: "product_7_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -817,12 +812,12 @@ product_17 = Product.create!(
   orientation: "carre",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_17.photos.attach(io: file1, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_17.photos.attach(io: file1, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file3, filename: "product_8_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -846,12 +841,12 @@ product_18 = Product.create!(
   orientation: "carre",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_18.photos.attach(io: file1, filename: "product_9_photo.png")
-# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
-# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_18.photos.attach(io: file1, filename: "product_9_photo.png")
+# # product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# # product_9.photos.attach(io: file3, filename: "product_9_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -904,12 +899,12 @@ product_20 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory1
 )
-file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_20.photos.attach(io: file1, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file2, filename: "product_2_photo.png")
-# product_2.photos.attach(io: file3, filename: "product_2_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_20.photos.attach(io: file1, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file2, filename: "product_2_photo.png")
+# # product_2.photos.attach(io: file3, filename: "product_2_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -933,12 +928,12 @@ product_21 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory1
 )
-file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_21.photos.attach(io: file1, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file2, filename: "product_3_photo.png")
-# product_3.photos.attach(io: file3, filename: "product_3_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_21.photos.attach(io: file1, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file2, filename: "product_3_photo.png")
+# # product_3.photos.attach(io: file3, filename: "product_3_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -960,12 +955,12 @@ product_22 = Product.create!(
   orientation:"portrait",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_22.photos.attach(io: file1, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file2, filename: "product_4_photo.png")
-# product_4.photos.attach(io: file3, filename: "product_4_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_22.photos.attach(io: file1, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file2, filename: "product_4_photo.png")
+# # product_4.photos.attach(io: file3, filename: "product_4_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -987,12 +982,12 @@ product_23 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_23.photos.attach(io: file1, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file2, filename: "product_5_photo.png")
-# product_5.photos.attach(io: file3, filename: "product_5_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_23.photos.attach(io: file1, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file2, filename: "product_5_photo.png")
+# # product_5.photos.attach(io: file3, filename: "product_5_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -1014,12 +1009,12 @@ product_24 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory1,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_24.photos.attach(io: file1, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file2, filename: "product_6_photo.png")
-# product_6.photos.attach(io: file3, filename: "product_6_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1680241526823-470f2b661240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_24.photos.attach(io: file1, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file2, filename: "product_6_photo.png")
+# # product_6.photos.attach(io: file3, filename: "product_6_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -1072,12 +1067,12 @@ product_26 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_26.photos.attach(io: file1, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file2, filename: "product_8_photo.png")
-# product_8.photos.attach(io: file3, filename: "product_8_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_26.photos.attach(io: file1, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file2, filename: "product_8_photo.png")
+# # product_8.photos.attach(io: file3, filename: "product_8_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -1101,12 +1096,12 @@ product_27 = Product.create!(
   orientation: "portrait",
   subcategory: subcategory2,
   main: false)
-file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_27.photos.attach(io: file1, filename: "product_27_photo.png")
-# product_9.photos.attach(io: file2, filename: "product_9_photo.png")
-# product_9.photos.attach(io: file3, filename: "product_9_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1526818655834-d62a36fda59f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/3d9b7f3b-fb37-40b8-ac66-2b87c85947f1.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_27.photos.attach(io: file1, filename: "product_27_photo.png")
+# # product_9.photos.attach(io: file2, filename: "product_9_photo.png")
+# # product_9.photos.attach(io: file3, filename: "product_9_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
@@ -1412,12 +1407,12 @@ product_38 = Product.create!(
   orientation: "paysage",
   subcategory: subcategory1
 )
-file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
-# file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-# file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
-product_38.photos.attach(io: file1, filename: "product_38_photo.png")
-# product_1.photos.attach(io: file2, filename: "product_1_photo.png")
-# product_1.photos.attach(io: file3, filename: "product_1_photo.png")
+# file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
+# # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1601223.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# # file3 = URI.open("https://media.adeo.com/marketplace/LMFR/80162918/1049372.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
+# product_38.photos.attach(io: file1, filename: "product_38_photo.png")
+# # product_1.photos.attach(io: file2, filename: "product_1_photo.png")
+# # product_1.photos.attach(io: file3, filename: "product_1_photo.png")
 
 puts "Produit #{Product.last.id} créé"
 
