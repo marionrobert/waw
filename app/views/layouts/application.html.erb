@@ -36,7 +36,7 @@
     </div>
     <%end%>
     </header>
-    <body class= "d-flex flex-column"
+    <body class= "d-flex flex-column section-lazy"
           data-controller="search addproducttocart"
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
       <%= render "shared/navbar", cartcontent: @cartcontent %>
@@ -58,6 +58,23 @@
       <%#= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
       <%#  A mettre dans un controller JS %>
+      <script>
+      const imgElements = document.querySelectorAll("img[src]");
+      console.log("SCRIPT LAZY LOADING DANS LE BODY DU LAYOUT")
+
+      const lazyLoadingObserver = new IntersectionObserver(
+        (entries, observer) => {
+          console.log(entries);
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.src = entry.target.dataset.src;
+          });
+        }
+        // { threshold: 0.9 }
+      );
+      imgElements.forEach((img) => lazyLoadingObserver.observe(img));
+
+      </script>
     </body>
     <%= render "shared/reinsurrance"%>
   <footer class="footer" style="font-family: <%=Shop.first.themefont%>">
