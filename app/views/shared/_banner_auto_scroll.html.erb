@@ -3,25 +3,34 @@
   <div id="mainbannerautoscroll">
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%= cl_image_tag product.photos.first.key, alt: product.name %>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%= cl_image_tag product.photos.first.key, alt: product.name %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
+    
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%= cl_image_tag product.photos.first.key, alt: product.name %>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%=cl_image_tag product.photos.first.key, alt: product.name %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
+    
     <div class="bannerscrollcontainer">
       <% @products.shuffle.each do |product| %>
-        <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
-          <%= cl_image_tag product.photos.first.key, alt: product.name %>
+        <% if product.photos.attached? %>
+          <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
+            <%=cl_image_tag product.photos.first.key, alt: product.name%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
+    
   </div>
 </section>
 <script>

@@ -40,9 +40,9 @@ export default class extends Controller {
       data.products.forEach(product => {
         let html_to_insert=`
         <div id="lineItem${product.line_item_id}">
-          <div class="onelineitem">
-            <div class="vignette-line-item"><img src=${product.image_source}></div>
-          <div class="line-item-central-area">
+            <div class="onelineitem">
+              <div class="vignette-line-item"><img src=${product.image_source}></div>
+            <div class="line-item-central-area">
             <div class="line-item-info">
               <p class="line-item-product-name">${product.name}</p>
               <p class="line-item-sku">REF: ${product.sku}</p>
@@ -102,7 +102,8 @@ export default class extends Controller {
       </div>
       `
       this.contenupanierTarget.insertAdjacentHTML('beforeend', total_cart_amount);
-      this.makeorderbtnTarget.style.visibility = "visible";
+      const makeorderbtn = this.makeorderbtnTarget;
+      makeorderbtn.style.visibility = "visible";
 
 
     });
