@@ -52,18 +52,12 @@
         <div class="buttons_show_action">
           <% if user_signed_in?%>
             <% if Favorite.find_by(user: current_user, product: @product) != nil  %>
-              <i class="fa-regular fa-heart c6-favorite fav-red"
-                data-action='click->favorites#fav'
-                data-favorites-product-id-param="<%= @product.id %>"></i>
+              <i class="fa-regular fa-heart c6-favorite fav-red" data-action='click->favorites#fav' data-favorites-product-id-param="<%= @product.id %>"></i>
             <% else %>
-              <i class="fa-regular fa-heart c6-favorite fav-black"
-                data-action='click->favorites#fav'
-                data-favorites-product-id-param="<%= @product.id %>"></i>
+              <i class="fa-regular fa-heart c6-favorite fav-black" data-action='click->favorites#fav' data-favorites-product-id-param="<%= @product.id %>"></i>
             <% end %>
           <% else %>
-            <i class="fa-regular fa-heart c6-favorite fav-black"
-              data-action= 'click->favorites#redirect'
-              data-favorites-product-id-param="<%= @product.id %>"></i>
+            <i class="fa-regular fa-heart c6-favorite fav-black" data-action= 'click->favorites#redirect' data-favorites-product-id-param="<%= @product.id %>"></i>
           <% end %>
           <%= link_to products_path, :data => {action: "click->share#share"} do%>
             <i class="fa-solid fa-share-nodes shareicon"></i>
@@ -200,7 +194,7 @@
       <h3 class="carouselh3">Les oeuvres suivantes pourraient vous intéresser</h3>
       <div class="main_carousel_area" data-controller="carousel-homepage">
         <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-        <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+        <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
           <% @suggested_products.each do |product| %>
             <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
               <%= render "shared/#{Shop.first.card}", product: product %>

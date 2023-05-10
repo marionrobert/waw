@@ -5,14 +5,9 @@
         <div class="postimagezone">
           <div class="postcirclelayerright">
             <%if blogpost.photos.attached?%>
-                  <%= cl_image_tag blogpost.photos.first.key,
-                      style:"margin-left:-25%"
-                  %>
+              <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%", alt: blogpost.title%>
             <%else%>
-              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
-                  alt: "Pas d'image disponible",
-                  style:"width:100%;height:100%;")
-              %>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"width:100%;height:100%;")%>
             <%end%>
           </div>
         </div>
@@ -32,14 +27,9 @@
         <div class="postimagezone">
           <div class="postcirclelayerleft">
             <%if blogpost.photos.attached?%>
-              <%= cl_image_tag blogpost.photos.first.key,
-                  style:"margin-left:-25%;"
-              %>
+              <%= cl_image_tag blogpost.photos.first.key, style:"margin-left:-25%;", alt: blogpost.title%>
             <%else%>
-              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
-                  alt: "Pas d'image disponible",
-                  style:"width:100%;height:100%")
-              %>
+              <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible", style:"width:100%;height:100%")%>
             <%end%>
           </div>
         </div>
@@ -57,18 +47,8 @@
 <%# ADMIN ZONE %>
   <% if current_user && current_user.admin %>
     <div class="blogpostbuttons">
-      <p><%= link_to "Modifier",
-              edit_blogpost_path(blogpost),
-              class: "btn btn-warning m-3"
-          %>
-      </p>
-
-      <p><%= link_to "Supprimer",
-              blogpost,
-              data: { turbo_method: :delete },
-              class: "btn btn-danger m-3"
-          %>
-      </p>
+      <p><%= link_to "Modifier", edit_blogpost_path(blogpost), class: "btn btn-warning m-3"%></p>
+      <p><%= link_to "Supprimer", blogpost, data: { turbo_method: :delete }, class: "btn btn-danger m-3"%></p>
     </div>
   <%end%>
 <%end%>

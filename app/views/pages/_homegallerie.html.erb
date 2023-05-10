@@ -18,7 +18,7 @@
 
     <div id="blackframepaddingwhite" class="vignettesalon" style="position:relative;background:rgb(206, 236, 248)"  data-action="click->gallerie#blackframepaddingwhite">
       <% if main_product.photos.attached? %>
-        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white"%>
+        <%= cl_image_tag main_product.photos.first.key, alt: main_product.name style:"position:absolute;top:65%;margin-left:60%;width:7vw;height:auto;box-shadow: 0 0 0 10px white"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
                   alt: "Pas d'image disponible pour ce produit",
@@ -30,7 +30,7 @@
 
     <div id="black_usa_box" class="vignettesalon" style="position:relative;background:rgb(247, 229, 203)"  data-action="click->gallerie#black_usa_box">
       <% if main_product.photos.attached? %>
-      <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);"%>
+      <%= cl_image_tag main_product.photos.first.key,  alt: main_product.name style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(32, 32, 32), 0 0 0 10px rgb(0, 0, 0);"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
                   alt: "Pas d'image disponible pour ce produit",
@@ -42,7 +42,7 @@
 
     <div id="white_usa_box" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)"  data-action="click->gallerie#white_usa_box">
       <% if main_product.photos.attached? %>
-        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);"%>
+        <%= cl_image_tag main_product.photos.first.key,  alt: main_product.name style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(255, 255, 255), 0 0 0 10px rgb(245, 245, 245);"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
                   alt: "Pas d'image disponible pour ce produit",
@@ -54,7 +54,7 @@
 
     <div id="wood_usa_box" class="vignettesalon" style="position:relative;background:rgb(250, 240, 250)"  data-action="click->gallerie#wood_usa_box">
      <% if main_product.photos.attached? %>
-        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);"%>
+        <%= cl_image_tag main_product.photos.first.key,  alt: main_product.name style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto;box-shadow: 0 0 0 5px rgb(228, 195, 160), 0 0 0 10px rgb(198, 152, 107);"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
                   alt: "Pas d'image disponible pour ce produit",
@@ -79,7 +79,7 @@
     <div id="tableau-slider" data-value="1">
       <div class="frameadjustingarea" id="frameadjusting">
         <% if main_product.photos.attached? %>
-          <%= cl_image_tag main_product.photos.first.key, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
+          <%= cl_image_tag main_product.photos.first.key,  alt: main_product.name, class:"framedefaultsize", style:"position:absolute;top:10px;margin-left:40%;transform: perspective(400px) rotateY(0deg) scale(1);filter: brightness(1);", id:"mainframe", data: { gallerie_target: "frame"}%>
           <div id="framewidth" class="d-flex" data-gallerie-target="framewidth">
             <p style="background: rgba(255,255,255,0.15);border-radius:4px"><i>largeur <%=product.width%> cm</i></p>
           </div>
@@ -177,8 +177,6 @@
     }
   }
 </script>
-
-
 <!-- Ajouter du code JavaScript -->
 <script>
   $(document).ready(function() {

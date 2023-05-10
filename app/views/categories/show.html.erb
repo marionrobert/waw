@@ -18,7 +18,7 @@
   <section class="carouselcontainer">
     <div class="main_carousel_area" data-controller="carousel-homepage">
       <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
-      <div id="carouselclickable" data-carousel-homepage-target="carousel"style="height:100%;position:absolute;left:0;top:0;display:flex;">
+      <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
         <% subcategory.products.where(main: true).each do |product| %>
           <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
             <%= render "shared/#{Shop.first.card}", product: product %>

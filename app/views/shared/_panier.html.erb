@@ -3,13 +3,7 @@
 <div id="panierflottant" class="menupanier" data-controller="line-item-quantity">
   <div  id="cart">
     <div style="text-align:end;">
-      <button type="button"
-          class="btn-close"
-          <%# aria-label="Close" %>
-          style=" z-index:1001;margin-top:4vh;margin-right:4vw;"
-          data-controller="display-cart",
-          data-action="click->display-cart#closeCart">
-      </button>
+      <button type="button" class="btn-close" style=" z-index:1001;margin-top:4vh;margin-right:4vw;" data-controller="display-cart" data-action="click->display-cart#closeCart"></button>
     </div>
     <%= render "carts/cart", cart: @cart %>
   </div>

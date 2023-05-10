@@ -9,7 +9,7 @@
             <%# photo - possiblement ajouté max-width:100%; a l'image%>
             <div class="vignette-line-item">
               <%if Product.where(name: item.product.name).where(main: true).first.photos.attached?%>
-                <%= cl_image_tag Product.where(name: item.product.name).where(main: true).first.photos.first.key %>
+                <%= cl_image_tag Product.where(name: item.product.name).where(main: true).first.photos.first.key, alt: item.product.name %>
               <%else%>
                 <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg", alt: "Pas d'image disponible")%>
               <%end%>
@@ -113,7 +113,7 @@
   <%# FAVORIS DANS LE PANIER - A RETRAVAILLER EN CSS   %>
   <%if current_user != nil%>
     <%if current_user.favorite_products.count > 0%>
-      <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0)">
+      <section style="background:rgba(220,220,220,0);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0);">
         <div class="carouselcontainer">
           <div class="main_carousel_area" data-controller="carousel-homepage favorites">
           <h3>Vos oeuvres favorites</h3>
@@ -184,3 +184,4 @@
     <%= button_to "CONTINUER SANS CREER DE COMPTE", new_guest_session_path, method: :post, class:"btn btn-dark m-2 w-100"%>
   </div>
 </div>
+

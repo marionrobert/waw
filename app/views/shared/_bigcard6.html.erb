@@ -4,7 +4,7 @@
     <%= link_to product_path(product) do%>
       <div class="c6-imagediv">
         <% if product.photos.attached? %>
-          <%= cl_image_tag product.photos.first.key, class:"c6-image"%>
+          <%= cl_image_tag product.photos.first.key, alt: product.name, class:"c6-image"%>
         <%else %>
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
                 class="c6-image"
@@ -61,8 +61,6 @@
         <div class="c6-divfavorite">
           <i class="fa-regular fa-heart c6-favorite <%= Favorite.find_by(user: current_user, product: product) ? 'fav-red' : 'fav-black' %>" data-action= <%= current_user ? 'click->favorites#fav' : 'click->favorites#redirect' %>  data-favorites-product-id-param="<%= product.id %>"></i>
         </div>
-
-
       </div>
       <div class="c6-toutformats">
         <p>Tous les formats</p>
