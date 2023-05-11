@@ -27,18 +27,22 @@
     <% @products.each do |product| %>
       <%= render "shared/#{Shop.first.card}", product: product %>
     <% end %>
-    <div class="BIG1">
-      <% random_productBIG1 = @products.sample(1) %>
-      <% random_productBIG1.each do |product| %>
-        <%= render "shared/big#{Shop.first.card}", product: product %>
+    <% if @products.length >= 10 %>
+      <div class="BIG1">
+        <% random_productBIG1 = @products.sample(1) %>
+        <% random_productBIG1.each do |product| %>
+          <%= render "shared/big#{Shop.first.card}", product: product %>
       <% end %>
+    <% end %>
     </div>
-    <div class="BIG2">
-      <% random_productBIG2 = (@products - random_productBIG1).sample(1) %>
-      <% random_productBIG2.each do |product| %>
-        <%= render "shared/big#{Shop.first.card}", product: product %>
-      <% end %>
-    </div>
+    <% if @products.length >= 22 %>
+      <div class="BIG2">
+        <% random_productBIG2 = (@products - random_productBIG1).sample(1) %>
+        <% random_productBIG2.each do |product| %>
+          <%= render "shared/big#{Shop.first.card}", product: product %>
+        <% end %>
+      </div>
+    <%end%>
   </div>
   <div class="pagynavdiv" ><%== pagy_bootstrap_nav(@pagy) %>
   </div>

@@ -4,6 +4,10 @@
     content: "";
   }
 
+  .pldashboard {
+    padding-left: 10vw;
+  }
+
   .shortcutbtntopm {
     margin:7vh 20px 0vh 20px;
   }
@@ -103,18 +107,19 @@
   }
 
   .marginfirstbuttondashboard {
-    margin-top:20vh;
+    margin-top:12vh;
   }
 
   .dashboardselector {
     display: flex;
+    align-items: center;
     height:40px;
     justify-content: center;
     width: 100%;
     overflow:hidden;
     transition: 1500ms;
     text-align: left;
-    padding:15px 15px 15px 15px;
+    padding:2rem 1rem ;
     font-weight: bold;
     color:white;
   }
@@ -132,7 +137,7 @@
     color:white;
     font-size:15px;
     overflow: hidden;
-    width:40px;
+    width: 12vw;
     min-height:100vh;
     background: rgb(0,0,0);
     overflow-anchor: none;

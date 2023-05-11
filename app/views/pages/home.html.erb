@@ -23,11 +23,11 @@
 
 <div class="producthomecontainer" data-controller="favorites">
 
+  <section class="carouselcontainer" style="margin-top:4%">
   <div style="display:flex;justify-content:space-between">
     <h3 class="carouselh3">Découvrez nos oeuvres en promotion - Jusqu'à <span style="color:white;background:grey;padding:0.4vh 0.4vw;"><i style="letter-spacing: 0.3rem;">-<%=@promo_max%>%</i></span></h3>
     <h4 style="display: grid;align-items: center;margin-right:1.5rem"><%= link_to "VOIR TOUT", promo_path, class:"voirtout" %></h4>
   </div>
-  <section class="carouselcontainer">
     <div class="main_carousel_area" data-controller="carousel-homepage">
       <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
       <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
@@ -119,7 +119,7 @@
     </div>
   </section>
 
-  <section style="margin-bottom:5vh;">
+  <section style="margin-bottom:5vh;margin-top:5%" class="carouselcontainer">
     <h3 class="carouselh3">Découvrez les derniers articles publiés !</h3>
       <%= render "blogposts/blogpostoddeven"%>
   </section>

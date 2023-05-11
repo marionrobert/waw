@@ -11,7 +11,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :support
       t.integer :frame_quantity, default: 1
       t.string :orientation
-      t.string :images, array: true, default: []
       t.integer :stock_quantity, default: 0
       t.date :discount_ending_date, default: 30.days.from_now.to_date
       t.integer :supplier_delay, default: 14

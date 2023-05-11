@@ -169,7 +169,6 @@ class ProductsController < ApplicationController
       :sku,
       :description,
       :full_description,
-      :images,
       :meta_description,
       :discount_ending_date,
       :price_cents,
