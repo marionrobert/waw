@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame", "framewidth"]
 
   connect() {
-    console.log("ddd")
+    console.log("ggg")
+    this.addBrightnessSliderListener()
   }
 
   move_left() {
@@ -241,18 +242,13 @@ export default class extends Controller {
     }
   }
 
-  // $(document).ready(function() {
-  //   // Récupérer l'élément <img> à partir de son ID
-  //   const img = document.getElementById("mainframe");
+  addBrightnessSliderListener() {
+    const img = document.getElementById("mainframe");
+    const brightnessSlider = document.getElementById("brightness-slider");
 
-  //   // Ajouter un événement "input" au sélecteur de défilement
-  //   $("#brightness-slider").on("input", function() {
-  //     // Récupérer la valeur du sélecteur de défilement
-  //     const brightnessValue = $(this).val();
-
-  //     // Appliquer le filtre de luminosité à l'image
-  //     img.style.filter = `brightness(${brightnessValue})`;
-  //   });
-  // });
-
+    brightnessSlider.addEventListener("input", function() {
+      const brightnessValue = this.value;
+      img.style.filter = `brightness(${brightnessValue})`;
+    });
+  }
 }
