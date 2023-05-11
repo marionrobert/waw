@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame", "framewidth"]
 
   connect() {
-    console.log("ggg")
     this.addBrightnessSliderListener()
   }
 

@@ -7,6 +7,9 @@ import { application } from "./application"
 import AddproducttocartController from "./addproducttocart_controller"
 application.register("addproducttocart", AddproducttocartController)
 
+import AutoScrollBannerController from "./auto_scroll_banner_controller"
+application.register("auto-scroll-banner", AutoScrollBannerController)
+
 import AutocompleteproductController from "./autocompleteproduct_controller"
 application.register("autocompleteproduct", AutocompleteproductController)
 
