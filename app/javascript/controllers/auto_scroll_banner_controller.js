@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="auto-scroll-banner"
 export default class extends Controller {
   connect() {
-    console.log("eee")
+    console.log("qqq")
     this.scrollBanner();
   }
 
@@ -41,7 +41,12 @@ export default class extends Controller {
       b1 += bDiff * colorTransitionSpeed;
       currentColor = "#" + Math.round(r1).toString(16).padStart(2, '0') + Math.round(g1).toString(16).padStart(2, '0') + Math.round(b1).toString(16).padStart(2, '0');
 
-      document.querySelector('.banner').style.backgroundColor = currentColor;
+      if (document.querySelector('.banner')) {
+        document.querySelector('.banner').style.backgroundColor = currentColor;
+      } else {
+        return;
+      }
+
     }
 
     function scrollDown() {
