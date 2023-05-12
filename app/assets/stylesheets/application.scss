@@ -198,13 +198,13 @@ body {
 @media screen and (max-width: 480px) {
   .reassurance_area {
     display: flex;
-    flex-flow: wrap;
-    padding-left: 12vw;
+    flex-direction: column;
+    justify-content: center;
 
   .reassurance {
-    width: 15vh;
-    height: 17vh;
-    margin: 0 0vw 15vw 14vw;
+    width: 20vh;
+    height: 20vh;
+    margin: 5% auto;
     img {
       margin:10% auto;
       height:30%;
