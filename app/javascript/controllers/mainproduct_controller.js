@@ -7,9 +7,7 @@ export default class extends Controller {
   }
 
   hideinput() {
-    // console.log("dans le hide input");
     let photoInput = document.getElementById("main_product_only_has_photo");
     photoInput.classList.toggle("hidden");
-    console.log("fin de hide input");
   }
 }
