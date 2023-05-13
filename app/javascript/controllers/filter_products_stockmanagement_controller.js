@@ -3,8 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="filter-products-stockmanagement"
 export default class extends Controller {
   connect() {
-    console.log("hello from filter-products-stockmanagement")
-    console.log("ddd")
   }
 
 
