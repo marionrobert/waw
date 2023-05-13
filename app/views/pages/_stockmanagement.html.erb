@@ -1,4 +1,5 @@
-<h3 style="text-align:center">Oeuvres disponible à la vente</h3>
+<div data-controller="filter-products-stockmanagement">
+  <h3 style="text-align:center">Oeuvres disponible à la vente</h3>
   <div style="display:grid;width:100%;background:brown">
     <form>
       <label for="name">Nom :</label>
@@ -20,117 +21,114 @@
         <option value="Toile_chassis_100%_lin_400g_caisse_americaine_noire">Toile chassis 100% lin 400g - Caisse americaine_noire</option>
         <option value="Toile_chassis_100%_lin_400g_caisse_americaine_blanche">Toile chassis 100% lin 400g - Caisse americaine blanche</option>
       </select><br>
-      <button type="submit" onclick="filterProducts()" class="btn btn-primary m-5">Filtrer</button>
+      <button data-action="click->filter-products-stockmanagement#filterProducts" class="btn btn-primary m-5">Filtrer</button>
     </form>
   </div>
-<div class="table-container">
-  <div class="scrollable-columns">
-    <table id="product-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Sku</th>
-          <th>Width</th>
-          <th>Height</th>
-          <th>Support</th>
-          <th>Orientation</th>
-          <th>Frame quantity</th>
-          <th>
-            Price_cents
-            <div style="display:flex;justify-content:space-around">
-              <%= link_to request.query_parameters.merge(sort_order: "asc") do%>
-                <i class="fa-solid fa-arrow-up" style="color:white"></i>
-              <% end %>
-              <%= link_to request.query_parameters.merge(sort_order: "desc") do%>
-                <i class="fa-solid fa-arrow-down" style="color:white"></i>
-              <% end %>
-            </div>
-          </th>
-          <th>Discount_price_cents</th>
-          <th>Discount_ending_date</th>
-          <th>Délai fournisseur</th>
-          <th>Render_price</th>
-          <th>Fournisseur</th>
-          <th>Reward</th>
-          <th>Nbr visites</th>
-          <th>Modifier</th>
-        </tr>
-      </thead>
-      <tbody  data-controller="preview-price-change" >
-        <%sort_order = params[:sort_order].presence || "asc"%>
-        <%@products = @products.order(price_cents: sort_order)%>
-        <% @products.order(:name).each_with_index do |product, index| %>
+  <div class="table-container">
+    <div class="scrollable-columns">
+      <table id="product-table">
+        <thead>
           <tr>
-            <td style="margin:0 auto"><%= product.id %>
-              <%= link_to product_path(product), target: '_blank' do %>
-                <i class="fa-regular fa-eye" style="color:blue;"></i>
-              <% end %>
-            </td>
-            <td><%= product.name %></td>
-            <td><%= product.sku %></td>
-            <td><%= product.width %></td>
-            <td><%= product.height %></td>
-            <td><%= product.support %></td>
-            <td><%= product.orientation %></td>
-            <td><%= product.frame_quantity %></td>
-            <td><%= simple_form_for(product) do |product| %>
-                  <%= product.error_notification %>
-                  <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
-                  <div class="form-inputs" style="width:200px">
-                    <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
-                    <%# <p id= %>
-                    <%#= "input_price_#{index}" %>
-                    <%# style="font-size: 12px;">cents >>> €</p> %>
-                  </div>
-                    <div class="form-actions" style="text-align:center">
-                    <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
-                      <i class="fa-regular fa-circle-check"></i>
-                    <% end %>
-                  </div>
-                <%end%>
-            </td>
-            <td><%= simple_form_for(product) do |product| %>
-                  <%= product.error_notification %>
-                  <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
-                  <div class="form-inputs" style="width:200px">
-                    <%= product.input :discount_price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
-                    <%# <p id= %>
-                    <%#= "input_price_#{index}" %>
-                    <%# style="font-size: 12px;">cents >>> €</p> %>
-                  </div>
-                    <div class="form-actions" style="text-align:center;">
-                    <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
-                      <i class="fa-regular fa-circle-check"></i>
-                    <% end %>
-                  </div>
-                <%end%>
-            </td>
-            <td><%= product.discount_ending_date %></td>
-            <td><%= product.supplier_delay %></td>
-            <td><%= product.render_price %></td>
-            <td><%= product.fournisseur %></td>
-            <td><%= product.reward %></td>
-              <% if product.visit %>
-            <td><%= product.visit.count %></td>
-              <% else %>
-            <td>0</td>
-              <%end%>
-            <td>
-              <%= link_to edit_product_path(product) do %>
-                <i class="fa-solid fa-eraser" style="color:blue;display:flex;justify-content:center"></i>
-              <%end%>
-            </td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Sku</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>Support</th>
+            <th>Orientation</th>
+            <th>Frame quantity</th>
+            <th>
+              Price_cents
+              <div style="display:flex;justify-content:space-around">
+                <%= link_to request.query_parameters.merge(sort_order: "asc") do%>
+                  <i class="fa-solid fa-arrow-up" style="color:white"></i>
+                <% end %>
+                <%= link_to request.query_parameters.merge(sort_order: "desc") do%>
+                  <i class="fa-solid fa-arrow-down" style="color:white"></i>
+                <% end %>
+              </div>
+            </th>
+            <th>Discount_price_cents</th>
+            <th>Discount_ending_date</th>
+            <th>Délai fournisseur</th>
+            <th>Render_price</th>
+            <th>Fournisseur</th>
+            <th>Reward</th>
+            <th>Nbr visites</th>
+            <th>Modifier</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody  data-controller="preview-price-change" >
+          <%sort_order = params[:sort_order].presence || "asc"%>
+          <%@products = @products.order(price_cents: sort_order)%>
+          <% @products.order(:name).each_with_index do |product, index| %>
+            <tr>
+              <td style="margin:0 auto"><%= product.id %>
+                <%= link_to product_path(product), target: '_blank' do %>
+                  <i class="fa-regular fa-eye" style="color:blue;"></i>
+                <% end %>
+              </td>
+              <td><%= product.name %></td>
+              <td><%= product.sku %></td>
+              <td><%= product.width %></td>
+              <td><%= product.height %></td>
+              <td><%= product.support %></td>
+              <td><%= product.orientation %></td>
+              <td><%= product.frame_quantity %></td>
+              <td><%= simple_form_for(product) do |product| %>
+                    <%= product.error_notification %>
+                    <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+                    <div class="form-inputs" style="width:200px">
+                      <%= product.input :price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                      <p id=<%= "input_price_#{index}" %> style="font-size: 12px;">cents >>> €</p>
+                    </div>
+                      <div class="form-actions" style="text-align:center">
+                      <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
+                        <i class="fa-regular fa-circle-check"></i>
+                      <% end %>
+                    </div>
+                  <%end%>
+              </td>
+              <td><%= simple_form_for(product) do |product| %>
+                    <%= product.error_notification %>
+                    <%= product.error_notification message: product.object.errors[:base].to_sentence if product.object.errors[:base].present? %>
+                    <div class="form-inputs" style="width:200px">
+                      <%= product.input :discount_price_cents, input_html: { min: '1', :class => "input_price_#{index}", :data => { action: "click->preview-price-change#preview input->preview-price-change#preview" }}, label: "Prix en centimes", label_html:{ class:"labelstockmobile" } %>
+                      <p id=<%= "input_price_#{index}" %> style="font-size: 12px;">cents >>> €</p>
+                    </div>
+                      <div class="form-actions" style="text-align:center;">
+                      <%= button_tag( :style => "background:rgba(0,0,0,0);border:none;color:green;") do %>
+                        <i class="fa-regular fa-circle-check"></i>
+                      <% end %>
+                    </div>
+                  <%end%>
+              </td>
+              <td><%= product.discount_ending_date %></td>
+              <td><%= product.supplier_delay %></td>
+              <td><%= product.render_price %></td>
+              <td><%= product.fournisseur %></td>
+              <td><%= product.reward %></td>
+              <% if product.visit %>
+                <td><%= product.visit.count %></td>
+              <% else %>
+                <td>0</td>
+                <%end%>
+              <td>
+                <%= link_to edit_product_path(product) do %>
+                  <i class="fa-solid fa-eraser" style="color:blue;display:flex;justify-content:center"></i>
+                <%end%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<script>
+<%# <script>
   function sortTableByPrice() {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = null;
     table = document.getElementById("product-table");
     switching = true;
     // Set the sorting direction to ascending
@@ -174,39 +172,4 @@
       }
     }
   }
-</script>
-
-<script>
-  function filterProducts() {
-    const orientation = document.getElementById("orientation").value;
-    const support = document.getElementById("support").value;
-    const name = document.getElementById("name").value.trim().toLowerCase();
-
-    const rows = document.querySelectorAll("#product-table tbody tr");
-
-    rows.forEach((row) => {
-      event.preventDefault();
-      const rowOrientation = row.querySelector("td:nth-child(7)").textContent;
-      const rowSupport = row.querySelector("td:nth-child(6)").textContent;
-      const rowName = row.querySelector("td:nth-child(2)").textContent.trim().toLowerCase();
-
-      if ((orientation === "" || rowOrientation === orientation) &&
-          (support === "" || rowSupport === support) &&
-          (name === "" || rowName.includes(name))) {
-        row.style.display = "";
-      } else {
-        row.style.display = "none";
-      }
-    });
-
-    const table = document.getElementById("product-table");
-    const tbody = table.querySelector("tbody");
-    const rowsArray = Array.from(tbody.children);
-    rowsArray.sort((rowA, rowB) => {
-      const idA = Number(rowA.querySelector("td").textContent);
-      const idB = Number(rowB.querySelector("td").textContent);
-      return idA - idB;
-    });
-    tbody.append(...rowsArray);
-  }
-</script>
+</script> %>
