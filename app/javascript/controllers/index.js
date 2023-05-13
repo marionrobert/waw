@@ -7,6 +7,9 @@ import { application } from "./application"
 import AddproducttocartController from "./addproducttocart_controller"
 application.register("addproducttocart", AddproducttocartController)
 
+import AutoScrollBannerController from "./auto_scroll_banner_controller"
+application.register("auto-scroll-banner", AutoScrollBannerController)
+
 import AutocompleteproductController from "./autocompleteproduct_controller"
 application.register("autocompleteproduct", AutocompleteproductController)
 
@@ -27,6 +30,9 @@ application.register("display-cart", DisplayCartController)
 
 import FavoritesController from "./favorites_controller"
 application.register("favorites", FavoritesController)
+
+import FilterProductsStockmanagementController from "./filter_products_stockmanagement_controller"
+application.register("filter-products-stockmanagement", FilterProductsStockmanagementController)
 
 import GallerieController from "./gallerie_controller"
 application.register("gallerie", GallerieController)

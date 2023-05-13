@@ -30,7 +30,6 @@ export default class extends Controller {
     }
 
   redirect() {
-    console.log("Redirection");
     window.location.replace("http://localhost:3000/users/sign_in");
   }
 

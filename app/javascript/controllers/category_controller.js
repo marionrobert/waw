@@ -79,7 +79,6 @@ export default class extends Controller {
   }
 
   hidesubcategorymenu() {
-    // console.log("this is hidesubcategorymenu function");
     const subcatmenu = document.getElementById("subcatmenu")
     subcatmenu.classList.remove("displaysubcat")
   }
