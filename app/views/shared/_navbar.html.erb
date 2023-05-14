@@ -1,8 +1,8 @@
 <%# //////////////// PERMET DE PLACER LA NAVBAR SOUS LA PUB SI IL Y A PUB /////////////// %>
 <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-<main class="navfixedwithbanner">
+<header class="navfixedwithbanner">
 <%else%>
-<main class="navfixed">
+<header class="navfixed">
   <%end%>
   <nav class="navbar d-flex" style="width: 100vw;height: 100%;background:white;" aria-label="Light offcanvas navbar">
     <%# ////////////////BOUTON CATEGORIE LORSQUE DISPLAY SMARTPHONE /////////////////%>
@@ -59,4 +59,4 @@
     </div>
   </nav>
   <%= render "shared/categories_and_subcategories" %>
-</main>
+</header>

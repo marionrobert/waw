@@ -127,7 +127,7 @@
 
 
         <h2 style="text-align:left;margin:2rem 0;">Autres formats disponible:</h2>
-        <div style="display:grid;justify-content:center">
+        <div style="display:grid">
             <%if @similar_products.count.positive?%>
               <% @similar_products.each do |product|%>
                   <% if @product.sku== product.sku %>

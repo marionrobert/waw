@@ -1,7 +1,7 @@
 <section class="sectionbanner" data-controller="auto-scroll-banner">
   <h2 style="display:none">Oeuvres disponible à la vente défilant de haut en bas sur 3 colonnes</h2>
   <div id="mainbannerautoscroll">
-    <div class="bannerscrollcontainer">
+    <div>
       <% @products.shuffle.each do |product| %>
         <% if product.photos.attached? %>
           <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    <div class="bannerscrollcontainer">
+    <div>
       <% @products.shuffle.each do |product| %>
         <% if product.photos.attached? %>
           <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
@@ -21,7 +21,7 @@
       <% end %>
     </div>
 
-    <div class="bannerscrollcontainer">
+    <div>
       <% @products.shuffle.each do |product| %>
         <% if product.photos.attached? %>
           <%= link_to product_path(product), data: { turbolinks_action: 'replace' } do%>
