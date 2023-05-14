@@ -5,9 +5,8 @@ export default class extends Controller {
   static targets = ["allframes", "preview", "room1", "room2", "room3", "room4", "room5", "room6", "frame", "framewidth"]
 
   connect() {
+    this.addBrightnessSliderListener()
   }
-
-
 
   move_left() {
     // console.log("MOVE FRAME LEFT");
@@ -173,7 +172,7 @@ export default class extends Controller {
   }
 
   noframe() {
-    console.log("no frame");
+    // console.log("no frame");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
     mainframe.classList.remove("black_usa_box");
@@ -182,7 +181,7 @@ export default class extends Controller {
   }
 
   black_usa_box() {
-    console.log("black_usa_box");
+    // console.log("black_usa_box");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
     mainframe.classList.add("black_usa_box");
@@ -191,7 +190,7 @@ export default class extends Controller {
   }
 
   blackframepaddingwhite() {
-    console.log("blackframepaddingwhite");
+    // console.log("blackframepaddingwhite");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.remove("wood_usa_box");
     mainframe.classList.add("blackframepaddingwhite");
@@ -200,7 +199,7 @@ export default class extends Controller {
   }
 
   white_usa_box() {
-    console.log("white frame");
+    // console.log("white frame");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.add("white_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
@@ -209,7 +208,7 @@ export default class extends Controller {
   }
 
   wood_usa_box() {
-    console.log("wood_usa_box");
+    // console.log("wood_usa_box");
     let mainframe = document.getElementById("mainframe");
     mainframe.classList.add("wood_usa_box");
     mainframe.classList.remove("blackframepaddingwhite");
@@ -217,4 +216,38 @@ export default class extends Controller {
     mainframe.classList.remove("black_usa_box");
   }
 
+  myhomeImage() {
+    console.log("my homeImage called")
+    const bgselector = document.getElementById('bg_selector');
+    let r5 = document.getElementById('r5');
+    let myhome = document.querySelector('#myhome');
+    let file = document.querySelector('#imageUpload').files[0];
+    let reader = new FileReader();
+
+    reader.onloadend = function () {
+      myhome.src = reader.result;
+      document.getElementById('room5').src = reader.result;
+      myhome.style.display = "block";
+      r5.style.backgroundImage = "url('" + reader.result + "')";
+      r5.style.backgroundSize = "contain";
+
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      myhome.src = "";
+      r5.style.backgroundImage = "none";
+    }
+  }
+
+  addBrightnessSliderListener() {
+    const img = document.getElementById("mainframe");
+    const brightnessSlider = document.getElementById("brightness-slider");
+
+    brightnessSlider.addEventListener("input", function() {
+      const brightnessValue = this.value;
+      img.style.filter = `brightness(${brightnessValue})`;
+    });
+  }
 }

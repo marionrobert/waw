@@ -6,7 +6,7 @@
   <div id="frame_selector">
     <div id="noframe" class="vignettesalon" style="position:relative;background:rgb(185, 239, 210)" data-action="click->gallerie#noframe">
       <% if main_product.photos.attached? %>
-        <%= cl_image_tag main_product.photos.first.key, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto"%>
+        <%= cl_image_tag main_product.photos.first.key, alt: main_product.name, style:"position:absolute;top:65%;margin-left:40%;width:7vw;height:auto"%>
       <% else %>
         <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
                   alt: "Pas d'image disponible pour ce produit",
@@ -117,7 +117,7 @@
     <p style="text-align:center;font-weight:bold"><i class="fa-sharp fa-solid fa-angles-down fa-bounce" style=";font-weight:bold;margin-right:0.2rem"></i></i>Téléchargez une photo de chez moi<i class="fa-sharp fa-solid fa-angles-down fa-bounce" style="font-weight:bold;margin-left:0.2rem"></i></p>
     <div style="display-flex">
       <i class="fa-sharp fa-solid fa-angles-right fa-fade fa-xl"></i>
-      <input type="file" id="imageUpload" accept="image/*" onchange="myhomeImage()" >
+      <input type="file" id="imageUpload" accept="image/*" data-action="input->gallerie#myhomeImage" >
     </div>
   </div>
 
@@ -138,7 +138,7 @@
         <%= image_tag "salons/salon4.jpg"%>
       </div>
 
-      <div id="r5" class="vignettesalon" onclick="document.querySelector('#imageUpload').click()" style="background:white; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+      <div id="r5" class="vignettesalon" data-action="click->gallerie#blackframepaddingwhite" onclick="document.querySelector('#imageUpload').click()" style="background:white; cursor: pointer; display: flex; justify-content: center; align-items: center;">
         <p style="margin: 0;text-align:center">Importer ma photo</p>
         <i class="fa-solid fa-camera" ></i>
       </div>
@@ -146,50 +146,3 @@
 </div>
 <p style="text-align:center;margin:2rem 0 0.5rem 0;">Luminosité:</p>
 <input type="range" min="0" max="1" step="0.05" value="1" id="brightness-slider" style="margin:0 auto;width:50%;display:grid">
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-<script>
-  function myhomeImage() {
-    const bgselector = document.getElementById('bg_selector');
-    let r5 = document.getElementById('r5');
-    let myhome = document.querySelector('#myhome');
-    let file    = document.querySelector('#imageUpload').files[0];
-    let reader  = new FileReader();
-    let r6 = document.getElementById('r6');
-
-    reader.onloadend = function () {
-      myhome.src = reader.result;
-      document.getElementById('room5').src = reader.result;
-      myhome.style.display = "block";
-      r5.style.backgroundImage = "url('" + reader.result + "')";
-      r5.style.backgroundSize = "contain";
-
-    }
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      myhome.src = "";
-      r5.style.backgroundImage = "none";
-    }
-  }
-</script>
-<!-- Ajouter du code JavaScript -->
-<script>
-  $(document).ready(function() {
-    // Récupérer l'élément <img> à partir de son ID
-    const img = document.getElementById("mainframe");
-
-    // Ajouter un événement "input" au sélecteur de défilement
-    $("#brightness-slider").on("input", function() {
-      // Récupérer la valeur du sélecteur de défilement
-      const brightnessValue = $(this).val();
-
-      // Appliquer le filtre de luminosité à l'image
-      img.style.filter = `brightness(${brightnessValue})`;
-    });
-  });
-</script>
