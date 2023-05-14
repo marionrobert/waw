@@ -150,6 +150,9 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
+  def filter_by_subcat_and_orientation
+  end
+
   private
 
   def set_subcategory
@@ -183,4 +186,5 @@ class ProductsController < ApplicationController
       photos: []
     )
   end
+
 end
