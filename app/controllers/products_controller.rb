@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @categories_illustration = []
-    Category.all.each do |category|
-      @categories_illustration << category.photos.first
-    end
+    # @categories_illustration = []
+    # Category.all.each do |category|
+    #   @categories_illustration << category.photos.first
+    # end
 
     @q = Product.where(main: true).ransack(params[:q])
 

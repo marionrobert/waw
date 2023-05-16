@@ -5,10 +5,11 @@ export default class extends Controller {
     'list',
     'form',
     'title',
-    "pages"
+    "pages",
+    "filterForm",
+    "sortForm"
   ]
   connect(){
-    // console.log("coucou from search controller")
     if (!this.haspagesTarget) return
     this.pagesTarget.style.visibility = "visible";
   }
@@ -31,6 +32,46 @@ export default class extends Controller {
       });
     this.pagesTarget.style.visibility = "hidden";
   }
+
+  filterBySubCatAndOrientation(event) {
+    event.preventDefault();
+    const data = new FormData(this.filterFormTarget)
+    const url = `/products/search`
+    const options = {
+      method: 'POST',
+      body: data,
+      headers: {'Accept': 'application/json'}
+    }
+
+    fetchWithToken(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        this.titleTarget.innerText = data.title
+        this.listTarget.innerHTML = data.list
+      });
+    this.pagesTarget.style.visibility = "hidden";
+  }
+
+  sortByAscOrDescOrder(event){
+    event.preventDefault();
+    const data = new FormData(this.sortFormTarget)
+    const url = `/products/search`
+    const options = {
+      method: 'POST',
+      body: data,
+      headers: {'Accept': 'application/json'}
+    }
+
+    fetchWithToken(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        this.titleTarget.innerText = data.title
+        this.listTarget.innerHTML = data.list
+      });
+    this.pagesTarget.style.visibility = "hidden";
+  }
+
+
 
   displayMobileSearchInput() {
     const loupe = document.getElementById("mobile-magnifying-glass")
