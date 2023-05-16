@@ -6,12 +6,16 @@ export default class extends Controller {
     'form',
     'title',
     "pages",
+    "pagynavdiv",
+    "pagynavdivbis",
     "filterForm",
     "sortForm"
   ]
   connect(){
     if (!this.haspagesTarget) return
-    this.pagesTarget.style.visibility = "visible";
+    this.pagesTarget.style.display = "block";
+    this.pagynavdivTarget.style.display = "block";
+    this.pagynavdivbisTarget.style.display = "block";
   }
 
   update(event) {
@@ -30,7 +34,9 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-    this.pagesTarget.style.visibility = "hidden";
+      this.pagesTarget.style.display = "none";
+      this.pagynavdivTarget.style.display = "none";
+      this.pagynavdivbisTarget.style.display = "none";
   }
 
   filterBySubCatAndOrientation(event) {
@@ -49,7 +55,9 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-    this.pagesTarget.style.visibility = "hidden";
+    this.pagesTarget.style.display = "none";
+    this.pagynavdivTarget.style.display = "none";
+    this.pagynavdivbisTarget.style.display = "none";
   }
 
   sortByAscOrDescOrder(event){
@@ -68,7 +76,6 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-    this.pagesTarget.style.visibility = "hidden";
   }
 
 
