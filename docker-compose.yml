@@ -1,0 +1,24 @@
+---
+version: '3.1'
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION-15}
+    environment:
+      POSTGRES_PASSWORD: hackme
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/postgresql:/var/lib/postgresql/data
+
+  app:
+    build: .
+    environment:
+      #- RAILS_ENV=production
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE-2ba049a733a688f90979910a29e1883794ea5504edd9a2ef556365a3d480249caba10abd0cd91b57c5b1f3287f8e38b0571acf46eef6b36c7ab294cefd0ddf20}
+      - DB_HOST=postgres
+    ports:
+      - 3000:3000
+    command: "make run"
+    depends_on:
+      - postgres
+    
