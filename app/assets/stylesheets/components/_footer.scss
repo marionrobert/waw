@@ -39,6 +39,45 @@ footer {
   }
 }
 
+.reassurancebis {
+  h3 {
+  width:100%;
+  }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  div {
+    figure {
+      margin: 5% auto;
+      width: 50%;
+      img {
+        height: 4rem;
+        width:auto;
+        padding:5%;
+      }
+      figcaption {
+        height: 4rem;
+        width:auto;
+        padding:5%;
+      }
+    }
+  }
+  .paiementallowed {
+    width:100%;
+    padding: 2% 10%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0px 0px 2px 1px grey;
+    img {
+      margin: 2%;
+      height: 3vh;
+      width: auto;
+    }
+  }
+}
+
 @media screen and (min-width: 481px) {
 
   footer {
@@ -46,9 +85,14 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
 
-    h2, h3 {
+    h2 {
       width: 50%;
       margin: 0 auto;
+    }
+
+    h3 {
+      display: block;
+      width:100%
     }
 
     ul li {
@@ -66,13 +110,49 @@ footer {
       justify-content: space-around;
       border-top: 1px solid white;
       margin: 2% 0 0 0;
+      padding:0;
     }
 
     form {
-      width: 50%;
+      width: 100%;
       display: flex;
       justify-content: space-around;
       margin: 1% 0;
+    }
+  }
+
+  .reassurancebis {
+    flex-wrap: wrap;
+    flex-direction: row;
+    div {
+      display:flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width:85%;
+      margin:0 auto;
+        .paiementallowed {
+        display: block;
+        width: 100%;
+        padding: 5%;
+        img {
+          padding:0;
+          margin:2%;
+          height: 4vh;
+        }
+      }
+      figure {
+        margin: auto;
+        width: 50%;
+        padding: 5%;
+        img {
+          padding:5%;
+        }
+        figcaption {
+          height: 4rem;
+          width:auto;
+          padding:5%;
+        }
+      }
     }
   }
 }
@@ -80,6 +160,7 @@ footer {
 @media screen and (min-width: 960px) {
 
   footer {
+    margin: 2% 0 0 0;
     padding: 4% 4% 0 4%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -114,6 +195,31 @@ footer {
       display: flex;
       justify-content: space-around;
       margin: 1% 0;
+    }
+  }
+
+  .reassurancebis {
+    .paiementallowed {
+    justify-content: center;
+      img {
+        margin: 0 2%;
+        height: 3vh;
+      }
+    }
+    div {
+      margin: 4% auto 0 auto;
+      text-align: center;
+      height:auto;
+      figure {
+        height: 40vh;
+        margin: auto;
+        width: 15%;
+        padding: 2%;
+        margin: 0 auto;
+        img {
+          padding: 2%;
+        }
+      }
     }
   }
 }

@@ -144,31 +144,9 @@ body {
   display:none;
 }
 
-@media screen and (max-width: 480px) {
-  .paiementallowed {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    img {
-      margin: 2%;
-      height: 1.2rem;
-    }
-  }
-}
 
-@media screen and (min-width: 481px) {
-  .paiementallowed {
-    width: 25%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    img {
-      margin:0 5%;
-      height: 2rem;
-    }
-  }
-}
+
+
 .reassurance_area {
     margin: 5vh 0;
     @media screen and (min-width: 481px) {
@@ -415,4 +393,4 @@ button {
   color:gray;
 }
 
-
+////////////////////////
