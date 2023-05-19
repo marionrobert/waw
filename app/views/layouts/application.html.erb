@@ -3,65 +3,46 @@
   <head>
     <title>Wall Art Work</title>
     <meta charset="utf-8">
-    <%# <!-- Avoid zoom on mobile --> %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%# <!-- Avoid zoom on mobile other way to do--> %>
     <meta name="viewport" content= "width=device-width, user-scalable=no">
     <meta name="description" content="<%=Shop.first.description%>">
     <% if params[:controller] == 'products' && params[:action] == 'show' && @product.present? && @product.meta_description.present? %>
       <meta name="description" content="<%= @product.meta_description %>">
     <% end %>
-    <%# <!--about security : https://gohugo.io/about/ --> %>
     <meta name="generator" content="Hugo 0.104.2">
-    <%# <!-- https://api.rubyonrails.org/classes/ActionView/Helpers/CsrfHelper.html --> %>
     <%= csrf_meta_tags %>
-    <%# <!-- https://api.rubyonrails.org/v7.0.4/classes/ActionView/Helpers/CspHelper.html --> %>
     <%= csp_meta_tag %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <%# this lines still has a warning on chrome about a preload but a not use in the page...so we load ressources not used in the pages and chrome don't like it. How to do...pages after pages loading in the each page only the css used...long and complicate %>
-    <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag "application" %>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
-    <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
     <%= javascript_include_tag 'sortTableByPrice' %>
   </head>
     <body class= "d-flex flex-column"
           data-controller="search addproducttocart"
           style="font-family: <%=Shop.first.themefont%>;background: <%=Shop.first.themebgcolor%>;">
-    <header>
-    <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
-    <div class="bannerpub">
-      <p class="animationpub"><%=Shop.first.bannerpub%></p>
-    </div>
-    <%end%>
-    </header>
-      <%= render "shared/navbar", cartcontent: @cartcontent %>
-      <%= render "shared/lateralbanner"%>
-      <%# Cette div shortcutpay ne doit apparaitre qu'à la mise au panier d'un nouvel item %>
-      <%#= render "shared/shortcutpay"%>
-      <%#= session[:cookies_accepted] %>
-      <%= render "shared/panier"%>
-      <%= render "shared/flashes" %>
-      <%# PARTIAL LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
-      <%= turbo_frame_tag :modal %>
-      <%= yield %>
-
-      <%= render "shared/moncompte" %>
-
-      <p id="alert"><%= alert %></p>
-      <p id="notice"><%= notice %></p>
-      <%# CONTROLLEUR LIGNE DU DESSOUS A ACTIVER SI STOCKAGE ET UTILISATION DE COOKIES %>
-      <%#= turbo_frame_tag :cookies_modal, src: cookies_path if session[:cookies_accepted].nil?%>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-      <%#  A mettre dans un controller JS %>
-      <%= render "shared/reinsurrance"%>
-    <footer class="footer" style="font-family: <%=Shop.first.themefont%>">
-      <%= render "shared/footer"%>
-    </footer>
+      <header>
+        <%if Shop.first.bannerpub != "" && Shop.first.bannerpub != nil %>
+        <div class="bannerpub">
+          <p class="animationpub"><%=Shop.first.bannerpub%></p>
+        </div>
+        <%end%>
+        <%= render "shared/navbar", cartcontent: @cartcontent %>
+        <%= render "shared/lateralbanner"%>
+      </header>
+        <%= render "shared/panier"%>
+        <%= render "shared/flashes" %>
+        <%= yield %>
+        <%= render "shared/moncompte" %>
+        <p id="alert"><%= alert %></p>
+        <p id="notice"><%= notice %></p>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <%= render "shared/reinsurrance"%>
+      <footer>
+        <%= render "shared/footer"%>
+      </footer>
     </body>
 </html>

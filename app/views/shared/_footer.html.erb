@@ -1,31 +1,18 @@
-<div class="sectionresponsivefooter">
-  <div style="display:grid;margin-bottom:4vh;margin-right:10%">
-    <div style="display:flex;align-items:center">
-      <H1><%=Shop.first.name%></H1>
-      <a href="#" target="_blank" style="margin:0 2vw"><i class="textourwhite fab fa-instagram"></i></a>
-      <a href="#" target="_blank" style="margin:0 2vw"><i class="textourwhite fab fa-facebook"></i></a>
-    </div>
-    <%= link_to "Contactez nous", shop_path(Shop.first) , class:"white_deco_none", style:"display:flex;justify-content:start"%>
-        <%# BOUTON BLOG %>
-    <p><%= link_to "Articles", blogposts_path, class:"white_deco_none" %></p>
-    <p class="white_deco_none"><%= link_to "Qui sommes nous?", cgv_path , class:"white_deco_none"%>
-  </div>
-
-  <div style="display:grid">
-    <form action="<%= newsletter_subscribe_path %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <div style="height:70px">
-        <p style="text-align:left;height:auto">Inscrivez-vous à notre Newsletter</p>
-        <div style="display:flex;align-items:center">
-          <%= text_field_tag 'email_contact[email]', nil, placeholder: "Entrez votre adresse e-mail", style: "color:white;width:70%;height:4vh;display:flex;justify-content:start;text-align:left;background:black;border:2px solid white;margin:1vh 0;" %>
-          <input type="submit" value="Valider" style="text-transform:uppercase;font-size:smaller;margin-left:10px;padding:0 15px;height:4vh;width:auto">
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-  <div style="width:70vw;display:flex;justify-content:center; padding:2vh;border-top:2px solid white;margin:0 auto">
-    <p class="mentionslegales"><%= link_to "Conditions générales de ventes", cgv_path , class:"white_deco_none"%></p>
-    <p class="mentionslegales"><%= link_to "Mentions legales", legal_path , class:"white_deco_none"%></p>
-  </div>
+<div class="footerbis">
+  <h2>WALL ART WORKS</h2>
+  <ul>
+    <li><%= link_to "Contactez nous", shop_path(Shop.first)%></li>
+    <li><%= link_to "Articles", blogposts_path%></li>
+    <li><%= link_to "Qui sommes nous?", cgv_path%></li>
+  </ul>
+  <h3>Inscrivez-vous à notre Newsletter</h3>
+  <form action="<%= newsletter_subscribe_path %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= text_field_tag 'email_contact[email]', nil, placeholder: "Entrez votre adresse e-mail" %>
+    <input type="submit" value="VALIDER">
+  </form>
+  <ul>
+    <li><%= link_to "Conditions générales de ventes", cgv_path%></li>
+    <li><%= link_to "Mentions legales", legal_path%></li>
+  </ul>
 </div>
