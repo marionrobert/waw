@@ -1,18 +1,16 @@
-<div class="footerbis">
-  <h2>WALL ART WORKS</h2>
-  <ul>
-    <li><%= link_to "Contactez nous", shop_path(Shop.first)%></li>
-    <li><%= link_to "Articles", blogposts_path%></li>
-    <li><%= link_to "Qui sommes nous?", cgv_path%></li>
-  </ul>
-  <h3>Inscrivez-vous à notre Newsletter</h3>
-  <form action="<%= newsletter_subscribe_path %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= text_field_tag 'email_contact[email]', nil, placeholder: "Entrez votre adresse e-mail" %>
-    <input type="submit" value="VALIDER">
-  </form>
-  <ul>
-    <li><%= link_to "Conditions générales de ventes", cgv_path%></li>
-    <li><%= link_to "Mentions legales", legal_path%></li>
-  </ul>
-</div>
+<h2>WALL ART WORKS</h2>
+<ul>
+  <li><%= link_to "Contactez nous", shop_path(Shop.first)%></li>
+  <li><%= link_to "Articles", blogposts_path%></li>
+  <li><%= link_to "Qui sommes nous?", cgv_path%></li>
+</ul>
+<h3>Inscrivez-vous à notre Newsletter</h3>
+<form action="<%= newsletter_subscribe_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <%= text_field_tag 'email_contact[email]', nil, placeholder: "Entrez votre adresse e-mail" %>
+  <input type="submit" value="VALIDER">
+</form>
+<ul>
+  <li><%= link_to "Conditions générales de ventes", cgv_path%></li>
+  <li><%= link_to "Mentions legales", legal_path%></li>
+</ul>
