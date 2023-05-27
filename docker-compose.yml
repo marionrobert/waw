@@ -16,6 +16,9 @@ services:
       #- RAILS_ENV=production
       - SECRET_KEY_BASE=${SECRET_KEY_BASE-2ba049a733a688f90979910a29e1883794ea5504edd9a2ef556365a3d480249caba10abd0cd91b57c5b1f3287f8e38b0571acf46eef6b36c7ab294cefd0ddf20}
       - DB_HOST=postgres
+      - DB_NAME=waw
+    volumes:
+      - .:/app
     ports:
       - 3000:3000
     command: "make run"

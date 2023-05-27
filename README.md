@@ -14,4 +14,24 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
     docker-compose up app
     ```
 
+1. Initialize databsae
+
+    1. Connect inside the container
+
+        ```bash
+        docker-compose exec postgres /bin/bash
+        ```
+
+    1. Create development and test database
+
+        ```bash
+        rails db:create
+        ```
+
+    1. Init the database
+
+        ```bash
+        rails db:migrate
+        ```
+
 1. Visit http://localhost:3000
