@@ -1,0 +1,197 @@
+<div class="producthomecontainer" data-controller="share favorites loadvariants data-share-url-value= "<%= product_url(@product) %>">
+  <div class="container" >
+    <div class="fildariane">
+      <%= link_to category_path(@product.subcategory.category) do  %>
+        <span><%=  @product.subcategory.category.name.capitalize() %> </span>
+      <% end %>
+      >
+      <%=link_to  category_subcategory_path(@product.subcategory.category, @product.subcategory) do  %>
+        <span><%=  @product.subcategory.name %> </span>
+      <% end %>
+      >
+      <%=link_to  product_path(@product) do  %>
+        <span><%=  @product.name.capitalize() %> </span>
+      <% end %>
+    </div>
+
+    <div class="back-products-button">
+      <%= link_to products_path, :class => "btn-backproduct" do%>
+        <span><i class="fa-solid fa-arrow-rotate-left"></i> Retour aux oeuvres</span>
+      <% end %>
+    </div>
+
+    <%# ADMIN ZONE %>
+    <div class="adminaction">
+      <% if current_user && current_user.admin %>
+        <%= link_to "Modifier produit",
+            edit_product_path(@product),
+            class: "btn btn-warning m-3 d-flex align-items-center" %>
+        <%= link_to "Supprimer le produit", @product,
+            data: { turbo_method: :delete,
+            turbo_confirm: "Souhaitez-vous supprimer définitivement cette référence produit?"},
+            class: "btn btn-danger m-3 d-flex align-items-center" %>
+      <% end%>
+    </div>
+
+    <div class="product_top_view">
+      <div class="productcarrousselarea">
+        <span data-loadvariants-target= "discountpercentzone">
+          <%if @product.discount_price_cents != 0%>
+            <span class="promospanshowproduct"> <%= @discount_percent.to_i.floor %> %</span>
+          <%end%>
+        </span>
+        <% if @main_product.photos.attached? %>
+          <%= render "carrousel-product", product: @main_product %>
+        <% else %>
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+              size: "250x250",
+              alt: "Pas d'image disponible",
+              class: 'd-block mx-auto') %>
+        <% end %>
+
+        <div class="buttons_show_action">
+          <% if user_signed_in?%>
+            <% if Favorite.find_by(user: current_user, product: @product) != nil  %>
+              <i class="fa-regular fa-heart c6-favorite fav-red" data-action='click->favorites#fav' data-favorites-product-id-param="<%= @product.id %>"></i>
+            <% else %>
+              <i class="fa-regular fa-heart c6-favorite fav-black" data-action='click->favorites#fav' data-favorites-product-id-param="<%= @product.id %>"></i>
+            <% end %>
+          <% else %>
+            <i class="fa-regular fa-heart c6-favorite fav-black" data-action= 'click->favorites#redirect' data-favorites-product-id-param="<%= @product.id %>"></i>
+          <% end %>
+          <%= link_to products_path, :data => {action: "click->share#share"} do%>
+            <i class="fa-solid fa-share-nodes shareicon"></i>
+          <% end %>
+          <%= link_to preview_product_path(@product), data: { turbo_frame: "modal" } do %>
+            <i class="fa-solid fa-magnifying-glass-plus" style="color:black;-webkit-text-stroke: 1px white"></i>
+          <% end %>
+          <a href="#house_background"><i class="fa-solid fa-house-user"></i></a>
+        </div>
+      </div>
+
+      <div class="productdataarea">
+        <%= content_tag(:h2, @product.name, class: "dataproductnameshow", data: { share_target: "title" }) %>
+      <% if @product.fournisseur.present? %>
+        <%= content_tag(:p, "Par " + @product.fournisseur.capitalize , style: "text-align:right;padding-bottom:1rem;border-bottom: 1px solid grey") %>
+      <% end %>
+
+        <span data-loadvariants-target="pricezone">
+          <% if @product.discount_price_cents != 0 %>
+            <h4 style="text-decoration:line-through">Prix : <span data-loadvariants-target="price"><%= @price %></span> € TTC</h4>
+            <h3 style="color:green;text-align:right">Prix promo: <span data-loadvariants-target="promotionnalprice"><%= @promotionnal_price %></span> € TTC</h3>
+            <span style="display:none" data-loadvariants-target="endingDate"><%= @product.discount_ending_date %></span>
+            <p style="color:red;text-align:right;">Fin de la promotion dans <span data-loadvariants-target="time"></span></p>
+          <% else %>
+            <h4 style="text-align: left;font-weight: 400;">Prix : <%= @price %> € TTC</h4>
+            <span data-loadvariants-target="endingDate" style="display:none"></span>
+          <%end%>
+        </span>
+
+        <p><%= @product.description %></p>
+
+        <h2 style="text-align:left;margin:2rem 0">Caractéristiques:</h2>
+          <table class="productcaract">
+            <tr>
+              <td class="boldcaract"><p>Orientation</p></td>
+              <td class="tabledata"><p><i data-loadvariants-target="orientation"><%=@product.orientation%></i></p></td>
+            </tr>
+            <tr>
+              <td class="boldcaract"><p>Hauteur</p></td>
+              <td class="tabledata"><p><i data-loadvariants-target="height"><%=@product.height%>cm</i></p></td>
+            </tr>
+            <tr>
+              <td class="boldcaract"><p>Largeur</p></td>
+              <td class="tabledata"><p><i data-loadvariants-target="width"><%=@product.width%>cm</i></p></td>
+            </tr>
+            <tr>
+              <td class="boldcaract"><p>Support</p></td>
+              <td class="tabledata"><p><i data-loadvariants-target="support"><%=@product.support%></i></p></td>
+            </tr>
+            <tr>
+              <td class="boldcaract"><p>Nombre de tableaux</p></td>
+              <td class="tabledata"><p><i data-loadvariants-target="framequantity"><%=@product.frame_quantity%></i></p></td>
+            </tr>
+          </table>
+
+
+        <h2 style="text-align:left;margin:2rem 0;">Autres formats disponible:</h2>
+        <div style="display:grid">
+            <%if @similar_products.count.positive?%>
+              <% @similar_products.each do |product|%>
+                  <% if @product.sku== product.sku %>
+                    <button class= "btn btn-dark mb-2 variant"
+                            style="color:white;background:rgb(50,50,50);box-shadow:0px 2px 1px grey;border-radius:0;border:none;"
+                            id="<%=product.id%>"
+                            data-action="click->loadvariants#loadNewVariant"
+                            data-loadvariants-product-id-param="<%= product.id %>">
+                      <%= product.height%>x<%= product.width%>cm - <%= product.support.gsub("_"," ")%>
+                    </button>
+                  <% else %>
+                    <button class="btn btn-dark mb-2 variant"
+                            style="color:black;background:rgb(236,240,241);box-shadow:0px 2px 1px grey;border-radius:0;border:none;"
+                            id="<%=product.id%>"
+                            data-action="click->loadvariants#loadNewVariant"
+                            data-loadvariants-product-id-param="<%= product.id %>">
+                      <%= product.height%>x<%= product.width%>cm - <%= product.support.gsub("_"," ")%>
+                    </button>
+                  <% end %>
+              <% end %>
+            <% end %>
+        </div>
+        <span data-loadvariants-target="addtocart" data-action="click->addproducttocart#addproduct" style="margin: 2rem;" id="addproducttocartbutton">
+          <% if @product.discount_price_cents != 0 %>
+            <%= button_to "Ajouter au panier : #{@promotionnal_price} €", line_items_path(product_id: @product.id),
+              class: "btnaddproduct"
+              %>
+          <% else %>
+            <%= button_to "Ajouter au panier : #{@price} €", line_items_path(product_id: @product.id),
+              class: "btnaddproduct"
+              %>
+          <% end %>
+        </span>
+
+        <div class="tags_description">
+          <h2 style="margin-bottom:2rem">Tags descriptifs:</h2>
+          <%@tag_words.each do |word|%>
+            <span class="span_wordtag">#<%=word%></span>
+          <%end%>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div style="margin-top:5vh;">
+    <%= content_tag(:p, @product.description, style:"padding-top:2vh;display:none", data: {share_target: "body"}) %>
+    <p>
+      <%= @product.full_description %>
+    </p>
+  </div >
+
+<%# /////////////////////////////// %>
+
+
+
+  <section data-controller="gallerie" style="background:rgba(200,200,200,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(200,200,200,0.5);">
+    <%= render "pages/homegallerie", main_product: @main_product, product: @product%>
+  </section>
+
+  <section style="background:rgba(220,220,220,0.3);padding: 2rem 0; box-shadow: 0px 0px 10px rgba(220,220,220,0.5);">
+    <div class="carouselcontainer">
+      <h3 class="carouselh3">Les oeuvres suivantes pourraient vous intéresser</h3>
+      <div class="main_carousel_area" data-controller="carousel-homepage">
+        <button id="scroll_left" class="carouselgroup-button prev" data-action="click->carousel-homepage#scroll_left" ><i class="fa-solid fa-angles-left"></i></button>
+        <div id="carouselclickable" data-carousel-homepage-target="carousel" style="height:100%;position:absolute;left:0;top:0;display:flex;">
+          <% @suggested_products.each do |product| %>
+            <div class="cardcarousel" data-carousel-homepage-target="cardcarousel">
+              <%= render "shared/#{Shop.first.card}", product: product %>
+            </div>
+          <% end %>
+        </div>
+        <button id="scroll_right" class="carouselgroup-button next" data-action="click->carousel-homepage#scroll_right" ><i class="fa-solid fa-angles-right"></i></button>
+      </div>
+    </div>
+  </section>
+</div>

@@ -118,12 +118,6 @@
     z-index:1
   }
 
-  .producthomecontainer {
-    overflow-x: hidden;
-    min-height: 45vh;
-    margin-top: 5vh;
-  }
-
   .showmargintop{
     margin-top:5vh;
   }
@@ -528,11 +522,10 @@
     padding-left:2rem;
   }
 
-  .carouselcontainer {
-    margin-right: auto;
-    margin-left: auto;
-    width:80%;
-  }
+  // .carouselcontainer {
+  //   margin:0 auto;
+  //   // width:80%;
+  // }
 
 
   .create_account_form {

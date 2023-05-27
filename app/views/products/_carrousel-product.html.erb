@@ -1,17 +1,17 @@
-<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel" style="position:sticky;" >
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <% product.photos.each_with_index do |photo, index| %>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=<%=index%> class="active" aria-current="true" aria-label="Slide 1"></button>
     <%end%>
   </div>
-  <div class="carousel-inner" style="width:100%;height:50vh;display:flex;align-items:center">
-    <div class="carousel-item active" style="text-align:center">
-      <%= cl_image_tag(product.photos.first.key, :height=>400, :width=>400, :crop=>:fit, :class=>"") %>
+  <div class="carousel-inner">
+    <div class="carousel-item active text-center">
+      <%= cl_image_tag(product.photos.first.key, :height=>400, :width=>400, :crop=>:fit) %>
     </div>
     <% product.photos.each_with_index do |photo, index| %>
       <% if index > 0 %>
-        <div class="carousel-item" style="text-align:center">
-          <%= cl_image_tag(photo.key, :height=>400, :width=>400, :crop=>:fit, :class=>"") %>
+        <div class="carousel-item text-center">
+          <%= cl_image_tag(photo.key, :height=>400, :width=>400, :crop=>:fit) %>
         </div>
       <% end %>
     <% end%>
