@@ -5,12 +5,17 @@ export default class extends Controller {
     'list',
     'form',
     'title',
-    "pages"
+    "pages",
+    "pagynavdiv",
+    "pagynavdivbis",
+    "filterForm",
+    "sortForm"
   ]
   connect(){
-    // console.log("coucou from search controller")
     if (!this.haspagesTarget) return
-    this.pagesTarget.style.visibility = "visible";
+    this.pagesTarget.style.display = "block";
+    this.pagynavdivTarget.style.display = "block";
+    this.pagynavdivbisTarget.style.display = "block";
   }
 
   update(event) {
@@ -29,8 +34,51 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-    this.pagesTarget.style.visibility = "hidden";
+      this.pagesTarget.style.display = "none";
+      this.pagynavdivTarget.style.display = "none";
+      this.pagynavdivbisTarget.style.display = "none";
   }
+
+  filterBySubCatAndOrientation(event) {
+    event.preventDefault();
+    const data = new FormData(this.filterFormTarget)
+    const url = `/products/search`
+    const options = {
+      method: 'POST',
+      body: data,
+      headers: {'Accept': 'application/json'}
+    }
+
+    fetchWithToken(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        this.titleTarget.innerText = data.title
+        this.listTarget.innerHTML = data.list
+      });
+    this.pagesTarget.style.display = "none";
+    this.pagynavdivTarget.style.display = "none";
+    this.pagynavdivbisTarget.style.display = "none";
+  }
+
+  sortByAscOrDescOrder(event){
+    event.preventDefault();
+    const data = new FormData(this.sortFormTarget)
+    const url = `/products/search`
+    const options = {
+      method: 'POST',
+      body: data,
+      headers: {'Accept': 'application/json'}
+    }
+
+    fetchWithToken(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        this.titleTarget.innerText = data.title
+        this.listTarget.innerHTML = data.list
+      });
+  }
+
+
 
   displayMobileSearchInput() {
     const loupe = document.getElementById("mobile-magnifying-glass")

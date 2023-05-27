@@ -19,7 +19,8 @@
     <%= javascript_include_tag "application" %>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <%= javascript_include_tag 'sortTableByPrice' %>
+    <%# Exemple qui permettrait d'utiliser matomo ou google analytics en fonction de l'acceptation des cookies %>
+    <%#= render 'layout/google_analytics' if session[cookies_accepted] == true %>
   </head>
     <body class= "d-flex flex-column"
           data-controller="search addproducttocart"

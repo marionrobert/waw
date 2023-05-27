@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @categories_illustration = []
-    Category.all.each do |category|
-      @categories_illustration << category.photos.first
-    end
+    # @categories_illustration = []
+    # Category.all.each do |category|
+    #   @categories_illustration << category.photos.first
+    # end
 
     @q = Product.where(main: true).ransack(params[:q])
 
@@ -150,6 +150,9 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
+  def filter_by_subcat_and_orientation
+  end
+
   private
 
   def set_subcategory
@@ -183,4 +186,5 @@ class ProductsController < ApplicationController
       photos: []
     )
   end
+
 end

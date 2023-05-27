@@ -31,6 +31,9 @@ application.register("display-cart", DisplayCartController)
 import FavoritesController from "./favorites_controller"
 application.register("favorites", FavoritesController)
 
+import FilterIndexProductsController from "./filter_index_products_controller"
+application.register("filter-index-products", FilterIndexProductsController)
+
 import FilterProductsStockmanagementController from "./filter_products_stockmanagement_controller"
 application.register("filter-products-stockmanagement", FilterProductsStockmanagementController)
 
