@@ -41,7 +41,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
     1. Run seeds
 
         ```bash
-        rails db:seeds
+        rails db:seed
         ```
 
 1. Visit http://localhost:3000
@@ -73,3 +73,23 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
     ```
 
     Username should be lowercase (eg. `aprevost93`)
+
+# Deploy
+
+On developer computer:
+
+```bash
+docker-compose build
+docker-compose push
+```
+
+On the server:
+
+```bash
+ssh ubuntu@54.37.68.8
+sudo -i
+cd waw/
+docker-compose stop app
+docker-compose pull app
+docker-compose up -d app
+```
