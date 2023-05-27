@@ -63,7 +63,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 1. Install docker
 
     ```bash
-    apt-get update && apt-get install -y docker docker-compose
+    apt-get update && apt-get install -y docker docker-compose postgresql-client
     ```
 
 1. Authenticate on DockerHub
