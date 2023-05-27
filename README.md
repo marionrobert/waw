@@ -16,10 +16,14 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 1. Initialize databsae
 
+    1. Create `.env`file
+
+        Ask developers to send you the value
+
     1. Connect inside the container
 
         ```bash
-        docker-compose exec postgres /bin/bash
+        docker-compose exec app /bin/bash
         ```
 
     1. Create development and test database
@@ -34,4 +38,38 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
         rails db:migrate
         ```
 
+    1. Run seeds
+
+        ```bash
+        rails db:seeds
+        ```
+
 1. Visit http://localhost:3000
+
+# Server installation
+
+1. Connect on server
+
+    ```bash
+    ssh ubuntu@54.37.68.8
+    ```
+
+1. Connect as administrator
+
+    ```bash
+    sudo -i
+    ```
+
+1. Install docker
+
+    ```bash
+    apt-get update && apt-get install -y docker docker-compose
+    ```
+
+1. Authenticate on DockerHub
+
+    ```bash
+    docker login
+    ```
+
+    Username should be lowercase (eg. `aprevost93`)
