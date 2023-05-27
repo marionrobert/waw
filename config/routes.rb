@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       post :search, to: 'products#index'
     end
   end
+  get "products/filter_by_subcat_and_orientation"
 
   get "stockmanagement", to: "pages#stockmanagement"
   get 'profile', to: 'pages#profile'
