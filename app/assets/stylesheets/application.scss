@@ -16,7 +16,19 @@
   width:100vw;
   top:0;
   left:0;
-  background:yellow
+  background:beige;
+  z-index: 9999999;
+  text-align: center;
+  svg {
+    width: 50%;
+  }
+  div {
+    width:30vw;
+    height:30vh;
+    position:absolute;
+    bottom:0;
+    left:0;
+  }
 }
 
 .CGV {

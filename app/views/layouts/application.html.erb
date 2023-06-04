@@ -45,5 +45,14 @@
       <footer>
         <%= render "shared/footer"%>
       </footer>
+      <script>
+        document.querySelector("#REMOVE_WIP").addEventListener("click", removesection);
+
+        function removesection() {
+          let section = document.querySelector("#WORK_IN_PROGRESS");
+          section.remove();
+          console.log("Section removed");
+        }
+      </script>
     </body>
 </html>
