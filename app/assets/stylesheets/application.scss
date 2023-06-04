@@ -10,6 +10,14 @@
 // Your CSS partials
 @import "components/index";
 
+#WORK_IN_PROGRESS {
+  position:fixed;
+  height:100vh;
+  width:100vw;
+  top:0;
+  left:0;
+  background:yellow
+}
 
 .CGV {
   h1 {
