@@ -35,10 +35,6 @@ class ProductsController < ApplicationController
 
     @pagy, @products = pagy(@query.result(distinct: true).joins(:subcategory).order(:name))
 
-    # if params[:query].present?
-    #   @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
-    # end
-
     respond_to do |format|
       format.html
       format.json do

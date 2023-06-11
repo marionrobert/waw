@@ -32,18 +32,6 @@ class Product < ApplicationRecord
   monetize :price_cents
   delegate :category, to: :subcategory, allow_nil: true
 
-  include PgSearch::Model
-  pg_search_scope :name_and_metadescription_and_description_search,
-                  against: %i[name meta_description description],
-                  associated_against: {
-                    subcategory: [:name]
-                  },
-                  using: {
-                    tsearch: {
-                      prefix: true
-                    }
-                  }
-
   def self.update_items(items:)
     content = content_from_order(items:)
     decrease_stock_quantities(content:)
