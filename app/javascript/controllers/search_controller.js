@@ -12,6 +12,7 @@ export default class extends Controller {
     "sortForm"
   ]
   connect(){
+    console.log("aaa")
     if (!this.haspagesTarget) return
     this.pagesTarget.style.display = "block";
     this.pagynavdivTarget.style.display = "block";
@@ -40,6 +41,7 @@ export default class extends Controller {
   }
 
   filterBySubCatAndOrientation(event) {
+    console.log("hello from filterBySubCatAndOrientation")
     event.preventDefault();
     const data = new FormData(this.filterFormTarget)
     const url = `/products/search`
@@ -61,8 +63,10 @@ export default class extends Controller {
   }
 
   sortByAscOrDescOrder(event){
+    console.log("hello from sortByAscOrDescOrder")
     event.preventDefault();
     const data = new FormData(this.sortFormTarget)
+    console.log()
     const url = `/products/search`
     const options = {
       method: 'POST',

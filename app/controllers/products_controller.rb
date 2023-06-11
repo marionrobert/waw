@@ -25,9 +25,10 @@ class ProductsController < ApplicationController
 
     @q = Product.where(main: true).ransack(params[:q])
 
-    if params[:sort_by] == "name_asc"
+    case params[:sort_by]
+    when "name_asc"
       @q.sorts = "name asc"
-    elsif params[:sort_by] == "name_desc"
+    when "name_desc"
       @q.sorts = "name desc"
     end
 

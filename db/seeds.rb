@@ -1308,7 +1308,7 @@ puts "Produit #{Product.last.id} créé"
 product_35 = Product.create!(
   name: "surforfly",
   main: true,
-  sku: "surforfly_45x70_paysage_Fine_art_315g",
+  sku: "surforfly_45x70_portrait_Fine_art_315g",
   description: "ville route",
   meta_description: "Sport extrême. Coucher de soleil.",
   price_cents: 29400,
@@ -1319,7 +1319,7 @@ product_35 = Product.create!(
   height: 70,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680562727022-158f17391a9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1335,7 +1335,7 @@ puts "Produit #{Product.last.id} créé"
 product_36 = Product.create!(
   name: "drunk",
   main: true,
-  sku: "drunk_60x90_paysage_Fine_art_315g",
+  sku: "drunk_60x90_portrait_Fine_art_315g",
   description: "ville route",
   meta_description: "Reflet dans le miroir de deux femmes alcoolisées.",
   price_cents: 29400,
@@ -1346,7 +1346,7 @@ product_36 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680629478068-659129a4e414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=658&q=80")
@@ -1393,7 +1393,7 @@ puts "Produit #{Product.last.id} créé"
 product_38 = Product.create!(
   name: "surfeverywhere",
   main: false,
-  sku: "surfeverywhere_80x150_paysage_Fine_art_315g",
+  sku: "surfeverywhere_80x150_portrait_Fine_art_315g",
   description: "ordinateur femme montre lit",
   meta_description: "Femme travaillant sur son ordinateur portable.",
   price_cents: 29400,
@@ -1404,7 +1404,7 @@ product_38 = Product.create!(
   height: 150,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 # file1 = URI.open("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=665&q=80")
@@ -1421,7 +1421,7 @@ puts "Produit #{Product.last.id} créé"
 product_39 = Product.create!(
   name: "feellittle",
   main: true,
-  sku: "feellittle_60x90_paysage_Fine_art_315g",
+  sku: "feellittle_60x90_portrait_Fine_art_315g",
   description: "mer baignade paysage",
   meta_description: "Deux personnes se baignent dans une mer agitée.",
   price_cents: 29400,
@@ -1432,7 +1432,7 @@ product_39 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680442170372-4a30138d03f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80")
@@ -1505,7 +1505,7 @@ puts "Produit #{Product.last.id} créé"
 product_42 = Product.create!(
   name: "focusoneggs",
   main: true,
-  sku: "focusoneggs_60x90_paysage_Fine_art_315g",
+  sku: "focusoneggs_60x90_portrait_Fine_art_315g",
   description: "oeufs table",
   meta_description: "Deux oeufs sur une table dressée.",
   price_cents: 29400,
@@ -1516,7 +1516,7 @@ product_42 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680642729809-ab7ba4b28da0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1590,7 +1590,7 @@ puts "Produit #{Product.last.id} créé"
 product_45 = Product.create!(
   name: "brightwater",
   main: true,
-  sku: "brightwater_60x90_paysage_Fine_art_315g",
+  sku: "brightwater_60x90_portrait_Fine_art_315g",
   description: "eau turquoise",
   meta_description: "Eau turquoise. Mer.",
   price_cents: 29400,
@@ -1601,7 +1601,7 @@ product_45 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680169276460-857463081825?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1646,7 +1646,7 @@ puts "Produit #{Product.last.id} créé"
 product_47 = Product.create!(
   name: "girlinfield",
   main: true,
-  sku: "girlinfield_60x90_paysage_Fine_art_315g",
+  sku: "girlinfield_60x90_portrait_Fine_art_315g",
   description: "Femme jupe champ blé été",
   meta_description: "Femme marchant dans un champ de blé avec un bouquet de fleurs à la main.",
   price_cents: 29400,
@@ -1657,7 +1657,7 @@ product_47 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680263547745-4e0555920ea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1702,7 +1702,7 @@ puts "Produit #{Product.last.id} créé"
 product_49 = Product.create!(
   name: "youmeanselfie",
   main: true,
-  sku: "youmeanselfie_45x80_paysage_Fine_art_315g",
+  sku: "youmeanselfie_45x80_portrait_Fine_art_315g",
   description: "nature selfie homme sable",
   meta_description: "Homme regardant les photos qu'il vient de prendre. Paysage côtier.",
   price_cents: 29400,
@@ -1713,7 +1713,7 @@ product_49 = Product.create!(
   height: 80,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680566822089-4830308972ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1758,7 +1758,7 @@ puts "Produit #{Product.last.id} créé"
 product_51 = Product.create!(
   name: "preciousthangold",
   main: true,
-  sku: "preciousthangold_60x90_paysage_Fine_art_315g",
+  sku: "preciousthangold_60x90_portrait_Fine_art_315g",
   description: "Mer bleue.",
   meta_description: "Mer bleue.",
   price_cents: 29400,
@@ -1770,7 +1770,7 @@ product_51 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680607102205-e98d20a12930?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1787,7 +1787,7 @@ puts "Produit #{Product.last.id} créé"
 product_52 = Product.create!(
   name: "chiarobscuroreverted",
   main: true,
-  sku: "chiarobscuroreverted_60x90_paysage_Fine_art_315g",
+  sku: "chiarobscuroreverted_60x90_portrait_Fine_art_315g",
   description: "Homme jouant de la guitare devant un coucher de soleil.",
   meta_description: "Homme jouant de la guitare devant un coucher de soleil.",
   price_cents: 29400,
@@ -1799,7 +1799,7 @@ product_52 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680523004872-f38aad6922b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1816,7 +1816,7 @@ puts "Produit #{Product.last.id} créé"
 product_53 = Product.create!(
   name: "acidulé",
   main: true,
-  sku: "acidulé_60x90_paysage_Fine_art_315g",
+  sku: "acidulé_60x90_portrait_Fine_art_315g",
   description: "Oranges",
   meta_description: "Oranges",
   price_cents: 29400,
@@ -1827,7 +1827,7 @@ product_53 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://plus.unsplash.com/premium_photo-1675237625886-7529b3b0c1cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
@@ -1844,7 +1844,7 @@ puts "Produit #{Product.last.id} créé"
 product_54 = Product.create!(
   name: "backgroundfocus",
   main: true,
-  sku: "backgroundfocus_60x90_paysage_Fine_art_315g",
+  sku: "backgroundfocus_60x90_portrait_Fine_art_315g",
   description: "Femme dans un paysage de montagnes en été.",
   meta_description: "Femme dans un paysage de montagnes en été.",
   price_cents: 29400,
@@ -1856,7 +1856,7 @@ product_54 = Product.create!(
   height: 90,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "paysage",
+  orientation: "portrait",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680634218996-287b2985870e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80")
