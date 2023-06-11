@@ -155,7 +155,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_223918) do
     t.integer "frame_quantity", default: 1
     t.string "orientation"
     t.integer "stock_quantity", default: 0
-    t.date "discount_ending_date", default: "2023-06-10"
+    t.date "discount_ending_date", default: "2023-07-11"
     t.integer "supplier_delay", default: 14
     t.integer "render_price"
     t.string "fournisseur"
