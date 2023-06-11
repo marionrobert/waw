@@ -23,20 +23,21 @@ class ProductsController < ApplicationController
     #   @categories_illustration << category.photos.first
     # end
 
-    @q = Product.where(main: true).ransack(params[:q])
+    @query = Product.where(main: true).ransack(params[:q])
+    @products = @query.result.joins(:subcategory).order(:name)
 
     case params[:sort_by]
     when "name_asc"
-      @q.sorts = "name asc"
+      @query.sorts = "name asc"
     when "name_desc"
-      @q.sorts = "name desc"
+      @query.sorts = "name desc"
     end
 
-    @pagy, @products = pagy(@q.result(distinct: true))
+    @pagy, @products = pagy(@query.result(distinct: true).joins(:subcategory).order(:name))
 
-    if params[:query].present?
-      @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
-    end
+    # if params[:query].present?
+    #   @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
+    # end
 
     respond_to do |format|
       format.html
@@ -151,8 +152,6 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
-  def filter_by_subcat_and_orientation
-  end
 
   private
 

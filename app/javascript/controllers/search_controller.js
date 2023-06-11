@@ -20,6 +20,7 @@ export default class extends Controller {
   }
 
   update(event) {
+    console.log("im in update method")
     if (!this.hasListTarget) return
     const data = new FormData(this.formTarget)
     const url = `/products/search`

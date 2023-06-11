@@ -3,9 +3,29 @@
     <i class="mobilemaskcrossinput fa-solid fa-xmark" style="background:rgba(255,255,255,0.6);padding:5px;border-radius:5px" data-action="click->search#hideMobileSearchInput"></i>
   </div>
   <div class="searchinputlength">
-    <%= form_with url: products_path, method: :get, html: { class: "d-flex", data: {search_target: "form"}} do |f| %>
-      <%= f.text_field :query, class: "form-control me-2", style: "height:100%", placeholder: "Tapez votre recherche ici", value: params[:query], data: { action: "keyup->search#update" } %>
-      <%= f.submit nil, type: :image, src: image_path('icons/magnifying_glass.png'), alt: "Rechercher", style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
+    <%#= form_with url: products_path, method: :get, html: { class: "d-flex", data: {search_target: "form"}} do |f| %>
+      <%#= f.text_field :query, class: "form-control me-2", style: "height:100%", placeholder: "Tapez votre recherche ici", value: params[:query], data: { action: "keyup->search#update" } %>
+      <%#= f.submit nil, type: :image, src: image_path('icons/magnifying_glass.png'), alt: "Rechercher", style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
+    <%# end %>
+    <%= search_form_for @query, url: products_path,
+              method: :get,
+              html: {
+                class: "d-flex",
+                data: {
+                  search_target: "form"
+                }
+              } do |f| %>
+      <%= f.text_field :name_or_description_or_sku_cont,
+                        class: "form-control me-2",
+                        placeholder: "Tapez votre recherche ici",
+                        value: params[:query],
+                        data: {
+                          action: "keyup->search#update"
+                        } %>
+      <%= f.submit "SEARCH",
+                  type: :image,
+                  src: image_path('icons/magnifying_glass.png'),
+                  style: "height:3vh; margin-top:auto; margin-bottom:auto;" %>
     <% end %>
   </div>
 </div>
