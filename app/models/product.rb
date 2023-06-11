@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   before_save :ensure_discount_ending_date
 
-  ORIENTATION = ["paysage", "portrait", "carre"]
+  ORIENTATION = ["paysage", "portrait", "carré"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = [ "Fine_art_315g",
               "Fine_art_315g_avec_marge_blanche",
@@ -63,5 +63,4 @@ class Product < ApplicationRecord
       # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
     end
   end
-
 end

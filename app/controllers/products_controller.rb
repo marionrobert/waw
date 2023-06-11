@@ -18,13 +18,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    # @categories_illustration = []
-    # Category.all.each do |category|
-    #   @categories_illustration << category.photos.first
-    # end
-
     @query = Product.where(main: true).ransack(params[:q])
-    @products = @query.result.joins(:subcategory).order(:name)
+    @products = @query.result(distinct: true).joins(:subcategory).order(:name)
 
     case params[:sort_by]
     when "name_asc"
@@ -33,19 +28,19 @@ class ProductsController < ApplicationController
       @query.sorts = "name desc"
     end
 
-    @pagy, @products = pagy(@query.result(distinct: true).joins(:subcategory).order(:name))
+    @pagy, @products = pagy(@products)
+    @total_count = @pagy.count # Nombre total de produits
 
     respond_to do |format|
       format.html
       format.json do
         render json: {
           list: render_to_string(partial: "products/list", locals: { products: @products }, layout: false, formats: [:html]),
-          title: pluralize(@products.size, 'oeuvre disponible', plural: 'oeuvres disponibles')
+          title: pluralize(@total_count, 'oeuvre disponible', plural: 'oeuvres disponibles')
         }
       end
     end
   end
-
 
   def show
     @current_user = current_user
@@ -54,9 +49,7 @@ class ProductsController < ApplicationController
 
     description = @product.description
     words = description.split
-    words.map! { |element| element.gsub(/\./, "") }
-    words.map! { |element| element.gsub(/\,/, "") }
-    words.map! { |element| element.gsub(/\w\'/, "") }
+    words.map! { |element| element.tr(',.\w\'', '') }
 
     @tag_words = words.select { |word| word.length >= 4 }
 

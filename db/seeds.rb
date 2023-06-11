@@ -600,7 +600,7 @@ puts "Produit #{Product.last.id} créé"
 product_10 = Product.create!(
   name: "departure",
   main: true,
-  sku: "departure_45x45_carre_Fine_art_315g",
+  sku: "departure_45x45_carré_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -612,7 +612,7 @@ product_10 = Product.create!(
   height: 45,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   fournisseur: "machin",
   subcategory: subcategory1
 )
@@ -630,7 +630,7 @@ puts "Produit #{Product.last.id} créé"
 product_11 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_60x60_carre_Fine_art_315g_avec_marge_blanche",
+  sku: "departure_60x60_carré_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -641,7 +641,7 @@ product_11 = Product.create!(
   height: 60,
   support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1
 )
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -658,7 +658,7 @@ puts "Produit #{Product.last.id} créé"
 product_12 = Product.create!(
   name: "departure",
   main: false,
-  sku: "departure_90x90_carre_Toile_chassis_100%_lin_400g",
+  sku: "departure_90x90_carré_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -669,7 +669,7 @@ product_12 = Product.create!(
   height: 90,
   support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1
 )
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -685,7 +685,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_13 = Product.create!(
   name: "departure",
-  sku: "departure_100x100_carre_Fine_art_315g",
+  sku: "departure_100x100_carré_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -696,7 +696,7 @@ product_13 = Product.create!(
   height: 100,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -712,7 +712,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_14 = Product.create!(
   name: "departure",
-  sku: "departure_25x25_carre_Fine_art_315g_avec_marge_blanche",
+  sku: "departure_25x25_carré_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -724,7 +724,7 @@ product_14 = Product.create!(
   height: 25,
   support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -740,7 +740,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_15 = Product.create!(
   name: "departure",
-  sku: "departure_100x100_carre_Toile_chassis_100%_lin_400g",
+  sku: "departure_100x100_carré_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 29400,
@@ -751,7 +751,7 @@ product_15 = Product.create!(
   height: 100,
   support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -768,7 +768,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_16 = Product.create!(
   name: "departure",
-  sku: "departure_60x60_carre_Fine_art_315g",
+  sku: "departure_60x60_carré_Fine_art_315g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 34900,
@@ -780,8 +780,8 @@ product_16 = Product.create!(
   height: 60,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
-  subcategory: subcategory2,
+  orientation: "carré",
+  subcategory: subcategory1,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
 # # file2 = URI.open("https://media.adeo.com/marketplace/LMFR/84841877/b941be79-ce56-4a1d-b48e-536336b6fc39.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds")
@@ -797,7 +797,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_17 = Product.create!(
   name: "departure",
-  sku: "departure_45x45_carre_Fine_art_315g_avec_marge_blanche",
+  sku: "departure_45x45_carré_Fine_art_315g_avec_marge_blanche",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 39900,
@@ -809,7 +809,7 @@ product_17 = Product.create!(
   height: 45,
   support: "Fine_art_315g_avec_marge_blanche",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory2,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -826,7 +826,7 @@ puts "Produit #{Product.last.id} créé"
 
 product_18 = Product.create!(
   name: "departure",
-  sku: "departure_120x120_carre_Toile_chassis_100%_lin_400g",
+  sku: "departure_120x120_carré_Toile_chassis_100%_lin_400g",
   description: "bateau depart port spectacle",
   meta_description: "un bateau quitte le port pour voguer vers le large",
   price_cents: 42900,
@@ -838,7 +838,7 @@ product_18 = Product.create!(
   height: 120,
   support: "Toile_chassis_100%_lin_400g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory2,
   main: false)
 # file1 = URI.open("https://images.unsplash.com/photo-1680263202313-852e5189e823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80")
@@ -1110,7 +1110,7 @@ puts "Produit #{Product.last.id} créé"
 product_28 = Product.create!(
   name: "city_road",
   main: true,
-  sku: "city_road_60x60_carre_Fine_art_315g",
+  sku: "city_road_60x60_carré_Fine_art_315g",
   description: "ville route",
   meta_description: "tableau d'une ville avec une route",
   price_cents: 29400,
@@ -1121,7 +1121,7 @@ product_28 = Product.create!(
   height: 60,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
@@ -1166,7 +1166,7 @@ puts "Produit #{Product.last.id} créé"
 product_30 = Product.create!(
   name: "tokyostreet",
   main: true,
-  sku: "tokyostreet_60x60_care_Fine_art_315g",
+  sku: "tokyostreet_60x60_carré_Fine_art_315g",
   description: "ville route",
   meta_description: "Rue de Tokyo",
   price_cents: 29400,
@@ -1178,7 +1178,7 @@ product_30 = Product.create!(
   height: 60,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1680673535587-05f5e3c6880d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80")
@@ -2154,7 +2154,7 @@ puts "Produit #{Product.last.id} créé"
 product_65 = Product.create!(
   name: "modern_dance",
   main: true,
-  sku: "modern_dance_60x60_carre_Fine_art_315g",
+  sku: "modern_dance_60x60_carré_Fine_art_315g",
   description: "Danseuse exécutant une danse moderne.",
   meta_description: "Danseuse exécutant une danse moderne.",
   price_cents: 19400,
@@ -2165,7 +2165,7 @@ product_65 = Product.create!(
   height: 60,
   support: "Fine_art_315g",
   frame_quantity: 1,
-  orientation: "carre",
+  orientation: "carré",
   subcategory: subcategory1
 )
 file1 = URI.open("https://images.unsplash.com/photo-1681152322586-7ddde43866a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80")
