@@ -134,15 +134,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_223918) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "sku"
@@ -155,7 +146,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_223918) do
     t.integer "frame_quantity", default: 1
     t.string "orientation"
     t.integer "stock_quantity", default: 0
-    t.date "discount_ending_date", default: "2023-06-10"
+    t.date "discount_ending_date", default: "2023-07-11"
     t.integer "supplier_delay", default: 14
     t.integer "render_price"
     t.string "fournisseur"

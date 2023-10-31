@@ -12,6 +12,7 @@ export default class extends Controller {
     "sortForm"
   ]
   connect(){
+    console.log("hhh")
     if (!this.haspagesTarget) return
     this.pagesTarget.style.display = "block";
     this.pagynavdivTarget.style.display = "block";
@@ -19,8 +20,11 @@ export default class extends Controller {
   }
 
   update(event) {
+    console.log("im in update method")
     if (!this.hasListTarget) return
     const data = new FormData(this.formTarget)
+    // console.log(data)
+    // console.log(data.get('name_or_description_or_sku_cont'))
     const url = `/products/search`
     const options = {
       method: 'POST',
@@ -34,14 +38,15 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-      this.pagesTarget.style.display = "none";
-      this.pagynavdivTarget.style.display = "none";
-      this.pagynavdivbisTarget.style.display = "none";
   }
 
   filterBySubCatAndOrientation(event) {
+    console.log("hello from filterBySubCatAndOrientation")
     event.preventDefault();
+    // console.log(this.filterFormTarget)
     const data = new FormData(this.filterFormTarget)
+    // console.log(data)
+    // console.log(data.get('subcategory_id_eq'))
     const url = `/products/search`
     const options = {
       method: 'POST',
@@ -55,14 +60,13 @@ export default class extends Controller {
         this.titleTarget.innerText = data.title
         this.listTarget.innerHTML = data.list
       });
-    this.pagesTarget.style.display = "none";
-    this.pagynavdivTarget.style.display = "none";
-    this.pagynavdivbisTarget.style.display = "none";
   }
 
   sortByAscOrDescOrder(event){
+    console.log("hello from sortByAscOrDescOrder")
     event.preventDefault();
     const data = new FormData(this.sortFormTarget)
+    // console.log(data)
     const url = `/products/search`
     const options = {
       method: 'POST',

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   before_save :ensure_discount_ending_date
 
-  ORIENTATION = ["paysage", "portrait", "carre"]
+  ORIENTATION = ["paysage", "portrait", "carré"]
   FRAME_QUANTITY = [1, 2, 3, 4, 5, 6]
   SUPPORT = [ "Fine_art_315g",
               "Fine_art_315g_avec_marge_blanche",
@@ -31,18 +31,6 @@ class Product < ApplicationRecord
   validates :discount_price_cents, presence: true, numericality: { greater_than_or_equal_to: 0 }, comparison: { less_than: :price_cents, message: ": Le prix promotionnel doit être inférieur au prix d'origine." }
   monetize :price_cents
   delegate :category, to: :subcategory, allow_nil: true
-
-  include PgSearch::Model
-  pg_search_scope :name_and_metadescription_and_description_search,
-                  against: %i[name meta_description description],
-                  associated_against: {
-                    subcategory: [:name]
-                  },
-                  using: {
-                    tsearch: {
-                      prefix: true
-                    }
-                  }
 
   def self.update_items(items:)
     content = content_from_order(items:)
@@ -75,5 +63,4 @@ class Product < ApplicationRecord
       # product.update(stock_quantity: product.stock_quantity + product_quantity[:quantity] )
     end
   end
-
 end

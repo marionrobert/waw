@@ -20,7 +20,6 @@ gem "jbuilder"
 gem "jsbundling-rails"
 gem 'money-rails'
 gem "pg", "~> 1.1"
-gem "pg_search"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "rails_admin", "~> 3.0"

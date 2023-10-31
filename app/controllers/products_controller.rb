@@ -18,36 +18,29 @@ class ProductsController < ApplicationController
   end
 
   def index
-    # @categories_illustration = []
-    # Category.all.each do |category|
-    #   @categories_illustration << category.photos.first
-    # end
+    @query = Product.where(main: true).ransack(params[:q])
+    @products = @query.result(distinct: true).joins(:subcategory).order(:name)
 
-    @q = Product.where(main: true).ransack(params[:q])
-
-    if params[:sort_by] == "name_asc"
-      @q.sorts = "name asc"
-    elsif params[:sort_by] == "name_desc"
-      @q.sorts = "name desc"
+    case params[:sort_by]
+    when "name_asc"
+      @query.sorts = "name asc"
+    when "name_desc"
+      @query.sorts = "name desc"
     end
 
-    @pagy, @products = pagy(@q.result(distinct: true))
-
-    if params[:query].present?
-      @products = Product.where(main: true).name_and_metadescription_and_description_search("%#{params[:query]}%").order(:name)
-    end
+    @pagy, @products = pagy(@products)
+    @total_count = @pagy.count # Nombre total de produits
 
     respond_to do |format|
       format.html
       format.json do
         render json: {
           list: render_to_string(partial: "products/list", locals: { products: @products }, layout: false, formats: [:html]),
-          title: pluralize(@products.size, 'oeuvre disponible', plural: 'oeuvres disponibles')
+          title: pluralize(@total_count, 'oeuvre disponible', plural: 'oeuvres disponibles')
         }
       end
     end
   end
-
 
   def show
     @current_user = current_user
@@ -56,9 +49,7 @@ class ProductsController < ApplicationController
 
     description = @product.description
     words = description.split
-    words.map! { |element| element.gsub(/\./, "") }
-    words.map! { |element| element.gsub(/\,/, "") }
-    words.map! { |element| element.gsub(/\w\'/, "") }
+    words.map! { |element| element.tr(',.\w\'', '') }
 
     @tag_words = words.select { |word| word.length >= 4 }
 
@@ -150,8 +141,6 @@ class ProductsController < ApplicationController
     redirect_to products_path, success: "L'article #{@product.name} a bien été supprimé", status: :see_other
   end
 
-  def filter_by_subcat_and_orientation
-  end
 
   private
 
